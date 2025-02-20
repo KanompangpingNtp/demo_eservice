@@ -23,78 +23,9 @@
 
         body {
             font-family: 'th-krub', sans-serif;
-            font-size: 20px;
+            font-size: 23px;
         }
 
-        .bg-nav {
-            background-image: url('{{ asset('images/header/bg-header.png') }}');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 10vh;
-            padding: 10px;
-        }
-
-        .text-title-nav {
-            color: #ffffff;
-            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
-        }
-
-        .button-greenlight {
-            background-color: rgb(58, 175, 22);
-            font-size: 25px;
-            font-weight: bold;
-            padding: 2px 20px;
-            border: 0px solid black;
-            border-radius: 10px;
-            color: #ffffff;
-            cursor: pointer;
-            text-decoration: none;
-            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            /* เพิ่มทรานสิชั่น */
-        }
-
-        .button-greenlight:hover {
-            transform: scale(1.05);
-            /* ขยายขนาด */
-            box-shadow: 0 0 5px 3px rgba(255, 255, 255, 0.5);
-            /* เรืองแสงสีขาว */
-        }
-
-        .button-greenblack {
-            background-color: rgb(27, 116, 0);
-            font-size: 25px;
-            font-weight: bold;
-            padding: 2px 20px;
-            border: 0px solid black;
-            border-radius: 10px;
-            color: #ffffff;
-            cursor: pointer;
-            text-decoration: none;
-            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            /* เพิ่มทรานสิชั่น */
-        }
-
-        .button-greenblack:hover {
-            transform: scale(1.05);
-            /* ขยายขนาด */
-            box-shadow: 0 0 5px 3px rgba(255, 255, 255, 0.5);
-            /* เรืองแสงสีขาว */
-        }
-
-        .button-img img {
-            cursor: pointer;
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-
-        .button-img img:hover {
-            transform: scale(1.1);
-            /* ขยายขนาดเมื่อ hover */
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
-            /* เพิ่มเงาสีขาว */
-        }
 
         .logo {
             height: 9rem;
@@ -111,7 +42,7 @@
 
         /* ส่วนที่ใช้ควบคุมสีของ scrollbar */
         ::-webkit-scrollbar-thumb {
-            background-color: rgb(27, 116, 0);
+            background-color: rgb(0, 87, 181);
             /* สีของ scrollbar */
             border-radius: 10px;
             /* ทำให้ขอบ scrollbar เป็นมุมมน */
@@ -133,7 +64,7 @@
 
         /* สำหรับ scrollbar เมื่อ hover */
         ::-webkit-scrollbar-thumb:hover {
-            background-color: rgb(148, 228, 0);
+            background-color: rgb(0, 109, 226);
             /* เปลี่ยนสีเมื่อ hover */
         }
 
@@ -171,32 +102,85 @@
             <div></div>
         </div>
 
+        <style>
+            .spinner {
+                width: 44.8px;
+                height: 44.8px;
+                animation: spinner-y0fdc1 2s infinite ease;
+                transform-style: preserve-3d;
+            }
 
+            .spinner>div {
+                background-color: rgba(117, 150, 255, 0.2);
+                height: 100%;
+                position: absolute;
+                width: 100%;
+                border: 2.2px solid #7596ff;
+            }
+
+            .spinner div:nth-of-type(1) {
+                transform: translateZ(-22.4px) rotateY(180deg);
+            }
+
+            .spinner div:nth-of-type(2) {
+                transform: rotateY(-270deg) translateX(50%);
+                transform-origin: top right;
+            }
+
+            .spinner div:nth-of-type(3) {
+                transform: rotateY(270deg) translateX(-50%);
+                transform-origin: center left;
+            }
+
+            .spinner div:nth-of-type(4) {
+                transform: rotateX(90deg) translateY(-50%);
+                transform-origin: top center;
+            }
+
+            .spinner div:nth-of-type(5) {
+                transform: rotateX(-90deg) translateY(50%);
+                transform-origin: bottom center;
+            }
+
+            .spinner div:nth-of-type(6) {
+                transform: translateZ(22.4px);
+            }
+
+            @keyframes spinner-y0fdc1 {
+                0% {
+                    transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
+                }
+
+                50% {
+                    transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
+                }
+
+                100% {
+                    transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
+                }
+            }
+        </style>
     </div>
-    <div id="page-content">
-        <!-- Content Section -->
-        <header class="bg-nav d-flex">
-            <div class="container d-flex justify-content-center justify-content-md-between align-items-center">
 
-            </div>
-        </header>
-        @include('layout.components.header')
+    <div id="page-content">
 
 
         @yield('content')
+
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 window.onload = function() {
                     const loadingScreen = document.getElementById("loading-screen");
-                    // const pageContent = document.getElementById("page-content");
 
                     if (loadingScreen) {
-                        loadingScreen.style.display = "none"; // ซ่อน loading
-                        // pageContent.style.display = "block"; // แสดงเนื้อหา
+                        setTimeout(() => {
+                            loadingScreen.style.display = "none"; // ซ่อน loading หลังจาก 2 วิ
+                        }, 2000); // 2000 มิลลิวินาที = 2 วินาที
                     }
                 };
             });
         </script>
+
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     </div>
