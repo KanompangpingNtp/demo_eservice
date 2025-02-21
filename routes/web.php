@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.secondary-page.app');
+    return view('pages.first-page.app');
 });

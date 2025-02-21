@@ -126,7 +126,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="d-flex justify-content-center align-items-center d-none d-x0-flex">
+                <div class="d-flex justify-content-center align-items-center d-none d-xl-flex">
                     <img src="{{ asset('images/first-pages/images-right.png') }}" alt="images-right"
                         style="width: 36rem; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));">
                 </div>
