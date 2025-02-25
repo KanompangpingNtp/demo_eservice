@@ -1,5 +1,5 @@
-const fileInput = document.getElementById('file_post');
-const fileListContainer = document.querySelector('#file-list .d-flex');
+const fileInput = document.getElementById('attachments');
+const fileListContainer = document.querySelector('#file-list .d-flex'); attachments
 
 // อัปเดตรายการไฟล์
 fileInput.addEventListener('change', function() {

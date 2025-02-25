@@ -138,7 +138,7 @@
                         <img src="{{ asset('images/secondary-pages/1.png') }}" alt="1" class="img-fluid">
                         <ul class="text-start lh-1">
                             <li>
-                                <a href="#">
+                                <a href="{{route('GeneralRequestsFormPage')}}">
                                     คำร้องทั่วไป
                                 </a>
                             </li>

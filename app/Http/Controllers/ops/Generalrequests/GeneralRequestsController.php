@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Storage;
 
 class GeneralRequestsController extends Controller
 {
-    public function UsersFormPage()
+    public function GeneralRequestsFormPage()
     {
         return view('users.ops.general-requests.page-form');
     }
 
-    public function FormCreate(Request $request)
+    public function GeneralRequestsFormCreate(Request $request)
     {
         $request->validate([
             'date' => 'required|date',

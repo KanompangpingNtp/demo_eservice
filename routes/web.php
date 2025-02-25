@@ -31,8 +31,8 @@ Route::get('/', [PagesController::class, 'Index'])->name('Index');
 Route::get('/secondary/page', [PagesController::class, 'SeconDaryPage'])->name('SeconDaryPage');
 
 //คำร้องทั่วไป
-Route::get('/general-requests', [GeneralRequestsController::class, 'UsersFormPage'])->name('UsersFormPage');
-Route::post('/general-requests/form/create', [GeneralRequestsController::class, 'FormCreate'])->name('FormCreate');
+Route::get('/general-requests', [GeneralRequestsController::class, 'GeneralRequestsFormPage'])->name('GeneralRequestsFormPage');
+Route::post('/general-requests/form/create', [GeneralRequestsController::class, 'GeneralRequestsFormCreate'])->name('GeneralRequestsFormCreate');
 
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin/index', [AdminController::class, 'AdminIndex'])->name('AdminIndex');

@@ -3,7 +3,7 @@
 <div class="container">
     <h2 class="text-center mb-4">ฟอร์มส่งคำร้องทั่วไป</h2>
 
-    <form action="{{route('FormCreate')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('GeneralRequestsFormCreate')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <!-- Row 1: วันที่ และ เรื่อง -->
@@ -98,5 +98,7 @@
         </div>
     </form>
 </div>
+
+<script src="{{asset('js/multipart_files.js')}}"></script>
 
 @endsection
