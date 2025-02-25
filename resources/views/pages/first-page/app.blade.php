@@ -89,7 +89,7 @@
                     </div>
                     <div class="d-none d-xl-flex flex-column flex-2xl-row p-2 gap-2"
                         style="background-color:rgba(255, 255, 255, 0.275); border-radius:20px;">
-                        <a href="#">
+                        <a href="{{route('LoginPage')}}">
                             <img src="{{ asset('images/first-pages/button-1.png') }}" alt="button-4" style="width: 10rem;">
                         </a>
                         <a href="#">
