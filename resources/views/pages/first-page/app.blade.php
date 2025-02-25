@@ -104,7 +104,7 @@
                 <div class="d-flex flex-column justify-content-center align-items-center">
                     <img src="{{ asset('images/first-pages/eservice-text.png') }}" alt="eservice-text"
                         class="eservice-text">
-                    <a href="#">
+                    <a href="{{route('SeconDaryPage')}}">
                         <img src="{{ asset('images/first-pages/button-3.png') }}" alt="button-3" class="button-3">
                     </a>
                     <div class="d-flex justify-content-center align-items-center mt-4 gap-4">

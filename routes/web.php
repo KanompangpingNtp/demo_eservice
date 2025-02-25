@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.first-page.app');
-});
+// Route::get('/', function () {
+//     return view('pages.first-page.app');
+// });
+
+Route::get('/', [PagesController::class, 'Index'])->name('Index');
+Route::get('/secondary/page', [PagesController::class, 'SeconDaryPage'])->name('SeconDaryPage');
