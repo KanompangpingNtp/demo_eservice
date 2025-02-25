@@ -47,6 +47,54 @@
             font-weight: bold;
             box-shadow: 0 4px 10px rgba(255, 255, 255, 0.8);
         }
+
+
+        ul li {
+            list-style: none;
+            /* ลบจุดเดิม */
+            position: relative;
+            padding-left: 30px;
+            margin: 10px 0px;
+        }
+
+        ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 40%;
+            transform: translateY(-50%);
+            width: 25px;
+            /* กำหนดขนาดรูป */
+            height: 25px;
+            background-image: url('{{ asset('images/secondary-pages/droplet.png') }}');
+            /* เปลี่ยนเป็นรูปของคุณ */
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        ul a {
+            text-decoration: none;
+            font-size: 23px;
+            font-weight: bold;
+            white-space: nowrap;
+            color: #000;
+            position: relative;
+        }
+
+        ul a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 3px;
+            background-color: #007bff;
+            transition: width 0.3s ease-in-out;
+        }
+
+        ul a:hover::after {
+            width: 100%;
+        }
     </style>
     <main>
         <div class="bg-firstpage d-flex flex-column justify-content-between ">
@@ -72,44 +120,130 @@
             </div>
 
             <div class="container d-flex flex-column flex-lg-row justify-content-center align-items-center text-center">
-                <div class="d-none d-lg-flex flex-column justify-content-center align-items-center">
+                <div class="d-none d-xl-flex flex-column justify-content-center align-items-center me-5">
                     <img src="{{ asset('images/secondary-pages/นายก-Photoroom.png') }}" alt="นายก"
                         style="width: 18rem;">
-                    <div class="gradient-background py-3 px-5 text-white lh-1 mx-5">
+                    <div class="gradient-background py-3 px-5 text-white lh-1 text-nowrap  w-100">
                         นายมนูศักดิ์ หม่องศิริ
                     </div>
-                    <div class="gradient-background p-3 text-white text-center lh-1 mt-2 w-100">
+                    <div class="gradient-background p-3 text-white text-center text-nowrap lh-1 mt-2 w-100">
                         นายกองค์การบริหาร <br>
                         ส่วนตำบลคลองอุดมชลจร
                     </div>
                 </div>
 
-                <div class="row w-50 ">
-                    <div class="col-lg-6 d-flex justify-content-center align-items-center mb-2">
-                        <a href="#">
-                            <img src="{{ asset('images/secondary-pages/1.png') }}" alt="1" class="img-fluid">
-                        </a>
+                <div class="row ms-0 ms-lg-3">
+                    <div
+                        class="col-lg-6 d-flex flex-column justify-content-center align-items-center align-items-lg-start ">
+                        <img src="{{ asset('images/secondary-pages/1.png') }}" alt="1" class="img-fluid">
+                        <ul class="text-start lh-1">
+                            <li>
+                                <a href="#">
+                                    คำร้องทั่วไป
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    เบี้ยยังชีพผู้สูงอายุ
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    เบี้ยยังชีพผู้พิการ
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    เบี้ยเอดส์
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="col-lg-6 d-flex justify-content-center align-items-center mb-2">
-                        <a href="#">
-                            <img src="{{ asset('images/secondary-pages/2.png') }}" alt="2" class="img-fluid">
-                        </a>
+                    <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center align-items-lg-start">
+                        <img src="{{ asset('images/secondary-pages/2.png') }}" alt="2" class="img-fluid">
+                        <ul class="text-start lh-1 ">
+                            <li>
+                                <a href="#">
+                                    ยื่นแบบภาษีป้าย
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    ภาษีที่ดินและสิ่งปลูกสร้าง
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    ยื่นอุทธรณ์ ภาษีที่ดินและสิ่งปลูกสร้าง
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="col-lg-6 d-flex justify-content-center align-items-center mb-2">
-                        <a href="#">
-                            <img src="{{ asset('images/secondary-pages/3.png') }}" alt="3" class="img-fluid">
-                        </a>
+                    <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center align-items-lg-start">
+                        <img src="{{ asset('images/secondary-pages/3.png') }}" alt="3" class="img-fluid">
+                        <ul class="text-start lh-1 ">
+                            <li>
+                                <a href="#">
+                                    คำร้องทั่วไป(แจ้งเรื่องไฟฟ้า)
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    คำร้องทั่วไป(แจ้งถนนชำรุด)
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    คำร้องสิ่งปลูกสร้าง
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    แบบขออนุญาตก่อสร้าง
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="col-lg-6 d-flex justify-content-center align-items-center mb-2">
-                        <a href="#">
-                            <img src="{{ asset('images/secondary-pages/4.png') }}" alt="4" class="img-fluid">
-                        </a>
+                    <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center align-items-lg-start">
+                        <img src="{{ asset('images/secondary-pages/4.png') }}" alt="4" class="img-fluid">
+                        <ul class="text-start lh-1 ">
+                            <li>
+                                <a href="#">
+                                    แบบคำร้องใบอณุญาตประกอบกิจการ <br>
+                                    ที่เป็นอันตรายต่อสุขภาพ
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    แบบคำร้องใบอณุญาตสะสมอาหาร
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    แบบขอลงทะเบียนสุนัข - แมว
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    คำร้องทั่วไปขอถังขยะ
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    คำร้องทั่วไปแจ้งเหตุเดือดร้อนสำคัญ
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="col-lg-6 d-flex justify-content-center align-items-center mb-2">
-                        <a href="#">
-                            <img src="{{ asset('images/secondary-pages/5.png') }}" alt="5" class="img-fluid">
-                        </a>
-
+                    <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center align-items-lg-start">
+                        <img src="{{ asset('images/secondary-pages/5.png') }}" alt="5" class="img-fluid">
+                        <ul class="text-start lh-1 ">
+                            <li>
+                                <a href="#">
+                                    แบบฟอร์มใบสมัคร ศูนย์พัฒนาเด็กเล็ก
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
