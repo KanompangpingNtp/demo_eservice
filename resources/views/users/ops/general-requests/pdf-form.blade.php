@@ -136,7 +136,7 @@
             substr($citizen_c_id, 12, 1);
     @endphp
 
-    <div class="title_doc">คำร้องทั่วไป</div>
+    <div class="title_doc">แบบฟอร์มคำร้องทั่วไป</div>
     <div class="box_text" style="text-align: right; margin-top:10px;"><span>เขียนที่
             นายกองค์การบริหารส่วนตำบลคลองอุดมชลจร</span>
         <div>
