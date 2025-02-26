@@ -137,7 +137,7 @@
     @endphp
 
     <div>
-        <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/first-pages/logo.png'))) }}" alt="Logo">
+        <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/pdf/logo.png'))) }}" alt="Logo">
     </div>
 
     <div class="title_doc">คำร้องทั่วไป</div>
