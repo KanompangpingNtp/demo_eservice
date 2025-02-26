@@ -1,9 +1,9 @@
 @extends('users.layout.layout')
 @section('pages_content')
 <div class="container">
-    <h2 class="text-center mb-4">ฟอร์มส่งคำร้องทั่วไป (แจ้งเรื่องไฟฟ้า)</h2>
+    <h2 class="text-center mb-4">คำร้องทั่วไป (แจ้งถนนชำรุด)</h2>
 
-    <form action="{{route('GeneralElectricityRequestFormCreate')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('GeneralRoadRequestFormCreate')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
          <!-- Row 1: วันที่ และ เรื่อง -->

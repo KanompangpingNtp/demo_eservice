@@ -31,6 +31,11 @@
             </div>
         </div>
 
+        <div class="mb-3">
+            <label for="included" class="form-label">สิ่งที่ส่งมาด้วย<span class="text-danger">*</span></label>
+            <textarea class="form-control" id="included" name="included" rows="2" required>{{ old('included', $form->included) }}</textarea>
+        </div>
+
         <!-- Row 2: คำนำหน้า และ ชื่อ -->
         <div class="row g-3 mb-3">
             <div class="col-md-3">
@@ -44,18 +49,6 @@
             <div class="col-md-3">
                 <label for="age" class="form-label">อายุ</label>
                 <input type="number" class="form-control" id="age" name="age" value="{{ old('age', $form->age) }}">
-            </div>
-        </div>
-
-        <!-- Row 3: สัญชาติ และ เชื้อชาติ -->
-        <div class="row g-3 mb-3">
-            <div class="col-md-3">
-                <label for="nationality" class="form-label">สัญชาติ</label>
-                <input type="text" class="form-control" id="nationality" name="nationality" value="{{ old('nationality', $form->nationality) }}" required>
-            </div>
-            <div class="col-md-3">
-                <label for="ethnicity" class="form-label">เชื้อชาติ</label>
-                <input type="text" class="form-control" id="ethnicity" name="ethnicity" value="{{ old('ethnicity', $form->ethnicity) }}" required>
             </div>
         </div>
 
@@ -93,8 +86,13 @@
 
         <!-- Row 6: รายละเอียดคำขอ -->
         <div class="mb-3">
-            <label for="request_details" class="form-label">รายละเอียดคำขอ</label>
-            <textarea class="form-control" id="request_details" name="request_details" rows="3">{{ old('request_details', $form->request_details) }}</textarea>
+            <label for="request_details" class="form-label">เรื่องร้องเรียนต่อองค์การบริหารส่วนตำบลคลองอุดมชลจร กรณี<span class="text-danger">*</span></label>
+            <textarea class="form-control" id="request_details" name="request_details" rows="3" required>{{ old('request_details', $form->request_details) }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="proceedings" class="form-label">ข้าพเจ้าขอความอนุเคราะห์ให้องค์การบริหารส่วนตำบลคลองอุดมชลจร ดำเนินการ<span class="text-danger">*</span></label>
+            <textarea class="form-control" id="proceedings" name="proceedings" rows="3" required>{{ old('proceedings', $form->proceedings) }}</textarea>
         </div>
 
         <!-- Row 7: แนบไฟล์ -->

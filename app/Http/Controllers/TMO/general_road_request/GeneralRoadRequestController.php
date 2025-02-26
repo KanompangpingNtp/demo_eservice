@@ -1,25 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\TMO\general_electricity_request;
+namespace App\Http\Controllers\TMO\general_road_request;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\GeneralElectricityRequestForm;
-use App\Models\GeneralElectricityRequestFiles;
-use App\Models\GeneralElectricityRequestReplies;
-use App\Models\User;
+use App\Models\GeneralRoadRequestForm;
+use App\Models\GeneralRoadRequestFiles;
+use App\Models\GeneralRoadRequestReplies;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Storage;
 
-class GeneralElectricityRequestController extends Controller
+class GeneralRoadRequestController extends Controller
 {
-    public function GeneralElectricityRequestFormPage()
+    public function GeneralRoadRequestFormPage()
     {
-        return view('users.tmo.general_electricity_request.page-form');
+        return view('users.tmo.general_road_request.page-form');
     }
 
-    public function GeneralElectricityRequestFormCreate(Request $request)
+    public function GeneralRoadRequestFormCreate(Request $request)
     {
         $request->validate([
             'date' => 'required|date',
@@ -41,7 +40,7 @@ class GeneralElectricityRequestController extends Controller
 
         // dd($request);
 
-        $gerForm = GeneralElectricityRequestForm::create([
+        $grrForm = GeneralRoadRequestForm::create([
             'users_id' => auth()->id(),
             'status' => 1,
             'date' => $request->date,
@@ -64,10 +63,10 @@ class GeneralElectricityRequestController extends Controller
             foreach ($request->file('attachments') as $file) {
                 $filename = time() . '_' . $file->getClientOriginalName();
 
-                $path = $file->storeAs('general-electricity-request', $filename, 'public');
+                $path = $file->storeAs('general-requests-files', $filename, 'public');
 
-                GeneralElectricityRequestFiles::create([
-                    'ger_form_id' => $gerForm->id,
+                GeneralRoadRequestFiles::create([
+                    'grr_form_id' => $grrForm->id,
                     'file_path' => $path,
                     'file_type' => $file->getClientMimeType(),
                 ]);
@@ -77,32 +76,32 @@ class GeneralElectricityRequestController extends Controller
         return redirect()->back()->with('success', 'ฟอร์มถูกส่งเรียบร้อยแล้ว');
     }
 
-    public function GeneralElectricityRequestShowDetails()
+    public function GeneralRoadRequestShowDetails()
     {
-        $forms = GeneralElectricityRequestForm::with(['user', 'gerReplies', 'gerFiles'])
+        $forms = GeneralRoadRequestForm::with(['user', 'grrReplies', 'grrFiles'])
             ->where('users_id', Auth::id())
             ->get();
 
-        return view('users.tmo.general_electricity_request.account.show-detail', compact('forms'));
+        return view('users.tmo.general_road_request.account.show-detail', compact('forms'));
     }
 
-    public function GeneralElectricityRequestUserExportPDF($id)
+    public function GeneralRoadRequestUserExportPDF($id)
     {
-        $form = GeneralElectricityRequestForm::find($id);
+        $form = GeneralRoadRequestForm::find($id);
 
-        $pdf = Pdf::loadView('users.tmo.general_electricity_request.pdf-form', compact('form'))->setPaper('A4', 'portrait');
+        $pdf = Pdf::loadView('users.tmo.general_road_request.pdf-form', compact('form'))->setPaper('A4', 'portrait');
 
         return $pdf->stream('แบบคำขอร้องทั่วไป' . $form->id . '.pdf');
     }
 
-    public function GeneralElectricityRequestUserReply(Request $request, $formId)
+    public function GeneralRoadRequestUserReply(Request $request, $formId)
     {
         $request->validate([
             'message' => 'required|string|max:1000',
         ]);
 
-        GeneralElectricityRequestReplies::create([
-            'ger_form_id' => $formId,
+        GeneralRoadRequestReplies::create([
+            'grr_form_id' => $formId,
             'users_id' => auth()->id(),
             'reply_text' => $request->message,
             'reply_date' => now()->toDateString(),
@@ -111,14 +110,14 @@ class GeneralElectricityRequestController extends Controller
         return redirect()->back()->with('success', 'ตอบกลับสำเร็จแล้ว!');
     }
 
-    public function GeneralElectricityRequestUserShowFormEdit($id)
+    public function GeneralRoadRequestUserShowFormEdit($id)
     {
-        $form = GeneralElectricityRequestForm::with('gerFiles')->findOrFail($id);
+        $form = GeneralRoadRequestForm::with('grrfiles')->findOrFail($id);
 
-        return view('users.tmo.general_electricity_request.account.edit-data', compact('form'));
+        return view('users.tmo.general_road_request.account.edit-data', compact('form'));
     }
 
-    public function GeneralElectricityRequestUserUpdateForm(Request $request, $id)
+    public function GeneralRoadRequestUserUpdateForm(Request $request, $id)
     {
         $request->validate([
             'date' => 'required|date',
@@ -139,9 +138,9 @@ class GeneralElectricityRequestController extends Controller
             'proceedings' => 'nullable|string'
         ]);
 
-        $gerForm = GeneralElectricityRequestForm::findOrFail($id);
+        $grrForm = GeneralRoadRequestForm::findOrFail($id);
 
-        $gerForm->update([
+        $grrForm->update([
             'date' => $request->date,
             'subject' => $request->subject,
             'salutation' => $request->salutation,
@@ -159,7 +158,7 @@ class GeneralElectricityRequestController extends Controller
 
         if ($request->has('delete_attachments')) {
             foreach ($request->delete_attachments as $attachmentId) {
-                $attachment = GeneralElectricityRequestFiles::find($attachmentId);
+                $attachment = GeneralRoadRequestFiles::find($attachmentId);
                 if ($attachment) {
                     Storage::disk('public')->delete($attachment->file_path);
                     $attachment->delete();
@@ -171,10 +170,10 @@ class GeneralElectricityRequestController extends Controller
             foreach ($request->file('attachments') as $file) {
                 $filename = time() . '_' . $file->getClientOriginalName();
 
-                $path = $file->storeAs('general-electricity-request', $filename, 'public');
+                $path = $file->storeAs('general-requests-files', $filename, 'public');
 
-                GeneralElectricityRequestFiles::create([
-                    'ger_form_id' => $gerForm->id,
+                GeneralRoadRequestFiles::create([
+                    'grr_form_id' => $grrForm->id,
                     'file_path' => $path,
                     'file_type' => $file->getClientMimeType(),
                 ]);

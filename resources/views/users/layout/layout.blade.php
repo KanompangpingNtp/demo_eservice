@@ -97,7 +97,7 @@
                                 <a class="nav-link" href="{{route('GeneralElectricityRequestShowDetails')}}">ประวัติการส่งฟอร์ม</a>
                             </nav>
                         </div>
-                        {{-- <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-clipboard"></i>
                             </div>
@@ -108,10 +108,10 @@
                         </a>
                         <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="">ฟอร์ม</a>
-                                <a class="nav-link" href="">ประวัติการส่งฟอร์ม</a>
+                                <a class="nav-link" href="{{route('GeneralRoadRequestFormPage')}}">ฟอร์ม</a>
+                                <a class="nav-link" href="{{route('GeneralRoadRequestShowDetails')}}">ประวัติการส่งฟอร์ม</a>
                             </nav>
-                        </div> --}}
+                        </div>
                     </div>
                     @endauth
                 </div>
