@@ -35,8 +35,8 @@ class GeneralRequestsController extends Controller
             'request_details' => 'nullable|string',
             'phone' => 'nullable|string',
             'attachments.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf',
-            'nationality' => 'nullable|string|max:100',
-            'ethnicity' => 'nullable|string|max:100'
+            'included' => 'nullable|string',
+            'proceedings' => 'nullable|string'
         ]);
 
         // dd($request);
@@ -56,8 +56,8 @@ class GeneralRequestsController extends Controller
             'province' => $request->province,
             'phone' => $request->phone,
             'request_details' => $request->request_details,
-            'nationality' => $request->nationality,
-            'ethnicity' => $request->ethnicity,
+            'included' => $request->included,
+            'proceedings' => $request->proceedings,
         ]);
 
         if ($request->hasFile('attachments')) {
@@ -135,6 +135,8 @@ class GeneralRequestsController extends Controller
             'attachments.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
             'delete_attachments' => 'nullable|array',
             'delete_attachments.*' => 'integer',
+            'included' => 'nullable|string',
+            'proceedings' => 'nullable|string'
         ]);
 
         $grForm = GeneralRequestsForm::findOrFail($id);
@@ -151,6 +153,8 @@ class GeneralRequestsController extends Controller
             'district' => $request->district,
             'province' => $request->province,
             'request_details' => $request->request_details,
+            'included' => $request->included,
+            'proceedings' => $request->proceedings,
         ]);
 
         if ($request->has('delete_attachments')) {

@@ -136,6 +136,10 @@
             substr($citizen_c_id, 12, 1);
     @endphp
 
+    <div>
+        <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/first-pages/logo.png'))) }}" alt="Logo">
+    </div>
+
     <div class="title_doc">คำร้องทั่วไป</div>
     <div class="box_text" style="text-align: right; margin-top:10px;"><span>เขียนที่
             นายกองค์การบริหารส่วนตำบลคลองอุดมชลจร</span>
@@ -158,8 +162,8 @@
         <span style="margin-left:2rem;">ข้าพเจ้า</span><span class="dotted-line"
             style="width: 20%; text-align: center;">{{ $form->salutation }}{{ $form->name }}</span><span>อายุ</span><span class="dotted-line"
             style="width: 6%; text-align: center;">{{ $form->age }}</span><span>ปี สัญชาติ</span><span class="dotted-line"
-            style="width: 8%; text-align: center;">{{ $form->nationality }}</span><span>เชื้อชาติ</span><span class="dotted-line"
-            style="width: 8%; text-align: center;">{{ $form->ethnicity }}</span><span>อยู่บ้านเลขที่</span><span class="dotted-line"
+            style="width: 8%; text-align: center;"> </span><span>เชื้อชาติ</span><span class="dotted-line"
+            style="width: 8%; text-align: center;"> </span><span>อยู่บ้านเลขที่</span><span class="dotted-line"
             style="width: 8%; text-align: center;">{{ $form->house_number}}</span><span>หมู่ที่</span><span class="dotted-line"
             style="width: 8%; text-align: center;">{{ $form->village }}</span>
     </div>

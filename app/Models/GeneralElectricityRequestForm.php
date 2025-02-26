@@ -13,6 +13,7 @@ class GeneralElectricityRequestForm extends Model
         'users_id',
         'date',
         'subject',
+        'included',
         'salutation',
         'name',
         'age',
@@ -24,8 +25,7 @@ class GeneralElectricityRequestForm extends Model
         'request_details',
         'admin_name_verifier',
         'phone',
-        'nationality',
-        'ethnicity'
+        'proceedings',
     ];
 
     public function user()

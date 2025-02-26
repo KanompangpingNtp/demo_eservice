@@ -21,8 +21,6 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->integer('age')->nullable();
             $table->string('phone')->nullable();
-            $table->string('nationality')->nullable();
-            $table->string('ethnicity')->nullable();
             $table->string('house_number')->nullable();
             $table->string('village')->nullable();
             $table->string('subdistrict')->nullable();
@@ -30,6 +28,8 @@ return new class extends Migration
             $table->string('province')->nullable();
             $table->text('request_details')->nullable();
             $table->string('admin_name_verifier')->nullable();
+            $table->string('included')->nullable();
+            $table->string('proceedings')->nullable();
             $table->timestamps();
         });
     }

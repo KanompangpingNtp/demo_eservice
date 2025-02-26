@@ -6,8 +6,8 @@
     <form action="{{route('GeneralElectricityRequestFormCreate')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
-        <!-- Row 1: วันที่ และ เรื่อง -->
-        <div class="row g-3 mb-3">
+         <!-- Row 1: วันที่ และ เรื่อง -->
+         <div class="row g-3 mb-3">
             <div class="col-md-6">
                 <label for="date" class="form-label">วันที่ <span class="text-danger">*</span></label>
                 <input type="date" class="form-control" id="date" name="date" required>
@@ -16,6 +16,11 @@
                 <label for="subject" class="form-label">เรื่อง <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="subject" name="subject" maxlength="255" required>
             </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="included" class="form-label">สิ่งที่ส่งมาด้วย<span class="text-danger">*</span></label>
+            <textarea class="form-control" id="included" name="included" rows="2" required></textarea>
         </div>
 
         <!-- Row 2: คำนำหน้า และ ชื่อ -->
@@ -36,14 +41,6 @@
             <div class="col-md-3">
                 <label for="age" class="form-label">อายุ (ปี) <span class="text-danger">*</span></label>
                 <input type="number" class="form-control" id="age" name="age" required>
-            </div>
-            <div class="col-md-3">
-                <label for="nationality" class="form-label">สัญชาติ <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="nationality" name="nationality" required>
-            </div>
-            <div class="col-md-3">
-                <label for="ethnicity" class="form-label">เชื้อชาติ <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="ethnicity" name="ethnicity" required>
             </div>
         </div>
 
@@ -77,8 +74,13 @@
 
         <!-- Row 6: รายละเอียดคำขอ -->
         <div class="mb-3">
-            <label for="request_details" class="form-label">รายละเอียดคำขอ <span class="text-danger">*</span></label>
+            <label for="request_details" class="form-label">เรื่องร้องเรียนต่อองค์การบริหารส่วนตำบลคลองอุดมชลจร กรณี<span class="text-danger">*</span></label>
             <textarea class="form-control" id="request_details" name="request_details" rows="3" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="proceedings" class="form-label">ข้าพเจ้าขอความอนุเคราะห์ให้องค์การบริหารส่วนตำบลคลองอุดมชลจร ดำเนินการ<span class="text-danger">*</span></label>
+            <textarea class="form-control" id="proceedings" name="proceedings" rows="3" required></textarea>
         </div>
 
         <!-- Row 7: แนบไฟล์ -->
