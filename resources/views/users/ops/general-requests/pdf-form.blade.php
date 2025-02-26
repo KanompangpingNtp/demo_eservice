@@ -193,13 +193,10 @@
     <div class="box_text" style="text-align: left;">
         <span style="margin-left:5rem;">ข้าพเจ้าขอความอนุเคราะห์ให้องค์การบริหารส่วนตำบลคลองอุดมชลจร ดำเนินการ</span>
         <span class="dotted-line"
-            style="min-width: 30%; text-align: start;">{{ $form->request_details }}{{ $form->request_details }}{{ $form->request_details }}</span>
+            style="min-width: 30%; text-align: start;">{{ $form->proceedings }}</span>
     </div>
-    <div class="box_text" style="text-align: left; ">
-        <span style="margin-left:5rem;">จึงเรียนมาเพื่อโปรดพิจารณาให้ความอนุเคราะห์ในเรื่อง ดังกล่าว จักขอบคุณยิ่ง</span>
-        <span class="dotted-line">
-            {{ $form->request_details }}{{ $form->request_details }}{{ $form->request_details }}
-        </span>
+    <div class="box_text" style="text-align: center; ">
+        <span style="margin-left:2rem;">จึงเรียนมาเพื่อโปรดพิจารณาให้ความอนุเคราะห์ในเรื่อง ดังกล่าว จักขอบคุณยิ่ง</span>
     </div>
 
 
