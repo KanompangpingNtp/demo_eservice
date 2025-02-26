@@ -94,6 +94,20 @@
             overflow-wrap: break-word;
             /* รองรับ browser อื่น */
         }
+
+        .footer {
+            position: absolute;
+            /* ทำให้ footer ยึดที่ด้านล่าง */
+            bottom: -50px;
+            font-size: 23px;
+            /* ตั้งให้ footer อยู่ที่ด้านล่างสุดของหน้ากระดาษ */
+            width: 100%;
+            /* ให้ footer กว้างเต็มหน้ากระดาษ */
+            text-align: center;
+            /* จัดข้อความให้ตรงกลาง */
+            padding: 5px 0;
+            /* เพิ่มพื้นที่ด้านบนและล่างให้กับ footer */
+        }
     </style>
 </head>
 
@@ -141,7 +155,7 @@
             alt="Logo" height="120"> <br>แบบฟอร์มคำร้องทั่วไป
     </div>
     <div class="box_text" style="text-align: right;">
-        <span>
+        <span style="line-height: 0.7;">
             องค์การบริหารส่วนตำบลคลองอุดมชลจร <br>
             ๙/๙ หมู่ที่ ๔ ตำบลคลองอุดมชลจร <br>
             อำเภอเมือง จังหวัดฉะเชิงเทรา ๒๔๐๐๐
@@ -195,6 +209,8 @@
     </div>
     <div class="box_text" style="text-align: left; margin-left:5rem">
         <span>จึงเรียนมาเพื่อโปรดพิจารณาให้ความอนุเคราะห์ในเรื่อง ดังกล่าว จักขอบคุณยิ่ง</span>
+        <span class="dotted-line"
+            style="min-width: 30%; text-align: start;">{{ $form->request_details }}</span>
     </div>
     <div class="box_text" style="text-align: center; margin-top:2rem; margin-bottom:2rem; margin-left: 30px;">
         <span>ขอแสดงความนับถือ</span>
@@ -214,7 +230,12 @@
         </div>
     </div>
     <div class="box_text" style="text-align: left; margin-top:2rem; margin-bottom:2rem;">
-        <span>สำนักปลัด อบต. <br>
-        โทร/โทรสาร ๐-๓๘๐๙-๓๙๐๘ ต่อ ๑๐๒</span> <br>
-        www.khlongudomchonlajorn.go.th
+        <span style="line-height: 0.7;">
+            สำนักปลัด อบต. <br>
+            โทร/โทรสาร ๐-๓๘๐๙-๓๙๐๘ ต่อ ๑๐๒ <br>
+            https://khlongudomchonlajorn.go.th/
+        </span>
+    </div>
+    <div class="footer font-sarabun-bold">
+        <p>"ซื่อสัตย์สุจริต มุ่งสัมฤทธิ์ของงาน ยืดมั่นมาตรฐาน บริการด้วยใจเป็นธรรม"</p>
     </div>
