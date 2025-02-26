@@ -90,9 +90,8 @@
             color: blue;
             border-bottom: 2px dotted blue;
             word-wrap: break-word;
-            /* ห่อข้อความที่ยาวเกิน */
+
             overflow-wrap: break-word;
-            /* รองรับ browser อื่น */
         }
 
         .footer {
@@ -203,15 +202,19 @@
         <span>เรื่องที่ร้องต่อองค์การบริหารส่วนตำบลคลองอุดชลจร กรณี</span><span class="dotted-line"
             style="min-width: 50%; text-align: start;">{{ $form->request_details }}</span>
     </div>
-    <div class="box_text" style="text-align: left; margin-left:5rem">
-        <span>ข้าพเจ้าขอความอนุเคราะห์ให้องค์การบริหารส่วนตำบลคลองอุดมชลจร ดำเนินการ</span><span class="dotted-line"
-            style="min-width: 30%; text-align: start;">{{ $form->request_details }}</span>
-    </div>
-    <div class="box_text" style="text-align: left; margin-left:5rem">
-        <span>จึงเรียนมาเพื่อโปรดพิจารณาให้ความอนุเคราะห์ในเรื่อง ดังกล่าว จักขอบคุณยิ่ง</span>
+    <div class="box_text" style="text-align: left;">
+        <span style="margin-left:5rem;">ข้าพเจ้าขอความอนุเคราะห์ให้องค์การบริหารส่วนตำบลคลองอุดมชลจร ดำเนินการ</span>
         <span class="dotted-line"
-            style="min-width: 30%; text-align: start;">{{ $form->request_details }}</span>
+            style="min-width: 30%; text-align: start;">{{ $form->request_details }}{{ $form->request_details }}{{ $form->request_details }}</span>
     </div>
+    <div class="box_text" style="text-align: left; ">
+        <span style="margin-left:5rem;">จึงเรียนมาเพื่อโปรดพิจารณาให้ความอนุเคราะห์ในเรื่อง ดังกล่าว จักขอบคุณยิ่ง</span>
+        <span class="dotted-line">
+            {{ $form->request_details }}{{ $form->request_details }}{{ $form->request_details }}
+        </span>
+    </div>
+    
+    
     <div class="box_text" style="text-align: center; margin-top:2rem; margin-bottom:2rem; margin-left: 30px;">
         <span>ขอแสดงความนับถือ</span>
     </div>
