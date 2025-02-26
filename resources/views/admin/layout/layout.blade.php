@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>GM GKY Admin</title>
+    <title>Admin Dashbord</title>
     <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -46,7 +46,6 @@
                             </button>
                         </form>
                     </li>
-
                 </ul>
             </li>
         </ul>
@@ -61,6 +60,19 @@
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
                             คำร้องทั่วไป
                         </a>
+                        <a class="nav-link" href="{{route('ElderlyAllowanceAdminShowData')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            แบบยืนยันเบี้ยยังชีพผ้สูงอายุ
+                        </a>
+                        <div class="sb-sidenav-menu-heading">กองช่าง</div>
+                        <a class="nav-link" href="{{route('GeneralElectricityRequestAdminShowData')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            คำร้องทั่วไป (แจ้งเรื่องไฟฟ้า)
+                        </a>
+                        <a class="nav-link" href="{{route('GeneralRoadRequestAdminShowData')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            คำร้องทั่วไป (แจ้งถนนชำรุด)
+                        </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
@@ -68,7 +80,6 @@
                     Start Bootstrap
                 </div>
             </nav>
-
         </div>
         <div id="layoutSidenav_content">
             <main>

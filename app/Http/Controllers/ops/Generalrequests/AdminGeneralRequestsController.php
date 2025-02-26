@@ -17,7 +17,7 @@ class AdminGeneralRequestsController extends Controller
         ->orderBy('created_at', 'desc')
         ->get();
 
-        return view('admin.general-requests.show-data', compact('forms'));
+        return view('admin.ops.general-requests.show-data', compact('forms'));
     }
 
     public function GeneralRequestsAdminExportPDF($id)

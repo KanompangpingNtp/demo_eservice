@@ -125,18 +125,6 @@
         $birthday_month = $birthday->locale('th')->translatedFormat('F');
         $birthday_year = $birthday->year + 543;
 
-        // $citizen_id = $form->traders->first()->citizen_id;
-        // $tradersformatted_id =
-        //     substr($citizen_id, 0, 1) .
-        //     '-' .
-        //     substr($citizen_id, 1, 4) .
-        //     '-' .
-        //     substr($citizen_id, 5, 5) .
-        //     '-' .
-        //     substr($citizen_id, 10, 2) .
-        //     '-' .
-        //     substr($citizen_id, 12, 1);
-
         $citizen_c_id = $form->citizen_id;
         $formatted_id =
             substr($citizen_c_id, 0, 1) .
@@ -152,7 +140,7 @@
 
     <div class="title_doc">
         <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/pdf/logo.png'))) }}"
-            alt="Logo" height="120"> <br>แบบฟอร์มคำร้องทั่วไป
+            alt="Logo" height="120"> <br><strong>แบบฟอร์มคำร้องทั่วไป</strong>
     </div>
     <div class="box_text" style="text-align: right;">
         <span style="line-height: 0.7;">
@@ -160,7 +148,7 @@
             ๙/๙ หมู่ที่ ๔ ตำบลคลองอุดมชลจร <br>
             อำเภอเมือง จังหวัดฉะเชิงเทรา ๒๔๐๐๐
         </span>
-        <div style="margin-right: 80px;">
+        <div style="margin-right: 80px; margin-top: 10px;">
             <span>วันที่</span><span class="dotted-line" style="width: 5%; text-align: center;"> {{ $day }}
             </span><span>เดือน</span><span class="dotted-line" style="width: 15%; text-align: center;">
                 {{ $month }}
@@ -178,7 +166,7 @@
     </div>
     <div class="box_text" style="text-align: left;">
         <span>สิ่งที่ส่งมาด้วย</span><span class="dotted-line"
-            style="min-width: 88%; text-align: start; margin-left: 10px;"></span><br>
+            style="min-width: 88%; text-align: start; margin-left: 10px;">{{$form->included}}</span><br>
     </div>
 
     <div class="box_text" style="text-align: left; margin-left:50px;">
@@ -205,12 +193,10 @@
     </div>
     <div class="box_text" style="text-align: left; margin-left:5rem">
         <span>ข้าพเจ้าขอความอนุเคราะห์ให้องค์การบริหารส่วนตำบลคลองอุดมชลจร ดำเนินการ</span><span class="dotted-line"
-            style="min-width: 30%; text-align: start;">{{ $form->request_details }}</span>
+            style="min-width: 30%; text-align: start;">{{ $form->proceedings }}</span>
     </div>
-    <div class="box_text" style="text-align: left; margin-left:5rem">
+    <div class="box_text" style="text-align: center; margin-left:2rem">
         <span>จึงเรียนมาเพื่อโปรดพิจารณาให้ความอนุเคราะห์ในเรื่อง ดังกล่าว จักขอบคุณยิ่ง</span>
-        <span class="dotted-line"
-            style="min-width: 30%; text-align: start;">{{ $form->request_details }}</span>
     </div>
     <div class="box_text" style="text-align: center; margin-top:2rem; margin-bottom:2rem; margin-left: 30px;">
         <span>ขอแสดงความนับถือ</span>
