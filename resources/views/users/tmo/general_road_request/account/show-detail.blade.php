@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
     <div class="container">
-        <h2 class="text-center">คำร้องทั่วไป (แจ้งเรื่องไฟฟ้า) <br>
+        <h2 class="text-center">คำร้องทั่วไป (แจ้งถนนชำรุด) <br>
             <h3 class="text-center">ตารางแสดงข้อมูลฟอร์มที่ส่งเข้ามา</h3>
         </h2> <br>
 
@@ -32,7 +32,7 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{{ route('GeneralElectricityRequestUserShowFormEdit', $form->id) }}" class="btn btn-warning btn-sm text-white">
+                            <a href="{{ route('GeneralRoadRequestUserShowFormEdit', $form->id) }}" class="btn btn-warning btn-sm text-white">
                                 <i class="bi bi-pencil-square"></i></a>
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                 data-bs-target="#submitModal-{{ $form->id }}">
@@ -62,13 +62,13 @@
                         </div>
                         <div class="modal-body">
                             <span style="color: black;">preview</span>
-                            <a href="{{ route('GeneralElectricityRequestUserExportPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
+                            <a href="{{ route('GeneralRoadRequestUserExportPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
                                 <i class="bi bi-file-earmark-pdf"></i>
                             </a>
                             <br>
                             <br>
                             <span style="color: black;">ไฟล์แนบ </span>
-                            @foreach ($form->gerFiles as $attachment)
+                            @foreach ($form->grrfiles as $attachment)
                                 <span class="d-inline me-2">
                                     <a href="{{ asset('storage/' . $attachment->file_path) }}"
                                         target="_blank">{{ basename($attachment->file_path) }}</a>
@@ -103,7 +103,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse($form->gerReplies as $reply)
+                                    @forelse($form->grrReplies as $reply)
                                         <tr class="text-center">
                                             <td>{{ $reply->user->name ?? 'Unknown User' }}</td>
                                             <td>
@@ -120,7 +120,7 @@
                                     @endforelse
                                 </tbody>
                             </table>
-                            <form action="{{ route('GeneralElectricityRequestUserReply', $form->id) }}" method="POST">
+                            <form action="{{ route('GeneralRoadRequestUserReply', $form->id) }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="message" class="form-label">ข้อความตอบกลับ</label>

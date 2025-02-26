@@ -12,10 +12,10 @@
 @endif
 
 <div class="container">
-    <a href="{{route('GeneralRequestsShowDetails')}}">กลับ</a><br>
+    <a href="{{route('GeneralRoadRequestShowDetails')}}">กลับ</a><br>
     <h2 class="text-center">แก้ไขฟอร์ม</h2><br>
 
-    <form action="{{ route('GeneralRequestsUserUpdateForm', $form->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('GeneralRoadRequestUserUpdateForm', $form->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -25,6 +25,10 @@
                 <label for="date" class="form-label">วันที่</label>
                 <input type="date" class="form-control" id="date" name="date" value="{{ old('date', $form->date) }}" required>
             </div>
+            {{-- <div class="col-md-6">
+                <label for="subject" class="form-label">เรื่อง</label>
+                <input type="text" class="form-control" id="subject" name="subject" value="{{ old('subject', $form->subject) }}" maxlength="255">
+            </div> --}}
         </div>
 
         <div class="mb-3">
@@ -95,7 +99,7 @@
         <div class="mb-3">
             <label class="form-label">ไฟล์แนบปัจจุบัน</label>
             <ul>
-                @foreach ($form->gerFiles as $attachment)
+                @foreach ($form->grrFiles as $attachment)
                 <li>
                     <a href="{{ asset('storage/' . $attachment->file_path) }}" target="_blank">{{ basename($attachment->file_path) }}</a>
                     <input type="checkbox" name="delete_attachments[]" value="{{ $attachment->id }}"> ลบไฟล์นี้
