@@ -183,7 +183,7 @@
                         <img src="{{ asset('images/secondary-pages/3.png') }}" alt="3" class="img-fluid">
                         <ul class="text-start lh-1 ">
                             <li>
-                                <a href="#">
+                                <a href="{{route('GeneralElectricityRequestFormPage')}}">
                                     คำร้องทั่วไป(แจ้งเรื่องไฟฟ้า)
                                 </a>
                             </li>

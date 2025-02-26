@@ -11,7 +11,7 @@ class GeneralRequestsFiles extends Model
 
     protected $fillable = ['gr_form_id', 'file_path', 'file_type'];
 
-    public function grForm()
+    public function gerForm()
     {
         return $this->belongsTo(GeneralRequestsForm::class, 'gr_form_id');
     }

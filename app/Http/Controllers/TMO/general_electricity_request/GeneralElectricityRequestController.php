@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\ops\Generalrequests;
+namespace App\Http\Controllers\TMO\general_electricity_request;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\GeneralRequestsForm;
-use App\Models\GeneralRequestsFiles;
-use App\Models\GeneralRequestsReplies;
+use App\Models\GeneralElectricityRequestForm;
+use App\Models\GeneralElectricityRequestFiles;
+use App\Models\GeneralElectricityRequestReplies;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Storage;
 
-class GeneralRequestsController extends Controller
+class GeneralElectricityRequestController extends Controller
 {
-    public function GeneralRequestsFormPage()
+    public function GeneralElectricityRequestFormPage()
     {
-        return view('users.ops.general-requests.page-form');
+        return view('users.tmo.general_electricity_request.page-form');
     }
 
-    public function GeneralRequestsFormCreate(Request $request)
+    public function GeneralElectricityRequestFormCreate(Request $request)
     {
         $request->validate([
             'date' => 'required|date',
@@ -41,7 +41,7 @@ class GeneralRequestsController extends Controller
 
         // dd($request);
 
-        $grForm = GeneralRequestsForm::create([
+        $gerForm = GeneralElectricityRequestForm::create([
             'users_id' => auth()->id(),
             'status' => 1,
             'date' => $request->date,
@@ -64,10 +64,10 @@ class GeneralRequestsController extends Controller
             foreach ($request->file('attachments') as $file) {
                 $filename = time() . '_' . $file->getClientOriginalName();
 
-                $path = $file->storeAs('general-requests-files', $filename, 'public');
+                $path = $file->storeAs('general-electricity-request', $filename, 'public');
 
-                GeneralRequestsFiles::create([
-                    'gr_form_id' => $grForm->id,
+                GeneralElectricityRequestFiles::create([
+                    'ger_form_id' => $gerForm->id,
                     'file_path' => $path,
                     'file_type' => $file->getClientMimeType(),
                 ]);
@@ -77,32 +77,32 @@ class GeneralRequestsController extends Controller
         return redirect()->back()->with('success', 'ฟอร์มถูกส่งเรียบร้อยแล้ว');
     }
 
-    public function GeneralRequestsShowDetails()
+    public function GeneralElectricityRequestShowDetails()
     {
-        $forms = GeneralRequestsForm::with(['user', 'grReplies', 'grAttachments'])
+        $forms = GeneralElectricityRequestForm::with(['user', 'gerReplies', 'gerFiles'])
             ->where('users_id', Auth::id())
             ->get();
 
-        return view('users.ops.general-requests.account.show-detail', compact('forms'));
+        return view('users.tmo.general_electricity_request.account.show-detail', compact('forms'));
     }
 
-    public function GeneralRequestsUserExportPDF($id)
+    public function GeneralElectricityRequestUserExportPDF($id)
     {
-        $form = GeneralRequestsForm::find($id);
+        $form = GeneralElectricityRequestForm::find($id);
 
-        $pdf = Pdf::loadView('users.ops.general-requests.pdf-form', compact('form'))->setPaper('A4', 'portrait');
+        $pdf = Pdf::loadView('users.tmo.general_electricity_request.pdf-form', compact('form'))->setPaper('A4', 'portrait');
 
         return $pdf->stream('แบบคำขอร้องทั่วไป' . $form->id . '.pdf');
     }
 
-    public function GeneralRequestsUserReply(Request $request, $formId)
+    public function GeneralElectricityRequestUserReply(Request $request, $formId)
     {
         $request->validate([
             'message' => 'required|string|max:1000',
         ]);
 
-        GeneralRequestsReplies::create([
-            'gr_form_id' => $formId,
+        GeneralElectricityRequestReplies::create([
+            'ger_form_id' => $formId,
             'users_id' => auth()->id(),
             'reply_text' => $request->message,
             'reply_date' => now()->toDateString(),
@@ -111,14 +111,14 @@ class GeneralRequestsController extends Controller
         return redirect()->back()->with('success', 'ตอบกลับสำเร็จแล้ว!');
     }
 
-    public function GeneralRequestsUserShowFormEdit($id)
+    public function GeneralElectricityRequestUserShowFormEdit($id)
     {
-        $form = GeneralRequestsForm::with('grAttachments')->findOrFail($id);
+        $form = GeneralElectricityRequestForm::with('grAttachments')->findOrFail($id);
 
-        return view('users.ops.general-requests.account.edit-data', compact('form'));
+        return view('users.tmo.general_electricity_request.account.edit-data', compact('form'));
     }
 
-    public function GeneralRequestsUserUpdateForm(Request $request, $id)
+    public function GeneralElectricityRequestUserUpdateForm(Request $request, $id)
     {
         $request->validate([
             'date' => 'required|date',
@@ -137,9 +137,9 @@ class GeneralRequestsController extends Controller
             'delete_attachments.*' => 'integer',
         ]);
 
-        $grForm = GeneralRequestsForm::findOrFail($id);
+        $gerForm = GeneralElectricityRequestForm::findOrFail($id);
 
-        $grForm->update([
+        $gerForm->update([
             'date' => $request->date,
             'subject' => $request->subject,
             'salutation' => $request->salutation,
@@ -155,7 +155,7 @@ class GeneralRequestsController extends Controller
 
         if ($request->has('delete_attachments')) {
             foreach ($request->delete_attachments as $attachmentId) {
-                $attachment = GeneralRequestsFiles::find($attachmentId);
+                $attachment = GeneralElectricityRequestFiles::find($attachmentId);
                 if ($attachment) {
                     Storage::disk('public')->delete($attachment->file_path);
                     $attachment->delete();
@@ -167,10 +167,10 @@ class GeneralRequestsController extends Controller
             foreach ($request->file('attachments') as $file) {
                 $filename = time() . '_' . $file->getClientOriginalName();
 
-                $path = $file->storeAs('general-requests-files', $filename, 'public');
+                $path = $file->storeAs('general-electricity-request', $filename, 'public');
 
-                GeneralRequestsFiles::create([
-                    'gr_form_id' => $grForm->id,
+                GeneralElectricityRequestFiles::create([
+                    'ger_form_id' => $gerForm->id,
                     'file_path' => $path,
                     'file_type' => $file->getClientMimeType(),
                 ]);
