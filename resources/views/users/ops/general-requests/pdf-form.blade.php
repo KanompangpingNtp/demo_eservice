@@ -199,7 +199,6 @@
         <span style="margin-left:2rem;">จึงเรียนมาเพื่อโปรดพิจารณาให้ความอนุเคราะห์ในเรื่อง ดังกล่าว จักขอบคุณยิ่ง</span>
     </div>
 
-
     <div class="box_text" style="text-align: center; margin-top:2rem; margin-bottom:2rem; margin-left: 30px;">
         <span>ขอแสดงความนับถือ</span>
     </div>
