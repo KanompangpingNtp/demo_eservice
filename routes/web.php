@@ -4,14 +4,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ops\Generalrequests\GeneralRequestsController;
-use App\Http\Controllers\ops\Generalrequests\AdminGeneralRequestsController;
+
 use App\Http\Controllers\TMO\general_electricity_request\GeneralElectricityRequestController;
 use App\Http\Controllers\TMO\general_electricity_request\AdminGeneralElectricityRequestController;
 use App\Http\Controllers\TMO\general_road_request\GeneralRoadRequestController;
 use App\Http\Controllers\TMO\general_road_request\AdminGeneralRoadRequestController;
+
+use App\Http\Controllers\ops\Generalrequests\GeneralRequestsController;
+use App\Http\Controllers\ops\Generalrequests\AdminGeneralRequestsController;
 use App\Http\Controllers\ops\elderly_allowance\ElderlyAllowanceController;
 use App\Http\Controllers\ops\elderly_allowance\AdminElderlyAllowanceController;
+
+use App\Http\Controllers\public_health\food_storage_license\FoodStorageLicenseController;
+use App\Http\Controllers\public_health\food_storage_license\AdminFoodStorageLicenseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +29,13 @@ use App\Http\Controllers\ops\elderly_allowance\AdminElderlyAllowanceController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('pages.first-page.app');
-// });
+Route::get('/pdf', function () {
+    return view('users.public_health.food_storage_license.pdf-form');
+});
+
+//คำร้องทั่วไป
+Route::get('/food_storage_license', [FoodStorageLicenseController::class, 'FoodStorageLicenseFormPage'])->name('FoodStorageLicenseFormPage');
+Route::post('/food_storage_license/form/create', [FoodStorageLicenseController::class, 'FoodStorageLicenseFormCreate'])->name('FoodStorageLicenseFormCreate');
 
 //auth
 Route::get('/login', [AuthController::class, 'LoginPage'])->name('LoginPage');
