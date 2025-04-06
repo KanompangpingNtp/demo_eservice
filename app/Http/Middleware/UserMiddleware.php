@@ -20,6 +20,7 @@ class UserMiddleware
             return $next($request); // อนุญาตให้ admin ผ่าน
         }
 
-        return redirect('/')->with('error', 'คุณไม่มีสิทธิ์เข้าถึงหน้านี้');
+        // return redirect('/')->with('error', 'คุณไม่มีสิทธิ์เข้าถึงหน้านี้');
+        return redirect()->route('LoginPage')->with('error', 'คุณไม่มีสิทธิ์เข้าถึงหน้านี้');
     }
 }
