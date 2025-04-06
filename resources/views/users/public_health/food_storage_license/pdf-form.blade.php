@@ -116,6 +116,7 @@
 
     <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/pdf/logo.png'))) }}"
     alt="Logo" height="120">
+    <p>แบบคำร้องใบอณุญาตสะสมอาหาร</p>
 
 </body>
 </html>

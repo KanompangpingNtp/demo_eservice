@@ -20,6 +20,7 @@
         h4 {
             color: blue;
         }
+
     </style>
 
     @if ($message = Session::get('success'))
@@ -44,23 +45,23 @@
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 @auth
-                    <!-- เมนูสำหรับผู้ใช้ที่ล็อกอินแล้ว -->
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user fa-fw"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li>
-                            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                                @csrf
-                                <button type="submit" class="dropdown-item">
-                                    ออกจากระบบ<i class="bi bi-door-closed-fill ms-3"></i>
-                                </button>
-                            </form>
-                        </li>
-                    </ul>
+                <!-- เมนูสำหรับผู้ใช้ที่ล็อกอินแล้ว -->
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user fa-fw"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li>
+                        <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                            @csrf
+                            <button type="submit" class="dropdown-item">
+                                ออกจากระบบ<i class="bi bi-door-closed-fill ms-3"></i>
+                            </button>
+                        </form>
+                    </li>
+                </ul>
                 @else
-                    <!-- เมนูสำหรับผู้ที่ยังไม่ได้ล็อกอิน -->
-                    <a class="nav-link btn btn-primary" href="{{route('LoginPage')}}">เข้าสู่ระบบ</a>
+                <!-- เมนูสำหรับผู้ที่ยังไม่ได้ล็อกอิน -->
+                <a class="nav-link btn btn-primary" href="{{route('LoginPage')}}">เข้าสู่ระบบ</a>
                 @endauth
             </li>
         </ul>
@@ -132,6 +133,23 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="{{route('GeneralRoadRequestFormPage')}}">ฟอร์ม</a>
                                 <a class="nav-link" href="{{route('GeneralRoadRequestShowDetails')}}">ประวัติการส่งฟอร์ม</a>
+                            </nav>
+                        </div>
+
+                        <div class="sb-sidenav-menu-heading">กองสาธารณสุขและสิ่งแวดล้อม</div>
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#public_health1" aria-expanded="false" aria-controls="public_health1">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
+                            แบบคำร้องใบอณุญาตสะสมอาหาร
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="public_health1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('FoodStorageLicenseFormPage')}}">ฟอร์ม</a>
+                                <a class="nav-link" href="{{route('FoodStorageLicenseShowDetails')}}">ประวัติการส่งฟอร์ม</a>
                             </nav>
                         </div>
                     </div>
