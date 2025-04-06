@@ -100,6 +100,14 @@
         height: 500px;
         width: 100%;
     }
+
+    .btn-check:checked+.btn {
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+    }
+
+    .btn-check:active+.btn {
+        box-shadow: 0 0 12px rgba(255, 0, 0, 0.9);
+    }
 </style>
 <main>
     <div class="bg-firstpage d-flex flex-column justify-content-between ">
@@ -128,7 +136,7 @@
             <div class="card w-100 m-3">
                 <div class="card-body">
                     <div id="map"></div>
-                    <button class="btn btn-primary mt-2">ตำแหน่งของคุณ</button>
+                    <button type="button" class="btn btn-primary mt-2" onclick="markMyLocation()">ตำแหน่งของคุณ</button>
                 </div>
             </div>
 
@@ -136,41 +144,51 @@
                 <div class="col-lg-12 d-flex flex-column justify-content-center align-items-center align-items-lg-start">
                     <div class="card w-100">
                         <div class="card-body">
-                            <div class="mb-1 row">
-                                <label for="selectBookregist" class="col-sm-5 col-form-label d-flex justify-content-start">ตัวอย่างรูปสถานที่เกิดเหตุ : </label>
-                                <div class="col-sm-12">
-                                    <div class="input-group mb-3">
-                                        <label class="input-group-text" id="basic-addon2" for="imageInput" style="cursor: pointer;">
-                                            <i class="fa fa-camera"></i>
-                                        </label>
-                                        <input type="text" id="fileNameDisplay" class="form-control" placeholder="ตัวอย่างรูปสถานที่เกิดเหตุ" readonly>
-                                        <input type="file" accept="image/*" capture="environment" id="imageInput" style="display: none;">
+                            <form id="myform">
+                                <div class="row">
+                                    <label for="selectBookregist" class="col-sm-5 col-form-label d-flex justify-content-start">ตัวอย่างรูปสถานที่เกิดเหตุ : </label>
+                                    <div class="col-sm-12">
+                                        <div class="input-group mb-3">
+                                            <label class="input-group-text" id="basic-addon2" for="file" style="cursor: pointer;">
+                                                <i class="fa fa-camera"></i>
+                                            </label>
+                                            <input type="text" id="fileNameDisplay" class="form-control" placeholder="ตัวอย่างรูปสถานที่เกิดเหตุ" readonly>
+                                            <input type="file" accept="image/*" capture="environment" id="file" name="file" style="display: none;" onchange="displayFileName()">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="selectBookregist" class="col-sm-4 col-form-label d-flex justify-content-start">รายละเอียด : </label>
-                                <div class="col-sm-12">
-                                    <textarea class="form-control" name="" id=""></textarea>
+                                <div class="mb-3 row">
+                                    <label for="selectBookregist" class="col-sm-4 col-form-label d-flex justify-content-start">รายละเอียด : </label>
+                                    <div class="col-sm-12">
+                                        <textarea rows="5" class="form-control" name="detail" id="detail" required></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <div class="btn-group" role="group" aria-label="เลือกตัวเลือก">
-                                    <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
-                                    <label class="btn btn-outline-danger" for="option1">อุบัติเหตุ</label>
+                                <div class="mb-3 row">
+                                    <div class="btn-group" role="group" aria-label="เลือกตัวเลือก">
+                                        <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off">
+                                        <label class="btn btn-outline-danger" for="option1" title="อุบัติเหตุ"><i class="fa-solid fa-truck-medical"></i></label>
 
-                                    <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-                                    <label class="btn btn-outline-danger" for="option2">ไฟไหม้</label>
+                                        <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+                                        <label class="btn btn-outline-danger" for="option2" title="ไฟไหม้"><i class="fa-solid fa-fire-extinguisher"></i></label>
 
-                                    <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
-                                    <label class="btn btn-outline-danger" for="option3">อุบัติเหตุ</label>
+                                        <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
+                                        <label class="btn btn-outline-danger" for="option3" title="ไฟเสีย"><i class="fa-solid fa-bolt-lightning"></i></label>
+
+                                        <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
+                                        <label class="btn btn-outline-danger" for="option4" title="ถนนพัง"><i class="fa-solid fa-road-circle-exclamation"></i></label>
+
+                                        <input type="radio" class="btn-check" name="options" id="option5" autocomplete="off">
+                                        <label class="btn btn-outline-danger" for="option5" title="ต้นไม้ล้ม"><i class="fa fa-tree"></i></label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mt-3 row">
-                                <div class="col-sm-12">
-                                    <button class="btn btn-success">แจ้งเหตุ</button>
+                                <input type="hidden" name="latitude" id="latitude">
+                                <input type="hidden" name="longitude" id="longitude">
+                                <div class="mt-3 row">
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="btn btn-success">แจ้งเหตุ</button>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -201,6 +219,7 @@
         </div>
     </div>
 </main>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     let map;
     let marker;
@@ -210,31 +229,10 @@
             lat: position.coords.latitude,
             lng: position.coords.longitude,
         };
+
         map = new google.maps.Map(document.getElementById("map"), {
             center: userLocation,
             zoom: 15,
-        });
-        marker = new google.maps.Marker({
-            position: userLocation,
-            map: map,
-            title: "คุณอยู่ที่นี่",
-        });
-        const info = new google.maps.InfoWindow({
-            content: "ตำแหน่งเริ่มต้นของคุณ",
-        });
-        info.open(map, marker);
-        map.addListener("click", function(e) {
-            const clickedLocation = e.latLng;
-            marker.setMap(null);
-            marker = new google.maps.Marker({
-                position: clickedLocation,
-                map: map,
-                title: "ตำแหน่งใหม่",
-            });
-            const info = new google.maps.InfoWindow({
-                content: `Lat: ${clickedLocation.lat().toFixed(5)}<br>Lng: ${clickedLocation.lng().toFixed(5)}`
-            });
-            info.open(map, marker);
         });
     }
 
@@ -250,6 +248,85 @@
             alert("เบราว์เซอร์ไม่รองรับ Geolocation");
         }
     }
+
+    function markMyLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    const userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                    };
+                    map.setCenter(userLocation);
+                    map.setZoom(16);
+                    if (marker) {
+                        marker.setMap(null);
+                    }
+                    marker = new google.maps.Marker({
+                        position: userLocation,
+                        map: map,
+                        title: "คุณอยู่ที่นี่",
+                    });
+                    const info = new google.maps.InfoWindow({
+                        content: "ตำแหน่งของคุณ"
+                    });
+                    info.open(map, marker);
+
+                    document.getElementById("latitude").value = userLocation.lat;
+                    document.getElementById("longitude").value = userLocation.lng;
+                },
+                function() {
+                    alert("ไม่สามารถดึงตำแหน่งของคุณได้");
+                }
+            );
+        } else {
+            alert("เบราว์เซอร์ไม่รองรับ Geolocation");
+        }
+    }
+
+    const buttons = document.querySelectorAll('input[name="options"]');
+    buttons.forEach(btn => {
+        btn.addEventListener('change', () => {
+            console.log('เลือก:', btn.id);
+        });
+    });
+
+    function displayFileName() {
+        var input = document.getElementById("file");
+        var fileNameDisplay = document.getElementById("fileNameDisplay");
+        var fileName = input.files[0] ? input.files[0].name : "ไม่มีไฟล์ที่เลือก";
+        fileNameDisplay.value = fileName;
+    }
+    document.getElementById("fileNameDisplay").addEventListener("click", function() {
+        document.getElementById("file").click();
+    });
+
+    $('#myform').submit(function(e) {
+        e.preventDefault();
+        const lat = $('#latitude').val();
+        const lng = $('#longitude').val();
+        const file = $('#file').val();
+        const detail = $('#detail').val().trim();
+        const selectedOption = $('input[name="options"]:checked').val();
+
+        if (!lat && !lng) {
+            alert("กรุณาแจ้งตำแหน่งอุบัติเหตุของท่าน");
+            return;
+        }
+        if (!file) {
+            alert("กรุณาเลือกถ่ายภาพสถานที่เกิดเหตุ");
+            return;
+        }
+        if (detail === "") {
+            alert("กรุณากรอกรายละเอียด");
+            return;
+        }
+        if (!selectedOption) {
+            alert("กรุณาบอกประเภทของอุบัติเหตุ");
+            return;
+        }
+        this.submit();
+    });
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB525cpMEpjYlG8HiWgBqPCbaZU6HHxprY&callback=loadMapWithLocation"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB525cpMEpjYlG8HiWgBqPCbaZU6HHxprY&callback=loadMapWithLocation&signature=32RwW2GW7neU_vipuV3KKE4KFBw="></script>
 @endsection
