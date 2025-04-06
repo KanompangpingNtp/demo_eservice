@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\emergency\EmergencyController;
+use App\Http\Controllers\ops\Generalrequests\GeneralRequestsController;
+use App\Http\Controllers\ops\Generalrequests\AdminGeneralRequestsController;
 use App\Http\Controllers\TMO\general_electricity_request\GeneralElectricityRequestController;
 use App\Http\Controllers\TMO\general_electricity_request\AdminGeneralElectricityRequestController;
 use App\Http\Controllers\TMO\general_road_request\GeneralRoadRequestController;
@@ -120,3 +122,5 @@ Route::middleware(['user'])->group(function () {
     Route::get('/user-account/elderly-allowance/show-edit/{id}', [ElderlyAllowanceController::class, 'ElderlyAllowanceUserShowEdit'])->name('ElderlyAllowanceUserShowEdit');
     Route::put('/user-account/elderly-allowance/update-data/{id}', [ElderlyAllowanceController::class, 'ElderlyAllowanceUserUpdateForm'])->name('ElderlyAllowanceUserUpdateForm');
 });
+
+Route::get('/emergency', [EmergencyController::class, 'index'])->name('emergency.index');
