@@ -32,7 +32,7 @@
                             @endif
                         </td>
                         <td>
-                            <a href="#" class="btn btn-warning btn-sm text-white">
+                            <a href="{{route('FoodStorageLicenseUserShowFormEdit',$form->id)}}" class="btn btn-warning btn-sm text-white">
                                 <i class="bi bi-pencil-square"></i></a>
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                 data-bs-target="#submitModal-{{ $form->id }}">

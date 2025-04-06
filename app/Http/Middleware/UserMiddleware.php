@@ -17,7 +17,7 @@ class UserMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check() && Auth::user()->level === 'user') {
-            return $next($request); // อนุญาตให้ admin ผ่าน
+            return $next($request);
         }
 
         // return redirect('/')->with('error', 'คุณไม่มีสิทธิ์เข้าถึงหน้านี้');

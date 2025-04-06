@@ -125,10 +125,10 @@ class FoodStorageLicenseController extends Controller
             foreach ($request->file('attachments') as $file) {
                 $filename = time() . '_' . $file->getClientOriginalName();
 
-                $path = $file->storeAs('general-electricity-request', $filename, 'public');
+                $path = $file->storeAs('attachments', $filename, 'public');
 
                 FoodStorageFormFiles::create([
-                    'form_detail_id' => $FoodStorageInformations->id,
+                    'informations_id' => $FoodStorageInformations->id,
                     'file_path' => $path,
                     'file_type' => $file->getClientMimeType(),
                 ]);
@@ -176,5 +176,19 @@ class FoodStorageLicenseController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'ตอบกลับสำเร็จแล้ว!');
+    }
+
+    public function FoodStorageLicenseUserShowFormEdit($id)
+    {
+        $form = FoodStorageInformations::with('files','details')->findOrFail($id);
+
+        if ($form->details->first() && $form->details->first()->document_option) {
+            $document_option = $form->details->first()->document_option;
+            if (is_string($document_option)) {
+                $form->details->first()->document_option = json_decode($document_option, true);
+            }
+        }
+
+        return view('users.public_health.food_storage_license.account.edit-data', compact('form'));
     }
 }
