@@ -5,8 +5,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\emergency\EmergencyController;
-use App\Http\Controllers\ops\Generalrequests\GeneralRequestsController;
-use App\Http\Controllers\ops\Generalrequests\AdminGeneralRequestsController;
+
 use App\Http\Controllers\TMO\general_electricity_request\GeneralElectricityRequestController;
 use App\Http\Controllers\TMO\general_electricity_request\AdminGeneralElectricityRequestController;
 use App\Http\Controllers\TMO\general_road_request\GeneralRoadRequestController;
