@@ -170,3 +170,4 @@ Route::middleware(['user'])->group(function () {
 });
 
 Route::get('/emergency', [EmergencyController::class, 'index'])->name('emergency.index');
+Route::post('/emergency/send', [EmergencyController::class, 'send'])->name('emergency.send');

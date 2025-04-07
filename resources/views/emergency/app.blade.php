@@ -144,7 +144,7 @@
                 <div class="col-lg-12 d-flex flex-column justify-content-center align-items-center align-items-lg-start">
                     <div class="card w-100">
                         <div class="card-body">
-                            <form id="myform">
+                            <form id="myform" enctype="multipart/form-data">
                                 <div class="row">
                                     <label for="selectBookregist" class="col-sm-5 col-form-label d-flex justify-content-start">ตัวอย่างรูปสถานที่เกิดเหตุ : </label>
                                     <div class="col-sm-12">
@@ -165,19 +165,19 @@
                                 </div>
                                 <div class="mb-3 row">
                                     <div class="btn-group" role="group" aria-label="เลือกตัวเลือก">
-                                        <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off">
+                                        <input type="radio" class="btn-check" name="options" id="option1" value="1" autocomplete="off">
                                         <label class="btn btn-outline-danger" for="option1" title="อุบัติเหตุ"><i class="fa-solid fa-truck-medical"></i></label>
 
-                                        <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+                                        <input type="radio" class="btn-check" name="options" id="option2" value="2" autocomplete="off">
                                         <label class="btn btn-outline-danger" for="option2" title="ไฟไหม้"><i class="fa-solid fa-fire-extinguisher"></i></label>
 
-                                        <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
+                                        <input type="radio" class="btn-check" name="options" id="option3" value="3" autocomplete="off">
                                         <label class="btn btn-outline-danger" for="option3" title="ไฟเสีย"><i class="fa-solid fa-bolt-lightning"></i></label>
 
-                                        <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
+                                        <input type="radio" class="btn-check" name="options" id="option4" value="4" autocomplete="off">
                                         <label class="btn btn-outline-danger" for="option4" title="ถนนพัง"><i class="fa-solid fa-road-circle-exclamation"></i></label>
 
-                                        <input type="radio" class="btn-check" name="options" id="option5" autocomplete="off">
+                                        <input type="radio" class="btn-check" name="options" id="option5" value="5" autocomplete="off">
                                         <label class="btn btn-outline-danger" for="option5" title="ต้นไม้ล้ม"><i class="fa fa-tree"></i></label>
                                     </div>
                                 </div>
@@ -220,6 +220,7 @@
     </div>
 </main>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     let map;
     let marker;
@@ -310,22 +311,70 @@
         const selectedOption = $('input[name="options"]:checked').val();
 
         if (!lat && !lng) {
-            alert("กรุณาแจ้งตำแหน่งอุบัติเหตุของท่าน");
+            Swal.fire({
+                title: "กรุณาแจ้งตำแหน่งอุบัติเหตุของท่าน",
+                text: "",
+                icon: "warning"
+            });
             return;
         }
         if (!file) {
-            alert("กรุณาเลือกถ่ายภาพสถานที่เกิดเหตุ");
+            Swal.fire({
+                title: "กรุณาเลือกถ่ายภาพสถานที่เกิดเหตุ",
+                text: "",
+                icon: "warning"
+            });
             return;
         }
         if (detail === "") {
-            alert("กรุณากรอกรายละเอียด");
+            Swal.fire({
+                title: "กรุณากรอกรายละเอียด",
+                text: "",
+                icon: "warning"
+            });
             return;
         }
         if (!selectedOption) {
-            alert("กรุณาบอกประเภทของอุบัติเหตุ");
+            Swal.fire({
+                title: "กรุณาบอกประเภทของอุบัติเหตุ",
+                text: "",
+                icon: "warning"
+            });
             return;
         }
-        this.submit();
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: '/emergency/send',
+            type: 'POST',
+            data: formData,
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                if (response.status) {
+                    Swal.fire({
+                        title: response.message,
+                        text: "",
+                        icon: "success"
+                    });
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
+                } else {
+                    Swal.fire({
+                        title: response.message,
+                        text: "",
+                        icon: "error"
+                    });
+                }
+            },
+            error: function(err) {
+                console.error('เกิดข้อผิดพลาด:', err);
+            }
+        });
     });
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB525cpMEpjYlG8HiWgBqPCbaZU6HHxprY&callback=loadMapWithLocation&signature=32RwW2GW7neU_vipuV3KKE4KFBw="></script>
