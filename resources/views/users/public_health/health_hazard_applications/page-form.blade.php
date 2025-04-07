@@ -118,7 +118,7 @@
             </div>
 
             <div class="col-md-3">
-                <label for="location" class="form-label">สถานที่ตั้งเลขที่</label>
+                <label for="location" class="form-label">ตั้งอยู่ที่</label>
                 <input type="text" class="form-control" id="location" name="location">
             </div>
 

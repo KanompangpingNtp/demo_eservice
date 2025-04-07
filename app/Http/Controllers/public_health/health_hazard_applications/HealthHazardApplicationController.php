@@ -147,4 +147,36 @@ class HealthHazardApplicationController extends Controller
 
         return $pdf->stream('pdf' . $form->id . '.pdf');
     }
+
+    public function HealthHazardApplicationUserReply(Request $request, $formId)
+    {
+        $request->validate([
+            'message' => 'required|string|max:1000',
+        ]);
+
+        // dd($request);
+
+        HealthLicenseReplies::create([
+            'health_license_id' => $formId,
+            'users_id' => auth()->id(),
+            'reply_text' => $request->message,
+            'reply_date' => now()->toDateString(),
+        ]);
+
+        return redirect()->back()->with('success', 'ตอบกลับสำเร็จแล้ว!');
+    }
+
+    public function HealthHazardApplicationUserShowFormEdit($id)
+    {
+        $form = HealthLicenseApp::with('files','details')->findOrFail($id);
+
+        if ($form->details->first() && $form->details->first()->document_option) {
+            $document_option = $form->details->first()->document_option;
+            if (is_string($document_option)) {
+                $form->details->first()->document_option = json_decode($document_option, true);
+            }
+        }
+
+        return view('users.public_health.health_hazard_applications.account.edit-data', compact('form'));
+    }
 }

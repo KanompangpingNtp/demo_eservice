@@ -73,7 +73,7 @@
                     @auth
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">สำนักปลัด</div>
-                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#ops1" aria-expanded="false" aria-controls="ops1">
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-clipboard"></i>
                             </div>
@@ -82,13 +82,14 @@
                                 <i class="fas fa-angle-down"></i>
                             </div>
                         </a>
-                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <div class="collapse" id="ops1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="{{route('GeneralRequestsFormPage')}}">ฟอร์ม</a>
                                 <a class="nav-link" href="{{route('GeneralRequestsShowDetails')}}">ประวัติการส่งฟอร์ม</a>
                             </nav>
                         </div>
-                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts3">
+
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#ops2" aria-expanded="false" aria-controls="ops2">
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-clipboard"></i>
                             </div>
@@ -97,10 +98,26 @@
                                 <i class="fas fa-angle-down"></i>
                             </div>
                         </a>
-                        <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <div class="collapse" id="ops2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="{{route('ElderlyAllowanceFormPage')}}">ฟอร์ม</a>
                                 <a class="nav-link" href="{{route('ElderlyAllowanceShowDetails')}}">ประวัติการส่งฟอร์ม</a>
+                            </nav>
+                        </div>
+
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#ops3" aria-expanded="false" aria-controls="ops3">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
+                            แบบคำขอลงทะเบียนรับเงินเบี้ยความพิการ
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="ops3" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('DisabilityFormPage')}}">ฟอร์ม</a>
+                                <a class="nav-link" href="{{route('TableDisabilityUsersPages')}}">ประวัติการส่งฟอร์ม</a>
                             </nav>
                         </div>
 

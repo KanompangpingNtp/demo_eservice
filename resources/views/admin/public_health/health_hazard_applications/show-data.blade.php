@@ -1,5 +1,5 @@
-@extends('users.layout.layout')
-@section('pages_content')
+@extends('admin.layout.layout')
+@section('admin_content')
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
@@ -25,15 +25,13 @@
                         <td>{{ $form->user ? $form->user->name : 'ผู้ใช้งานทั่วไป' }}</td>
                         <td>{{ $form->admin_name_verifier }}</td>
                         <td>
-                            @if ($form->status == 1)
+                            @if ($form->form_status == 1)
                                 <p> - </p>
-                            @elseif($form->status == 2)
+                            @elseif($form->form_status == 2)
                                 <p style="font-size: 20px; color:blue;"><i class="bi bi-check-circle"></i></p>
                             @endif
                         </td>
                         <td>
-                            <a href="{{route('HealthHazardApplicationUserShowFormEdit',$form->id)}}" class="btn btn-warning btn-sm text-white">
-                                <i class="bi bi-pencil-square"></i></a>
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                 data-bs-target="#submitModal-{{ $form->id }}">
                                 <i class="bi bi-filetype-pdf"></i>
@@ -62,7 +60,7 @@
                         </div>
                         <div class="modal-body">
                             <span style="color: black;">preview</span>
-                            <a href="{{ route('HealthHazardApplicationUserExportPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
+                            <a href="{{ route('HealthHazardApplicationAdminExportPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
                                 <i class="bi bi-file-earmark-pdf"></i>
                             </a>
                             <br>
@@ -75,8 +73,14 @@
                                 </span>
                             @endforeach
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <span class="text-start" style="color: black;">รับฟอร์ม</span>
+                            <form action="{{ route('HealthHazardApplicationUpdateStatus', $form->id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary btn-sm" @if($form->form_status == 2) disabled @endif>
+                                กดรับแบบฟอร์ม
+                            </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -120,7 +124,7 @@
                                     @endforelse
                                 </tbody>
                             </table>
-                            <form action="{{ route('HealthHazardApplicationUserReply', $form->id) }}" method="POST">
+                            <form action="{{ route('HealthHazardApplicationAdminReply', $form->id) }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="message" class="form-label">ข้อความตอบกลับ</label>

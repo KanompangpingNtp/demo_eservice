@@ -64,6 +64,11 @@
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
                             แบบยืนยันเบี้ยยังชีพผ้สูงอายุ
                         </a>
+                        <a class="nav-link" href="{{route('DisabilityAdminShowData')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            แบบคำขอลงทะเบียนรับเงินเบี้ยความพิการ
+                        </a>
+
                         <div class="sb-sidenav-menu-heading">กองช่าง</div>
                         <a class="nav-link" href="{{route('GeneralElectricityRequestAdminShowData')}}">
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
@@ -73,10 +78,15 @@
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
                             คำร้องทั่วไป (แจ้งถนนชำรุด)
                         </a>
+
                         <div class="sb-sidenav-menu-heading">กองสาธารณสุขและสิ่งแวดล้อม</div>
                         <a class="nav-link" href="{{route('FoodStorageLicenseAdminShowData')}}">
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
                             แบบคำร้องใบอณุญาตสะสมอาหาร
+                        </a>
+                        <a class="nav-link" href="{{route('HealthHazardApplicationAdminShowData')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
                         </a>
                     </div>
                 </div>

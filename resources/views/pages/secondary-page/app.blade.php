@@ -148,7 +148,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{route('DisabilityFormPage')}}">
                                     เบี้ยยังชีพผู้พิการ
                                 </a>
                             </li>

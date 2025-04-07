@@ -12,9 +12,9 @@
 @endif
 
 <div class="container">
-    <a href="#">กลับ</a><br>
-    <h2 class="text-center mb-4">แบบคำร้องใบอณุญาตสะสมอาหาร</h2><br>
-    <h2 class="text-center">แก้ไขฟอร์ม</h2><br>
+    <a href="{{route('HealthHazardApplicationShowDetails')}}" class="btn btn-primary">กลับ</a><br>
+    <h2 class="text-center mb-4">แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</h2>
+    <h3 class="text-center">แก้ไขฟอร์ม</h3><br>
 
     <form action="#" method="POST" enctype="multipart/form-data">
         @csrf
@@ -119,63 +119,24 @@
         <br>
         <h5>ขอยื่นคำร้องขอรับ/ขอต่ออายุใบอนุญาตจัดตั้งสถานที่ ต่อเข้าพนักงานท้องถิ่น</h5><br>
 
-        <div class="col-md-5 mb-3">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="confirm_option" id="confirm_food_selling"
-                    value="จัดตั้งสถานที่จำหน่ายอาหาร"
-                    @checked(old('confirm_option', $form->details->first()->confirm_option ?? '') == 'จัดตั้งสถานที่จำหน่ายอาหาร') required>
-                <label class="form-check-label" for="confirm_food_selling">
-                    จัดตั้งสถานที่จำหน่ายอาหาร
-                </label>
-            </div>
-
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="confirm_option" id="confirm_food_storage"
-                    value="จัดตั้งสถานที่สะสมอาหาร"
-                    @checked(old('confirm_option', $form->details->first()->confirm_option ?? '') == 'จัดตั้งสถานที่สะสมอาหาร')>
-                <label class="form-check-label" for="confirm_food_storage">
-                    จัดตั้งสถานที่สะสมอาหาร
-                </label>
-            </div>
-        </div>
-
         <div class="row g-3 mb-3">
-            <div class="col-md-3">
-                <label for="confirm_volume" class="form-label">ตามใบอนุญาต เล่มที่</label>
-                <input type="text" class="form-control" id="confirm_volume" name="confirm_volume" value="{{ old('confirm_volume', $form->details->first()->confirm_volume ?? '') }}">
+            <div class="col-md-8">
+                <label for="type_request" class="form-label">ประเภท</label>
+                <input type="text" class="form-control" id="type_request" name="type_request" value="{{ old('type_request', $form->details->first()->type_request ?? '') }}">
+            </div>
+
+            <div class="col-md-4">
+                <label for="petition" class="form-label">ข้อ</label>
+                <input type="text" class="form-control" id="petition" name="petition" value="{{ old('petition', $form->details->first()->petition ?? '') }}">
+            </div>
+
+            <div class="col-md-12">
+                <label for="name_establishment" class="form-label">ชื่อสถานประกอบการ</label>
+                <input type="text" class="form-control" id="name_establishment" name="name_establishment value="{{ old('name_establishment', $form->details->first()->name_establishment ?? '') }}">
             </div>
 
             <div class="col-md-3">
-                <label for="confirm_number" class="form-label">เลขที่</label>
-                <input type="text" class="form-control" id="confirm_number" name="confirm_number" value="{{ old('confirm_number', $form->details->first()->confirm_number ?? '') }}">
-            </div>
-
-            <div class="col-md-3">
-                <label for="confirm_year" class="form-label">ปี</label>
-                <input type="text" class="form-control" id="confirm_year" name="confirm_year" value="{{ old('confirm_year', $form->details->first()->confirm_year ?? '') }}">
-            </div>
-
-            <div class="col-md-3">
-                <label for="confirm_expiration_date" class="form-label">ซึ่งจะหมดอายุลงในวันที่</label>
-                <input type="date" class="form-control" id="confirm_expiration_date" name="confirm_expiration_date" value="{{ old('confirm_expiration_date', $form->details->first()->confirm_expiration_date ?? '') }}">
-            </div>
-        </div>
-
-        <div class="row g-3 mb-3">
-            <div class="col-md-3">
-                <label for="place_name" class="form-label"><strong>1.</strong> สถานที่ชื่อ</label>
-                <input type="text" class="form-control" id="place_name" name="place_name" value="{{ old('place_name', $form->details->first()->place_name ?? '') }}">
-            </div>
-
-            <div class="col-md-3">
-                <label for="shop_type" class="form-label">ประเภทร้าน</label>
-                <input type="text" class="form-control" id="shop_type" name="shop_type" value="{{ old('shop_type', $form->details->first()->shop_type ?? '') }}">
-            </div>
-        </div>
-
-        <div class="row g-3 mb-3">
-            <div class="col-md-3">
-                <label for="location" class="form-label"><strong>2.</strong> สถานที่ตั้งเลขที่</label>
+                <label for="location" class="form-label">ตั้งอยู่ที่</label>
                 <input type="text" class="form-control" id="location" name="location" value="{{ old('location', $form->details->first()->location ?? '') }}">
             </div>
 
@@ -220,43 +181,8 @@
             </div>
 
             <div class="col-md-3">
-                <label for="business_area" class="form-label">พื้นที่ประกอบการ (ตารางเมตร)</label>
-                <input type="text" class="form-control" id="business_area" name="business_area" value="{{ old('business_area', $form->details->first()->business_area ?? '') }}">
-            </div>
-
-            <div class="col-md-3">
-                <label for="number_of_cooks" class="form-label">จำนวนผู้ปรุง (คน)</label>
-                <input type="text" class="form-control" id="number_of_cooks" name="number_of_cooks" value="{{ old('number_of_cooks', $form->details->first()->number_of_cooks ?? '') }}">
-            </div>
-
-            <div class="col-md-3">
-                <label for="number_of_food" class="form-label">ผู้เสิร์ฟ (คน)</label>
-                <input type="text" class="form-control" id="number_of_food" name="number_of_food" value="{{ old('number_of_food', $form->details->first()->number_of_food ?? '') }}">
-            </div>
-
-            <div class="col-md-3">
-                <label for="including_food_handlers" class="form-label">รวมผู้สัมผัสอาหาร (คน)</label>
-                <input type="text" class="form-control" id="including_food_handlers" name="including_food_handlers" value="{{ old('including_food_handlers', $form->details->first()->including_food_handlers ?? '') }}">
-            </div>
-
-            <div class="col-md-3">
-                <label for="number_of_trainees" class="form-label">ผ่านการอบรมแล้วจำนวน (คน)</label>
-                <input type="text" class="form-control" id="number_of_trainees" name="number_of_trainees" value="{{ old('number_of_trainees', $form->details->first()->number_of_trainees ?? '') }}">
-            </div>
-
-            <div class="col-md-3">
                 <label for="opening_hours" class="form-label">เปิดประกอบการตั้งแต่เวลา (น.)</label>
                 <input type="text" class="form-control" id="opening_hours" name="opening_hours" value="{{ old('opening_hours', $form->details->first()->opening_hours ?? '') }}">
-            </div>
-
-            <div class="col-md-3">
-                <label for="opening_for_business_until" class="form-label">ถึงเวลา (น.)</label>
-                <input type="text" class="form-control" id="opening_for_business_until" name="opening_for_business_until" value="{{ old('opening_for_business_until', $form->details->first()->opening_for_business_until ?? '') }}">
-            </div>
-
-            <div class="col-md-3">
-                <label for="total_hours" class="form-label">รวม (ชั่วโมง/วัน)</label>
-                <input type="text" class="form-control" id="total_hours" name="total_hours" value="{{ old('total_hours', $form->details->first()->total_hours ?? '') }}">
             </div>
 
             <br>
