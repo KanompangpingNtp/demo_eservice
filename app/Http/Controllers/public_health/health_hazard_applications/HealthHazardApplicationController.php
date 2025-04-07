@@ -1,27 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\public_health\food_storage_license;
+namespace App\Http\Controllers\public_health\health_hazard_applications;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\FoodStorageInformations;
-use App\Models\FoodStorageFormDetails;
-use App\Models\FoodStorageFormFiles;
-use App\Models\FoodStorageFormReplies;
+use App\Models\HealthLicenseApp;
+use App\Models\HealthLicenseDetail;
+use App\Models\HealthLicenseFiles;
+use App\Models\HealthLicenseReplies;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 
-class FoodStorageLicenseController extends Controller
+class HealthHazardApplicationController extends Controller
 {
-    public function FoodStorageLicenseFormPage()
+    public function HealthHazardApplicationFormPage()
     {
-        return view('users.public_health.food_storage_license.page-form');
+        return view('users.public_health.health_hazard_applications.page-form');
     }
 
-    public function FoodStorageLicenseFormCreate(Request $request)
+    public function HealthHazardApplicationFormCreate(Request $request)
     {
         $request->validate([
-            // food_storage_informations
             'title_name' => 'required|in:บุคคลธรรมดา,นิติบุคคล',
             'salutation' => 'nullable|string|max:20',
             'full_name' => 'required|string|max:255',
@@ -38,14 +37,9 @@ class FoodStorageLicenseController extends Controller
             'telephone' => 'required|string',
             'fax' => 'required|string',
 
-            // food_storage_form_details
-            'confirm_option' => 'required|in:จัดตั้งสถานที่จำหน่ายอาหาร,จัดตั้งสถานที่สะสมอาหาร',
-            'confirm_volume' => 'nullable|string|max:255',
-            'confirm_number' => 'nullable|string|max:255',
-            'confirm_year' => 'nullable|string|max:255',
-            'confirm_expiration_date' => 'nullable|date',
-            'place_name' => 'nullable|string|max:255',
-            'shop_type' => 'nullable|string|max:255',
+            'type_request' => 'required|string|max:255',
+            'petition' => 'required|string|max:255',
+            'name_establishment' => 'required|string|max:255',
             'location' => 'nullable|string|max:255',
             'details_village' => 'nullable|string|max:255',
             'details_alley' => 'nullable|string|max:255',
@@ -56,23 +50,20 @@ class FoodStorageLicenseController extends Controller
             'details_telephone' => 'nullable|string|max:255',
             'details_fax' => 'nullable|string|max:255',
             'business_area' => 'nullable|string|max:255',
-            'number_of_cooks' => 'nullable|string|max:255',
-            'number_of_food' => 'nullable|string|max:255',
-            'including_food_handlers' => 'nullable|string|max:255',
-            'number_of_trainees' => 'nullable|string|max:255',
+            'machine_power' => 'nullable|string|max:255',
+            'number_male_workers' => 'nullable|string|max:255',
+            'number_female_workers' => 'nullable|string|max:255',
             'opening_hours' => 'nullable|string|max:255',
             'opening_for_business_until' => 'nullable|string|max:255',
-            'total_hours' => 'nullable|string|max:255',
             'document_option' => 'nullable|array|min:1',
             'document_option.*' => 'in:option1,option2,option3,option4,option5,option6,option7,option8',
             'document_option_detail' => 'nullable|required_if:document_option.*,"option8"|string|max:255',
 
-            'attachments.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
         ]);
 
         // dd($request);
 
-        $FoodStorageInformations = FoodStorageInformations::create([
+        $HealthLicenseApp = HealthLicenseApp::create([
             'users_id' => auth()->id(),
             'form_status' => 1,
             'title_name' => $request->title_name,
@@ -92,15 +83,11 @@ class FoodStorageLicenseController extends Controller
             'fax' => $request->fax,
         ]);
 
-        $FoodStorageFormDetails = FoodStorageFormDetails::create([
-            'informations_id' => $FoodStorageInformations->id,
-            'confirm_option' => $request->confirm_option,
-            'confirm_volume' => $request->confirm_volume,
-            'confirm_number' => $request->confirm_number,
-            'confirm_year' => $request->confirm_year,
-            'confirm_expiration_date' => $request->confirm_expiration_date,
-            'place_name' => $request->place_name,
-            'shop_type' => $request->shop_type,
+        $HealthLicenseDetail = HealthLicenseDetail::create([
+            'health_license_id' => $HealthLicenseApp->id,
+            'type_request' => $request->type_request,
+            'petition' => $request->petition,
+            'name_establishment' => $request->name_establishment,
             'location' => $request->location,
             'details_village' => $request->details_village,
             'details_alley' => $request->details_alley,
@@ -111,13 +98,11 @@ class FoodStorageLicenseController extends Controller
             'details_telephone' => $request->details_telephone,
             'details_fax' => $request->details_fax,
             'business_area' => $request->business_area,
-            'number_of_cooks' => $request->number_of_cooks,
-            'number_of_food' => $request->number_of_food,
-            'including_food_handlers' => $request->including_food_handlers,
-            'number_of_trainees' => $request->number_of_trainees,
+            'machine_power' => $request->machine_power,
+            'number_male_workers' => $request->number_male_workers,
+            'number_female_workers' => $request->number_female_workers,
             'opening_hours' => $request->opening_hours,
             'opening_for_business_until' => $request->opening_for_business_until,
-            'total_hours' => $request->total_hours,
             'document_option' => json_encode($request->document_option),
             'document_option_detail' => $request->document_option_detail,
         ]);
@@ -128,8 +113,8 @@ class FoodStorageLicenseController extends Controller
 
                 $path = $file->storeAs('attachments', $filename, 'public');
 
-                FoodStorageFormFiles::create([
-                    'informations_id' => $FoodStorageInformations->id,
+                HealthLicenseFiles::create([
+                    'health_license_id' => $HealthLicenseApp->id,
                     'file_path' => $path,
                     'file_type' => $file->getClientMimeType(),
                 ]);
@@ -139,59 +124,27 @@ class FoodStorageLicenseController extends Controller
         return redirect()->back()->with('success', 'ฟอร์มถูกส่งเรียบร้อยแล้ว');
     }
 
-    public function FoodStorageLicenseShowDetails()
+    public function HealthHazardApplicationShowDetails()
     {
-        $forms = FoodStorageInformations::with(['user', 'files', 'replies'])
+        $forms = HealthLicenseApp::with(['user', 'files', 'replies'])
         ->where('users_id', Auth::id())
         ->get();
 
-        return view('users.public_health.food_storage_license.account.show-detail', compact('forms'));
+        return view('users.public_health.health_hazard_applications.account.show-detail', compact('forms'));
     }
 
-    public function FoodStorageLicenseUserExportPDF($id)
+    public function HealthHazardApplicationUserExportPDF($id)
     {
-        $form = FoodStorageInformations::with('details')->find($id);
+        $form = HealthLicenseApp::with('details')->find($id);
 
         $document_option = $form->details->first()->document_option ?? [];
         if (is_string($document_option)) {
             $document_option = json_decode($document_option, true);
         }
 
-        $pdf = Pdf::loadView('users.public_health.food_storage_license.pdf-form',
+        $pdf = Pdf::loadView('users.public_health.health_hazard_applications.pdf-form',
         compact('form', 'document_option'))->setPaper('A4', 'portrait');
 
         return $pdf->stream('pdf' . $form->id . '.pdf');
-    }
-
-    public function FoodStorageLicenseUserReply(Request $request, $formId)
-    {
-        $request->validate([
-            'message' => 'required|string|max:1000',
-        ]);
-
-        // dd($request);
-
-        FoodStorageFormReplies::create([
-            'informations_id' => $formId,
-            'users_id' => auth()->id(),
-            'reply_text' => $request->message,
-            'reply_date' => now()->toDateString(),
-        ]);
-
-        return redirect()->back()->with('success', 'ตอบกลับสำเร็จแล้ว!');
-    }
-
-    public function FoodStorageLicenseUserShowFormEdit($id)
-    {
-        $form = FoodStorageInformations::with('files','details')->findOrFail($id);
-
-        if ($form->details->first() && $form->details->first()->document_option) {
-            $document_option = $form->details->first()->document_option;
-            if (is_string($document_option)) {
-                $form->details->first()->document_option = json_decode($document_option, true);
-            }
-        }
-
-        return view('users.public_health.food_storage_license.account.edit-data', compact('form'));
     }
 }

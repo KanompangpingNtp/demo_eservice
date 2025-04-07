@@ -208,7 +208,7 @@
                         <img src="{{ asset('images/secondary-pages/4.png') }}" alt="4" class="img-fluid">
                         <ul class="text-start lh-1 ">
                             <li>
-                                <a href="#">
+                                <a href="{{route('HealthHazardApplicationFormPage')}}">
                                     แบบคำร้องใบอณุญาตประกอบกิจการ <br>
                                     ที่เป็นอันตรายต่อสุขภาพ
                                 </a>

@@ -73,6 +73,11 @@
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
                             คำร้องทั่วไป (แจ้งถนนชำรุด)
                         </a>
+                        <div class="sb-sidenav-menu-heading">กองสาธารณสุขและสิ่งแวดล้อม</div>
+                        <a class="nav-link" href="{{route('FoodStorageLicenseAdminShowData')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            แบบคำร้องใบอณุญาตสะสมอาหาร
+                        </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
