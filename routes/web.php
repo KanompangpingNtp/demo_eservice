@@ -18,6 +18,8 @@ use App\Http\Controllers\ops\elderly_allowance\AdminElderlyAllowanceController;
 
 use App\Http\Controllers\public_health\food_storage_license\FoodStorageLicenseController;
 use App\Http\Controllers\public_health\food_storage_license\AdminFoodStorageLicenseController;
+use App\Http\Controllers\public_health\health_hazard_applications\HealthHazardApplicationController;
+use App\Http\Controllers\public_health\health_hazard_applications\AdminHealthHazardApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +36,13 @@ Route::get('/pdf', function () {
     return view('users.public_health.food_storage_license.pdf-form');
 });
 
-//คำร้องทั่วไป
+//แบบคำร้องใบอณุญาตสะสมอาหาร
 Route::get('/food_storage_license', [FoodStorageLicenseController::class, 'FoodStorageLicenseFormPage'])->name('FoodStorageLicenseFormPage');
 Route::post('/food_storage_license/form/create', [FoodStorageLicenseController::class, 'FoodStorageLicenseFormCreate'])->name('FoodStorageLicenseFormCreate');
+
+//แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
+Route::get('/health_hazard_applications', [HealthHazardApplicationController::class, 'HealthHazardApplicationFormPage'])->name('HealthHazardApplicationFormPage');
+Route::post('/health_hazard_applications/form/create', [HealthHazardApplicationController::class, 'HealthHazardApplicationFormCreate'])->name('HealthHazardApplicationFormCreate');
 
 //auth
 Route::get('/login', [AuthController::class, 'LoginPage'])->name('LoginPage');
@@ -90,6 +96,12 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin/general-electricity-request/export-pdf/{id}', [AdminGeneralElectricityRequestController::class, 'GeneralElectricityRequestAdminExportPDF'])->name('GeneralElectricityRequestAdminExportPDF');
     Route::post('/admin/general-electricity-request/admin-reply/{id}', [AdminGeneralElectricityRequestController::class, 'GeneralElectricityRequestAdminReply'])->name('GeneralElectricityRequestAdminReply');
     Route::post('/admin/general-electricity-request/update-status/{id}', [AdminGeneralElectricityRequestController::class, 'GeneralElectricityRequestUpdateStatus'])->name('GeneralElectricityRequestUpdateStatus');
+
+    //คำร้องทั่วไป (แจ้งเรื่องไฟฟ้า)
+    Route::get('/admin/food_storage_license/showdata', [AdminFoodStorageLicenseController::class, 'FoodStorageLicenseAdminShowData'])->name('FoodStorageLicenseAdminShowData');
+    Route::get('/admin/food_storage_license/export-pdf/{id}', [AdminFoodStorageLicenseController::class, 'FoodStorageLicenseAdminExportPDF'])->name('FoodStorageLicenseAdminExportPDF');
+    Route::post('/admin/food_storage_license/admin-reply/{id}', [AdminFoodStorageLicenseController::class, 'FoodStorageLicenseAdminReply'])->name('FoodStorageLicenseAdminReply');
+    Route::post('/admin/food_storage_license/update-status/{id}', [AdminFoodStorageLicenseController::class, 'FoodStorageLicenseUpdateStatus'])->name('FoodStorageLicenseUpdateStatus');
 });
 
 Route::middleware(['user'])->group(function () {
@@ -126,6 +138,10 @@ Route::middleware(['user'])->group(function () {
     Route::get('/user-account/food_storage_license/export-pdf/{id}', [FoodStorageLicenseController::class, 'FoodStorageLicenseUserExportPDF'])->name('FoodStorageLicenseUserExportPDF');
     Route::post('/user-account/food_storage_license/reply/{id}', [FoodStorageLicenseController::class, 'FoodStorageLicenseUserReply'])->name('FoodStorageLicenseUserReply');
     Route::get('/user-account/food_storage_license/show-edit/{id}', [FoodStorageLicenseController::class, 'FoodStorageLicenseUserShowFormEdit'])->name('FoodStorageLicenseUserShowFormEdit');
+
+    //แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
+    Route::get('/user-account/health_hazard_applications/show-details', [HealthHazardApplicationController::class, 'HealthHazardApplicationShowDetails'])->name('HealthHazardApplicationShowDetails');
+    Route::get('/user-account/health_hazard_applications/export-pdf/{id}', [HealthHazardApplicationController::class, 'HealthHazardApplicationUserExportPDF'])->name('HealthHazardApplicationUserExportPDF');
 });
 
 Route::get('/emergency', [EmergencyController::class, 'index'])->name('emergency.index');

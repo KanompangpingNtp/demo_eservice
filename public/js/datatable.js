@@ -1,11 +1,28 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var dataTable = $('#data_table').DataTable({
         lengthMenu: [
-            [20, 50, 100, -1],
-            [20, 50, 100, 'ทั้งหมด']
+            // [20, 50, 100, -1],
+            // [20, 50, 100, 'ทั้งหมด']
+            [10, 40, 80, -1],
+            [10, 40, 80, 'ทั้งหมด']
         ],
         language: {
-            url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/th.json',
+            processing: "กำลังดำเนินการ...",
+            search: "ค้นหา :",
+            lengthMenu: "แสดง _MENU_ รายการ",
+            info: "แสดง _START_ ถึง _END_ จาก _TOTAL_ รายการ",
+            infoEmpty: "ไม่มีข้อมูล",
+            infoFiltered: "(กรองข้อมูล _MAX_ รายการทั้งหมด)",
+            infoPostFix: "",
+            loadingRecords: "กำลังโหลดข้อมูล...",
+            zeroRecords: "ไม่พบข้อมูล",
+            emptyTable: "ไม่มีข้อมูล",
+            paginate: {
+                first: "หน้าแรก",
+                previous: "ก่อนหน้า",
+                next: "ถัดไป",
+                last: "หน้าสุดท้าย",
+            },
         },
     });
 });
