@@ -14,11 +14,23 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
-            'name' => 'แอดมิน',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('123456789'),
-            'level' => 'admin',
-        ]);
+        User::updateOrCreate(
+            ['email' => 'admin@example.com'], // เงื่อนไขค้นหา
+            [
+                'name' => 'แอดมิน',
+                'password' => Hash::make('123456789'),
+                'level' => 'admin',
+            ]
+        );
+
+        // User test
+        User::updateOrCreate(
+            ['email' => 'testuser@example.com'],
+            [
+                'name' => 'ทดสอบ',
+                'password' => Hash::make('123456789'),
+                'level' => 'user',
+            ]
+        );
     }
 }
