@@ -40,6 +40,7 @@ return new class extends Migration
             $table->string('total_hours')->nullable();
             $table->string('document_option')->nullable();
             $table->string('document_option_detail')->nullable();
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,14 +15,14 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
+
 <body>
     @if ($message = Session::get('success'))
     <script>
         Swal.fire({
-            icon: 'success'
-            , title: '{{ $message }}'
-        , })
-
+            icon: 'success',
+            title: '{{ $message }}',
+        })
     </script>
     @endif
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -83,15 +84,44 @@
                             คำร้องทั่วไป (แจ้งถนนชำรุด)
                         </a>
 
+
                         <div class="sb-sidenav-menu-heading">กองสาธารณสุขและสิ่งแวดล้อม</div>
-                        <a class="nav-link" href="{{route('FoodStorageLicenseAdminShowData')}}">
-                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#admin_food1" aria-expanded="false" aria-controls="admin_food1">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
                             แบบคำร้องใบอณุญาตสะสมอาหาร
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
                         </a>
-                        <a class="nav-link" href="{{route('HealthHazardApplicationAdminShowData')}}">
-                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                        <div class="collapse" id="admin_food1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminShowData')}}">รับเรื่อง</a>
+                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminShowData')}}">การนัดหมาย</a>
+                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminShowData')}}">ออกสำรวจ</a>
+                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminShowData')}}">ชำระเงิน</a>
+                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminShowData')}}">ออกใบอนุญาต</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#public_health1" aria-expanded="false" aria-controls="public_health1">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
                             แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
                         </a>
+                        <div class="collapse" id="public_health1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminShowData')}}">รับเรื่อง</a>
+                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminShowData')}}">การนัดหมาย</a>
+                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminShowData')}}">ออกสำรวจ</a>
+                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminShowData')}}">ชำระเงิน</a>
+                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminShowData')}}">ออกใบอนุญาต</a>
+                            </nav>
+                        </div>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
@@ -125,4 +155,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="{{asset('js/scripts.js')}}"></script>
 </body>
+
 </html>
