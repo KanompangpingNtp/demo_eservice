@@ -180,11 +180,11 @@
                             </a>
                         </div>
                         <div class="d-flex justify-content-center align-items-end gap-3 mt-2">
-                            <a href="#">
+                            <a href="https://khlong.udom.eservice.sosmartsolution.com/general-electricity-request">
                                 <img src="{{ asset('images/first-pages/ปุ่มแจ้งเหตุไฟไหม้.png') }}"
                                     alt="ปุ่มแจ้งเหตุไฟไหม้" class="img-fluid">
                             </a>
-                            <a href="#">
+                            <a href="https://khlong.udom.eservice.sosmartsolution.com/general-road-request">
                                 <img src="{{ asset('images/first-pages/ปุ่มแจ้งถนนพัง.png') }}" alt="ปุ่มแจ้งถนนพัง"
                                     class="img-fluid">
                             </a>
