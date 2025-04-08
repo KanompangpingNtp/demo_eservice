@@ -9,7 +9,7 @@ class HealthLicenseFiles extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['health_license_id', 'file_path', 'file_type'];
+    protected $fillable = ['health_license_id', 'file_path', 'file_type','document_type'];
 
     public function information()
     {
