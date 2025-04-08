@@ -199,49 +199,49 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option1" id="option1">
                         <label class="form-check-label" for="option1">
-                            Option 1
+                            สำเนาบัตรประจำตัวประชาชนและสำเนาทะเบียนบ้านเจ้าของกิจการ(ผู้ประกอบการ/ผู้ถือใบอนุญาต)
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option2" id="option2">
                         <label class="form-check-label" for="option2">
-                            Option 2
+                            สำเนาหนังสือรับรองการจดทะเบียนนิติบุคคลพร้อมสำเนาบัตรประชาชนของผู้แทนนิติบุคคล
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option3" id="option3">
                         <label class="form-check-label" for="option3">
-                            Option 3
+                            หนังสือยินยอมให้ใช้อาคาร สถานที่ หรือสัญญาเช่า(กรณีผู้รับใบอนุญาตไม่มีกรรมสิทธิ์ในอาคารสถานที่)
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option4" id="option4">
                         <label class="form-check-label" for="option4">
-                            Option 4
+                            หนังสือยินมอบอำนาจพร้อมสำเนาบัตรประชาชน/สำเนาทะเบียนบ้านผู้มอบและผู้รับมอบอำนาจ พร้อมติดอากรแสตมป์ (กรณีเจ้าของไม่สามารถมายื่นคำขอด้วยตนเอง)
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option5" id="option5">
                         <label class="form-check-label" for="option5">
-                            Option 5
+                            สำเนนาใบอนุญาตตามกฏหมายว่าด้วยการควบคุมอาคาร(แบบอ.๑)
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option6" id="option6">
                         <label class="form-check-label" for="option6">
-                            Option 6
+                            สำเนนาใบอนุญาตประกอบกิจการโรงงานทุกหน้า(ใบร.ง.๔)
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option7" id="option7">
                         <label class="form-check-label" for="option7">
-                            Option 7
+                            แผนที่สถานที่ตั้งของสถานประกอบการ (กรณีขอรับ)
                         </label>
                     </div>
 

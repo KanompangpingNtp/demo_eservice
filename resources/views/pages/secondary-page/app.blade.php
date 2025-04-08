@@ -153,7 +153,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{route('ReceiveAssistanceFormPage')}}">
                                     เบี้ยเอดส์
                                 </a>
                             </li>

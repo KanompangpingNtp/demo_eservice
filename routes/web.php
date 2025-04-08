@@ -17,6 +17,8 @@ use App\Http\Controllers\ops\elderly_allowance\ElderlyAllowanceController;
 use App\Http\Controllers\ops\elderly_allowance\AdminElderlyAllowanceController;
 use App\Http\Controllers\ops\disability\DisabilityController;
 use App\Http\Controllers\ops\disability\AdminDisabilityController;
+use App\Http\Controllers\ops\receive_assistance\ReceiveAssistanceController;
+use App\Http\Controllers\ops\receive_assistance\AdminReceiveAssistanceController;
 
 use App\Http\Controllers\public_health\food_storage_license\FoodStorageLicenseController;
 use App\Http\Controllers\public_health\food_storage_license\AdminFoodStorageLicenseController;
@@ -45,6 +47,10 @@ Route::post('/food_storage_license/form/create', [FoodStorageLicenseController::
 //แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
 Route::get('/health_hazard_applications', [HealthHazardApplicationController::class, 'HealthHazardApplicationFormPage'])->name('HealthHazardApplicationFormPage');
 Route::post('/health_hazard_applications/form/create', [HealthHazardApplicationController::class, 'HealthHazardApplicationFormCreate'])->name('HealthHazardApplicationFormCreate');
+
+//
+Route::get('/receive_assistance', [ReceiveAssistanceController::class, 'ReceiveAssistanceFormPage'])->name('ReceiveAssistanceFormPage');
+Route::post('/receive_assistance/form/create', [ReceiveAssistanceController::class, 'ReceiveAssistanceFormCreate'])->name('ReceiveAssistanceFormCreate');
 
 //auth
 Route::get('/login', [AuthController::class, 'LoginPage'])->name('LoginPage');
@@ -166,7 +172,12 @@ Route::middleware(['user'])->group(function () {
     Route::post('/user-account/health_hazard_applications/reply/{id}', [HealthHazardApplicationController::class, 'HealthHazardApplicationUserReply'])->name('HealthHazardApplicationUserReply');
     Route::get('/user-account/health_hazard_applications/show-edit/{id}', [HealthHazardApplicationController::class, 'HealthHazardApplicationUserShowFormEdit'])->name('HealthHazardApplicationUserShowFormEdit');
 
-
+    //users ReceiveAssistance
+    Route::get('/user/account/ReceiveAssistance/record', [ReceiveAssistanceController::class, 'TableReceiveAssistanceUsersPages'])->name('TableReceiveAssistanceUsersPages');
+    Route::post('/user/account/ReceiveAssistance/{form}/reply', [ReceiveAssistanceController::class, 'ReceiveAssistanceUserReply'])->name('ReceiveAssistanceUserReply');
+    Route::get('/user/account/ReceiveAssistance/{id}/pdf', [ReceiveAssistanceController::class, 'ReceiveAssistanceUserExportPDF'])->name('ReceiveAssistanceUserExportPDF');
+    Route::get('/user/account/ReceiveAssistance/{id}/edit', [ReceiveAssistanceController::class, 'ReceiveAssistanceUsersShowFormEdit'])->name('ReceiveAssistanceUsersShowFormEdit');
+    Route::put('/user/account/ReceiveAssistance/{id}/Update', [ReceiveAssistanceController::class, 'updateReceiveAssistance'])->name('updateReceiveAssistance');
 });
 
 Route::get('/emergency', [EmergencyController::class, 'index'])->name('emergency.index');

@@ -245,49 +245,49 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option1" id="option1">
                         <label class="form-check-label" for="option1">
-                            Option 1
+                            สำเนาบัตรประจำตัวประชาชนและสำเนาทะเบียนบ้านเจ้าของกิจการ
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option2" id="option2">
                         <label class="form-check-label" for="option2">
-                            Option 2
+                            สำเนาหนังสือรับรองการจดทะเบียนนิติบุคคลพร้อมสำเนาบัตรประชาชนของผู้แทนนิติบุคคล <br> (กรณีผู้ประกอบการเป็นนิติบุคคล)
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option3" id="option3">
                         <label class="form-check-label" for="option3">
-                            Option 3
+                            หนังสือยินยอมให้ใช้สถานที่ / สัญญาเช่า
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option4" id="option4">
                         <label class="form-check-label" for="option4">
-                            Option 4
+                            หนังสือยินมอบอำนาจพร้อมสำเนาบัตรประชาชน / สำเนาทะเบียนบ้านผู้มอบ และผู้รับมอบอำนาจ
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option5" id="option5">
                         <label class="form-check-label" for="option5">
-                            Option 5
+                            ใบรับรองแพทย์ของผู้สัมผัสอาหาร (กรณีขอรับ / ขอต่ออายุใบอนุญาตแจ้งจัดตั้งสถานที่จำหน่ายอาหาร)
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option6" id="option6">
                         <label class="form-check-label" for="option6">
-                            Option 6
+                            ใบอนุญาตแจ้งจัดตั้งสถานที่จำหน่ายอาหาร หรือ สถานที่สะสมอาหารฉบับเดิม (ต้นฉบับ) (กรณีต่อ)
                         </label>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option7" id="option7">
                         <label class="form-check-label" for="option7">
-                            Option 7
+                            แผนที่สถานที่ตั้งของสถานประกอบการ (กรณีขอรับ)
                         </label>
                     </div>
 

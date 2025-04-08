@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('assist_replies', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('assist_people_id')->constrained('assist_people')->onDelete('cascade');
+            $table->string('file_path');
+            $table->string('file_type');
             $table->timestamps();
         });
     }

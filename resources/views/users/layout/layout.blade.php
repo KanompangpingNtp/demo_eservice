@@ -120,6 +120,21 @@
                                 <a class="nav-link" href="{{route('TableDisabilityUsersPages')}}">ประวัติการส่งฟอร์ม</a>
                             </nav>
                         </div>
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#ops4" aria-expanded="false" aria-controls="ops4">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
+                            แบบคำขอรับการสงเคราะห์ <br> (ผู้ป่วยเอดส์)
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="ops4" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('ReceiveAssistanceFormPage')}}">ฟอร์ม</a>
+                                <a class="nav-link" href="{{route('TableReceiveAssistanceUsersPages')}}">ประวัติการส่งฟอร์ม</a>
+                            </nav>
+                        </div>
 
                         <div class="sb-sidenav-menu-heading">กองช่าง</div>
                         <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts1">
