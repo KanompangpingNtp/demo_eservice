@@ -179,4 +179,19 @@ class HealthHazardApplicationController extends Controller
 
         return view('users.public_health.health_hazard_applications.account.edit-data', compact('form'));
     }
+
+    public function CertificateHealthHazardUserPDF($id)
+    {
+        $form = HealthLicenseApp::with('details')->find($id);
+
+        $document_option = $form->details->first()->document_option ?? [];
+        if (is_string($document_option)) {
+            $document_option = json_decode($document_option, true);
+        }
+
+        $pdf = Pdf::loadView('certificate.health_hazard_applications',
+        compact('form', 'document_option'))->setPaper('A4', 'portrait');
+
+        return $pdf->stream('pdf' . $form->id . '.pdf');
+    }
 }

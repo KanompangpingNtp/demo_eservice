@@ -156,7 +156,9 @@ class FoodStorageLicenseController extends Controller
 
     public function FoodStorageLicenseUserExportPDF($id)
     {
-        $form = FoodStorageInformations::with('details')->find($id);
+        $form = FoodStorageInformations::with(['details' => function ($query) {
+            $query->where('confirm_option', 1);
+        }])->find($id);
 
         $document_option = $form->details->first()->document_option ?? [];
         if (is_string($document_option)) {
@@ -201,5 +203,43 @@ class FoodStorageLicenseController extends Controller
         }
 
         return view('users.public_health.food_storage_license.account.edit-data', compact('form'));
+    }
+
+    public function CertificateFoodStorageLicenseUserPDF($id)
+    {
+        $form = FoodStorageInformations::with(['details' => function ($query) {
+            $query->where('confirm_option', 1);
+        }])->find($id);
+
+        $document_option = $form->details->first()->document_option ?? [];
+        if (is_string($document_option)) {
+            $document_option = json_decode($document_option, true);
+        }
+
+        $pdf = Pdf::loadView(
+            'certificate.food_storage_license',
+            compact('form', 'document_option')
+        )->setPaper('A4', 'portrait');
+
+        return $pdf->stream('pdf' . $form->id . '.pdf');
+    }
+
+    public function CertificateFoodSalesUserPDF($id)
+    {
+        $form = FoodStorageInformations::with(['details' => function ($query) {
+            $query->where('confirm_option', 2);
+        }])->find($id);
+
+        $document_option = $form->details->first()->document_option ?? [];
+        if (is_string($document_option)) {
+            $document_option = json_decode($document_option, true);
+        }
+
+        $pdf = Pdf::loadView(
+            'certificate.food_sales',
+            compact('form', 'document_option')
+        )->setPaper('A4', 'portrait');
+
+        return $pdf->stream('pdf' . $form->id . '.pdf');
     }
 }
