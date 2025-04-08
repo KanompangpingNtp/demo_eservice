@@ -205,7 +205,7 @@ class FoodStorageLicenseController extends Controller
         return view('users.public_health.food_storage_license.account.edit-data', compact('form'));
     }
 
-    public function CertificateFoodStorageLicenseUserPDF($id)
+    public function CertificateFoodStorageLicensePDF($id)
     {
         $form = FoodStorageInformations::with(['details' => function ($query) {
             $query->where('confirm_option', 1);
@@ -224,7 +224,7 @@ class FoodStorageLicenseController extends Controller
         return $pdf->stream('pdf' . $form->id . '.pdf');
     }
 
-    public function CertificateFoodSalesUserPDF($id)
+    public function CertificateFoodSalesPDF($id)
     {
         $form = FoodStorageInformations::with(['details' => function ($query) {
             $query->where('confirm_option', 2);

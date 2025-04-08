@@ -173,15 +173,15 @@ Route::middleware(['user'])->group(function () {
     Route::get('/user-account/food_storage_license/export-pdf/{id}', [FoodStorageLicenseController::class, 'FoodStorageLicenseUserExportPDF'])->name('FoodStorageLicenseUserExportPDF');
     Route::post('/user-account/food_storage_license/reply/{id}', [FoodStorageLicenseController::class, 'FoodStorageLicenseUserReply'])->name('FoodStorageLicenseUserReply');
     Route::get('/user-account/food_storage_license/show-edit/{id}', [FoodStorageLicenseController::class, 'FoodStorageLicenseUserShowFormEdit'])->name('FoodStorageLicenseUserShowFormEdit');
-    Route::get('/user-account/certificate/food_storage_license/export-pdf/{id}', [FoodStorageLicenseController::class, 'CertificateFoodStorageLicenseUserPDF'])->name('CertificateFoodStorageLicenseUserPDF');
-    Route::get('/user-account/certificate/food_sales/export-pdf/{id}', [FoodStorageLicenseController::class, 'CertificateFoodSalesUserPDF'])->name('CertificateFoodSalesUserPDF');
+    Route::get('/user-account/certificate/food_storage_license/export-pdf/{id}', [FoodStorageLicenseController::class, 'CertificateFoodStorageLicensePDF'])->name('CertificateFoodStorageLicensePDF');
+    Route::get('/user-account/certificate/food_sales/export-pdf/{id}', [FoodStorageLicenseController::class, 'CertificateFoodSalesPDF'])->name('CertificateFoodSalesPDF');
 
     //แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
     Route::get('/user-account/health_hazard_applications/show-details', [HealthHazardApplicationController::class, 'HealthHazardApplicationShowDetails'])->name('HealthHazardApplicationShowDetails');
     Route::get('/user-account/health_hazard_applications/export-pdf/{id}', [HealthHazardApplicationController::class, 'HealthHazardApplicationUserExportPDF'])->name('HealthHazardApplicationUserExportPDF');
     Route::post('/user-account/health_hazard_applications/reply/{id}', [HealthHazardApplicationController::class, 'HealthHazardApplicationUserReply'])->name('HealthHazardApplicationUserReply');
     Route::get('/user-account/health_hazard_applications/show-edit/{id}', [HealthHazardApplicationController::class, 'HealthHazardApplicationUserShowFormEdit'])->name('HealthHazardApplicationUserShowFormEdit');
-    Route::get('/user-account/certificate/health_hazard_applications/export-pdf/{id}', [HealthHazardApplicationController::class, 'CertificateHealthHazardUserPDF'])->name('CertificateHealthHazardUserPDF');
+    Route::get('/user-account/certificate/health_hazard_applications/export-pdf/{id}', [HealthHazardApplicationController::class, 'CertificateHealthHazardPDF'])->name('CertificateHealthHazardPDF');
 
     //users ReceiveAssistance
     Route::get('/user/account/ReceiveAssistance/record', [ReceiveAssistanceController::class, 'TableReceiveAssistanceUsersPages'])->name('TableReceiveAssistanceUsersPages');

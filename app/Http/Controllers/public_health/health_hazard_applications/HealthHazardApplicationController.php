@@ -180,7 +180,7 @@ class HealthHazardApplicationController extends Controller
         return view('users.public_health.health_hazard_applications.account.edit-data', compact('form'));
     }
 
-    public function CertificateHealthHazardUserPDF($id)
+    public function CertificateHealthHazardPDF($id)
     {
         $form = HealthLicenseApp::with('details')->find($id);
 

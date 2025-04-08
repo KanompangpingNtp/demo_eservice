@@ -24,11 +24,12 @@
                 <td>
                     @foreach ($form->details as $detail)
                     @if ($detail->confirm_option == 1)
-                    <a href="{{ route('CertificateFoodStorageLicenseUserPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
+                    <a href="{{ route('CertificateFoodStorageLicensePDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
                         <i class="bi bi-file-earmark-pdf"></i>
                     </a>
+
                     @elseif ($detail->confirm_option == 2)
-                    <a href="{{ route('CertificateFoodSalesUserPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
+                    <a href="{{ route('CertificateFoodSalesPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
                         <i class="bi bi-file-earmark-pdf"></i>
                     </a>
                     @endif
@@ -52,7 +53,7 @@
             @foreach ($HealthLicenseApp as $form)
             <tr>
                 <td>
-                    <a href="{{route('CertificateHealthHazardUserPDF',$form->id)}}" class="btn btn-danger btn-sm text-white">
+                    <a href="{{route('CertificateHealthHazardPDF',$form->id)}}" class="btn btn-danger btn-sm text-white">
                         <i class="bi bi-file-earmark-pdf"></i></a>
                 </td>
             </tr>
