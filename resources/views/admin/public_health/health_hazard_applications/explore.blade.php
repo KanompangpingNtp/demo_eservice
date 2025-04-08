@@ -12,7 +12,8 @@
             <tr>
                 <th>วันที่ขอใบอนุญาต</th>
                 <th>ผู้ขอใบอนุญาต</th>
-                <th>ประเภทขอใบอนุญาต</th>
+                <th>วันที่นัดหมาย</th>
+                <th>วันที่สะดวก</th>
                 <th>สถานะ</th>
                 <th>จัดการ</th>
             </tr>
@@ -22,19 +23,29 @@
             <tr>
                 <td class="date-column">{{ $form->created_at->format('Y-m-d') }}</td>
                 <td>{{ $form->salutation }} {{ $form->full_name }}</td>
-                <td></td>
                 <td>
-                    @if ($form['details']->status == 1)
-                    <span class="badge rounded-pill text-bg-primary">รอรับเรื่อง</span>
-                    @elseif($form['details']->status == 2)
-                    <span class="badge rounded-pill text-bg-warning">รอการแก้ไข</span>
+                    @if($form->appointmentte)
+                    {{ $form->appointmentte->date_admin }}
                     @endif
                 </td>
                 <td>
+                    @if($form->appointmentte)
+                    {{ $form->appointmentte->date_user }}
+                    @endif
+                </td>
+                <td>
+                    @if ($form['details']->status == 6)
+                    <span class="badge rounded-pill text-bg-primary">รอผลสำรวจ</span>
+                    @endif
+                </td>
+                <td>
+                    <a href="{{ route('HealthHazardApplicationAdminChecklist', $form->id) }}" class="btn btn-primary btn-sm">
+                        <i class="bi bi-card-checklist"></i>
+                    </a>
                     <a href="{{ route('HealthHazardApplicationAdminExportPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
                         <i class="bi bi-file-earmark-pdf"></i>
                     </a>
-                    <a href="{{ route('HealthHazardApplicationAdminConfirm', $form->id) }}" class="btn btn-success btn-sm">
+                    <a href="{{ route('HealthHazardApplicationAdminDetail', $form->id) }}" class="btn btn-success btn-sm">
                         <i class="bi bi-search"></i>
                     </a>
                 </td>

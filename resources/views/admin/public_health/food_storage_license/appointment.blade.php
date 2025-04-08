@@ -12,7 +12,8 @@
             <tr>
                 <th>วันที่ขอใบอนุญาต</th>
                 <th>ผู้ขอใบอนุญาต</th>
-                <th>ประเภทขอใบอนุญาต</th>
+                <th>วันที่นัดหมาย</th>
+                <th>วันที่สะดวก</th>
                 <th>สถานะ</th>
                 <th>จัดการ</th>
             </tr>
@@ -22,19 +23,37 @@
             <tr>
                 <td class="date-column">{{ $form->created_at->format('Y-m-d') }}</td>
                 <td>{{ $form->salutation }} {{ $form->full_name }}</td>
-                <td>{{ $form['details']['type']->type_name }}</td>
                 <td>
-                    @if ($form['details']->status == 1)
-                    <span class="badge rounded-pill text-bg-primary">รอรับเรื่อง</span>
-                    @elseif($form['details']->status == 2)
-                    <span class="badge rounded-pill text-bg-warning">รอการแก้ไข</span>
+                    @if($form->appointmentte)
+                    {{ $form->appointmentte->date_admin }}
                     @endif
                 </td>
                 <td>
+                    @if($form->appointmentte)
+                    {{ $form->appointmentte->date_user }}
+                    @endif
+                </td>
+                <td>
+                    @if ($form['details']->status == 3)
+                    <span class="badge rounded-pill text-bg-primary">รอการนัดหมาย</span>
+                    @elseif($form['details']->status == 4)
+                    <span class="badge rounded-pill text-bg-primary">รอยืนยันนัดหมาย</span>
+                    @elseif($form['details']->status == 5)
+                    <span class="badge rounded-pill text-bg-warning">นัดหมายใหม่</span>
+                    @elseif($form['details']->status == 8)
+                    <span class="badge rounded-pill text-bg-warning">ผลสำรวจไม่ผ่านรอการนัดหมายใหม่</span>
+                    @endif
+                </td>
+                <td>
+                    @if ($form['details']->status != 4)
+                    <a href="{{ route('FoodStorageLicenseAdminCalendar', $form->id) }}" class="btn btn-primary btn-sm">
+                        <i class="bi bi-calendar-check"></i>
+                    </a>
+                    @endif
                     <a href="{{ route('FoodStorageLicenseAdminExportPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
                         <i class="bi bi-file-earmark-pdf"></i>
                     </a>
-                    <a href="{{ route('FoodStorageLicenseAdminConfirm', $form->id) }}" class="btn btn-success btn-sm">
+                    <a href="{{ route('FoodStorageLicenseAdminDetail', $form->id) }}" class="btn btn-success btn-sm">
                         <i class="bi bi-search"></i>
                     </a>
                 </td>

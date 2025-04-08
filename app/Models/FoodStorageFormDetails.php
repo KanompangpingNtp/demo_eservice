@@ -37,6 +37,7 @@ class FoodStorageFormDetails extends Model
         'total_hours',
         'document_option',
         'document_option_detail',
+        'status'
     ];
 
     // กำหนดความสัมพันธ์กับ food_storage_informations
@@ -47,6 +48,6 @@ class FoodStorageFormDetails extends Model
 
     public function type()
     {
-        return $this->belongsTo(FoodStorageType::class, 'confirm_option');
+        return $this->belongsTo(FoodStorageType::class, 'id');
     }
 }

@@ -1,5 +1,5 @@
-@extends('users.layout.layout')
-@section('pages_content')
+@extends('admin.layout.layout')
+@section('admin_content')
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
@@ -11,10 +11,9 @@
     <table class="table table-bordered table-striped" id="data_table">
         <thead class="text-center">
             <tr>
-                <th>วันที่ส่ง</th>
-                <th>ชื่อสถานที่</th>
-                <th>วันที่นัดหมาย</th>
-                <th>วันที่สะดวก</th>
+                <th>วันที่ขอใบอนุญาต</th>
+                <th>ผู้ขอใบอนุญาต</th>
+                <th>ประเภทขอใบอนุญาต</th>
                 <th>สถานะ</th>
                 <th>จัดการ</th>
             </tr>
@@ -23,58 +22,21 @@
             @foreach ($forms as $form)
             <tr>
                 <td class="date-column">{{ $form->created_at->format('Y-m-d') }}</td>
-                <td>{{ $form['details']->place_name }}</td>
+                <td>{{ $form->salutation }} {{ $form->full_name }}</td>
+                <td>{{ $form['details']['type']->type_name }}</td>
                 <td>
-                    @if($form->appointmentte)
-                    {{ $form->appointmentte->date_admin }}
-                    @endif
-                </td>
-                <td>
-                    @if($form->appointmentte)
-                    {{ $form->appointmentte->date_user }}
-                    @endif
-                </td>
-                <td>
-                    @if($form['details']->status == 1)
-                    <span class="badge rounded-pill text-bg-primary">รอตรวจสอบเอกสาร</span>
+                    @if ($form['details']->status == 1)
+                    <span class="badge rounded-pill text-bg-primary">รอรับเรื่อง</span>
                     @elseif($form['details']->status == 2)
                     <span class="badge rounded-pill text-bg-warning">รอการแก้ไข</span>
-                    @elseif($form['details']->status == 3)
-                    <span class="badge rounded-pill text-bg-primary">รอการนัดหมาย</span>
-                    @elseif($form['details']->status == 4)
-                    <span class="badge rounded-pill text-bg-primary">รอการยืนยันนัดหมาย</span>
-                    @elseif($form['details']->status == 5)
-                    <span class="badge rounded-pill text-bg-warning">รอการนัดหมายใหม่</span>
-                    @elseif($form['details']->status == 6)
-                    <span class="badge rounded-pill text-bg-primary">ยืนยันการนัดหมาย</span>
-                    @elseif($form['details']->status == 7)
-                    <span class="badge rounded-pill text-bg-primary">รอการชำระเงิน</span>
-                    @elseif($form['details']->status == 8)
-                    <span class="badge rounded-pill text-bg-warning">ไม่ผ่านการออกสำรวจรอการนัดหมายใหม่</span>
-                    @elseif($form['details']->status == 9)
-                    <span class="badge rounded-pill text-bg-primary">รอการตรวจสอบชำระเงิน</span>
-                    @elseif($form['details']->status == 10)
-                    <a href="{{ route('CertificateFoodStorageLicensePDF', $form->id) }}" class="badge rounded-pill text-bg-success" target="_blank">
-                        ออกใบอนุญาต
-                    </a>
                     @endif
                 </td>
                 <td>
-                    @if ($form['details']->status == 4)
-                    <a href="{{ route('FoodStorageLicenseCalendar', $form->id) }}" class="btn btn-primary btn-sm">
-                        <i class="bi bi-calendar-check"></i>
-                    </a>
-                    @endif
-                    @if ($form['details']->status == 7)
-                    <a href="{{ route('FoodStorageLicensePayment', $form->id) }}" class="btn btn-primary btn-sm">
-                        <i class="bi bi-card-checklist"></i>
-                    </a>
-                    @endif
-                    <a href="{{ route('FoodStorageLicenseUserExportPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
+                    <a href="{{ route('FoodStorageLicenseAdminExportPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
                         <i class="bi bi-file-earmark-pdf"></i>
                     </a>
-                    <a href="{{ route('FoodStorageLicenseDetail', $form->id) }}" class="btn btn-success btn-sm">
-                        <i class="bi bi-search"></i>
+                    <a href="{{ route('FoodStorageLicenseAdminComfirm', $form->id) }}" class="btn btn-success btn-sm">
+                        <i class="bi bi-reply"></i>
                     </a>
                 </td>
             </tr>
@@ -94,7 +56,7 @@
                 </div>
                 <div class="modal-body">
                     <span style="color: black;">preview</span>
-                    <a href="{{ route('FoodStorageLicenseUserExportPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
+                    <a href="{{ route('FoodStorageLicenseAdminExportPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
                         <i class="bi bi-file-earmark-pdf"></i>
                     </a>
                     <br>
@@ -107,8 +69,14 @@
                     </span>
                     @endforeach
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <div class="modal-footer d-flex justify-content-between">
+                    <span class="text-start" style="color: black;">รับฟอร์ม</span>
+                    <form action="{{ route('FoodStorageLicenseUpdateStatus', $form->id) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-primary btn-sm" @if($form->form_status == 2) disabled @endif>
+                            กดรับแบบฟอร์ม
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -152,7 +120,7 @@
                             @endforelse
                         </tbody>
                     </table>
-                    <form action="{{ route('FoodStorageLicenseUserReply', $form->id) }}" method="POST">
+                    <form action="{{ route('FoodStorageLicenseAdminReply', $form->id) }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="message" class="form-label">ข้อความตอบกลับ</label>

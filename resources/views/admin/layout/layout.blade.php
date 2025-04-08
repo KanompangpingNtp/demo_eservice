@@ -98,10 +98,10 @@
                         <div class="collapse" id="admin_food1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="{{route('FoodStorageLicenseAdminShowData')}}">รับเรื่อง</a>
-                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminShowData')}}">การนัดหมาย</a>
-                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminShowData')}}">ออกสำรวจ</a>
-                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminShowData')}}">ชำระเงิน</a>
-                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminShowData')}}">ออกใบอนุญาต</a>
+                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminAppointment')}}">การนัดหมาย</a>
+                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminExplore')}}">ออกสำรวจ</a>
+                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminPayment')}}">ชำระเงิน</a>
+                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminApprove')}}">ออกใบอนุญาต</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#public_health1" aria-expanded="false" aria-controls="public_health1">
@@ -116,10 +116,10 @@
                         <div class="collapse" id="public_health1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="{{route('HealthHazardApplicationAdminShowData')}}">รับเรื่อง</a>
-                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminShowData')}}">การนัดหมาย</a>
-                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminShowData')}}">ออกสำรวจ</a>
-                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminShowData')}}">ชำระเงิน</a>
-                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminShowData')}}">ออกใบอนุญาต</a>
+                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminAppointment')}}">การนัดหมาย</a>
+                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminExplore')}}">ออกสำรวจ</a>
+                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminPayment')}}">ชำระเงิน</a>
+                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminApprove')}}">ออกใบอนุญาต</a>
                             </nav>
                         </div>
                     </div>

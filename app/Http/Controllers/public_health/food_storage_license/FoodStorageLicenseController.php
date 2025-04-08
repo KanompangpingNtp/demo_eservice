@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\public_health\food_storage_license;
 
 use App\Http\Controllers\Controller;
+use App\Models\FoodStorageAppointmentLogs;
 use Illuminate\Http\Request;
 use App\Models\FoodStorageType;
 use App\Models\FoodStorageInformations;
 use App\Models\FoodStorageFormDetails;
 use App\Models\FoodStorageFormFiles;
 use App\Models\FoodStorageFormReplies;
+use App\Models\FoodStoragePaymentLogs;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 
@@ -147,9 +149,14 @@ class FoodStorageLicenseController extends Controller
 
     public function FoodStorageLicenseShowDetails()
     {
-        $forms = FoodStorageInformations::with(['user', 'files', 'replies'])
+        $forms = FoodStorageInformations::with(['user', 'files', 'replies', 'details'])
             ->where('users_id', Auth::id())
             ->get();
+        if (!empty($forms)) {
+            foreach ($forms as $rs) {
+                $rs->appointmentte = FoodStorageAppointmentLogs::orderBy('id', 'desc')->first();
+            }
+        }
 
         return view('users.public_health.food_storage_license.account.show-detail', compact('forms'));
     }
@@ -195,10 +202,10 @@ class FoodStorageLicenseController extends Controller
     {
         $form = FoodStorageInformations::with('files', 'details')->findOrFail($id);
 
-        if ($form->details->first() && $form->details->first()->document_option) {
-            $document_option = $form->details->first()->document_option;
+        if ($form['details'] && $form['details']->document_option) {
+            $document_option = $form['details']->document_option;
             if (is_string($document_option)) {
-                $form->details->first()->document_option = json_decode($document_option, true);
+                $form['details']->document_option = json_decode($document_option, true);
             }
         }
 
@@ -207,18 +214,18 @@ class FoodStorageLicenseController extends Controller
 
     public function CertificateFoodStorageLicensePDF($id)
     {
-        $form = FoodStorageInformations::with(['details' => function ($query) {
-            $query->where('confirm_option', 1);
-        }])->find($id);
+        $form = FoodStorageInformations::find($id);
 
-        $document_option = $form->details->first()->document_option ?? [];
-        if (is_string($document_option)) {
-            $document_option = json_decode($document_option, true);
+        $file = FoodStoragePaymentLogs::where('informations_id',$form->id)->first();
+
+        if ($form['details']->confirm_option == 1) {
+            $views = "users.public_health.food_storage_license.account.pdf.food_storage_license";
+        } else {
+            $views = "users.public_health.food_storage_license.account.pdf.food_sales";
         }
-
         $pdf = Pdf::loadView(
-            'certificate.food_storage_license',
-            compact('form', 'document_option')
+            $views,
+            compact('form', 'file')
         )->setPaper('A4', 'portrait');
 
         return $pdf->stream('pdf' . $form->id . '.pdf');
@@ -241,5 +248,87 @@ class FoodStorageLicenseController extends Controller
         )->setPaper('A4', 'portrait');
 
         return $pdf->stream('pdf' . $form->id . '.pdf');
+    }
+
+    public function FoodStorageLicenseDetail($id)
+    {
+        $form = FoodStorageInformations::with(['user', 'details', 'files', 'replies'])
+            ->find($id);
+
+        if ($form['details'] && $form['details']->document_option) {
+            $document_option = $form['details']->document_option;
+            if (is_string($document_option)) {
+                $form['details']->document_option = json_decode($document_option, true);
+            }
+        }
+        $types = FoodStorageType::all();
+
+        return view('admin.public_health.food_storage_license.detail', compact('form', 'types'));
+    }
+
+    public function FoodStorageLicenseCalendar($id)
+    {
+        $form = FoodStorageInformations::with(['user', 'details', 'files', 'replies'])->find($id);
+        $calendar = FoodStorageAppointmentLogs::orderBy('id', 'desc')->where('informations_id', $id)->first();
+
+        return view('users.public_health.food_storage_license.account.calendar', compact('form', 'calendar'));
+    }
+
+    public function FoodStorageLicenseCalendarSave(Request $request)
+    {
+        $input = $request->input();
+        if ($input['id']) {
+            $detail = FoodStorageFormDetails::where('informations_id', $input['id'])->first();
+            if ($input['result'] != 2) {
+                $detail->status = 6;
+            } else {
+                $detail->status = 5;
+            }
+            $detail->updated_at = date('Y-m-d H:i:s');
+            if ($detail->save()) {
+                $calendar = FoodStorageAppointmentLogs::orderBy('id', 'desc')->where('informations_id', $input['id'])->first();
+                $calendar->date_user = $input['date_user'];
+                $calendar->status = 2;
+                $calendar->updated_at = date('Y-m-d H:i:s');
+                if ($calendar->save()) {
+                    return redirect()->route('FoodStorageLicenseShowDetails')->with('success', 'บันทึกรายการเรียบร้อยแล้ว');
+                }
+            }
+        }
+        return redirect()->route('FoodStorageLicenseShowDetails')->with('error', 'ไม่สามารถบันทึกข้อมูลได้');
+    }
+
+    public function FoodStorageLicensePayment($id)
+    {
+        $form = FoodStorageInformations::with(['user', 'details', 'files', 'replies'])->find($id);
+
+        return view('users.public_health.food_storage_license.account.payment-check', compact('form'));
+    }
+
+    public function FoodStorageLicensePaymentSave(Request $request)
+    {
+        $input = $request->input();
+        if ($input['id']) {
+            $path = '';
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $path = $file->storeAs('payment', $filename, 'public');
+            }
+            $detail = FoodStorageFormDetails::where('informations_id', $input['id'])->first();
+            $detail->status = 9;
+            if ($detail->save()) {
+                $insert = new FoodStoragePaymentLogs();
+                $insert->informations_id = $input['id'];
+                $insert->file = $path;
+                $insert->status = 1;
+                $insert->created_at = date('Y-m-d H:i:s');
+                $insert->updated_at = date('Y-m-d H:i:s');
+                if ($insert->save()) {
+                    return redirect()->route('FoodStorageLicenseShowDetails')->with('success', 'บันทึกรายการเรียบร้อยแล้ว');
+                }
+            }
+        }
+        return redirect()->route('FoodStorageLicenseShowDetails')->with('error', 'ไม่สามารถบันทึกข้อมูลได้');
     }
 }

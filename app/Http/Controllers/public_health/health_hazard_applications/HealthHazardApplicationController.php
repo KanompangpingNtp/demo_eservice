@@ -5,8 +5,10 @@ namespace App\Http\Controllers\public_health\health_hazard_applications;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\HealthLicenseApp;
+use App\Models\HealthLicenseAppointmentLogs;
 use App\Models\HealthLicenseDetail;
 use App\Models\HealthLicenseFiles;
+use App\Models\HealthLicensePaymentLogs;
 use App\Models\HealthLicenseReplies;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
@@ -130,9 +132,14 @@ class HealthHazardApplicationController extends Controller
 
     public function HealthHazardApplicationShowDetails()
     {
-        $forms = HealthLicenseApp::with(['user', 'files', 'replies'])
-        ->where('users_id', Auth::id())
-        ->get();
+        $forms = HealthLicenseApp::with(['user', 'files', 'replies', 'details'])
+            ->where('users_id', Auth::id())
+            ->get();
+        if (!empty($forms)) {
+            foreach ($forms as $rs) {
+                $rs->appointmentte = HealthLicenseAppointmentLogs::orderBy('id', 'desc')->first();
+            }
+        }
 
         return view('users.public_health.health_hazard_applications.account.show-detail', compact('forms'));
     }
@@ -146,8 +153,10 @@ class HealthHazardApplicationController extends Controller
             $document_option = json_decode($document_option, true);
         }
 
-        $pdf = Pdf::loadView('users.public_health.health_hazard_applications.pdf-form',
-        compact('form', 'document_option'))->setPaper('A4', 'portrait');
+        $pdf = Pdf::loadView(
+            'users.public_health.health_hazard_applications.pdf-form',
+            compact('form', 'document_option')
+        )->setPaper('A4', 'portrait');
 
         return $pdf->stream('pdf' . $form->id . '.pdf');
     }
@@ -172,7 +181,7 @@ class HealthHazardApplicationController extends Controller
 
     public function HealthHazardApplicationUserShowFormEdit($id)
     {
-        $form = HealthLicenseApp::with('files','details')->findOrFail($id);
+        $form = HealthLicenseApp::with('files', 'details')->findOrFail($id);
 
         if ($form->details->first() && $form->details->first()->document_option) {
             $document_option = $form->details->first()->document_option;
@@ -187,15 +196,95 @@ class HealthHazardApplicationController extends Controller
     public function CertificateHealthHazardPDF($id)
     {
         $form = HealthLicenseApp::with('details')->find($id);
+        
+        $file = HealthLicensePaymentLogs::where('health_license_id', $form->id)->first();
 
-        $document_option = $form->details->first()->document_option ?? [];
-        if (is_string($document_option)) {
-            $document_option = json_decode($document_option, true);
-        }
-
-        $pdf = Pdf::loadView('certificate.health_hazard_applications',
-        compact('form', 'document_option'))->setPaper('A4', 'portrait');
+        $pdf = Pdf::loadView(
+            'users.public_health.health_hazard_applications.account.pdf.health_hazard_applications',
+            compact('form', 'file')
+        )->setPaper('A4', 'portrait');
 
         return $pdf->stream('pdf' . $form->id . '.pdf');
+    }
+
+    public function HealthHazardApplicationDetail($id)
+    {
+        $form = HealthLicenseApp::with(['user', 'details', 'files', 'replies'])
+            ->find($id);
+
+        if ($form['details'] && $form['details']->document_option) {
+            $document_option = $form['details']->document_option;
+            if (is_string($document_option)) {
+                $form['details']->document_option = json_decode($document_option, true);
+            }
+        }
+
+        return view('admin.public_health.health_hazard_applications.detail', compact('form'));
+    }
+
+    public function HealthHazardApplicationCalendar($id)
+    {
+        $form = HealthLicenseApp::with(['user', 'details', 'files', 'replies'])->find($id);
+        $calendar = HealthLicenseAppointmentLogs::orderBy('id', 'desc')->where('health_license_id', $id)->first();
+
+        return view('users.public_health.health_hazard_applications.account.calendar', compact('form', 'calendar'));
+    }
+
+    public function HealthHazardApplicationCalendarSave(Request $request)
+    {
+        $input = $request->input();
+        if ($input['id']) {
+            $detail = HealthLicenseDetail::where('health_license_id', $input['id'])->first();
+            if ($input['result'] != 2) {
+                $detail->status = 6;
+            } else {
+                $detail->status = 5;
+            }
+            $detail->updated_at = date('Y-m-d H:i:s');
+            if ($detail->save()) {
+                $calendar = HealthLicenseAppointmentLogs::orderBy('id', 'desc')->where('health_license_id', $input['id'])->first();
+                $calendar->date_user = $input['date_user'];
+                $calendar->status = 2;
+                $calendar->updated_at = date('Y-m-d H:i:s');
+                if ($calendar->save()) {
+                    return redirect()->route('HealthHazardApplicationShowDetails')->with('success', 'บันทึกรายการเรียบร้อยแล้ว');
+                }
+            }
+        }
+        return redirect()->route('HealthHazardApplicationShowDetails')->with('error', 'ไม่สามารถบันทึกข้อมูลได้');
+    }
+
+    public function HealthHazardApplicationPayment($id)
+    {
+        $form = HealthLicenseApp::with(['user', 'details', 'files', 'replies'])->find($id);
+
+        return view('users.public_health.health_hazard_applications.account.payment-check', compact('form'));
+    }
+
+    public function HealthHazardApplicationPaymentSave(Request $request)
+    {
+        $input = $request->input();
+        if ($input['id']) {
+            $path = '';
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $path = $file->storeAs('payment', $filename, 'public');
+            }
+            $detail = HealthLicenseDetail::where('health_license_id', $input['id'])->first();
+            $detail->status = 9;
+            if ($detail->save()) {
+                $insert = new HealthLicensePaymentLogs();
+                $insert->health_license_id = $input['id'];
+                $insert->file = $path;
+                $insert->status = 1;
+                $insert->created_at = date('Y-m-d H:i:s');
+                $insert->updated_at = date('Y-m-d H:i:s');
+                if ($insert->save()) {
+                    return redirect()->route('HealthHazardApplicationShowDetails')->with('success', 'บันทึกรายการเรียบร้อยแล้ว');
+                }
+            }
+        }
+        return redirect()->route('HealthHazardApplicationShowDetails')->with('error', 'ไม่สามารถบันทึกข้อมูลได้');
     }
 }

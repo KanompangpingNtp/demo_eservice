@@ -18,7 +18,7 @@ class HealthLicenseApp extends Model
 
     public function details()
     {
-        return $this->hasMany(HealthLicenseDetail::class, 'health_license_id');
+        return $this->hasOne(HealthLicenseDetail::class, 'health_license_id');
     }
 
     public function user()
