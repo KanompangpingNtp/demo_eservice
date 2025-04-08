@@ -163,22 +163,18 @@
                                         <textarea rows="5" class="form-control" name="detail" id="detail" required></textarea>
                                     </div>
                                 </div>
-                                <div class="mb-3 row">
-                                    <div class="btn-group" role="group" aria-label="เลือกตัวเลือก">
+                                <div class="mb-3 row d-flex justify-content-center">
+                                    <div class="col-auto">
                                         <input type="radio" class="btn-check" name="options" id="option1" value="1" autocomplete="off">
-                                        <label class="btn btn-outline-danger" for="option1" title="อุบัติเหตุ"><i class="fa-solid fa-truck-medical"></i></label>
-
+                                        <label class="" for="option1" title="อุบัติเหตุ"><img class="imgoption" src="{{asset('images/emergency/cd7724c584b81b30.png')}}" id="imgoption1" alt="อุบัติเหตุ"></label>
+                                    </div>
+                                    <div class="col-auto">
                                         <input type="radio" class="btn-check" name="options" id="option2" value="2" autocomplete="off">
-                                        <label class="btn btn-outline-danger" for="option2" title="ไฟไหม้"><i class="fa-solid fa-fire-extinguisher"></i></label>
-
-                                        <input type="radio" class="btn-check" name="options" id="option3" value="3" autocomplete="off">
-                                        <label class="btn btn-outline-danger" for="option3" title="ไฟเสีย"><i class="fa-solid fa-bolt-lightning"></i></label>
-
-                                        <input type="radio" class="btn-check" name="options" id="option4" value="4" autocomplete="off">
-                                        <label class="btn btn-outline-danger" for="option4" title="ถนนพัง"><i class="fa-solid fa-road-circle-exclamation"></i></label>
-
-                                        <input type="radio" class="btn-check" name="options" id="option5" value="5" autocomplete="off">
-                                        <label class="btn btn-outline-danger" for="option5" title="ต้นไม้ล้ม"><i class="fa fa-tree"></i></label>
+                                        <label class="" for="option2" title="ไฟไหม้"><img class="imgoption" src="{{asset('images/emergency/bd0643ac1d33ccb2.png')}}" id="imgoption2" style="padding-top:9px" alt="ไฟไหม้"></label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="radio" class="btn-check" name="options" id="option3" value="5" autocomplete="off">
+                                        <label class="" for="option3" title="ต้นไม้ล้ม"><img class="imgoption" src="{{asset('images/emergency/f24c8a8dfa8caac9.png')}}" id="imgoption3" style="padding-top:6px" alt="ต้นไม้ล้ม"></label>
                                     </div>
                                 </div>
                                 <input type="hidden" name="latitude" id="latitude">
@@ -288,7 +284,8 @@
     const buttons = document.querySelectorAll('input[name="options"]');
     buttons.forEach(btn => {
         btn.addEventListener('change', () => {
-            console.log('เลือก:', btn.id);
+            $('.imgoption').css('filter', '');
+            $('#img' + btn.id).css('filter', 'drop-shadow(2px 4px 6px red)');
         });
     });
 
