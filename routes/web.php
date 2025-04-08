@@ -99,6 +99,12 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/admin/disability/admin-reply/{id}', [AdminDisabilityController::class, 'DisabilityAdminReply'])->name('DisabilityAdminReply');
     Route::post('/admin/disability/update-status/{id}', [AdminDisabilityController::class, 'DisabilityUpdateStatus'])->name('DisabilityUpdateStatus');
 
+    //admin ReceiveAssistance
+    Route::get('/TablePages/ReceiveAssistance', [AdminReceiveAssistanceController::class, 'TableReceiveAssistanceAdminPages'])->name('TableReceiveAssistanceAdminPages');
+    Route::post('/TablePages/ReceiveAssistance/AdminReply/{id}', [AdminReceiveAssistanceController::class, 'ReceiveAssistanceAdminReply'])->name('ReceiveAssistanceAdminReply');
+    Route::get('/TablePages/ReceiveAssistance/ExportPdf/{id}', [AdminReceiveAssistanceController::class, 'ReceiveAssistanceAdminExportPDF'])->name('ReceiveAssistanceAdminExportPDF');
+    Route::post('/TablePages/ReceiveAssistance/{id}/update-status', [AdminReceiveAssistanceController::class, 'ReceiveAssistanceUpdateStatus'])->name('ReceiveAssistanceUpdateStatus');
+
     //คำร้องทั่วไป (แจ้งถนนชำรุด)
     Route::get('/admin/general-road-request/showdata', [AdminGeneralRoadRequestController::class, 'GeneralRoadRequestAdminShowData'])->name('GeneralRoadRequestAdminShowData');
     Route::get('/admin/general-road-request/export-pdf/{id}', [AdminGeneralRoadRequestController::class, 'GeneralRoadRequestAdminExportPDF'])->name('GeneralRoadRequestAdminExportPDF');

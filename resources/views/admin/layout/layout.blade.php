@@ -68,6 +68,10 @@
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
                             แบบคำขอลงทะเบียนรับเงินเบี้ยความพิการ
                         </a>
+                        <a class="nav-link" href="{{route('TableReceiveAssistanceAdminPages')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            แบบคำขอรับการสงเคราะห์ <br> (ผู้ป่วยเอดส์)
+                        </a>
 
                         <div class="sb-sidenav-menu-heading">กองช่าง</div>
                         <a class="nav-link" href="{{route('GeneralElectricityRequestAdminShowData')}}">
