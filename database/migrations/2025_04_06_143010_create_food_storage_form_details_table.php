@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('food_storage_form_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('informations_id')->constrained('food_storage_informations')->onDelete('cascade');
-            $table->string('confirm_option')->nullable();
+            // $table->foreignId('comfirm_option')->constrained('food_storage_types')->onDelete('cascade');
             $table->string('confirm_volume')->nullable();
             $table->string('confirm_number')->nullable();
             $table->string('confirm_year')->nullable();

@@ -9,7 +9,7 @@ class FoodStorageFormFiles extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['form_detail_id', 'file_path', 'file_type'];
+    protected $fillable = ['informations_id', 'file_path', 'file_type','document_type'];
 
     public function information()
     {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\public_health\food_storage_license;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\FoodStorageType;
 use App\Models\FoodStorageInformations;
 use App\Models\FoodStorageFormDetails;
 use App\Models\FoodStorageFormFiles;
@@ -15,7 +16,9 @@ class FoodStorageLicenseController extends Controller
 {
     public function FoodStorageLicenseFormPage()
     {
-        return view('users.public_health.food_storage_license.page-form');
+        $types = FoodStorageType::all();
+
+        return view('users.public_health.food_storage_license.page-form', compact('types'));
     }
 
     public function FoodStorageLicenseFormCreate(Request $request)
@@ -39,7 +42,7 @@ class FoodStorageLicenseController extends Controller
             'fax' => 'required|string',
 
             // food_storage_form_details
-            'confirm_option' => 'required|in:จัดตั้งสถานที่จำหน่ายอาหาร,จัดตั้งสถานที่สะสมอาหาร',
+            'confirm_option' => 'required|exists:food_storage_types,id',
             'confirm_volume' => 'nullable|string|max:255',
             'confirm_number' => 'nullable|string|max:255',
             'confirm_year' => 'nullable|string|max:255',
@@ -67,6 +70,7 @@ class FoodStorageLicenseController extends Controller
             'document_option.*' => 'in:option1,option2,option3,option4,option5,option6,option7,option8',
             'document_option_detail' => 'nullable|required_if:document_option.*,"option8"|string|max:255',
 
+            'attachments' => 'nullable|array',
             'attachments.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
         ]);
 
@@ -123,15 +127,17 @@ class FoodStorageLicenseController extends Controller
         ]);
 
         if ($request->hasFile('attachments')) {
-            foreach ($request->file('attachments') as $file) {
-                $filename = time() . '_' . $file->getClientOriginalName();
+            foreach ($request->file('attachments') as $optionKey => $file) {
+                $documentType = str_replace('option', '', $optionKey);
 
+                $filename = time() . '_' . $file->getClientOriginalName();
                 $path = $file->storeAs('attachments', $filename, 'public');
 
                 FoodStorageFormFiles::create([
                     'informations_id' => $FoodStorageInformations->id,
                     'file_path' => $path,
                     'file_type' => $file->getClientMimeType(),
+                    'document_type' => $documentType,
                 ]);
             }
         }
@@ -142,8 +148,8 @@ class FoodStorageLicenseController extends Controller
     public function FoodStorageLicenseShowDetails()
     {
         $forms = FoodStorageInformations::with(['user', 'files', 'replies'])
-        ->where('users_id', Auth::id())
-        ->get();
+            ->where('users_id', Auth::id())
+            ->get();
 
         return view('users.public_health.food_storage_license.account.show-detail', compact('forms'));
     }
@@ -157,8 +163,10 @@ class FoodStorageLicenseController extends Controller
             $document_option = json_decode($document_option, true);
         }
 
-        $pdf = Pdf::loadView('users.public_health.food_storage_license.pdf-form',
-        compact('form', 'document_option'))->setPaper('A4', 'portrait');
+        $pdf = Pdf::loadView(
+            'users.public_health.food_storage_license.pdf-form',
+            compact('form', 'document_option')
+        )->setPaper('A4', 'portrait');
 
         return $pdf->stream('pdf' . $form->id . '.pdf');
     }
@@ -183,7 +191,7 @@ class FoodStorageLicenseController extends Controller
 
     public function FoodStorageLicenseUserShowFormEdit($id)
     {
-        $form = FoodStorageInformations::with('files','details')->findOrFail($id);
+        $form = FoodStorageInformations::with('files', 'details')->findOrFail($id);
 
         if ($form->details->first() && $form->details->first()->document_option) {
             $document_option = $form->details->first()->document_option;

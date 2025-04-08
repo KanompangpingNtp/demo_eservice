@@ -147,8 +147,8 @@
     <div class="box_text" style="text-align: left;">
         <span>ขอยื่นคำร้องขอรับ/ขอต่ออายุใบอนุญาตจัดตั้งสถานที่ ต่อเจ้าพนักงานท้องถิ่น</span> <br>
         <div style="margin-left:4rem;">
-            <input type="checkbox" style="margin: 0px 10px;" {{ $form->details->first()->confirm_option == 'จัดตั้งสถานที่จำหน่ายอาหาร' ? 'checked' : '' }}><span>จัดตั้งสถานที่จำหน่ายอาหาร</span>
-        <input type="checkbox" style="margin: 0px 10px;" {{ $form->details->first()->confirm_option == 'จัดตั้งสถานที่สะสมอาหาร' ? 'checked' : '' }}><span>จัดตั้งสถานที่สะสมอาหาร</span>
+            <input type="checkbox" style="margin: 0px 10px;" {{ $form->details->first()->confirm_option == '1' ? 'checked' : '' }}><span>จัดตั้งสถานที่จำหน่ายอาหาร</span>
+        <input type="checkbox" style="margin: 0px 10px;" {{ $form->details->first()->confirm_option == '2' ? 'checked' : '' }}><span>จัดตั้งสถานที่สะสมอาหาร</span>
         </div>
     </div>
     <div class="box_text" style="text-align: left;">

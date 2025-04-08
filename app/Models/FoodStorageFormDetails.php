@@ -44,4 +44,9 @@ class FoodStorageFormDetails extends Model
     {
         return $this->belongsTo(FoodStorageInformations::class, 'informations_id');
     }
+
+    public function type()
+    {
+        return $this->belongsTo(FoodStorageType::class, 'confirm_option');
+    }
 }

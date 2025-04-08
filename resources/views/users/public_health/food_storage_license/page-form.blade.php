@@ -1,7 +1,7 @@
 @extends('users.layout.layout')
 @section('pages_content')
 <div class="container">
-    <h2 class="text-center mb-4">แบบคำร้องใบอณุญาตสะสมอาหาร</h2><br>
+    <h2 class="text-center mb-4">จัดตั้งสถานที่จำหน่ายอาหาร หรือ สถานที่สะสมอาหาร</h2><br>
 
     <form action="{{route('FoodStorageLicenseFormCreate')}}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -103,19 +103,16 @@
         <h5>ขอยื่นคำร้องขอรับ/ขอต่ออายุใบอนุญาตจัดตั้งสถานที่ ต่อเข้าพนักงานท้องถิ่น</h5><br>
 
         <div class="col-md-5 mb-3">
+            @foreach ($types as $type)
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="confirm_option" id="person_individual" value="จัดตั้งสถานที่จำหน่ายอาหาร" required>
-                <label class="form-check-label" for="person_individual">
-                    จัดตั้งสถานที่จำหน่ายอาหาร
+                <input class="form-check-input" type="radio" name="confirm_option" id="type_{{ $type->id }}" value="{{ $type->id }}" required>
+                <label class="form-check-label" for="type_{{ $type->id }}">
+                    {{ $type->type_name }}
                 </label>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="confirm_option" id="person_legal" value="จัดตั้งสถานที่สะสมอาหาร">
-                <label class="form-check-label" for="person_legal">
-                    จัดตั้งสถานที่สะสมอาหาร
-                </label>
-            </div>
+            @endforeach
         </div>
+
 
         <div class="row g-3 mb-3">
             <div class="col-md-3">
@@ -243,52 +240,73 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option1" id="option1">
+                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option1" id="option1" data-status="1">
                         <label class="form-check-label" for="option1">
                             สำเนาบัตรประจำตัวประชาชนและสำเนาทะเบียนบ้านเจ้าของกิจการ
                         </label>
+                        <div class="mt-2">
+                            <input type="file" id="file_option1" class="form-control-file" name="attachments[option1]" style="display:none;">
+                        </div>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option2" id="option2">
+                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option2" id="option2" data-status="2">
                         <label class="form-check-label" for="option2">
-                            สำเนาหนังสือรับรองการจดทะเบียนนิติบุคคลพร้อมสำเนาบัตรประชาชนของผู้แทนนิติบุคคล <br> (กรณีผู้ประกอบการเป็นนิติบุคคล)
+                            สำเนาหนังสือรับรองการจดทะเบียนนิติบุคคลพร้อมสำเนาบัตรประชาชนของผู้แทนนิติบุคคล
                         </label>
+                        <div class="mt-2">
+                            <input type="file" id="file_option2" class="form-control-file" name="attachments[option2]" style="display:none;">
+                        </div>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option3" id="option3">
+                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option3" id="option3" data-status="3">
                         <label class="form-check-label" for="option3">
                             หนังสือยินยอมให้ใช้สถานที่ / สัญญาเช่า
                         </label>
+                        <div class="mt-2">
+                            <input type="file" id="file_option3" class="form-control-file" name="attachments[option3]" style="display:none;">
+                        </div>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option4" id="option4">
+                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option4" id="option4" data-status="4">
                         <label class="form-check-label" for="option4">
                             หนังสือยินมอบอำนาจพร้อมสำเนาบัตรประชาชน / สำเนาทะเบียนบ้านผู้มอบ และผู้รับมอบอำนาจ
                         </label>
+                        <div class="mt-2">
+                            <input type="file" id="file_option4" class="form-control-file" name="attachments[option4]" style="display:none;">
+                        </div>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option5" id="option5">
+                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option5" id="option5" data-status="5">
                         <label class="form-check-label" for="option5">
-                            ใบรับรองแพทย์ของผู้สัมผัสอาหาร (กรณีขอรับ / ขอต่ออายุใบอนุญาตแจ้งจัดตั้งสถานที่จำหน่ายอาหาร)
+                            ใบรับรองแพทย์ของผู้สัมผัสอาหาร
                         </label>
+                        <div class="mt-2">
+                            <input type="file" id="file_option5" class="form-control-file" name="attachments[option5]" style="display:none;">
+                        </div>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option6" id="option6">
+                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option6" id="option6" data-status="6">
                         <label class="form-check-label" for="option6">
-                            ใบอนุญาตแจ้งจัดตั้งสถานที่จำหน่ายอาหาร หรือ สถานที่สะสมอาหารฉบับเดิม (ต้นฉบับ) (กรณีต่อ)
+                            ใบอนุญาตแจ้งจัดตั้งสถานที่จำหน่ายอาหาร หรือ สถานที่สะสมอาหารฉบับเดิม (ต้นฉบับ)
                         </label>
+                        <div class="mt-2">
+                            <input type="file" id="file_option6" class="form-control-file" name="attachments[option6]" style="display:none;">
+                        </div>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option7" id="option7">
+                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option7" id="option7" data-status="7">
                         <label class="form-check-label" for="option7">
-                            แผนที่สถานที่ตั้งของสถานประกอบการ (กรณีขอรับ)
+                            แผนที่สถานที่ตั้งของสถานประกอบการ
                         </label>
+                        <div class="mt-2">
+                            <input type="file" id="file_option7" class="form-control-file" name="attachments[option7]" style="display:none;">
+                        </div>
                     </div>
 
                     <!-- Checkbox -->
@@ -304,6 +322,37 @@
                         <label for="document_option_detail" class="form-label">รายละเอียดอื่นๆ</label>
                         <input type="text" class="form-control" id="document_option_detail" name="document_option_detail">
                     </div>
+
+                    <script>
+                        // ใช้ JavaScript vanilla
+                        document.querySelectorAll('.form-check-input').forEach(function(checkbox) {
+                            checkbox.addEventListener('change', function() {
+                                // เช็คว่า checkbox ถูกเลือกหรือไม่
+                                var fileInput = document.getElementById('file_' + this.id);
+
+                                // ถ้าตัว checkbox ถูกเลือกให้แสดง input file, ถ้าไม่ให้ซ่อน
+                                if (this.checked) {
+                                    fileInput.style.display = 'block';
+                                } else {
+                                    fileInput.style.display = 'none';
+                                }
+                            });
+                        });
+
+                        // ใช้ jQuery
+                        $('input[type="checkbox"]').change(function() {
+                            var checkboxId = $(this).attr('id');  // ได้ ID ของ checkbox ที่ถูกคลิก
+                            var fileInputId = '#file_' + checkboxId;  // สร้าง ID ของ input file ที่เชื่อมโยง
+
+                            if ($(this).is(':checked')) {
+                                // แสดง input file เมื่อ checkbox ถูกเลือก
+                                $(fileInputId).show();
+                            } else {
+                                // ซ่อน input file เมื่อ checkbox ถูกยกเลิกเลือก
+                                $(fileInputId).hide();
+                            }
+                        });
+                    </script>
 
                     <!-- JavaScript -->
                     <script>
@@ -325,14 +374,14 @@
         <br>
 
         <!-- Row 7: แนบไฟล์ -->
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label for="attachments" class="form-label">แนบไฟล์ (รูปหรือเอกสารประกอบคำร้อง)</label>
             <input type="file" class="form-control" id="attachments" name="attachments[]" multiple>
             <small class="text-muted">ประเภทไฟล์ที่รองรับ: jpg, jpeg, png, pdf (ขนาดไม่เกิน 2MB)</small>
             <div id="file-list" class="mt-1">
                 <div class="d-flex flex-wrap gap-3"></div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- ปุ่มบันทึก -->
         <div class="text-center w-full border">
