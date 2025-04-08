@@ -197,52 +197,73 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option1" id="option1">
+                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option1" id="option1" data-status="1">
                         <label class="form-check-label" for="option1">
                             สำเนาบัตรประจำตัวประชาชนและสำเนาทะเบียนบ้านเจ้าของกิจการ(ผู้ประกอบการ/ผู้ถือใบอนุญาต)
                         </label>
+                        <div class="mt-2">
+                            <input type="file" id="file_option1" class="form-control-file" name="attachments[option1]" style="display:none;">
+                        </div>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option2" id="option2">
+                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option2" id="option2" data-status="2">
                         <label class="form-check-label" for="option2">
                             สำเนาหนังสือรับรองการจดทะเบียนนิติบุคคลพร้อมสำเนาบัตรประชาชนของผู้แทนนิติบุคคล
                         </label>
+                        <div class="mt-2">
+                            <input type="file" id="file_option2" class="form-control-file" name="attachments[option2]" style="display:none;">
+                        </div>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option3" id="option3">
+                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option3" id="option3" data-status="3">
                         <label class="form-check-label" for="option3">
-                            หนังสือยินยอมให้ใช้อาคาร สถานที่ หรือสัญญาเช่า(กรณีผู้รับใบอนุญาตไม่มีกรรมสิทธิ์ในอาคารสถานที่)
+                             หนังสือยินยอมให้ใช้อาคาร สถานที่ หรือสัญญาเช่า(กรณีผู้รับใบอนุญาตไม่มีกรรมสิทธิ์ในอาคารสถานที่)
                         </label>
+                        <div class="mt-2">
+                            <input type="file" id="file_option3" class="form-control-file" name="attachments[option3]" style="display:none;">
+                        </div>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option4" id="option4">
+                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option4" id="option4" data-status="4">
                         <label class="form-check-label" for="option4">
                             หนังสือยินมอบอำนาจพร้อมสำเนาบัตรประชาชน/สำเนาทะเบียนบ้านผู้มอบและผู้รับมอบอำนาจ พร้อมติดอากรแสตมป์ (กรณีเจ้าของไม่สามารถมายื่นคำขอด้วยตนเอง)
                         </label>
+                        <div class="mt-2">
+                            <input type="file" id="file_option4" class="form-control-file" name="attachments[option4]" style="display:none;">
+                        </div>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option5" id="option5">
+                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option5" id="option5" data-status="5">
                         <label class="form-check-label" for="option5">
                             สำเนนาใบอนุญาตตามกฏหมายว่าด้วยการควบคุมอาคาร(แบบอ.๑)
                         </label>
+                        <div class="mt-2">
+                            <input type="file" id="file_option5" class="form-control-file" name="attachments[option5]" style="display:none;">
+                        </div>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option6" id="option6">
+                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option6" id="option6" data-status="6">
                         <label class="form-check-label" for="option6">
                             สำเนนาใบอนุญาตประกอบกิจการโรงงานทุกหน้า(ใบร.ง.๔)
                         </label>
+                        <div class="mt-2">
+                            <input type="file" id="file_option6" class="form-control-file" name="attachments[option6]" style="display:none;">
+                        </div>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option7" id="option7">
+                        <input class="form-check-input" type="checkbox" name="document_option[]" value="option7" id="option7" data-status="7">
                         <label class="form-check-label" for="option7">
                             แผนที่สถานที่ตั้งของสถานประกอบการ (กรณีขอรับ)
                         </label>
+                        <div class="mt-2">
+                            <input type="file" id="file_option7" class="form-control-file" name="attachments[option7]" style="display:none;">
+                        </div>
                     </div>
 
                     <!-- Checkbox -->
@@ -258,6 +279,37 @@
                         <label for="document_option_detail" class="form-label">รายละเอียดอื่นๆ</label>
                         <input type="text" class="form-control" id="document_option_detail" name="document_option_detail">
                     </div>
+
+                    <script>
+                        // ใช้ JavaScript vanilla
+                        document.querySelectorAll('.form-check-input').forEach(function(checkbox) {
+                            checkbox.addEventListener('change', function() {
+                                // เช็คว่า checkbox ถูกเลือกหรือไม่
+                                var fileInput = document.getElementById('file_' + this.id);
+
+                                // ถ้าตัว checkbox ถูกเลือกให้แสดง input file, ถ้าไม่ให้ซ่อน
+                                if (this.checked) {
+                                    fileInput.style.display = 'block';
+                                } else {
+                                    fileInput.style.display = 'none';
+                                }
+                            });
+                        });
+
+                        // ใช้ jQuery
+                        $('input[type="checkbox"]').change(function() {
+                            var checkboxId = $(this).attr('id');  // ได้ ID ของ checkbox ที่ถูกคลิก
+                            var fileInputId = '#file_' + checkboxId;  // สร้าง ID ของ input file ที่เชื่อมโยง
+
+                            if ($(this).is(':checked')) {
+                                // แสดง input file เมื่อ checkbox ถูกเลือก
+                                $(fileInputId).show();
+                            } else {
+                                // ซ่อน input file เมื่อ checkbox ถูกยกเลิกเลือก
+                                $(fileInputId).hide();
+                            }
+                        });
+                    </script>
 
                     <!-- JavaScript -->
                     <script>
@@ -289,6 +341,7 @@
             <button type="submit" class="btn btn-primary w-100 py-1"><i class="fa-solid fa-file-arrow-up me-2"></i></i>
                 ส่งฟอร์มข้อมูล</button>
         </div>
+
     </form>
 </div>
 

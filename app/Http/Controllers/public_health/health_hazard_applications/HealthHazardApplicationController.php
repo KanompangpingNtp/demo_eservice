@@ -59,6 +59,8 @@ class HealthHazardApplicationController extends Controller
             'document_option.*' => 'in:option1,option2,option3,option4,option5,option6,option7,option8',
             'document_option_detail' => 'nullable|required_if:document_option.*,"option8"|string|max:255',
 
+            'attachments' => 'nullable|array',
+            'attachments.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
         ]);
 
         // dd($request);
@@ -108,15 +110,17 @@ class HealthHazardApplicationController extends Controller
         ]);
 
         if ($request->hasFile('attachments')) {
-            foreach ($request->file('attachments') as $file) {
-                $filename = time() . '_' . $file->getClientOriginalName();
+            foreach ($request->file('attachments') as $optionKey => $file) {
+                $documentType = str_replace('option', '', $optionKey);
 
+                $filename = time() . '_' . $file->getClientOriginalName();
                 $path = $file->storeAs('attachments', $filename, 'public');
 
                 HealthLicenseFiles::create([
                     'health_license_id' => $HealthLicenseApp->id,
                     'file_path' => $path,
                     'file_type' => $file->getClientMimeType(),
+                    'document_type' => $documentType,
                 ]);
             }
         }
