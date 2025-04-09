@@ -223,7 +223,7 @@
                                     class="img-fluid">
                             </a>
                             <a href="#">
-                                <img src="{{ asset('images/first-pages/ตรวจสอบคำขออนุญาต.png') }}" alt="ตรวจสอบคำขออนุญาต"
+                                <img src="{{ asset('images/first-pages/ธนาคารขยะ.png') }}" alt="ธนาคารขยะ"
                                     class="img-fluid">
                             </a>
                         </div>
