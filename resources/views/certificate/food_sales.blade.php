@@ -173,7 +173,8 @@
         </div>
         <div class="box_text" style="text-align: right; margin-top:1rem;">
             <span>(ลายมือชื่อ)</span>
-            <span class="dotted-line" style="width: 35%; text-align: center;"> {{$form->full_name}}</span>
+            <span class="dotted-line" style="width: 35%; text-align: center;"><img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/payment/signature.png'))) }}" alt=""></span>
+            <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/payment/S__40829013-removebg-preview-Photoroom.png'))) }}" alt="">
             <div style="margin-right: 10px;">
                 <span>(</span>
                 <span class="dotted-line" style="width: 30%; text-align: center;"> {{$form->salutation}}{{$form->full_name}} </span>
