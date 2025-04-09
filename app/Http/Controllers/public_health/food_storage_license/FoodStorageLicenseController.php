@@ -169,7 +169,7 @@ class FoodStorageLicenseController extends Controller
             $query->where('confirm_option', 1);
         }])->find($id);
 
-        $document_option = $form->details->first()->document_option ?? [];
+        $document_option = $form['details']->document_option ?? [];
         if (is_string($document_option)) {
             $document_option = json_decode($document_option, true);
         }

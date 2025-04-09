@@ -147,63 +147,63 @@
     <div class="box_text" style="text-align: left;">
         <span>ขอยื่นคำร้องขอรับ/ขอต่ออายุใบอนุญาตจัดตั้งสถานที่ ต่อเจ้าพนักงานท้องถิ่น</span> <br>
         <div style="margin-left:4rem;">
-            <input type="checkbox" style="margin: 0px 10px;" {{ $form->details->first()->confirm_option == '1' ? 'checked' : '' }}><span>จัดตั้งสถานที่จำหน่ายอาหาร</span>
-        <input type="checkbox" style="margin: 0px 10px;" {{ $form->details->first()->confirm_option == '2' ? 'checked' : '' }}><span>จัดตั้งสถานที่สะสมอาหาร</span>
+            <input type="checkbox" style="margin: 0px 10px;" {{ $form['details']->confirm_option == '1' ? 'checked' : '' }}><span>จัดตั้งสถานที่จำหน่ายอาหาร</span>
+        <input type="checkbox" style="margin: 0px 10px;" {{ $form['details']->confirm_option == '2' ? 'checked' : '' }}><span>จัดตั้งสถานที่สะสมอาหาร</span>
         </div>
     </div>
     <div class="box_text" style="text-align: left;">
         <span>ตามใบอนุญาติ เล่มที่</span>
-        <span class="dotted-line" style="width: 12%; text-align: center;">{{$form->details->first()->confirm_volume}}</span>
+        <span class="dotted-line" style="width: 12%; text-align: center;">{{$form['details']->confirm_volume}} {{$form['details']->confirm_volume}}</span>
         <span>เลขที่</span>
-        <span class="dotted-line" style="width: 12%; text-align: center;">{{$form->details->first()->confirm_number}}</span>
+        <span class="dotted-line" style="width: 12%; text-align: center;">{{$form['details']->confirm_number}}</span>
         <span>ปี</span>
-        <span class="dotted-line" style="width: 12%; text-align: center;">{{$form->details->first()->confirm_year}}</span>
+        <span class="dotted-line" style="width: 12%; text-align: center;">{{$form['details']->confirm_year}}</span>
         <span>ซึ่งจะหมดอายุลงในวันที่</span>
-        <span class="dotted-line" style="width: 20%; text-align: center;">{{$form->details->first()->confirm_expiration_date}}</span>
+        <span class="dotted-line" style="width: 20%; text-align: center;">{{$form['details']->confirm_expiration_date}}</span>
     </div>
     <div class="box_text" style="text-align: left; margin-left:5rem;">
         <span>๑. สถานที่ชื่อ</span>
-        <span class="dotted-line" style="width: 40.5%; text-align: center;">{{$form->details->first()->place_name}}</span>
+        <span class="dotted-line" style="width: 40.5%; text-align: center;">{{$form['details']->place_name}}</span>
         <span>ประเภทร้าน</span>
-        <span class="dotted-line" style="width: 35%; text-align: center;">{{$form->details->first()->shop_type}}</span>
+        <span class="dotted-line" style="width: 35%; text-align: center;">{{$form['details']->shop_type}}</span>
     </div>
     <div class="box_text" style="text-align: left; margin-left:5rem;">
         <span>๒. สถานที่ตั้งเลขที่</span>
-        <span class="dotted-line" style="width: 15%; text-align: center;">{{$form->details->first()->location}}</span>
+        <span class="dotted-line" style="width: 15%; text-align: center;">{{$form['details']->location}}</span>
         <span>หมู่</span>
-        <span class="dotted-line" style="width: 15%; text-align: center;">{{$form->details->first()->details_village}}</span>
+        <span class="dotted-line" style="width: 15%; text-align: center;">{{$form['details']->details_village}}</span>
         <span>ตรอกซอย</span>
-        <span class="dotted-line" style="width: 15%; text-align: center;">{{$form->details->first()->details_alley}}</span>
+        <span class="dotted-line" style="width: 15%; text-align: center;">{{$form['details']->details_alley}}</span>
         <span>ถนน</span>
-        <span class="dotted-line" style="width: 18%; text-align: center;">{{$form->details->first()->details_road}}</span>
+        <span class="dotted-line" style="width: 18%; text-align: center;">{{$form['details']->details_road}}</span>
         <span>ตำบล</span>
-        <span class="dotted-line" style="width: 18%; text-align: center;">{{$form->details->first()->details_subdistrict}}</span>
+        <span class="dotted-line" style="width: 18%; text-align: center;">{{$form['details']->details_subdistrict}}</span>
         <span>อำเภอ</span>
-        <span class="dotted-line" style="width: 16%; text-align: center;">{{$form->details->first()->details_district}}</span>
+        <span class="dotted-line" style="width: 16%; text-align: center;">{{$form['details']->details_district}}</span>
         <span>จังหวัด</span>
-        <span class="dotted-line" style="width: 18%; text-align: center;">{{$form->details->first()->details_province}}</span>
+        <span class="dotted-line" style="width: 18%; text-align: center;">{{$form['details']->details_province}}</span>
         <span>โทรศัพท์</span>
-        <span class="dotted-line" style="width: 18%; text-align: center;">{{$form->details->first()->details_telephone}}</span>
+        <span class="dotted-line" style="width: 18%; text-align: center;">{{$form['details']->details_telephone}}</span>
         <span>โทรสาร</span>
-        <span class="dotted-line" style="width: 32%; text-align: center;">{{$form->details->first()->details_fax}}</span>
+        <span class="dotted-line" style="width: 32%; text-align: center;">{{$form['details']->details_fax}}</span>
         <span>พื้นที่ประกอบการ</span>
-        <span class="dotted-line" style="width: 33%; text-align: center;">{{$form->details->first()->business_area}}</span>
+        <span class="dotted-line" style="width: 33%; text-align: center;">{{$form['details']->business_area}}</span>
         <span>ตารางเมตร</span>
         <span>จำนวนผู้ปรุง</span>
-        <span class="dotted-line" style="width: 6.8%; text-align: center;">{{$form->details->first()->number_of_cooks}}</span>
+        <span class="dotted-line" style="width: 6.8%; text-align: center;">{{$form['details']->number_of_cooks}}</span>
         <span>คน ผู้เสิร์ฟ</span>
-        <span class="dotted-line" style="width: 6.8%; text-align: center;">{{$form->details->first()->number_of_food}}</span>
+        <span class="dotted-line" style="width: 6.8%; text-align: center;">{{$form['details']->number_of_food}}</span>
         <span>คน รวมผู้สัมผัสอาหาร</span>
-        <span class="dotted-line" style="width: 6.8%; text-align: center;">{{$form->details->first()->including_food_handlers}}</span>
+        <span class="dotted-line" style="width: 6.8%; text-align: center;">{{$form['details']->including_food_handlers}}</span>
         <span>คน ผ่านการอบรมแล้วจำนวน</span>
-        <span class="dotted-line" style="width: 6.8%; text-align: center;">{{$form->details->first()->number_of_trainees}}</span>
+        <span class="dotted-line" style="width: 6.8%; text-align: center;">{{$form['details']->number_of_trainees}}</span>
         <span>คน</span>
         <span>เปิดประกอบการตั้งแต่เวลา</span>
-        <span class="dotted-line" style="width: 16%; text-align: center;">{{$form->details->first()->opening_hours}}</span>
+        <span class="dotted-line" style="width: 16%; text-align: center;">{{$form['details']->opening_hours}}</span>
         <span>น. ถึงเวลา</span>
-        <span class="dotted-line" style="width: 16%; text-align: center;">{{$form->details->first()->opening_for_business_until}}</span>
+        <span class="dotted-line" style="width: 16%; text-align: center;">{{$form['details']->opening_for_business_until}}</span>
         <span>น. รวม</span>
-        <span class="dotted-line" style="width: 16%; text-align: center;">{{$form->details->first()->total_hours}}</span>
+        <span class="dotted-line" style="width: 16%; text-align: center;">{{$form['details']->total_hours}}</span>
         <span>ชั่วโมง/วัน</span>
     </div>
     <div class="box_text" style="text-align: left; margin-left:5rem; margin-top:-10px;">
@@ -217,7 +217,7 @@
             <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option5", $document_option) ? 'checked' : '' }}><span>ใบรับรองแพทย์ของผู้สัมผัสอาหาร (กรณีขอรับ / ขอต่ออายุใบอนุญาตแจ้งจัดตั้งสถานที่จำหน่ายอาหาร)</span> <br>
             <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option6", $document_option) ? 'checked' : '' }}><span>ใบอนุญาตแจ้งจัดตั้งสถานที่จำหน่ายอาหาร หรือ สถานที่สะสมอาหารฉบับเดิม (ต้นฉบับ) (กรณีต่อ)</span> <br>
             <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option7", $document_option) ? 'checked' : '' }}><span>แผนที่สถานที่ตั้งของสถานประกอบการ (กรณีขอรับ)</span> <br>
-            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option8", $document_option) ? 'checked' : '' }}><span>อื่นๆ</span><span class="dotted-line" style="width: 20%; text-align: center;">{{$form->details->first()->document_option_detail}}</span> <br>
+            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option8", $document_option) ? 'checked' : '' }}><span>อื่นๆ</span><span class="dotted-line" style="width: 20%; text-align: center;">{{$form['details']->document_option_detail}}</span> <br>
         </div>
         <span>ข้าพเจ้าขอรับรองว่า ข้อความในแบบคำขอนี้เป็นความจริงทุกประการ</span>
     </div>
