@@ -9,6 +9,7 @@ use App\Models\HealthLicenseAppointmentLogs;
 use App\Models\HealthLicenseDetail;
 use App\Models\HealthLicenseExploreLogs;
 use App\Models\HealthLicenseLogs;
+use App\Models\HealthLicenseNumberLogs;
 use App\Models\HealthLicensePaymentLogs;
 use App\Models\HealthLicenseReplies;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -218,6 +219,7 @@ class AdminHealthHazardApplicationController extends Controller
                     $insert = new HealthLicenseExploreLogs();
                     $insert->health_license_id = $input['id'];
                     $insert->detail = $input['detail'];
+                    $insert->price = $input['price'];
                     $insert->file = $path;
                     $insert->status = 1;
                     $insert->created_at = date('Y-m-d H:i:s');
@@ -232,6 +234,7 @@ class AdminHealthHazardApplicationController extends Controller
                     $insert = new HealthLicenseExploreLogs();
                     $insert->health_license_id = $input['id'];
                     $insert->detail = $input['detail'];
+                    $insert->price = $input['price'];
                     $insert->file = $path;
                     $insert->status = 2;
                     $insert->created_at = date('Y-m-d H:i:s');
@@ -276,11 +279,30 @@ class AdminHealthHazardApplicationController extends Controller
             $detail->status = 10;
             if ($detail->save()) {
                 $update = HealthLicensePaymentLogs::find($input['file-id']);
+                $update->receipt_book = $input['receipt_book'];
                 $update->receipt_number = $input['receipt_number'];
                 $update->status = 2;
                 $update->updated_at = date('Y-m-d H:i:s');
                 if ($update->save()) {
-                    return redirect()->route('HealthHazardApplicationAdminPayment')->with('success', 'บันทึกรายการเรียบร้อยแล้ว');
+                    $number = HealthLicenseNumberLogs::orderBy('id', 'desc')->first();
+                    if ($number) {
+                        $run_book = $number->book + 1;
+                        $run_number = $number->number + 1;
+                    } else {
+                        $run_book = 1;
+                        $run_number = 1;
+                    }
+
+                    $insert = new HealthLicenseNumberLogs();
+                    $insert->health_license_id = $input['id'];
+                    $insert->number = $run_number;
+                    $insert->book = $run_book;
+                    $insert->year = date('Y') + 543;
+                    $insert->created_at = date('Y-m-d');
+                    $insert->updated_at = date('Y-m-d');
+                    if ($insert->save()) {
+                        return redirect()->route('HealthHazardApplicationAdminPayment')->with('success', 'บันทึกรายการเรียบร้อยแล้ว');
+                    }
                 }
             }
         }
@@ -302,15 +324,19 @@ class AdminHealthHazardApplicationController extends Controller
         return view('admin.public_health.health_hazard_applications.approve', compact('forms'));
     }
 
-    public function AdminCertificateHealthHazardApplicationPDF ($id)
+    public function AdminCertificateHealthHazardApplicationPDF($id)
     {
         $form = HealthLicenseApp::find($id);
 
         $file = HealthLicensePaymentLogs::where('health_license_id', $form->id)->first();
 
+        $explore = HealthLicenseExploreLogs::where('health_license_id', $form->id)->first();
+
+        $info_number = HealthLicenseNumberLogs::where('health_license_id', $form->id)->first();
+
         $pdf = Pdf::loadView(
             "admin.public_health.health_hazard_applications.pdf.health_hazard_applications",
-            compact('form', 'file')
+            compact('form', 'file', 'explore', 'info_number')
         )->setPaper('A4', 'portrait');
 
         return $pdf->stream('pdf' . $form->id . '.pdf');

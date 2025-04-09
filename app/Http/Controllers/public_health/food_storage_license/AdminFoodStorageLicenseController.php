@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\FoodStorageInformations;
 use App\Models\FoodStorageFormReplies;
 use App\Models\FoodStorageLogs;
+use App\Models\FoodStorageNumberLogs;
 use App\Models\FoodStoragePaymentLogs;
 use App\Models\FoodStorageType;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -220,6 +221,7 @@ class AdminFoodStorageLicenseController extends Controller
                     $insert->informations_id = $input['id'];
                     $insert->detail = $input['detail'];
                     $insert->file = $path;
+                    $insert->price = $input['price'];
                     $insert->status = 1;
                     $insert->created_at = date('Y-m-d H:i:s');
                     $insert->updated_at = date('Y-m-d H:i:s');
@@ -234,6 +236,7 @@ class AdminFoodStorageLicenseController extends Controller
                     $insert->informations_id = $input['id'];
                     $insert->detail = $input['detail'];
                     $insert->file = $path;
+                    $insert->price = $input['price'];
                     $insert->status = 2;
                     $insert->created_at = date('Y-m-d H:i:s');
                     $insert->updated_at = date('Y-m-d H:i:s');
@@ -278,11 +281,31 @@ class AdminFoodStorageLicenseController extends Controller
             $detail->status = 10;
             if ($detail->save()) {
                 $update = FoodStoragePaymentLogs::find($input['file-id']);
+                $update->receipt_book = $input['receipt_book'];
                 $update->receipt_number = $input['receipt_number'];
                 $update->status = 2;
                 $update->updated_at = date('Y-m-d H:i:s');
                 if ($update->save()) {
-                    return redirect()->route('FoodStorageLicenseAdminPayment')->with('success', 'บันทึกรายการเรียบร้อยแล้ว');
+                    $number = FoodStorageNumberLogs::where('type', $detail['confirm_option'])->orderBy('id', 'desc')->first();
+                    if ($number) {
+                        $run_book = $number->book + 1;
+                        $run_number = $number->number + 1;
+                    } else {
+                        $run_book = 1;
+                        $run_number = 1;
+                    }
+
+                    $insert = new FoodStorageNumberLogs();
+                    $insert->informations_id = $input['id'];
+                    $insert->number = $run_number;
+                    $insert->book = $run_book;
+                    $insert->year = date('Y') + 543;
+                    $insert->type = $detail['confirm_option'];
+                    $insert->created_at = date('Y-m-d');
+                    $insert->updated_at = date('Y-m-d');
+                    if ($insert->save()) {
+                        return redirect()->route('FoodStorageLicenseAdminPayment')->with('success', 'บันทึกรายการเรียบร้อยแล้ว');
+                    }
                 }
             }
         }
@@ -308,7 +331,11 @@ class AdminFoodStorageLicenseController extends Controller
     {
         $form = FoodStorageInformations::find($id);
 
-        $file = FoodStoragePaymentLogs::where('informations_id',$form->id)->first();
+        $explore = FoodStorageExploreLogs::where('informations_id', $form->id)->first();
+
+        $file = FoodStoragePaymentLogs::where('informations_id', $form->id)->first();
+
+        $info_number = FoodStorageNumberLogs::where('informations_id', $form->id)->first();
 
         if ($form['details']->confirm_option == 1) {
             $views = "admin.public_health.food_storage_license.pdf.food_storage_license";
@@ -317,7 +344,7 @@ class AdminFoodStorageLicenseController extends Controller
         }
         $pdf = Pdf::loadView(
             $views,
-            compact('form', 'file')
+            compact('form', 'file', 'info_number', 'explore')
         )->setPaper('A4', 'portrait');
 
         return $pdf->stream('pdf' . $form->id . '.pdf');

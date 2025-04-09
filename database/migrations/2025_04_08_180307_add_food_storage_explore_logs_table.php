@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('health_license_explore_logs', function (Blueprint $table) {
+        Schema::create('food_storage_explore_logs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('health_license_id')->constrained('health_license_apps')->onDelete('cascade');
+            $table->foreignId('informations_id')->constrained('food_storage_informations')->onDelete('cascade');
             $table->text('detail')->nullable();
+            $table->text('price')->nullable();
             $table->text('file')->nullable();
             $table->integer('status');
             $table->timestamps();
@@ -26,9 +27,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('health_license_explore_logs', function (Blueprint $table) {
+        Schema::table('food_storage_explore_logs', function (Blueprint $table) {
             //
-            $table->dropColumn('health_license_explore_logs');
+            $table->dropColumn('food_storage_explore_logs');
         });
     }
 };

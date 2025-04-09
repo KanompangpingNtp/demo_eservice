@@ -3,7 +3,7 @@
 <div class="container">
     <h2 class="text-center mb-4">แบบคำร้องใบอนุญาต</h2><br>
 
-    <form action="{{route('FoodStorageLicenseAdminComfirmSave')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('FoodStorageLicenseAdminConfirmSave')}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 

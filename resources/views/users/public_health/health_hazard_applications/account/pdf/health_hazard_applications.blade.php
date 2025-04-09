@@ -53,7 +53,7 @@
             padding-left: 10px;
             padding-right: 10px;
             padding-bottom: 7px;
-            border: 2px solid black;
+            border: 2px solid #ad3d58;
             font-size: 16px;
             text-align: left;
         }
@@ -132,6 +132,18 @@ function convertYear($date)
     $dayThai = $day;
     return $dayThai;
 }
+function convertYearPlus($date)
+{
+    $day = date('Y', strtotime($date)) + 544;
+    if (!$day) {
+        return "วันที่ไม่ถูกต้อง";
+    }
+
+    $day = $day;
+
+    $dayThai = $day;
+    return $dayThai;
+}
 ?>
 
 <body>
@@ -145,11 +157,9 @@ function convertYear($date)
         <tr>
             <td style="text-align: left;">
                 <span>เล่มที่</span>
-                <span class="dotted-line" style="width: 15%; display: inline-block; text-align: center; line-height: 1;"></span>
+                <span class="dotted-line" style="width: 20%; display: inline-block; text-align: center; line-height: 1;">{{$info_number->number}}/{{$info_number->year}}</span>
                 <span>เลขที่</span>
-                <span class="dotted-line" style="width: 15%; display: inline-block; text-align: center; line-height: 1;"></span>
-                <span>ปี</span>
-                <span class="dotted-line" style="width: 15%; display: inline-block; text-align: center; line-height: 1;"></span>
+                <span class="dotted-line" style="width: 34%; display: inline-block; text-align: center; line-height: 1;">{{$info_number->book}}/{{$info_number->year}}</span>
             </td>
             <td style="text-align: right;">
                 <span>ที่ทำการ</span>
@@ -194,14 +204,14 @@ function convertYear($date)
             <span class="dotted-line" style="width: 60.4%; text-align: center; line-height: 1;">{{$form['details']->type_request}}</span>
         </div>
         <span>ลำดับที่</span>
-        <span class="dotted-line" style="width: 11.5%; text-align: center; line-height: 1;">{{$form['details']->petition}}</span>
+        <span class="dotted-line" style="width: 11.5%; text-align: center; line-height: 1;">{{$info_number->id}}</span>
         <span>ค่าธรรมเนียม</span>
-        <span class="dotted-line" style="width: 11.5%; text-align: center; line-height: 1;">1000</span>
+        <span class="dotted-line" style="width: 11.5%; text-align: center; line-height: 1;">{{$explore->price}}</span>
         <span>บาท</span>
         <span>ใบเสร็จรับเงินเล่มที่</span>
-        <span class="dotted-line" style="width: 17.5%; text-align: center; line-height: 1;">-</span>
+        <span class="dotted-line" style="width: 17.5%; text-align: center; line-height: 1;">{{$file->receipt_book}}</span>
         <span>เลขที่</span>
-        <span class="dotted-line" style="width: 17.5%; text-align: center; line-height: 1;">-</span>
+        <span class="dotted-line" style="width: 17.5%; text-align: center; line-height: 1;">{{$file->receipt_number}}</span>
         <span>ลงวันที่</span>
         <span class="dotted-line" style="width: 8%; text-align: center; line-height: 1;">{{convertDay($file->updated_at)}}</span>
         <span>เดือน</span>
@@ -252,28 +262,36 @@ function convertYear($date)
         </div>
         <div style="margin-left:3rem; margin-top:0.5rem;">
             <span>ใบอนุญาตฉบับนี้ให้ใช้ได้จนถึงวันที่</span>
-            <span class="dotted-line" style="width: 10%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 10%; text-align: center; line-height: 1;">{{convertDay($info_number->updated_at)}}</span>
             <span>เดือน</span>
-            <span class="dotted-line" style="width: 10%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 10%; text-align: center; line-height: 1;">{{convertMonthsToThai($info_number->updated_at)}}</span>
             <span>พ.ศ.</span>
-            <span class="dotted-line" style="width: 10%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 10%; text-align: center; line-height: 1;">{{convertYearPlus($info_number->updated_at)}}</span>
 
             <div style="margin-left:6rem;">
                 <span>ออกให้ ณ วันที่</span>
-                <span class="dotted-line" style="width: 12%; text-align: center; line-height: 1;">{{convertDay($file->updated_at)}}</span>
+                <span class="dotted-line" style="width: 12%; text-align: center; line-height: 1;">{{convertDay($info_number->updated_at)}}</span>
                 <span>เดือน</span>
-                <span class="dotted-line" style="width: 12%; text-align: center; line-height: 1;">{{convertMonthsToThai($file->updated_at)}}</span>
+                <span class="dotted-line" style="width: 12%; text-align: center; line-height: 1;">{{convertMonthsToThai($info_number->updated_at)}}</span>
                 <span>พ.ศ.</span>
-                <span class="dotted-line" style="width: 11%; text-align: center; line-height: 1;">{{convertYear($file->updated_at)}}</span>
+                <span class="dotted-line" style="width: 11%; text-align: center; line-height: 1;">{{convertYear($info_number->updated_at)}}</span>
             </div>
         </div>
-        <div class="box_text" style="text-align: right; margin-top:1rem;">
+        <div class="box_text" style="text-align: right; margin-top:1rem; position: relative;">
             <span>(ลายมือชื่อ)</span>
-            <span class="dotted-line" style="width: 35%; text-align: center;"> {{ $form->full_name }}</span>
+            <span class="dotted-line" style="width: 35%; text-align: center;">
+                <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/payment/signature.png'))) }}" alt="ลายเซ็นมือ" height="40">
+            </span>
+        
+            <!-- ตราประทับแบบลอยและสามารถทะลุออกนอก div ได้ -->
+            <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/payment/S__40829013-removebg-preview-Photoroom.png'))) }}"
+                 alt="stamp"
+                 height="100"
+                 style="position: absolute; top: 10px; right: 0px; z-index: -10; opacity: 0.8;">
+        
             <div style="margin-right: 10px;">
                 <span>(</span>
-                <span class="dotted-line" style="width: 30%; text-align: center;">
-                    {{ $form->salutation }}{{ $form->full_name }} </span>
+                <span class="dotted-line" style="width: 30%; text-align: center;">นายมนูศักดิ์ หม่องศิริ</span>
                 <span>)</span>
             </div>
             <div style="margin-right: 10px;">
@@ -281,18 +299,15 @@ function convertYear($date)
                 <span style="margin-right: 60px;">เจ้าพนักงานท้องถิ่น</span>
             </div>
         </div>
-        <div class="box_text_border"
-            style="line-height: 0.8; display: inline-block; text-align: left; margin-top: 1rem;">
+        
+        <div class="box_text_border" style=" color:#e40013; line-height: 0.8; display: inline-block; text-align: left; margin-top: 0rem;">
             <span style="text-decoration: underline;">คำเตือน</span>
-            <span style="margin-left: 5px;">(๑) ผู้รับใบอนุญาตินี้ไว้โดยเปิดเผยและเห็นได้ง่าย ณ สถานที่</span><br
-                style="margin: 0px;">
-            <span style="margin-top: -10px;">ประกอบกิจการตลอดเวลาที่ประกอบกิจการ หากฝ่าฝืนมีโทษปรับไม่เกิน ๒,๕๐๐
-                บาท</span><br>
+            <span style="margin-left: 5px;">(๑) ผู้รับใบอนุญาตินี้ไว้โดยเปิดเผยและเห็นได้ง่าย ณ สถานที่</span><br style="margin: 0px;">
+            <span style="margin-top: -10px;">ประกอบกิจการตลอดเวลาที่ประกอบกิจการ หากฝ่าฝืนมีโทษปรับไม่เกิน ๒,๕๐๐ บาท</span><br>
             <div style="margin-top: -10px;">
-                <span style="margin-left: 45px;">(๒)
-                    หากประสงค์จะประกอบกิจการในปีต่อไปต้องยื่นคำขอต่ออายุใบอนุญาต</span><br>
-                <span style="text-decoration: underline;">ก่อน</span>
-                <span>ใบอนุญาตสิ้นอายุ ๓๐ วัน พร้อมเสียค่าธรรมเนียมใบอนุญาต</span>
+                <span style="margin-left: 45px;">(๒) หากประสงค์จะประกอบกิจการในปีต่อไปต้องยื่นคำขอต่ออายุใบอนุญาต</span><br>
+            <span style="text-decoration: underline; color:black;">ก่อน</span>
+            <span>ใบอนุญาตสิ้นอายุ ๓๐ วัน พร้อมเสียค่าธรรมเนียมใบอนุญาต</span>
             </div>
         </div>
 

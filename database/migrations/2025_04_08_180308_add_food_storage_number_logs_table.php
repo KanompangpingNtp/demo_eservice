@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('food_storage_explore_logs', function (Blueprint $table) {
+        Schema::create('food_storage_number_logs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('informations_id')->constrained('food_storage_informations')->onDelete('cascade');
-            $table->text('detail')->nullable();
-            $table->text('file')->nullable();
-            $table->integer('status');
+            $table->text('number')->nullable();
+            $table->text('book')->nullable();
+            $table->text('year')->nullable();
+            $table->integer('type');
             $table->timestamps();
         });
     }
@@ -26,9 +27,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('food_storage_explore_logs', function (Blueprint $table) {
+        Schema::table('food_storage_number_logs', function (Blueprint $table) {
             //
-            $table->dropColumn('food_storage_explore_logs');
+            $table->dropColumn('food_storage_number_logs');
         });
     }
 };

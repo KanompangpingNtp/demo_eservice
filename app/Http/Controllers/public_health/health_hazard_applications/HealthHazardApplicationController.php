@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\HealthLicenseApp;
 use App\Models\HealthLicenseAppointmentLogs;
 use App\Models\HealthLicenseDetail;
+use App\Models\HealthLicenseExploreLogs;
 use App\Models\HealthLicenseFiles;
+use App\Models\HealthLicenseNumberLogs;
 use App\Models\HealthLicensePaymentLogs;
 use App\Models\HealthLicenseReplies;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -196,12 +198,16 @@ class HealthHazardApplicationController extends Controller
     public function CertificateHealthHazardPDF($id)
     {
         $form = HealthLicenseApp::with('details')->find($id);
-        
+
         $file = HealthLicensePaymentLogs::where('health_license_id', $form->id)->first();
+
+        $explore = HealthLicenseExploreLogs::where('health_license_id', $form->id)->first();
+
+        $info_number = HealthLicenseNumberLogs::where('health_license_id', $form->id)->first();
 
         $pdf = Pdf::loadView(
             'users.public_health.health_hazard_applications.account.pdf.health_hazard_applications',
-            compact('form', 'file')
+            compact('form', 'file', 'explore', 'info_number')
         )->setPaper('A4', 'portrait');
 
         return $pdf->stream('pdf' . $form->id . '.pdf');
@@ -257,8 +263,9 @@ class HealthHazardApplicationController extends Controller
     public function HealthHazardApplicationPayment($id)
     {
         $form = HealthLicenseApp::with(['user', 'details', 'files', 'replies'])->find($id);
+        $info = HealthLicenseExploreLogs::where('health_license_id', $id)->orderBy('id', 'desc')->first();
 
-        return view('users.public_health.health_hazard_applications.account.payment-check', compact('form'));
+        return view('users.public_health.health_hazard_applications.account.payment-check', compact('form', 'info'));
     }
 
     public function HealthHazardApplicationPaymentSave(Request $request)

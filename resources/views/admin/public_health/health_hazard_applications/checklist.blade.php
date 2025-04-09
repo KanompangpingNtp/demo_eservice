@@ -11,6 +11,10 @@
                 <label for="formFile" class="form-label">ไฟล์ออกสำรวจ :</label>
                 <input class="form-control" type="file" id="formFile" name="formFile">
             </div>
+            <div class="col-md-7">
+                <label for="formFile" class="form-label">อัตราค่าธรรมเนียม :</label>
+                <input class="form-control" type="text" id="price" name="price">
+            </div>
             <h5>ผลออกสำรวจ</h5><br>
             <div class="col-md-12">
                 <div class="form-check form-check-inline">

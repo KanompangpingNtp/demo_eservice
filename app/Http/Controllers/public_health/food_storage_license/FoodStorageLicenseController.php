@@ -4,12 +4,14 @@ namespace App\Http\Controllers\public_health\food_storage_license;
 
 use App\Http\Controllers\Controller;
 use App\Models\FoodStorageAppointmentLogs;
+use App\Models\FoodStorageExploreLogs;
 use Illuminate\Http\Request;
 use App\Models\FoodStorageType;
 use App\Models\FoodStorageInformations;
 use App\Models\FoodStorageFormDetails;
 use App\Models\FoodStorageFormFiles;
 use App\Models\FoodStorageFormReplies;
+use App\Models\FoodStorageNumberLogs;
 use App\Models\FoodStoragePaymentLogs;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
@@ -216,7 +218,11 @@ class FoodStorageLicenseController extends Controller
     {
         $form = FoodStorageInformations::find($id);
 
-        $file = FoodStoragePaymentLogs::where('informations_id',$form->id)->first();
+        $explore = FoodStorageExploreLogs::where('informations_id', $form->id)->first();
+
+        $file = FoodStoragePaymentLogs::where('informations_id', $form->id)->first();
+
+        $info_number = FoodStorageNumberLogs::where('informations_id', $form->id)->first();
 
         if ($form['details']->confirm_option == 1) {
             $views = "users.public_health.food_storage_license.account.pdf.food_storage_license";
@@ -225,7 +231,7 @@ class FoodStorageLicenseController extends Controller
         }
         $pdf = Pdf::loadView(
             $views,
-            compact('form', 'file')
+            compact('form', 'file', 'info_number', 'explore')
         )->setPaper('A4', 'portrait');
 
         return $pdf->stream('pdf' . $form->id . '.pdf');
@@ -263,7 +269,7 @@ class FoodStorageLicenseController extends Controller
         }
         $types = FoodStorageType::all();
 
-        return view('admin.public_health.food_storage_license.detail', compact('form', 'types'));
+        return view('users.public_health.food_storage_license.account.detail', compact('form', 'types'));
     }
 
     public function FoodStorageLicenseCalendar($id)
@@ -301,8 +307,9 @@ class FoodStorageLicenseController extends Controller
     public function FoodStorageLicensePayment($id)
     {
         $form = FoodStorageInformations::with(['user', 'details', 'files', 'replies'])->find($id);
+        $info = FoodStorageExploreLogs::where('informations_id', $id)->orderBy('id', 'desc')->first();
 
-        return view('users.public_health.food_storage_license.account.payment-check', compact('form'));
+        return view('users.public_health.food_storage_license.account.payment-check', compact('form', 'info'));
     }
 
     public function FoodStorageLicensePaymentSave(Request $request)

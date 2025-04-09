@@ -8,7 +8,11 @@
         @method('PUT')
         <div class="row g-3 mb-3">
             <div class="col-md-7">
-                <label for="formFile" class="form-label">เลขที่ใบเสร็จ :</label>
+                <label for="formFile" class="form-label">เล่มที่ :</label>
+                <input class="form-control" type="text" id="receipt_book" name="receipt_book">
+            </div>
+            <div class="col-md-7">
+                <label for="formFile" class="form-label">เลขที่ :</label>
                 <input class="form-control" type="text" id="receipt_number" name="receipt_number">
             </div>
             <div class="col-md-7">

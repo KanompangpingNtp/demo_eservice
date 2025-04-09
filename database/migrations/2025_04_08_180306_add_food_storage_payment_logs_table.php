@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('food_storage_payment_logs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('informations_id')->constrained('food_storage_informations')->onDelete('cascade');
+            $table->text('receipt_book')->nullable();
             $table->text('receipt_number')->nullable();
             $table->text('file')->nullable();
             $table->integer('status');
