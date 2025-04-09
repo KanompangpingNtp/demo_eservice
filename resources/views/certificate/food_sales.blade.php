@@ -53,7 +53,7 @@
             padding-left: 10px;
             padding-right: 10px;
             padding-bottom: 7px;
-            border: 2px solid black;
+            border: 2px solid #ad3d58;
             font-size: 16px;
             text-align: left;
         }
@@ -171,10 +171,18 @@
             <span class="dotted-line" style="width: 11%; text-align: center; line-height: 1;"></span>
             </div>
         </div>
-        <div class="box_text" style="text-align: right; margin-top:1rem;">
+        <div class="box_text" style="text-align: right; margin-top:1rem; position: relative;">
             <span>(ลายมือชื่อ)</span>
-            <span class="dotted-line" style="width: 35%; text-align: center;"><img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/payment/signature.png'))) }}" alt=""></span>
-            <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/payment/S__40829013-removebg-preview-Photoroom.png'))) }}" alt="">
+            <span class="dotted-line" style="width: 35%; text-align: center;">
+                <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/payment/signature.png'))) }}" alt="ลายเซ็นมือ" height="40">
+            </span>
+        
+            <!-- ตราประทับแบบลอยและสามารถทะลุออกนอก div ได้ -->
+            <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/payment/S__40829013-removebg-preview-Photoroom.png'))) }}"
+                 alt="stamp"
+                 height="100"
+                 style="position: absolute; top: 10px; right: 0px; z-index: -10; opacity: 0.8;">
+        
             <div style="margin-right: 10px;">
                 <span>(</span>
                 <span class="dotted-line" style="width: 30%; text-align: center;"> {{$form->salutation}}{{$form->full_name}} </span>
@@ -185,13 +193,14 @@
                 <span style="margin-right: 60px;">เจ้าพนักงานท้องถิ่น</span>
             </div>
         </div>
-        <div class="box_text_border" style="line-height: 0.8; display: inline-block; text-align: left; margin-top: 1rem;">
+        
+        <div class="box_text_border" style=" color:#e40013; line-height: 0.8; display: inline-block; text-align: left; margin-top: 1rem;">
             <span style="text-decoration: underline;">คำเตือน</span>
             <span style="margin-left: 5px;">(๑) ผู้รับใบอนุญาตินี้ไว้โดยเปิดเผยและเห็นได้ง่าย ณ สถานที่</span><br style="margin: 0px;">
             <span style="margin-top: -10px;">ประกอบกิจการตลอดเวลาที่ประกอบกิจการ หากฝ่าฝืนมีโทษปรับไม่เกิน ๒,๕๐๐ บาท</span><br>
             <div style="margin-top: -10px;">
                 <span style="margin-left: 45px;">(๒) หากประสงค์จะประกอบกิจการในปีต่อไปต้องยื่นคำขอต่ออายุใบอนุญาต</span><br>
-            <span style="text-decoration: underline;">ก่อน</span>
+            <span style="text-decoration: underline; color:black;">ก่อน</span>
             <span>ใบอนุญาตสิ้นอายุ ๓๐ วัน พร้อมเสียค่าธรรมเนียมใบอนุญาต</span>
             </div>
         </div>
