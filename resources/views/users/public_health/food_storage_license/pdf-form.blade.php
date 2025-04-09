@@ -153,7 +153,7 @@
     </div>
     <div class="box_text" style="text-align: left;">
         <span>ตามใบอนุญาติ เล่มที่</span>
-        <span class="dotted-line" style="width: 12%; text-align: center;">{{$form['details']->confirm_volume}} {{$form['details']->confirm_volume}}</span>
+        <span class="dotted-line" style="width: 12%; text-align: center;">{{$form['details']->confirm_volume}}</span>
         <span>เลขที่</span>
         <span class="dotted-line" style="width: 12%; text-align: center;">{{$form['details']->confirm_number}}</span>
         <span>ปี</span>
