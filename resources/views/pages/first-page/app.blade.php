@@ -218,7 +218,7 @@
                             </a>
                         </div>
                         <div class="d-flex justify-content-center align-items-end gap-3 mt-4">
-                            <a href="#">
+                            <a href="https://trashalert.sosmartsolution.com/">
                                 <img src="{{ asset('images/first-pages/แจ้งค่าขยะ.png') }}" alt="แจ้งค่าขยะ"
                                     class="img-fluid">
                             </a>

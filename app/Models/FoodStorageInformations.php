@@ -37,7 +37,7 @@ class FoodStorageInformations extends Model
 
     public function details()
     {
-        return $this->hasOne(FoodStorageFormDetails::class, 'informations_id');
+        return $this->hasMany(FoodStorageFormDetails::class, 'informations_id');
     }
 
     public function files()
