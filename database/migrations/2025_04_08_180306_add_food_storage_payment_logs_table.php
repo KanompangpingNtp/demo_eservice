@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('receipt_book')->nullable();
             $table->text('receipt_number')->nullable();
             $table->text('file')->nullable();
+            $table->text('file_treasury')->nullable();
             $table->integer('status');
             $table->timestamps();
         });
