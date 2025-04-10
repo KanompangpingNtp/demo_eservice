@@ -36,14 +36,14 @@ class FoodStorageLicenseController extends Controller
             'nationality' => 'required|string|max:50',
             'id_card_number' => 'required|string|size:13',
             'address' => 'required|string|max:255',
-            'village' => 'required|string',
-            'alley' => 'required|string|max:100',
-            'road' => 'required|string|max:100',
+            'village' => 'nullable|string',
+            'alley' => 'nullable|string|max:100',
+            'road' => 'nullable|string|max:100',
             'subdistrict' => 'required|string',
             'district' => 'required|string',
             'province' => 'required|string',
             'telephone' => 'required|string',
-            'fax' => 'required|string',
+            'fax' => 'nullable|string',
 
             // food_storage_form_details
             'confirm_option' => 'required|exists:food_storage_types,id',

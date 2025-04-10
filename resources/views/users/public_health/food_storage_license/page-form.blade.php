@@ -64,13 +64,13 @@
             </div>
 
             <div class="col-md-3">
-                <label for="alley" class="form-label">ตรอก/ซอย <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="alley" name="alley" required>
+                <label for="alley" class="form-label">ตรอก/ซอย</label>
+                <input type="text" class="form-control" id="alley" name="alley">
             </div>
 
             <div class="col-md-3">
-                <label for="road" class="form-label">ถนน <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="road" name="road" required>
+                <label for="road" class="form-label">ถนน</label>
+                <input type="text" class="form-control" id="road" name="road">
             </div>
 
             <div class="col-md-3">
@@ -94,8 +94,8 @@
             </div>
 
             <div class="col-md-3">
-                <label for="fax" class="form-label">โทรสาร <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="fax" name="fax" required>
+                <label for="fax" class="form-label">โทรสาร</label>
+                <input type="text" class="form-control" id="fax" name="fax">
             </div>
         </div>
 
@@ -171,17 +171,17 @@
 
             <div class="col-md-3">
                 <label for="details_subdistrict" class="form-label">ตำบล/แขวง</label>
-                <input type="text" class="form-control" id="details_subdistrict" name="details_subdistrict">
+                <input type="text" class="form-control" id="details_subdistrict" name="details_subdistrict" value="คลองอุดมชลจร">
             </div>
 
             <div class="col-md-3">
                 <label for="details_district" class="form-label">อำเภอ</label>
-                <input type="text" class="form-control" id="details_district" name="details_district">
+                <input type="text" class="form-control" id="details_district" name="details_district" value="เมืองฉะเชิงเทรา">
             </div>
 
             <div class="col-md-3">
                 <label for="details_province" class="form-label">จังหวัด</label>
-                <input type="text" class="form-control" id="details_province" name="details_province">
+                <input type="text" class="form-control" id="details_province" name="details_province" value="ฉะเชิงเทรา">
             </div>
 
             <div class="col-md-3">
@@ -235,7 +235,7 @@
             </div>
 
             <br>
-            <p><strong>3. </strong>พร้อมคำร้องนี้ข้าพเจ้าได้แนบหนังสือรับรองการแจ้งเดิมและเอกสารหลักฐานต่างๆ มาด้วยคือ</p>
+            <p><strong>3. </strong>พร้อมคำร้องนี้ข้าพเจ้าได้แนบหนังสือรับรองการแจ้งเดิมและเอกสารหลักฐานต่างๆ มาด้วยคือ <br> <span class="text-danger">(แจ้งไฟล์ที่สามารถแนบ)</span></p>
 
             <div class="col-md-12">
                 <div class="form-group">

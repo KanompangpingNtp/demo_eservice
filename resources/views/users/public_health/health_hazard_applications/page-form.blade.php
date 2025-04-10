@@ -59,18 +59,18 @@
             </div>
 
             <div class="col-md-3">
-                <label for="village" class="form-label">หมู่ที่ <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="village" name="village" required>
+                <label for="village" class="form-label">หมู่ที่</label>
+                <input type="text" class="form-control" id="village" name="village">
             </div>
 
             <div class="col-md-3">
-                <label for="alley" class="form-label">ตรอก/ซอย <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="alley" name="alley" required>
+                <label for="alley" class="form-label">ตรอก/ซอย</label>
+                <input type="text" class="form-control" id="alley" name="alley">
             </div>
 
             <div class="col-md-3">
-                <label for="road" class="form-label">ถนน <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="road" name="road" required>
+                <label for="road" class="form-label">ถนน</label>
+                <input type="text" class="form-control" id="road" name="road">
             </div>
 
             <div class="col-md-3">
@@ -94,8 +94,8 @@
             </div>
 
             <div class="col-md-3">
-                <label for="fax" class="form-label">โทรสาร <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="fax" name="fax" required>
+                <label for="fax" class="form-label">โทรสาร</label>
+                <input type="text" class="form-control" id="fax" name="fax">
             </div>
         </div>
 
@@ -118,8 +118,8 @@
             </div>
 
             <div class="col-md-3">
-                <label for="location" class="form-label">ตั้งอยู่ที่</label>
-                <input type="text" class="form-control" id="location" name="location">
+                <label for="location" class="form-label">ตั้งอยู่ที่ <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="location" name="location" required>
             </div>
 
             <div class="col-md-3">
@@ -139,17 +139,17 @@
 
             <div class="col-md-3">
                 <label for="details_subdistrict" class="form-label">ตำบล/แขวง</label>
-                <input type="text" class="form-control" id="details_subdistrict" name="details_subdistrict">
+                <input type="text" class="form-control" id="details_subdistrict" name="details_subdistrict" value="คลองอุดมชลจร">
             </div>
 
             <div class="col-md-3">
                 <label for="details_district" class="form-label">อำเภอ</label>
-                <input type="text" class="form-control" id="details_district" name="details_district">
+                <input type="text" class="form-control" id="details_district" name="details_district" value="เมืองฉะเชิงเทรา">
             </div>
 
             <div class="col-md-3">
                 <label for="details_province" class="form-label">จังหวัด</label>
-                <input type="text" class="form-control" id="details_province" name="details_province">
+                <input type="text" class="form-control" id="details_province" name="details_province" value="ฉะเชิงเทรา">
             </div>
 
             <div class="col-md-3">
@@ -239,7 +239,7 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option5" id="option5" data-status="5">
                         <label class="form-check-label" for="option5">
-                            สำเนนาใบอนุญาตตามกฏหมายว่าด้วยการควบคุมอาคาร(แบบอ.๑)
+                            สำเนาใบอนุญาตตามกฏหมายว่าด้วยการควบคุมอาคาร(แบบอ.๑)
                         </label>
                         <div class="mt-2">
                             <input type="file" id="file_option5" class="form-control-file" name="attachments[option5]" style="display:none;">
@@ -249,7 +249,7 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option6" id="option6" data-status="6">
                         <label class="form-check-label" for="option6">
-                            สำเนนาใบอนุญาตประกอบกิจการโรงงานทุกหน้า(ใบร.ง.๔)
+                            สำเนาใบอนุญาตประกอบกิจการโรงงานทุกหน้า(ใบร.ง.๔)
                         </label>
                         <div class="mt-2">
                             <input type="file" id="file_option6" class="form-control-file" name="attachments[option6]" style="display:none;">
@@ -325,15 +325,6 @@
                     </script>
 
                 </div>
-            </div>
-        </div>
-
-        <div class="mb-3">
-            <label for="attachments" class="form-label">แนบไฟล์ (รูปหรือเอกสารประกอบคำร้อง)</label>
-            <input type="file" class="form-control" id="attachments" name="attachments[]" multiple>
-            <small class="text-muted">ประเภทไฟล์ที่รองรับ: jpg, jpeg, png, pdf (ขนาดไม่เกิน 2MB)</small>
-            <div id="file-list" class="mt-1">
-                <div class="d-flex flex-wrap gap-3"></div>
             </div>
         </div>
 
