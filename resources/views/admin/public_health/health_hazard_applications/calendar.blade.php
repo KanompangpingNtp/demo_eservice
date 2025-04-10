@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 @section('admin_content')
 <div class="container">
-    <h2 class="text-center mb-4">แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</h2><br>
+    <h2 class="text-center mb-4">แบบคำร้องใบอนุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</h2><br>
 
     <form action="{{route('HealthHazardApplicationAdminCalendarSave')}}" method="POST" enctype="multipart/form-data">
         @csrf

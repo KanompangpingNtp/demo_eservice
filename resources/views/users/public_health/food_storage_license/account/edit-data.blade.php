@@ -13,7 +13,7 @@
 
 <div class="container">
     <a href="#">กลับ</a><br>
-    <h2 class="text-center mb-4">แบบคำร้องใบอณุญาตสะสมอาหาร</h2><br>
+    <h2 class="text-center mb-4">แบบคำร้องใบอนุญาตสะสมอาหาร</h2><br>
     <h2 class="text-center">แก้ไขฟอร์ม</h2><br>
 
     <form action="#" method="POST" enctype="multipart/form-data">
