@@ -2,7 +2,7 @@
 @section('pages_content')
 
 <div class="container">
-    <h2 class="text-center mb-4">แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</h2><br>
+    <h2 class="text-center mb-4">แบบคำร้องใบอนุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</h2><br>
 
     <form action="{{route('HealthHazardApplicationFormCreate')}}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -99,7 +99,7 @@
             </div>
         </div>
 
-        <br><h5>ขอยื่นเรื่องต่อเจ้าพนักงานท้องถิ่น เพื่อขอรับ/ ขอต่ออนุญาตประกอบกิจการที่เป็นอัตรายต่อสุขภาพ</h5><br>
+        <br><h5>ขอยื่นเรื่องต่อเจ้าพนักงานท้องถิ่น เพื่อขอรับ/ ขอต่ออนุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</h5><br>
 
         <div class="row g-3 mb-3">
             <div class="col-md-8">
@@ -192,7 +192,7 @@
                 <input type="text" class="form-control" id="opening_for_business_until" name="opening_for_business_until">
             </div>
 
-            <br><p><strong>โดยแนบใบอนุญาตเดิมพร้อมกัยหลักฐานดังต่อไปนี้</strong></p>
+            <br><p><strong>โดยแนบใบอนุญาตเดิมพร้อมกัยหลักฐานดังต่อไปนี้</strong> <br> <span class="text-danger">ประเภทไฟล์ที่รับรอง : jpg,jpeg,png,pdf (ขนาดไม่เกิน 2 MB)</span></p>
 
             <div class="col-md-12">
                 <div class="form-group">

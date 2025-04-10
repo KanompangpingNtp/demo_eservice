@@ -27,7 +27,7 @@
     @endif
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.html">Admin Dashbord</a>
+        <a class="navbar-brand ps-3" href="{{route('Index')}}"><img src="http://localhost:8000/images/first-pages/logo.png" width="25%"></a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!" title="Toggle sidebar">
             <i class="fas fa-bars"></i>

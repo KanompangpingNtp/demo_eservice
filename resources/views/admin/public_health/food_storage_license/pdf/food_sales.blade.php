@@ -61,8 +61,8 @@
 
         .dotted-line {
             margin-left: 2px;
-            color: blue;
-            border-bottom: 2px dotted blue;
+            color: black;
+            border-bottom: 2px dotted black;
             word-wrap: break-word;
             /* ห่อข้อความที่ยาวเกิน */
             overflow-wrap: break-word;
@@ -285,7 +285,7 @@ function baht_text($number, $include_unit = true, $display_zero = true)
             <span>)</span>
         </div>
         <span>ตามใบเสร็จรับเงินเล่มที่</span>
-        <span class="dotted-line" style="width: 34.2%; text-align: center; line-height: 1;">{{$file->receipt_number}}</span>
+        <span class="dotted-line" style="width: 34.2%; text-align: center; line-height: 1;">{{$file->receipt_book}}</span>
         <span>ลงวันที่</span>
         <span class="dotted-line" style="width: 34.2%; text-align: center; line-height: 1;">{{DateTimeThai($file->updated_at)}}</span>
         <div style="margin-left:3rem;">
