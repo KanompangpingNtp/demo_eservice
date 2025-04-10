@@ -210,7 +210,7 @@
                 <input type="text" id="province" name="province" class="form-control" required>
             </div>
             <div class="col-12 col-md-4 mb-3">
-                <label for="postal_code">รหัสไปรษณีย: <span class="text-danger">*</span></label>
+                <label for="postal_code">รหัสไปรษณีย์: <span class="text-danger">*</span></label>
                 <input type="text" id="postal_code" name="postal_code" class="form-control" required>
             </div>
             <div class="col-12 col-md-4 mb-3">

@@ -209,15 +209,15 @@
     <div class="box_text" style="text-align: left; margin-left:5rem; margin-top:-10px;">
         <span>๓. พร้อมคำร้องนี้ข้าพเจ้าได้แนบหนังสือรับรองการแจ้งเดิมและเอกสารหลักฐานต่างๆ มาด้วย คือ</span> <br>
         <div style="margin-left:0.5rem;">
-            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option1", $document_option) ? 'checked' : '' }}><span>สำเนาบัตรประจำตัวประชาชนและสำเนาทะเบียนบ้านเจ้าของกิจการ</span> <br>
-            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option2", $document_option) ? 'checked' : '' }}><span>สำเนาหนังสือรับรองการจดทะเบียนนิติบุคคลพร้อมสำเนาบัตรประชาชนของผู้แทนนิติบุคคล</span> <br>
+            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option1", $document_option ?? []) ? 'checked' : '' }}><span>สำเนาบัตรประจำตัวประชาชนและสำเนาทะเบียนบ้านเจ้าของกิจการ</span> <br>
+            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option2", $document_option ?? []) ? 'checked' : '' }}><span>สำเนาหนังสือรับรองการจดทะเบียนนิติบุคคลพร้อมสำเนาบัตรประชาชนของผู้แทนนิติบุคคล</span> <br>
             <span style="margin-left: 2rem; margin-top:-10px;">(กรณีผู้ประกอบการเป็นนิติบุคคล)</span><br>
-            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option3", $document_option) ? 'checked' : '' }}><span>หนังสือยินยอมให้ใช้สถานที่ / สัญญาเช่า</span> <br>
-            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option4", $document_option) ? 'checked' : '' }}><span>หนังสือยินมอบอำนาจพร้อมสำเนาบัตรประชาชน / สำเนาทะเบียนบ้านผู้มอบ และผู้รับมอบอำนาจ</span> <br>
-            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option5", $document_option) ? 'checked' : '' }}><span>ใบรับรองแพทย์ของผู้สัมผัสอาหาร (กรณีขอรับ / ขอต่ออายุใบอนุญาตแจ้งจัดตั้งสถานที่จำหน่ายอาหาร)</span> <br>
-            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option6", $document_option) ? 'checked' : '' }}><span>ใบอนุญาตแจ้งจัดตั้งสถานที่จำหน่ายอาหาร หรือ สถานที่สะสมอาหารฉบับเดิม (ต้นฉบับ) (กรณีต่อ)</span> <br>
-            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option7", $document_option) ? 'checked' : '' }}><span>แผนที่สถานที่ตั้งของสถานประกอบการ (กรณีขอรับ)</span> <br>
-            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option8", $document_option) ? 'checked' : '' }}><span>อื่นๆ</span><span class="dotted-line" style="width: 20%; text-align: center;">{{$form['details']->document_option_detail}}</span> <br>
+            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option3", $document_option ?? []) ? 'checked' : '' }}><span>หนังสือยินยอมให้ใช้สถานที่ / สัญญาเช่า</span> <br>
+            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option4", $document_option ?? []) ? 'checked' : '' }}><span>หนังสือยินมอบอำนาจพร้อมสำเนาบัตรประชาชน / สำเนาทะเบียนบ้านผู้มอบ และผู้รับมอบอำนาจ</span> <br>
+            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option5", $document_option ?? []) ? 'checked' : '' }}><span>ใบรับรองแพทย์ของผู้สัมผัสอาหาร (กรณีขอรับ / ขอต่ออายุใบอนุญาตแจ้งจัดตั้งสถานที่จำหน่ายอาหาร)</span> <br>
+            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option6", $document_option ?? []) ? 'checked' : '' }}><span>ใบอนุญาตแจ้งจัดตั้งสถานที่จำหน่ายอาหาร หรือ สถานที่สะสมอาหารฉบับเดิม (ต้นฉบับ) (กรณีต่อ)</span> <br>
+            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option7", $document_option ?? []) ? 'checked' : '' }}><span>แผนที่สถานที่ตั้งของสถานประกอบการ (กรณีขอรับ)</span> <br>
+            <input type="checkbox" style="margin: 0px 10px;" {{ in_array("option8", $document_option ?? []) ? 'checked' : '' }}><span>อื่นๆ</span><span class="dotted-line" style="width: 20%; text-align: center;">{{$form['details']->document_option_detail}}</span> <br>
         </div>
         <span>ข้าพเจ้าขอรับรองว่า ข้อความในแบบคำขอนี้เป็นความจริงทุกประการ</span>
     </div>

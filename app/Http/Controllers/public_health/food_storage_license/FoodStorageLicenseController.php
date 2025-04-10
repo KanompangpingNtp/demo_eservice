@@ -169,10 +169,19 @@ class FoodStorageLicenseController extends Controller
             $query->where('confirm_option', 1);
         }])->find($id);
 
-        $document_option = $form['details']->document_option ?? [];
+        // $document_option = $form['details']->document_option ?? [];
+        // if (is_string($document_option)) {
+        //     $document_option = json_decode($document_option, true);
+        // }
+        $details = $form->details->first();
+        $document_option = $details->document_option ?? [];
+
         if (is_string($document_option)) {
             $document_option = json_decode($document_option, true);
         }
+
+        $document_option = is_array($document_option) ? $document_option : [];
+
 
         $pdf = Pdf::loadView(
             'users.public_health.food_storage_license.pdf-form',
