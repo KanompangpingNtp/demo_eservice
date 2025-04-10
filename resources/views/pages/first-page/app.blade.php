@@ -160,7 +160,7 @@
                                 <img src="{{ asset('images/first-pages/button-3.png') }}" alt="button-3" class="button-3">
                             </a>
                             <div class="d-flex flex-lg-column justify-content-center align-items-center mt-3 mt-lg-0">
-                                <a href="#">
+                                <a href="https://public.es.demo.gmskysmartcity.com/pdf/%E0%B8%84%E0%B8%B9%E0%B9%88%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%9A%20E-service.pdf" target="_blank">
                                     <img src="{{ asset('images/first-pages/button-4.png') }}" alt="button-4"
                                         class="button-4">
                                 </a>

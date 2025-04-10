@@ -59,7 +59,7 @@
             </div>
 
             <div class="col-md-3">
-                <label for="village" class="form-label">หมู่ที่ <span class="text-danger">*</span></label>
+                <label for="village" class="form-label">หมู่ที่ </label>
                 <input type="text" class="form-control" id="village" name="village" required>
             </div>
 
@@ -100,7 +100,7 @@
         </div>
 
         <br>
-        <h5>ขอยื่นคำร้องขอรับ/ขอต่ออายุใบอนุญาตจัดตั้งสถานที่ ต่อเข้าพนักงานท้องถิ่น</h5><br>
+        <h5>ขอยื่นคำร้องขอรับ/ขอต่ออายุใบอนุญาตจัดตั้งสถานที่ ต่อเจ้าพนักงานท้องถิ่น</h5><br>
 
         <div class="col-md-5 mb-3">
             @foreach ($types as $type)
@@ -235,7 +235,7 @@
             </div>
 
             <br>
-            <p><strong>3. </strong>พร้อมคำร้องนี้ข้าพเจ้าได้แนบหนังสือรับรองการแจ้งเดิมและเอกสารหลักฐานต่างๆ มาด้วยคือ <br> <span class="text-danger">(แจ้งไฟล์ที่สามารถแนบ)</span></p>
+            <p><strong>3. </strong>พร้อมคำร้องนี้ข้าพเจ้าได้แนบหนังสือรับรองการแจ้งเดิมและเอกสารหลักฐานต่างๆ มาด้วยคือ <br> <span class="text-danger">ประเภทไฟล์ที่รับรอง : jpg,jpeg,png,pdf (ขนาดไม่เกิน 2 MB)</span></p>
 
             <div class="col-md-12">
                 <div class="form-group">
