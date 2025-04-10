@@ -61,8 +61,8 @@
 
         .dotted-line {
             margin-left: 2px;
-            color: blue;
-            border-bottom: 2px dotted blue;
+            color: black;
+            border-bottom: 2px dotted black;
             word-wrap: break-word;
             /* ห่อข้อความที่ยาวเกิน */
             overflow-wrap: break-word;
