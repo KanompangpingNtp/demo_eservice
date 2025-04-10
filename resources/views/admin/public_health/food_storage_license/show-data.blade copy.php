@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
 <div class="container">
-    <h2 class="text-center">แบบคำร้องใบอณุญาตสะสมอาหาร <br>
+    <h2 class="text-center">แบบคำร้องใบอนุญาตสะสมอาหาร <br>
         <h3 class="text-center">ตารางแสดงข้อมูลฟอร์มที่ส่งเข้ามา</h3>
     </h2> <br>
 

@@ -11,7 +11,7 @@
 @endif
 
 <div class="container">
-    <h2 class="text-center mb-4">แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</h2>
+    <h2 class="text-center mb-4">แบบคำร้องใบอนุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</h2>
 
     <form action="{{route('HealthHazardApplicationAdminConfirmSave')}}" method="POST" enctype="multipart/form-data">
         @csrf

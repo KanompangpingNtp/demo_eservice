@@ -13,7 +13,7 @@
 
 <div class="container">
     <a href="{{route('HealthHazardApplicationShowDetails')}}" class="btn btn-primary">กลับ</a><br>
-    <h2 class="text-center mb-4">แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</h2>
+    <h2 class="text-center mb-4">แบบคำร้องใบอนุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</h2>
     <h3 class="text-center">แก้ไขฟอร์ม</h3><br>
 
     <form action="#" method="POST" enctype="multipart/form-data">
