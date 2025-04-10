@@ -181,7 +181,9 @@
                                 <input type="hidden" name="longitude" id="longitude">
                                 <div class="mt-3 row">
                                     <div class="col-sm-12">
-                                        <button type="submit" class="btn btn-success">แจ้งเหตุ</button>
+                                        <a href="javascript:void();" id="btn">
+                                            <img src="{{asset('images/emergency/04028b6b4ab29497.png')}}">
+                                        </a>
                                     </div>
                                 </div>
                             </form>
@@ -372,6 +374,11 @@
                 console.error('เกิดข้อผิดพลาด:', err);
             }
         });
+    });
+
+    $('#btn').click(function(e) {
+        e.preventDefault();
+        $('#myform').submit();
     });
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB525cpMEpjYlG8HiWgBqPCbaZU6HHxprY&callback=loadMapWithLocation&signature=32RwW2GW7neU_vipuV3KKE4KFBw="></script>

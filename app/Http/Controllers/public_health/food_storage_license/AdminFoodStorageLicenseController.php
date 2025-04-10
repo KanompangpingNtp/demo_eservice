@@ -280,9 +280,16 @@ class AdminFoodStorageLicenseController extends Controller
             $detail = FoodStorageFormDetails::where('informations_id', $input['id'])->first();
             $detail->status = 10;
             if ($detail->save()) {
+                $path = '';
+                if ($request->hasFile('file')) {
+                    $file = $request->file('file');
+                    $filename = time() . '_' . $file->getClientOriginalName();
+                    $path = $file->storeAs('payment', $filename, 'public');
+                }
                 $update = FoodStoragePaymentLogs::find($input['file-id']);
                 $update->receipt_book = $input['receipt_book'];
                 $update->receipt_number = $input['receipt_number'];
+                $update->file_treasury = $path;
                 $update->status = 2;
                 $update->updated_at = date('Y-m-d H:i:s');
                 if ($update->save()) {
