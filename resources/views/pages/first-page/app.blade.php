@@ -174,7 +174,7 @@
                             <div class="fs-2 fw-bold ps-5 text-start">
                                 แจ้งเหตุฉุกเฉิน
                             </div>
-                            <a href="#">
+                            <a href="https://khlong.udom.eservice.sosmartsolution.com/emergency">
                                 <img src="{{ asset('images/first-pages/ปุ่มแจ้งเหตุฉุกเฉิน.png') }}"
                                     alt="ปุ่มแจ้งเหตุฉุกเฉิน" class="img-fluid">
                             </a>
@@ -200,7 +200,7 @@
                                     สาธารณะสุข ยื่นขออนุญาต / ต่ออายุ
                                 </div>
                             </div>
-                            <a href="#"
+                            <a href="https://khlong.udom.eservice.sosmartsolution.com/food_storage_license"
                                 class="bg-blue-option d-flex justify-content-start align-items-center text-decoration-none my-2">
                                 <img src="{{ asset('images/first-pages/ลูกศรตัวเลือกใต้ใบประกอบอนุญาต.png') }}"
                                     alt="arrow" class="me-2">
@@ -208,7 +208,7 @@
                                     ใบอนุญาตจัดตั้งสถานที่จำหน่ายอาหาร หรือ สถานที่สะสมอาหาร
                                 </div>
                             </a>
-                            <a href="#"
+                            <a href="https://khlong.udom.eservice.sosmartsolution.com/health_hazard_applications"
                                 class="bg-blue-option d-flex justify-content-start align-items-center text-decoration-none">
                                 <img src="{{ asset('images/first-pages/ลูกศรตัวเลือกใต้ใบประกอบอนุญาต.png') }}"
                                     alt="arrow" class="me-2">
@@ -222,7 +222,7 @@
                                 <img src="{{ asset('images/first-pages/แจ้งค่าขยะ.png') }}" alt="แจ้งค่าขยะ"
                                     class="img-fluid">
                             </a>
-                            <a href="#">
+                            <a href="https://trashalert.sosmartsolution.com/%E0%B8%98%E0%B8%99%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%82%E0%B8%A2%E0%B8%B0.html">
                                 <img src="{{ asset('images/first-pages/ธนาคารขยะ.png') }}" alt="ธนาคารขยะ"
                                     class="img-fluid">
                             </a>
