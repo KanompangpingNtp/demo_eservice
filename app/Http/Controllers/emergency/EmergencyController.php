@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class EmergencyController extends Controller
 {
     public $channelToken = 'L4x3vp1t8f4gDx+op2v5bYQO3lozP3T+2aMMhEjtl9CkmsMiAJ8fNC+BqRReVSTEiZk6gR5oRs73p2QyZzNlyuB2ziCpX/zcNGLK1xGRAmDKMj/NXq3x9IRdLYZjLQZs1z3llUhNnlpNMB8iqvP7NwdB04t89/1O/w1cDnyilFU=';
-    public $group_id = '556040160509428146';
+    public $group_id = 'C08cc94e9c2c81503339d56501743cfd2';
     // public $group_id = 'U9a60621a69e189197bde0ba92e3c77f6';
     // $userId = 'C574e36d4850cccf9107d9252d30e74d9';
 
@@ -40,7 +40,7 @@ class EmergencyController extends Controller
                     $text = "แจ้งเหตุ มี" . $type->name . "\n" . $input['detail'] . "\nhttps://www.google.com/maps?q=" . $input['latitude'] . ',' . $input['longitude'];
                     $data = [
                         'text' => $text,
-                        'photo' => url('storage/' . $path)
+                        'photo' => 'https://khlong.udom.eservice.sosmartsolution.com/storage/' . $path
                     ];
                     $this->sendGps($data);
                     return response()->json([
