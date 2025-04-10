@@ -21,6 +21,10 @@
                     <i class="fa fa-search"></i>
                 </a>
             </div>
+            <div class="col-7">
+                <label for="file" class="form-label">ใบเสร็จสำหรับกองคลัง : </label>
+                <input type="file" id="file" class="form-control" name="file" required>
+            </div>
         </div>
         <button type="submit" class="btn btn-primary py-1"><i class="fa fa-save"></i></i> ยืนยันการชำระเงิน</button>
         <input type="hidden" name="id" value="{{ old('id', $form->id) }}">

@@ -157,6 +157,7 @@ class FoodStorageLicenseController extends Controller
         if (!empty($forms)) {
             foreach ($forms as $rs) {
                 $rs->appointmentte = FoodStorageAppointmentLogs::orderBy('id', 'desc')->first();
+                $rs->payment = FoodStoragePaymentLogs::orderBy('id', 'desc')->first();
             }
         }
 

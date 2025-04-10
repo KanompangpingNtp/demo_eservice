@@ -32,6 +32,9 @@
                     <a href="{{ route('AdminCertificateFoodStorageLicensePDF', $form->id) }}" class="badge rounded-pill text-bg-success" target="_blank">
                         ออกใบอนุญาต
                     </a>
+                    <a href="{{ url('storage/'.$form->payment->file_treasury) }}" class="badge rounded-pill text-bg-primary" target="_blank">
+                        ใบเสร็จกองคลัง
+                    </a>
                     @endif
                 </td>
                 <td>

@@ -141,6 +141,7 @@ class HealthHazardApplicationController extends Controller
         if (!empty($forms)) {
             foreach ($forms as $rs) {
                 $rs->appointmentte = HealthLicenseAppointmentLogs::orderBy('id', 'desc')->first();
+                $rs->payment = HealthLicensePaymentLogs::orderBy('id', 'desc')->first();
             }
         }
 
