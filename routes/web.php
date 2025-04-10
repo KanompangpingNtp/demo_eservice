@@ -26,6 +26,11 @@ use App\Http\Controllers\public_health\food_storage_license\AdminFoodStorageLice
 use App\Http\Controllers\public_health\health_hazard_applications\HealthHazardApplicationController;
 use App\Http\Controllers\public_health\health_hazard_applications\AdminHealthHazardApplicationController;
 
+use App\Http\Controllers\treasury_department\tax_refund_requests\LandTaxRefundRequestController;
+use App\Http\Controllers\treasury_department\tax_refund_requests\AdminLandTaxRefundRequestController;
+use App\Http\Controllers\treasury_department\land_building_tax_appeals\LandBuildingTaxAppealController;
+use App\Http\Controllers\treasury_department\land_building_tax_appeals\AdminLandBuildingTaxAppealController;
+
 use App\Http\Controllers\TestController;
 /*
 |--------------------------------------------------------------------------
@@ -38,17 +43,15 @@ use App\Http\Controllers\TestController;
 |
 */
 
+//คำร้องคัดค้านการประเมินภาษี
+Route::get('/land_building_tax_appeals', [LandBuildingTaxAppealController::class, 'LandBuildingTaxAppealPage'])->name('LandBuildingTaxAppealPage');
+
+//คำร้องขอรับเงินภาษีที่ดินและสิ่งปลูกสร้างคืน
+Route::get('/tax_refund_requests', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestPage'])->name('LandTaxRefundRequestPage');
+
 //users disability
 Route::get('/disability', [DisabilityController::class, 'DisabilityFormPage'])->name('DisabilityFormPage');
 Route::post('/disability/form/create', [DisabilityController::class, 'DisabilityFormCreate'])->name('DisabilityFormCreate');
-
-//แบบคำร้องใบอณุญาตสะสมอาหาร
-Route::get('/food_storage_license', [FoodStorageLicenseController::class, 'FoodStorageLicenseFormPage'])->name('FoodStorageLicenseFormPage');
-Route::post('/food_storage_license/form/create', [FoodStorageLicenseController::class, 'FoodStorageLicenseFormCreate'])->name('FoodStorageLicenseFormCreate');
-
-//แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
-Route::get('/health_hazard_applications', [HealthHazardApplicationController::class, 'HealthHazardApplicationFormPage'])->name('HealthHazardApplicationFormPage');
-Route::post('/health_hazard_applications/form/create', [HealthHazardApplicationController::class, 'HealthHazardApplicationFormCreate'])->name('HealthHazardApplicationFormCreate');
 
 //
 Route::get('/receive_assistance', [ReceiveAssistanceController::class, 'ReceiveAssistanceFormPage'])->name('ReceiveAssistanceFormPage');
@@ -188,6 +191,14 @@ Route::middleware(['user'])->group(function () {
     Route::post('/user-account/elderly-allowance/reply/{id}', [ElderlyAllowanceController::class, 'ElderlyAllowanceUserReply'])->name('ElderlyAllowanceUserReply');
     Route::get('/user-account/elderly-allowance/show-edit/{id}', [ElderlyAllowanceController::class, 'ElderlyAllowanceUserShowEdit'])->name('ElderlyAllowanceUserShowEdit');
     Route::put('/user-account/elderly-allowance/update-data/{id}', [ElderlyAllowanceController::class, 'ElderlyAllowanceUserUpdateForm'])->name('ElderlyAllowanceUserUpdateForm');
+
+    //แบบคำร้องใบอณุญาตสะสมอาหาร
+    Route::get('/food_storage_license', [FoodStorageLicenseController::class, 'FoodStorageLicenseFormPage'])->name('FoodStorageLicenseFormPage');
+    Route::post('/food_storage_license/form/create', [FoodStorageLicenseController::class, 'FoodStorageLicenseFormCreate'])->name('FoodStorageLicenseFormCreate');
+
+    //แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
+    Route::get('/health_hazard_applications', [HealthHazardApplicationController::class, 'HealthHazardApplicationFormPage'])->name('HealthHazardApplicationFormPage');
+    Route::post('/health_hazard_applications/form/create', [HealthHazardApplicationController::class, 'HealthHazardApplicationFormCreate'])->name('HealthHazardApplicationFormCreate');
 
     //แบบคำขอลงทะเบียนรับเงินเบี้ยความพิการ
     Route::get('/user/account/Disability/record', [DisabilityController::class, 'TableDisabilityUsersPages'])->name('TableDisabilityUsersPages');

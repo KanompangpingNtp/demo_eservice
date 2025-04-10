@@ -21,6 +21,6 @@ class UserMiddleware
         }
 
         // return redirect('/')->with('error', 'คุณไม่มีสิทธิ์เข้าถึงหน้านี้');
-        return redirect()->route('LoginPage')->with('error', 'คุณไม่มีสิทธิ์เข้าถึงหน้านี้');
+        return redirect()->route('LoginPage')->with('error', 'คุณไม่มีสิทธิ์เข้าถึงหน้านี้ กรุณาลงชื่อเข้าระบบ');
     }
 }

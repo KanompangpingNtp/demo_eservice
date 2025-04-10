@@ -203,11 +203,6 @@
                     </div>
                     @endauth
                 </div>
-                <div class="sb-sidenav-footer">
-                    {{-- <div class="small">Logged in as : {{ Auth::user()->name }}</div> --}}
-                <div class="small">Logged in as:</div>
-                Start Bootstrap
-        </div>
         </nav>
     </div>
     <div id="layoutSidenav_content">
@@ -221,12 +216,7 @@
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; บริษัท SOS สงวนสิทธิ์ 2025</div>
-                    {{-- <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div> --}}
+                    <div class="text-muted">Copyright &copy; บริษัท So Smart Solution สงวนสิทธิ์ 2025</div>
                 </div>
             </div>
         </footer>

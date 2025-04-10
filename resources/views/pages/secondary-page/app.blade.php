@@ -138,22 +138,22 @@
                         <img src="{{ asset('images/secondary-pages/1.png') }}" alt="1" class="img-fluid">
                         <ul class="text-start lh-1">
                             <li>
-                                <a href="{{route('GeneralRequestsFormPage')}}">
+                                <a href="{{route('GeneralRequestsFormPage')}}" target="_blank">
                                     คำร้องทั่วไป
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('ElderlyAllowanceFormPage')}}">
+                                <a href="{{route('ElderlyAllowanceFormPage')}}" target="_blank">
                                     แบบคำขอยืนยันสิทธิรับเงินเบี้ยยังชีพผู้สูงอายุ
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('DisabilityFormPage')}}">
+                                <a href="{{route('DisabilityFormPage')}}" target="_blank">
                                     แบบคำขอลงทะเบียนรับเงินเบี้ยความพิการ
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('ReceiveAssistanceFormPage')}}">
+                                <a href="{{route('ReceiveAssistanceFormPage')}}" target="_blank">
                                     แบบคำขอรับการสงเคราะห์ (ผู้ป่วยเอดส์)
                                 </a>
                             </li>
@@ -163,27 +163,27 @@
                         <img src="{{ asset('images/secondary-pages/2.png') }}" alt="2" class="img-fluid">
                         <ul class="text-start lh-1 ">
                             <li>
-                                <a href="#">
+                                <a href="#" target="_blank">
                                     (ภ.ป.๑ แนบแสดงรายการ ภาษีป้าย)
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" target="_blank">
                                     หนังสือขอผ่อนชำระเงินภาษีที่ดินและสิ่งปลูกสร้าง / ห้องขุด
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{route('LandBuildingTaxAppealPage')}}">
                                     (ภ.ด.ส.๑๐) คำร้องคัดค้านการประเมินภาษีหรือ <br> การเรียกเก็บภาษีที่ดินและสิ่งปลูกสร้าง
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" target="_blank">
                                     (ภ.ด.ส.๕) แบบแจ้งการเปลี่ยนแปลงการใช้ประโยชน์ <br> ที่ดินหรือสิ่งปลูกสร้าง
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{route('LandTaxRefundRequestPage')}}" target="_blank">
                                     (ภ.ด.ส.๙) คำร้องขอรับเงินภาษีที่ดินและสิ่งปลูกสร้างคืน
                                 </a>
                             </li>
@@ -193,12 +193,12 @@
                         <img src="{{ asset('images/secondary-pages/3.png') }}" alt="3" class="img-fluid">
                         <ul class="text-start lh-1 ">
                             <li>
-                                <a href="{{route('GeneralElectricityRequestFormPage')}}">
+                                <a href="{{route('GeneralElectricityRequestFormPage')}}" target="_blank">
                                     แบบฟอร์มคำร้องทั่วไป(แจ้งเรื่องไฟฟ้า)
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('GeneralRoadRequestFormPage')}}">
+                                <a href="{{route('GeneralRoadRequestFormPage')}}" target="_blank">
                                     แบบฟอร์มคำร้องทั่วไป(แจ้งถนนชำรุด)
                                 </a>
                             </li>
@@ -208,17 +208,17 @@
                         <img src="{{ asset('images/secondary-pages/4.png') }}" alt="4" class="img-fluid">
                         <ul class="text-start lh-1 ">
                             <li>
-                                <a href="{{route('HealthHazardApplicationFormPage')}}">
+                                <a href="{{route('HealthHazardApplicationFormPage')}}" target="_blank">
                                     คำขอรับใบอนุญาตประกอบกิจการ <br> ที่เป็นอันตรายต่อสุขภาพ
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('FoodStorageLicenseFormPage')}}">
+                                <a href="{{route('FoodStorageLicenseFormPage')}}" target="_blank">
                                     คำขอรับใบอนุญาต จัดตั้งสถานที่จำหน่ายอาหาร <br> หรือสถานที่สะสมอาหาร
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" target="_blank">
                                     คำร้องทั่วไปขอถังขยะ
                                 </a>
                             </li>
@@ -228,7 +228,7 @@
                         <img src="{{ asset('images/secondary-pages/5.png') }}" alt="5" class="img-fluid">
                         <ul class="text-start lh-1 ">
                             <li>
-                                <a href="#">
+                                <a href="#" target="_blank">
                                     แบบฟอร์มใบสมัคร ศูนย์พัฒนาเด็กเล็ก
                                 </a>
                             </li>
