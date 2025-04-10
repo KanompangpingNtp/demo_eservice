@@ -111,7 +111,7 @@ class HealthHazardApplicationController extends Controller
             'opening_for_business_until' => $request->opening_for_business_until,
             'document_option' => json_encode($request->document_option),
             'document_option_detail' => $request->document_option_detail,
-            'status ' => 1,
+            'status' => 1,
         ]);
 
         if ($request->hasFile('attachments')) {

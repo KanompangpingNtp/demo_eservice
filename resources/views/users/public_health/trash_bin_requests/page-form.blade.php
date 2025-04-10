@@ -84,7 +84,8 @@
 
         <div class="text-center w-full border">
             <button type="submit" class="btn btn-primary w-100 py-1"><i class="fa-solid fa-file-arrow-up me-2"></i></i>
-                ส่งฟอร์มข้อมูล</button>
+                ส่งฟอร์มข้อมูล
+            </button>
         </div>
 
     </form>

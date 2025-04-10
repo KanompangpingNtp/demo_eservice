@@ -15,7 +15,8 @@ class HealthLicenseDetail extends Model
         'details_subdistrict', 'details_district', 'details_province',
         'details_telephone', 'details_fax', 'business_area', 'machine_power',
         'number_male_workers', 'number_female_workers', 'opening_hours',
-        'opening_for_business_until', 'document_option', 'document_option_detail'
+        'opening_for_business_until', 'document_option', 'document_option_detail',
+        'status'
     ];
 
     public function license()
