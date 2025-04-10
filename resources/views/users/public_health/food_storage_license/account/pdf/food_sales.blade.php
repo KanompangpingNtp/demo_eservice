@@ -232,8 +232,6 @@ function baht_text($number, $include_unit = true, $display_zero = true)
         <span>จัดตั้งสถานที่จำหน่ายอาหาร</span>
     </div>
     <div class="box_text" style="text-align: left; margin-top:1rem;">
-        <span>เล่มที่</span>
-        <span class="dotted-line" style="width: 8%; text-align: center; line-height: 1;">{{$info_number->number}}/{{$info_number->year}}</span>
         <span>เลขที่</span>
         <span class="dotted-line" style="width: 16%; text-align: center; line-height: 1;">{{$info_number->book}}/{{$info_number->year}}</span>
     </div>

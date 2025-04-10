@@ -156,8 +156,6 @@ function convertYearPlus($date)
     <table style="width: 100%; margin-top: 1rem;">
         <tr>
             <td style="text-align: left;">
-                <span>เล่มที่</span>
-                <span class="dotted-line" style="width: 20%; display: inline-block; text-align: center; line-height: 1;">{{$info_number->number}}/{{$info_number->year}}</span>
                 <span>เลขที่</span>
                 <span class="dotted-line" style="width: 34%; display: inline-block; text-align: center; line-height: 1;">{{$info_number->book}}/{{$info_number->year}}</span>
             </td>
