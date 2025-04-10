@@ -25,6 +25,8 @@ use App\Http\Controllers\public_health\food_storage_license\FoodStorageLicenseCo
 use App\Http\Controllers\public_health\food_storage_license\AdminFoodStorageLicenseController;
 use App\Http\Controllers\public_health\health_hazard_applications\HealthHazardApplicationController;
 use App\Http\Controllers\public_health\health_hazard_applications\AdminHealthHazardApplicationController;
+use App\Http\Controllers\public_health\trash_bin_requests\TrashBinRequestController;
+use App\Http\Controllers\public_health\trash_bin_requests\AdminTrashBinRequestController;
 
 use App\Http\Controllers\treasury_department\tax_refund_requests\LandTaxRefundRequestController;
 use App\Http\Controllers\treasury_department\tax_refund_requests\AdminLandTaxRefundRequestController;
@@ -43,15 +45,8 @@ use App\Http\Controllers\TestController;
 |
 */
 
-//คำร้องคัดค้านการประเมินภาษี
-Route::get('/land_building_tax_appeals', [LandBuildingTaxAppealController::class, 'LandBuildingTaxAppealPage'])->name('LandBuildingTaxAppealPage');
-
-//คำร้องขอรับเงินภาษีที่ดินและสิ่งปลูกสร้างคืน
-Route::get('/tax_refund_requests', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestPage'])->name('LandTaxRefundRequestPage');
-
-//users disability
-Route::get('/disability', [DisabilityController::class, 'DisabilityFormPage'])->name('DisabilityFormPage');
-Route::post('/disability/form/create', [DisabilityController::class, 'DisabilityFormCreate'])->name('DisabilityFormCreate');
+//
+Route::get('/trash_bin_requests', [TrashBinRequestController::class, 'TrashBinRequestPage'])->name('TrashBinRequestPage');
 
 //
 Route::get('/receive_assistance', [ReceiveAssistanceController::class, 'ReceiveAssistanceFormPage'])->name('ReceiveAssistanceFormPage');
@@ -82,6 +77,16 @@ Route::post('/general-electricity-request/form/create', [GeneralElectricityReque
 //คำร้องทั่วไป (แจ้งถนนชำรุด)
 Route::get('/general-road-request', [GeneralRoadRequestController::class, 'GeneralRoadRequestFormPage'])->name('GeneralRoadRequestFormPage');
 Route::post('/general-road-request/form/create', [GeneralRoadRequestController::class, 'GeneralRoadRequestFormCreate'])->name('GeneralRoadRequestFormCreate');
+
+//คำร้องคัดค้านการประเมินภาษี
+Route::get('/land_building_tax_appeals', [LandBuildingTaxAppealController::class, 'LandBuildingTaxAppealPage'])->name('LandBuildingTaxAppealPage');
+
+//คำร้องขอรับเงินภาษีที่ดินและสิ่งปลูกสร้างคืน
+Route::get('/tax_refund_requests', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestPage'])->name('LandTaxRefundRequestPage');
+
+//users disability
+Route::get('/disability', [DisabilityController::class, 'DisabilityFormPage'])->name('DisabilityFormPage');
+Route::post('/disability/form/create', [DisabilityController::class, 'DisabilityFormCreate'])->name('DisabilityFormCreate');
 
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin/index', [AdminController::class, 'AdminIndex'])->name('AdminIndex');

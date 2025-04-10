@@ -218,7 +218,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" target="_blank">
+                                <a href="{{route('TrashBinRequestPage')}}" target="_blank">
                                     คำร้องทั่วไปขอถังขยะ
                                 </a>
                             </li>
