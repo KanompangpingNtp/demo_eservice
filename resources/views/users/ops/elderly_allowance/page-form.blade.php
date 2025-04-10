@@ -2,7 +2,7 @@
 @section('pages_content')
 
 <div class="container">
-    <h2 class="text-center mb-4">แบบยืนยันเบี้ยยังชีพผ้สูงอายุ</h2>
+    <h2 class="text-center mb-4">แบบยืนยันเบี้ยยังชีพผู้สูงอายุ</h2>
 
     <form action="{{route('ElderlyAllowanceFormCreate')}}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -26,7 +26,7 @@
                 </select>
             </div>
             <div class="col-12 col-md-5">
-                <label for="first_name">ขื่่อ: <span class="text-danger">*</span></label>
+                <label for="first_name">ชื่อ: <span class="text-danger">*</span></label>
                 <input type="text" id="first_name" name="first_name" class="form-control" required>
             </div>
             <div class="col-12 col-md-5">
@@ -223,7 +223,7 @@
             </div>
             <div class="col-12 col-md-4 mb-3">
                 <label for="marital_status">สถานภาพการสมรส:</label>
-                <select id="marital_status" name="marital_status" class="form-control" required>
+                <select id="marital_status" name="marital_status" class="form-select" required>
                     <option value="single">โสด</option>
                     <option value="married">แต่งงานแล้ว</option>
                     <option value="widowed">เป็นม่าย</option>
