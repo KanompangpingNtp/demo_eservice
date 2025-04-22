@@ -136,6 +136,23 @@
                             </nav>
                         </div>
 
+                        <div class="sb-sidenav-menu-heading">กองคลัง</div>
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#treasury_department1" aria-expanded="false" aria-controls="treasury_department1">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
+                            คำร้องคัดค้านการประเมินภาษีหรือ การเรียกเก็บภาษีที่ดินและสิ่งปลูกสร้าง
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="treasury_department1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('LandBuildingTaxAppealPage')}}">ฟอร์ม</a>
+                                <a class="nav-link" href="#">ประวัติการส่งฟอร์ม</a>
+                            </nav>
+                        </div>
+
                         <div class="sb-sidenav-menu-heading">กองช่าง</div>
                         <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts1">
                             <div class="sb-nav-link-icon">
