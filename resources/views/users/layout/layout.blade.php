@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,22 +15,21 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
+
 <body>
 
     <style>
         h4 {
             color: blue;
         }
-
     </style>
 
     @if ($message = Session::get('success'))
     <script>
         Swal.fire({
-            icon: 'success'
-            , title: '{{ $message }}'
-        , })
-
+            icon: 'success',
+            title: '{{ $message }}',
+        })
     </script>
     @endif
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -153,6 +153,21 @@
                             </nav>
                         </div>
 
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#change_in_use" aria-expanded="false" aria-controls="change_in_use">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
+                            (ภ.ด.ส.๕) แบบแจ้งการเปลี่ยนแปลงการใช้ประโยชน์ที่ดินหรือสิ่งปลูกสร้าง
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="change_in_use" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('ChangeInUseFormPage')}}">ฟอร์ม</a>
+                                <a class="nav-link" href="#">ประวัติการส่งฟอร์ม</a>
+                            </nav>
+                        </div>
                         <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#treasury_department2" aria-expanded="false" aria-controls="treasury_department2">
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-clipboard"></i>
@@ -252,26 +267,27 @@
                     </div>
                     @endauth
                 </div>
-        </nav>
-    </div>
-    <div id="layoutSidenav_content">
-        <main>
-            <div class="container-fluid px-4">
-                <div class="mt-4 text-center"></div>
-                @yield('pages_content')
-            </div>
-            <br>
-        </main>
-        <footer class="py-4 bg-light mt-auto">
-            <div class="container-fluid px-4">
-                <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; บริษัท So Smart Solution สงวนสิทธิ์ 2025</div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <div class="mt-4 text-center"></div>
+                    @yield('pages_content')
                 </div>
-            </div>
-        </footer>
-    </div>
+                <br>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; บริษัท So Smart Solution สงวนสิทธิ์ 2025</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="{{asset('js/scripts.js')}}"></script>
 </body>
+
 </html>
