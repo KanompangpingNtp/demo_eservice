@@ -11,7 +11,7 @@ class EmergencyController extends Controller
 {
     public $channelToken = 'L4x3vp1t8f4gDx+op2v5bYQO3lozP3T+2aMMhEjtl9CkmsMiAJ8fNC+BqRReVSTEiZk6gR5oRs73p2QyZzNlyuB2ziCpX/zcNGLK1xGRAmDKMj/NXq3x9IRdLYZjLQZs1z3llUhNnlpNMB8iqvP7NwdB04t89/1O/w1cDnyilFU=';
     public $group_id = 'C08cc94e9c2c81503339d56501743cfd2';
-    // public $group_id = 'U9a60621a69e189197bde0ba92e3c77f6';
+    // public $group_id = 'C574e36d4850cccf9107d9252d30e74d9';
     // $userId = 'C574e36d4850cccf9107d9252d30e74d9';
 
     public function index()
@@ -31,13 +31,14 @@ class EmergencyController extends Controller
                 $insert->detail = $input['detail'];
                 $insert->photo = $path;
                 $insert->type = $input['options'];
+                $insert->tel = $input['tel'];
                 $insert->lat = $input['latitude'];
                 $insert->long = $input['longitude'];
                 $insert->created_at = date('Y-m-d H:i:s');
                 $insert->updated_at = date('Y-m-d H:i:s');
                 if ($insert->save()) {
                     $type = EmergenciesType::where('id', $input['options'])->first();
-                    $text = "แจ้งเหตุ มี" . $type->name . "\n" . $input['detail'] . "\nhttps://www.google.com/maps?q=" . $input['latitude'] . ',' . $input['longitude'];
+                    $text = "แจ้งเหตุ มี" . $type->name . "\n" . 'เบอร์ติดต่อ ' . $input['tel'] . "\n" . $input['detail'] . "\nhttps://www.google.com/maps?q=" . $input['latitude'] . ',' . $input['longitude'];
                     $data = [
                         'text' => $text,
                         'photo' => 'https://khlong.udom.eservice.sosmartsolution.com/storage/' . $path
