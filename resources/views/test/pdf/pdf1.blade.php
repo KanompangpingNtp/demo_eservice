@@ -22,11 +22,12 @@
 
         body {
             font-family: 'sarabun', 'sarabun-bold', sans-serif;
-            font-size: 19.3px;
+            font-size: 17px;
             margin: 0;
             padding: 0;
-            line-height: 0.8;
+            line-height: 1;
         }
+
 
         .regis_number {
             text-align: right;
@@ -35,29 +36,55 @@
 
         .title_doc {
             text-align: center;
-            font-weight: bold;
         }
 
         .box_text {
-            border: 1px solid rgb(255, 255, 255);
-            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0);
+            text-align: start;
         }
 
         .box_text span {
             display: inline-flex;
+            align-items: center;
             line-height: 1;
         }
 
-        .box_text_border {
-            padding-top: 7px;
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-bottom: 7px;
-            border: 2px solid #ad3d58;
-            font-size: 16px;
-            text-align: left;
+        .box_text input[type="checkbox"] {
+            width: 17px;
+            /* ปรับขนาด checkbox ให้พอดีกับข้อความ */
+            height: 17px;
+            /* ปรับความสูงให้พอดีกับข้อความ */
+            margin-right: 5px;
+            margin-left: 5px;
+            margin-bottom: 5px;
+            /* เว้นระยะห่างระหว่าง checkbox และข้อความ */
         }
 
+        .box_text_border {
+            margin-top: 5px;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin-bottom: 5px;
+            border: 2px solid black;
+            text-align: left;
+
+        }
+
+        .box_text_border span {
+            display: inline-flex;
+            align-items: left;
+            line-height: 0.3;
+        }
+
+        .box_text_border input[type="checkbox"] {
+            width: 17px;
+            /* ปรับขนาด checkbox ให้พอดีกับข้อความ */
+            height: 17px;
+            /* ปรับความสูงให้พอดีกับข้อความ */
+            margin-right: 5px;
+            margin-left: 5px;
+            /* เว้นระยะห่างระหว่าง checkbox และข้อความ */
+        }
 
         .dotted-line {
             margin-left: 2px;
