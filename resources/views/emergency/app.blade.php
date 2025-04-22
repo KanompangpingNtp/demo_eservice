@@ -160,7 +160,7 @@
                                 <div class="row">
                                     <label for="selectBookregist" class="col-sm-4 col-form-label d-flex justify-content-start">เบอร์โทรศัพท์ : </label>
                                     <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="tel" name="tel" maxlength="10">
+                                        <input type="text" class="form-control" id="tel" name="tel" maxlength="10" required>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
