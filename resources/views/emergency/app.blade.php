@@ -148,13 +148,19 @@
                                 <div class="row">
                                     <label for="selectBookregist" class="col-sm-5 col-form-label d-flex justify-content-start">ตัวอย่างรูปสถานที่เกิดเหตุ : </label>
                                     <div class="col-sm-12">
-                                        <div class="input-group mb-3">
+                                        <div class="input-group">
                                             <label class="input-group-text" id="basic-addon2" for="file" style="cursor: pointer;">
                                                 <i class="fa fa-camera"></i>
                                             </label>
                                             <input type="text" id="fileNameDisplay" class="form-control" placeholder="ตัวอย่างรูปสถานที่เกิดเหตุ" readonly>
                                             <input type="file" accept="image/*" capture="environment" id="file" name="file" style="display: none;" onchange="displayFileName()">
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="selectBookregist" class="col-sm-4 col-form-label d-flex justify-content-start">เบอร์โทรศัพท์ : </label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" id="tel" name="tel" maxlength="10">
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
