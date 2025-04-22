@@ -157,7 +157,7 @@
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-clipboard"></i>
                             </div>
-                            หนังสือขอผ่อนชำระภาษีที่ดินและสิ่งปลูกสร้าง / ห้องสุด
+                            หนังสือขอผ่อนชำระภาษีที่ดินและสิ่งปลูกสร้าง / ห้องชุด
                             <div class="sb-sidenav-collapse-arrow">
                                 <i class="fas fa-angle-down"></i>
                             </div>
