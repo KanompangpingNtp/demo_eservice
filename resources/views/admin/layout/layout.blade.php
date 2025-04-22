@@ -74,6 +74,16 @@
                             แบบคำขอรับการสงเคราะห์ <br> (ผู้ป่วยเอดส์)
                         </a>
 
+                        {{-- <div class="sb-sidenav-menu-heading">กองคลัง</div>
+                        <a class="nav-link" href="">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            คำร้องทั่วไป (แจ้งเรื่องไฟฟ้า)
+                        </a>
+                        <a class="nav-link" href="">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            คำร้องทั่วไป (แจ้งถนนชำรุด)
+                        </a> --}}
+
                         <div class="sb-sidenav-menu-heading">กองช่าง</div>
                         <a class="nav-link" href="{{route('GeneralElectricityRequestAdminShowData')}}">
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
