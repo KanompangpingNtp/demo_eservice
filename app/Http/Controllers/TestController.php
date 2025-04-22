@@ -23,16 +23,16 @@ class TestController extends Controller
         return view('test.page');
     }
 
-    public function formExportPDF1()
+    public function exportpdf1()
     {
-        $pdf = Pdf::loadView('test.pdf.pdf1')->setPaper('A4', 'portrait');
+        $pdf = Pdf::loadView('test.pdf.pdf1')->setPaper('A4', 'landscape');
 
         return $pdf->stream('pdf');
     }
 
-    public function formExportPDF2()
+    public function exportpdf2()
     {
-        $pdf = Pdf::loadView('test.pdf.pdf2')->setPaper('A4', 'portrait');
+        $pdf = Pdf::loadView('test.pdf.pdf1_2')->setPaper('A4', 'portrait');
 
         return $pdf->stream('pdf');
     }
