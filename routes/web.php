@@ -156,6 +156,7 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/admin/food_storage_license/admin-reply/{id}', [AdminFoodStorageLicenseController::class, 'FoodStorageLicenseAdminReply'])->name('FoodStorageLicenseAdminReply');
     Route::post('/admin/food_storage_license/update-status/{id}', [AdminFoodStorageLicenseController::class, 'FoodStorageLicenseUpdateStatus'])->name('FoodStorageLicenseUpdateStatus');
     Route::get('/admin/certificate/food_storage_license/export-pdf/{id}', [AdminFoodStorageLicenseController::class, 'AdminCertificateFoodStorageLicensePDF'])->name('AdminCertificateFoodStorageLicensePDF');
+
     //แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
     Route::get('/admin/health_hazard_applications/showdata', [AdminHealthHazardApplicationController::class, 'HealthHazardApplicationAdminShowData'])->name('HealthHazardApplicationAdminShowData');
     Route::get('/admin/health_hazard_applications/appointment', [AdminHealthHazardApplicationController::class, 'HealthHazardApplicationAdminAppointment'])->name('HealthHazardApplicationAdminAppointment');
@@ -175,6 +176,24 @@ Route::middleware(['admin'])->group(function () {
     Route::put('/admin/health_hazard_applications/paymentSave', [AdminHealthHazardApplicationController::class, 'HealthHazardApplicationAdminPaymentSave'])->name('HealthHazardApplicationAdminPaymentSave');
     Route::get('/admin/health_hazard_applications/approve', [AdminHealthHazardApplicationController::class, 'HealthHazardApplicationAdminApprove'])->name('HealthHazardApplicationAdminApprove');
     Route::get('/admin/certificate/health_hazard_applications/export-pdf/{id}', [AdminHealthHazardApplicationController::class, 'AdminCertificateHealthHazardApplicationPDF'])->name('AdminCertificateHealthHazardApplicationPDF');
+
+    //แบบคำร้องขอใช้ถังขยะ
+    Route::get('/admin/trash_bin_requests/showdata', [AdminTrashBinRequestController::class, 'TrashBinRequestAdminShowData'])->name('TrashBinRequestAdminShowData');
+    Route::get('/admin/trash_bin_requests/export-pdf/{id}', [AdminTrashBinRequestController::class, 'TrashBinRequestAdminExportPDF'])->name('TrashBinRequestAdminExportPDF');
+    Route::post('/admin/trash_bin_requests/admin-reply/{id}', [AdminTrashBinRequestController::class, 'TrashBinRequestAdminReply'])->name('TrashBinRequestAdminReply');
+    Route::post('/admin/trash_bin_requests/update-status/{id}', [AdminTrashBinRequestController::class, 'TrashBinRequestUpdateStatus'])->name('TrashBinRequestUpdateStatus');
+
+    //คำร้องขอรับเงินภาษีที่ดินและสิ่งปลูกสร้างคืน
+    Route::get('/admin/tax_refund_requests/showdata', [AdminLandTaxRefundRequestController::class, 'LandTaxRefundRequestAdminShowData'])->name('LandTaxRefundRequestAdminShowData');
+    Route::get('/admin/tax_refund_requests/export-pdf/{id}', [AdminLandTaxRefundRequestController::class, 'LandTaxRefundRequestAdminExportPDF'])->name('LandTaxRefundRequestAdminExportPDF');
+    Route::post('/admin/tax_refund_requests/admin-reply/{id}', [AdminLandTaxRefundRequestController::class, 'LandTaxRefundRequestAdminReply'])->name('LandTaxRefundRequestAdminReply');
+    Route::post('/admin/tax_refund_requests/update-status/{id}', [AdminLandTaxRefundRequestController::class, 'LandTaxRefundRequestUpdateStatus'])->name('LandTaxRefundRequestUpdateStatus');
+
+    //คำร้องคัดค้านการประเมินภาษีหรือ การเรียกเก็บภาษีที่ดินและสิ่งปลูกสร้าง
+    Route::get('/admin/land_building_tax_appeals/showdata', [AdminLandBuildingTaxAppealController::class, 'LandBuildingTaxAppealAdminShowData'])->name('LandBuildingTaxAppealAdminShowData');
+    Route::get('/admin/land_building_tax_appeals/export-pdf/{id}', [AdminLandBuildingTaxAppealController::class, 'LandBuildingTaxAppealAdminExportPDF'])->name('LandBuildingTaxAppealAdminExportPDF');
+    Route::post('/admin/land_building_tax_appeals/admin-reply/{id}', [AdminLandBuildingTaxAppealController::class, 'LandBuildingTaxAppealAdminReply'])->name('LandBuildingTaxAppealAdminReply');
+    Route::post('/admin/land_building_tax_appeals/update-status/{id}', [AdminLandBuildingTaxAppealController::class, 'LandBuildingTaxAppealUpdateStatus'])->name('LandBuildingTaxAppealUpdateStatus');
 });
 
 
