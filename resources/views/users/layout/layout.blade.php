@@ -261,7 +261,7 @@
                         <div class="collapse" id="public_health3" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="{{route('TrashBinRequestPage')}}">ฟอร์ม</a>
-                                <a class="nav-link" href="#">ประวัติการส่งฟอร์ม</a>
+                                <a class="nav-link" href="{{route('TrashBinRequestShowDetails')}}">ประวัติการส่งฟอร์ม</a>
                             </nav>
                         </div>
                     </div>

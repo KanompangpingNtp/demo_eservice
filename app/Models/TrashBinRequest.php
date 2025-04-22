@@ -34,6 +34,11 @@ class TrashBinRequest extends Model
         'document_options3_detail'
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'users_id');
+    }
+
     public function files()
     {
         return $this->hasMany(TrashBinRequestFiles::class, 'trash_bin_id');
