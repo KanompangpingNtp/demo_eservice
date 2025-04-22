@@ -248,13 +248,13 @@ Route::middleware(['user'])->group(function () {
 
     //คำร้องคัดค้านการประเมินภาษีหรือ การเรียกเก็บภาษีที่ดินและสิ่งปลูกสร้าง
     Route::get('/user/account/LandBuildingTaxAppeal/show-details', [LandBuildingTaxAppealController::class, 'LandBuildingTaxAppealShowDetails'])->name('LandBuildingTaxAppealShowDetails');
-    Route::post('/user/account/LandBuildingTaxAppeal/{form}/reply', [LandBuildingTaxAppealController::class, 'LandBuildingTaxAppealUserReply'])->name('LandBuildingTaxAppealUserReply');
+    Route::post('/user/account/LandBuildingTaxAppeal/{form}/reply', action: [LandBuildingTaxAppealController::class, 'LandBuildingTaxAppealUserReply'])->name('LandBuildingTaxAppealUserReply');
     Route::get('/user/account/LandBuildingTaxAppeal/{id}/pdf', [LandBuildingTaxAppealController::class, 'LandBuildingTaxAppealUserExportPDF'])->name('LandBuildingTaxAppealUserExportPDF');
 
-     //คำร้องขอรับเงินภาษีที่ดินและสิ่งปลูกสร้างคืน
-     Route::get('/user/account/TaxRefundRequest/show-details', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestShowDetails'])->name('LandTaxRefundRequestShowDetails');
-     Route::post('/user/account/TaxRefundRequest/{form}/reply', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestUserReply'])->name('LandTaxRefundRequestUserReply');
-     Route::get('/user/account/TaxRefundRequest/{id}/pdf', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestUserExportPDF'])->name('LandTaxRefundRequestUserExportPDF');
+    //คำร้องขอรับเงินภาษีที่ดินและสิ่งปลูกสร้างคืน
+    Route::get('/user/account/TaxRefundRequest/show-details', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestShowDetails'])->name('LandTaxRefundRequestShowDetails');
+    Route::post('/user/account/TaxRefundRequest/{form}/reply', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestUserReply'])->name('LandTaxRefundRequestUserReply');
+    Route::get('/user/account/TaxRefundRequest/{id}/pdf', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestUserExportPDF'])->name('LandTaxRefundRequestUserExportPDF');
 });
 
 Route::get('/emergency', [EmergencyController::class, 'index'])->name('emergency.index');
