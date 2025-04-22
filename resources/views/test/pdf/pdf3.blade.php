@@ -40,7 +40,7 @@
 
         .box_text {
             border: 1px solid rgb(255, 255, 255);
-            text-align: center;
+            text-align: left;
         }
 
         .box_text span {
@@ -72,8 +72,84 @@
 </head>
 
 <body>
-    <h1>(ภ.ด.ส.๑๐) คำร้องคัดค้านการประเมินภาษีหรือการเรียกเก็บภาษีที่ดินและสิ่งปลูกสร้าง</h1>
-</body>
+    <div class="box_text" style="text-align: right;">
+        <span>ภ.ด.ส.๑๐</span>
+    </div>
+    <div class="box_text" style="text-align: center; font-weight: bold;">
+        <span>คำร้องคัดค้านการประเมินภาษีหรือการเรียกเก็บภาษีที่ดินและสิ่งปลูกสร้าง</span><br>
+        <span>ตามมาตรา ๗๓ วรรคหนึ่ง แห่งพระราชบัญญัติภาษีที่ดินและสิ่งปลูกสร้าง พ.ศ. ๒๕๖๒</span>
+    </div>
+    <div class="box_text" style="text-align: right; margin-top:0.5rem;">
+        <span>วันที่</span><span class="dotted-line" style="width: 8%; text-align: center; line-height: 1;"></span>
+        <span>เดือน</span><span class="dotted-line" style="width: 12%; text-align: center; line-height: 1;"></span>
+        <span>พ.ศ.</span><span class="dotted-line" style="width: 8%; text-align: center; line-height: 1;"></span>
+    </div>
+    <div class="box_text" style="text-align: left;">
+        <span>เรื่อง ขอคัดค้านการประเมินภาษีหรือการเรียกเก็บภาษีที่ดินและสิ่งปลูกสร้าง</span><br>
+        <span>เรียน</span><span class="dotted-line" style="width: 50%; text-align: center; line-height: 1;"></span>
+    </div>
+    <div class="box_text" style="text-align: left; margin-left:6rem;">
+        <span>ตามที่พนักงานประเมินได้แจ้งการประเมินหรือเรียกเก็บภาษีที่ดินและสิ่งปลูกสร้าง ประจำปี พ.ศ.</span>
+        <span class="dotted-line" style="width: 20%; text-align: center; line-height: 1;"></span>
+        <div style="text-align: left; margin-left:-6rem;">
+            <span>ตามหนังสือแจ้งการประเมิน เลขที่</span><span class="dotted-line"
+                style="width: 10%; text-align: center; line-height: 1;"></span>
+            <span>/</span><span class="dotted-line" style="width: 10%; text-align: center; line-height: 1;"></span>
+            <span>ลงวันที่</span><span class="dotted-line" style="width: 12%; text-align: center; line-height: 1;"></span>
+            <span>เดือน</span><span class="dotted-line" style="width: 14.5%; text-align: center; line-height: 1;"></span>
+            <span>พ.ศ.</span><span class="dotted-line" style="width: 12%; text-align: center; line-height: 1;"></span>
+            <span>ซึ่งข้าพเจ้าได้รับเมื่อวันที่</span><span class="dotted-line" style="width: 12%; text-align: center; line-height: 1;"></span>
+            <span>เดือน</span><span class="dotted-line" style="width: 18%; text-align: center; line-height: 1;"></span>
+            <span>พ.ศ.</span><span class="dotted-line" style="width: 12%; text-align: center; line-height: 1;"></span>
+            <span>นั้น</span>
+        </div>
+        <span>ข้าพเจ้า</span>
+        <span class="dotted-line" style="width: 61%; text-align: center; line-height: 1;"></span>
+        <span>ขอยื่นคำร้องคัดค้านการประเมินภาษี</span>
+        <div style="text-align: left; margin-left:-6rem;">
+            <span>หรือการเรียกเก็บภาษีไม่ถูกต้อง เนื่องจาก</span><span class="dotted-line" style="width: 70%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 100%; text-align: center; line-height: 1;">()</span>
+            <span class="dotted-line" style="width: 100%; text-align: center; line-height: 1;">()</span>
+            <span class="dotted-line" style="width: 100%; text-align: center; line-height: 1;">()</span>
+            <span class="dotted-line" style="width: 100%; text-align: center; line-height: 1;">()</span>
+            <span style="margin-top: 10px;">โดยข้าพเจ้าได้แนบเอกสารหลักฐาน จำนวน</span><span class="dotted-line" style="width: 30%; text-align: center; line-height: 1;"></span>
+            <span>ฉบับ มาเพื่อประกอบการพิจารณาทบทวนการประ</span><span>เมินหรือการเรียกเก็บภาษีใหม่</span>
+        </div>
+    </div>
+    <div class="box_text" style="text-align: right; margin-top:1rem; position: relative;">
+        <span>(ลงชื่อ)</span>
+        <span class="dotted-line" style="width: 30%; text-align: center;"></span>
+        <span>ผู้ยื่นคำร้อง</span>
+        <div style="margin-right: 55px;">
+            <span>(</span>
+            <span class="dotted-line" style="width: 30%; text-align: center;"></span>
+            <span>)</span>
+        </div>
+    </div>
+    <div style="width: 100%; border-bottom: 2px dotted #000; margin-top:17rem;"></div>
+    <div class="box_text" style="margin-top:2rem;">
+        <span>ได้รับคำร้องฉบับนี้ตั้งแต่วันที่</span>
+        <span class="dotted-line" style="width: 10%; text-align: center;"></span>
+        <span>เดือน</span>
+        <span class="dotted-line" style="width: 16%; text-align: center;"></span>
+        <span>พ.ศ.</span>
+        <span class="dotted-line" style="width: 16%; text-align: center;"></span>
 
+    </div>
+    <div class="box_text" style="text-align: left; margin-top:1rem; position: relative;">
+        <span>(ลงชื่อ)</span>
+        <span class="dotted-line" style="width: 30%; text-align: center;"></span>
+        <span>เจ้าหน้าที่ผู้รับคำร้อง</span>
+        <div style="margin-left: 38px;">
+            <span>(</span>
+            <span class="dotted-line" style="width: 30%; text-align: center;"></span>
+            <span>)</span>
+        </div>
+        <span>ตำแหน่ง</span>
+        <span class="dotted-line" style="width: 30%; text-align: center;"></span>
+        
+    </div>
+
+</body>
 
 </html>
