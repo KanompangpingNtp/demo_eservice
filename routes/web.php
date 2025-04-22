@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\change_in_use\ChangeInUse;
 use App\Http\Controllers\emergency\EmergencyController;
 
 use App\Http\Controllers\TMO\general_electricity_request\GeneralElectricityRequestController;
@@ -20,7 +20,7 @@ use App\Http\Controllers\ops\disability\DisabilityController;
 use App\Http\Controllers\ops\disability\AdminDisabilityController;
 use App\Http\Controllers\ops\receive_assistance\ReceiveAssistanceController;
 use App\Http\Controllers\ops\receive_assistance\AdminReceiveAssistanceController;
-
+use App\Http\Controllers\pay_tax_build_and_room\PayTaxBuildAndRoom;
 use App\Http\Controllers\public_health\food_storage_license\FoodStorageLicenseController;
 use App\Http\Controllers\public_health\food_storage_license\AdminFoodStorageLicenseController;
 use App\Http\Controllers\public_health\health_hazard_applications\HealthHazardApplicationController;
@@ -47,6 +47,7 @@ use App\Http\Controllers\TestController;
 
 //
 Route::get('/trash_bin_requests', [TrashBinRequestController::class, 'TrashBinRequestPage'])->name('TrashBinRequestPage');
+Route::post('/trash_bin_requests/form/create', [TrashBinRequestController::class, 'TrashBinRequestFormCreate'])->name('TrashBinRequestFormCreate');
 
 //
 Route::get('/receive_assistance', [ReceiveAssistanceController::class, 'ReceiveAssistanceFormPage'])->name('ReceiveAssistanceFormPage');
@@ -80,9 +81,18 @@ Route::post('/general-road-request/form/create', [GeneralRoadRequestController::
 
 //คำร้องคัดค้านการประเมินภาษี
 Route::get('/land_building_tax_appeals', [LandBuildingTaxAppealController::class, 'LandBuildingTaxAppealPage'])->name('LandBuildingTaxAppealPage');
+Route::post('/land_building_tax_appeals/form/create', [LandBuildingTaxAppealController::class, 'LandBuildingTaxAppealFormCreate'])->name('LandBuildingTaxAppealFormCreate');
 
 //คำร้องขอรับเงินภาษีที่ดินและสิ่งปลูกสร้างคืน
 Route::get('/tax_refund_requests', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestPage'])->name('LandTaxRefundRequestPage');
+Route::post('/tax_refund_requests/form/create', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestFormCreate'])->name('LandTaxRefundRequestFormCreate');
+
+//(ภ.ด.ส.๕) แบบแจ้งการเปลี่ยนแปลงการใช้ประโยชน์ที่ดินหรือสิ่งปลูกสร้าง
+Route::get('/pay_tax_build_and_room', [PayTaxBuildAndRoom::class, 'PayTaxBuildAndRoomFormPage'])->name('PayTaxBuildAndRoomFormPage');
+Route::post('/pay_tax_build_and_room/form/create', [PayTaxBuildAndRoom::class, 'PayTaxBuildAndRoomFormCreate'])->name('PayTaxBuildAndRoomFormCreate');
+//(ภ.ด.ส.๕) แบบแจ้งการเปลี่ยนแปลงการใช้ประโยชน์ที่ดินหรือสิ่งปลูกสร้าง
+Route::get('/change_in_use', [ChangeInUse::class, 'ChangeInUseFormPage'])->name('ChangeInUseFormPage');
+Route::post('/change_in_use/form/create', [ChangeInUse::class, 'ChangeInUseFormCreate'])->name('ChangeInUseFormCreate');
 
 //users disability
 Route::get('/disability', [DisabilityController::class, 'DisabilityFormPage'])->name('DisabilityFormPage');
@@ -243,6 +253,21 @@ Route::middleware(['user'])->group(function () {
     Route::get('/user/account/ReceiveAssistance/{id}/pdf', [ReceiveAssistanceController::class, 'ReceiveAssistanceUserExportPDF'])->name('ReceiveAssistanceUserExportPDF');
     Route::get('/user/account/ReceiveAssistance/{id}/edit', [ReceiveAssistanceController::class, 'ReceiveAssistanceUsersShowFormEdit'])->name('ReceiveAssistanceUsersShowFormEdit');
     Route::put('/user/account/ReceiveAssistance/{id}/Update', [ReceiveAssistanceController::class, 'updateReceiveAssistance'])->name('updateReceiveAssistance');
+
+    //คำร้องคัดค้านการประเมินภาษีหรือ การเรียกเก็บภาษีที่ดินและสิ่งปลูกสร้าง
+    Route::get('/user/account/LandBuildingTaxAppeal/show-details', [LandBuildingTaxAppealController::class, 'LandBuildingTaxAppealShowDetails'])->name('LandBuildingTaxAppealShowDetails');
+    Route::post('/user/account/LandBuildingTaxAppeal/{form}/reply', action: [LandBuildingTaxAppealController::class, 'LandBuildingTaxAppealUserReply'])->name('LandBuildingTaxAppealUserReply');
+    Route::get('/user/account/LandBuildingTaxAppeal/{id}/pdf', [LandBuildingTaxAppealController::class, 'LandBuildingTaxAppealUserExportPDF'])->name('LandBuildingTaxAppealUserExportPDF');
+
+    //คำร้องขอรับเงินภาษีที่ดินและสิ่งปลูกสร้างคืน
+    Route::get('/user/account/TaxRefundRequest/show-details', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestShowDetails'])->name('LandTaxRefundRequestShowDetails');
+    Route::post('/user/account/TaxRefundRequest/{form}/reply', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestUserReply'])->name('LandTaxRefundRequestUserReply');
+    Route::get('/user/account/TaxRefundRequest/{id}/pdf', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestUserExportPDF'])->name('LandTaxRefundRequestUserExportPDF');
+
+    //แบบคำร้องขอใช้ถังขยะ
+    Route::get('/user/account/TrashBinRequest/show-details', [TrashBinRequestController::class, 'TrashBinRequestShowDetails'])->name('TrashBinRequestShowDetails');
+    Route::post('/user/account/TrashBinRequest/{form}/reply', [TrashBinRequestController::class, 'TrashBinRequestUserReply'])->name('TrashBinRequestUserReply');
+    Route::get('/user/account/TrashBinRequest/{id}/pdf', [TrashBinRequestController::class, 'TrashBinRequestUserExportPDF'])->name('TrashBinRequestUserExportPDF');
 });
 
 Route::get('/emergency', [EmergencyController::class, 'index'])->name('emergency.index');
