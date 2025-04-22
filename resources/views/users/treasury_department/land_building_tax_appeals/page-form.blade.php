@@ -6,13 +6,13 @@
         ตามมาตรา ๗๓ วรรคสอง แห่งพระราชบัญญัติภาษีที่ดินและสิ่งปลูกสร้าง พ.ศ. ๒๕๖๒
     </h2> <br>
 
-    <form action="#" method="POST" enctype="multipart/form-data">
+    <form action="{{route('LandBuildingTaxAppealFormCreate')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">
             <div class="col-md-12">
-                <label for="" class="form-label">เรียน</label>
-                <input type="text" class="form-control" id="" name="" required>
+                <label for="delivered_to" class="form-label">เรียน</label>
+                <input type="text" class="form-control" id="delivered_to" name="delivered_to" required>
             </div>
         </div>
 
@@ -22,23 +22,23 @@
 
         <div class="row g-3 mb-3">
             <div class="col-md-3">
-                <label for="" class="form-label">พ.ศ</label>
-                <input type="text" class="form-control" id="" name="" required>
+                <label for="year" class="form-label">พ.ศ</label>
+                <input type="text" class="form-control" id="year" name="year" required>
             </div>
 
             <div class="col-md-3">
-                <label for="" class="form-label">เลขที่ ..../.... </label>
-                <input type="text" class="form-control" id="" name="" required>
+                <label for="number" class="form-label">เลขที่ ..../.... </label>
+                <input type="text" class="form-control" id="number" name="number" required>
             </div>
 
             <div class="col-md-3">
-                <label for="" class="form-label">ลงวันที่</label>
-                <input type="date" class="form-control" id="" name="" required>
+                <label for="dated" class="form-label">ลงวันที่</label>
+                <input type="date" class="form-control" id="dated" name="dated" required>
             </div>
 
             <div class="col-md-3">
-                <label for="" class="form-label">ซึ่งข้าพเจ้าได้รับเมื่อวันที่</label>
-                <input type="date" class="form-control" id="" name="" required>
+                <label for="received_date" class="form-label">ซึ่งข้าพเจ้าได้รับเมื่อวันที่</label>
+                <input type="date" class="form-control" id="received_date" name="received_date" required>
             </div>
         </div>
 
@@ -58,8 +58,8 @@
             </div>
 
             <div class="col-md-9">
-                <label for="name" class="form-label">ชื่อ - นามสกุล <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="name" name="name" maxlength="255" required>
+                <label for="full_name" class="form-label">ชื่อ - นามสกุล <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="full_name" name="full_name" required>
             </div>
         </div>
 
@@ -68,13 +68,13 @@
         </div>
 
         <div class="mb-3 col-md-12">
-            <label for="" class="form-label">เนื่องจาก</label>
-            <textarea class="form-control" id="" name="" rows="3"></textarea>
+            <label for="due_to" class="form-label">เนื่องจาก</label>
+            <textarea class="form-control" id="due_to" name="due_to" rows="3"></textarea>
         </div>
 
         <div class="mb-3">
             <p>โดยข้าพเจ้าได้แนบเอกสารหลักฐาน จำนวน
-                <input type="text" class="form-control d-inline" style="width: 80px;" name="">
+                <input type="text" class="form-control d-inline" style="width: 80px;" name="documents">
                 ฉบับ มาเพื่อประกอบการพิจารณาทบทวนการประเมินหรือเรียกเก็บภาษีใหม่
             </p>
         </div>
