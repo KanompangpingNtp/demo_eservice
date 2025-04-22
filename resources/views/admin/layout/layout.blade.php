@@ -94,7 +94,6 @@
                             คำร้องทั่วไป (แจ้งถนนชำรุด)
                         </a>
 
-
                         <div class="sb-sidenav-menu-heading">กองสาธารณสุขและสิ่งแวดล้อม</div>
                         <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#admin_food1" aria-expanded="false" aria-controls="admin_food1">
                             <div class="sb-nav-link-icon">
@@ -136,6 +135,12 @@
                         <a class="nav-link" href="{{route('TrashBinRequestAdminShowData')}}">
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
                             แบบคำร้องขอใช้ถังขยะ
+                        </a>
+
+                        <div class="sb-sidenav-menu-heading">กองการศึกษาและวัฒนธรรม</div>
+                        <a class="nav-link" href="{{route('TableChildApplyAdminPages')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            แบบฟอร์มใบสมัคร ศูนย์พัฒนาเด็กเล็ก
                         </a>
                     </div>
                 </div>

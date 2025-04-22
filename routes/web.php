@@ -33,6 +33,9 @@ use App\Http\Controllers\treasury_department\tax_refund_requests\AdminLandTaxRef
 use App\Http\Controllers\treasury_department\land_building_tax_appeals\LandBuildingTaxAppealController;
 use App\Http\Controllers\treasury_department\land_building_tax_appeals\AdminLandBuildingTaxAppealController;
 
+use App\Http\Controllers\department_education\recruiting_children\RecruitingChildrenController;
+use App\Http\Controllers\department_education\recruiting_children\AdminRecruitingChildrenController;
+
 use App\Http\Controllers\TestController;
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +48,11 @@ use App\Http\Controllers\TestController;
 |
 */
 
-//
+//User ChildApply
+Route::get('/ChildApply', [RecruitingChildrenController::class, 'ChildApplyPage'])->name('ChildApplyPage');
+Route::post('/ChildApply/form/create', [RecruitingChildrenController::class, 'ChildApplyFormCreate'])->name('ChildApplyFormCreate');
+
+//ขอถังขยะ
 Route::get('/trash_bin_requests', [TrashBinRequestController::class, 'TrashBinRequestPage'])->name('TrashBinRequestPage');
 Route::post('/trash_bin_requests/form/create', [TrashBinRequestController::class, 'TrashBinRequestFormCreate'])->name('TrashBinRequestFormCreate');
 
@@ -194,6 +201,12 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin/land_building_tax_appeals/export-pdf/{id}', [AdminLandBuildingTaxAppealController::class, 'LandBuildingTaxAppealAdminExportPDF'])->name('LandBuildingTaxAppealAdminExportPDF');
     Route::post('/admin/land_building_tax_appeals/admin-reply/{id}', [AdminLandBuildingTaxAppealController::class, 'LandBuildingTaxAppealAdminReply'])->name('LandBuildingTaxAppealAdminReply');
     Route::post('/admin/land_building_tax_appeals/update-status/{id}', [AdminLandBuildingTaxAppealController::class, 'LandBuildingTaxAppealUpdateStatus'])->name('LandBuildingTaxAppealUpdateStatus');
+
+    //แบบฟอร์มใบสมัคร ศูนย์พัฒนาเด็กเล็ก
+    Route::get('/admin/RecruitingChildren', [AdminRecruitingChildrenController::class, 'TableChildApplyAdminPages'])->name('TableChildApplyAdminPages');
+    Route::get('/admin/RecruitingChildren/ExportPdf/{id}', [AdminRecruitingChildrenController::class, 'ChildApplyAdminExportPDF'])->name('ChildApplyAdminExportPDF');
+    Route::post('/admin/RecruitingChildren/AdminReply/{id}', [AdminRecruitingChildrenController::class, 'ChildApplyAdminReply'])->name('ChildApplyAdminReply');
+    Route::post('/admin/RecruitingChildren/{id}/update-status', [AdminRecruitingChildrenController::class, 'ChildApplyUpdateStatus'])->name('ChildApplyUpdateStatus');
 });
 
 
@@ -287,6 +300,12 @@ Route::middleware(['user'])->group(function () {
     Route::get('/user/account/TrashBinRequest/show-details', [TrashBinRequestController::class, 'TrashBinRequestShowDetails'])->name('TrashBinRequestShowDetails');
     Route::post('/user/account/TrashBinRequest/{form}/reply', [TrashBinRequestController::class, 'TrashBinRequestUserReply'])->name('TrashBinRequestUserReply');
     Route::get('/user/account/TrashBinRequest/{id}/pdf', [TrashBinRequestController::class, 'TrashBinRequestUserExportPDF'])->name('TrashBinRequestUserExportPDF');
+
+    //แบบฟอร์มใบสมัคร ศูนย์พัฒนาเด็กเล็ก
+    Route::get('/user/account/RecruitingChildren/record', [RecruitingChildrenController::class, 'TableChildApplyUsersPages'])->name('TableChildApplyUsersPages');
+    Route::put('/user/account/RecruitingChildren/{id}/Update', [RecruitingChildrenController::class, 'updateChildInformation'])->name('updateChildInformation');
+    Route::get('/user/account/RecruitingChildren/{id}/pdf', [RecruitingChildrenController::class, 'ChildApplyUserExportPDF'])->name('ChildApplyUserExportPDF');
+    Route::post('/user/account/RecruitingChildren/{form}/reply', [RecruitingChildrenController::class, 'ChildApplyUserReply'])->name('ChildApplyUserReply');
 });
 
 Route::get('/emergency', [EmergencyController::class, 'index'])->name('emergency.index');

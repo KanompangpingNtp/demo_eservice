@@ -279,6 +279,23 @@
                                 <a class="nav-link" href="{{route('TrashBinRequestShowDetails')}}">ประวัติการส่งฟอร์ม</a>
                             </nav>
                         </div>
+
+                        <div class="sb-sidenav-menu-heading">กองการศึกษา</div>
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#recruiting_children1" aria-expanded="false" aria-controls="recruiting_children1">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
+                            แบบฟอร์มใบสมัคร ศูนย์พัฒนาเด็กเล็ก
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="recruiting_children1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('ChildApplyPage')}}">ฟอร์ม</a>
+                                <a class="nav-link" href="{{route('TableChildApplyUsersPages')}}">ประวัติการส่งฟอร์ม</a>
+                            </nav>
+                        </div>
                     </div>
                     @endauth
                 </div>
