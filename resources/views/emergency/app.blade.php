@@ -331,6 +331,14 @@
             });
             return;
         }
+        if (!tel) {
+            Swal.fire({
+                title: "กรุณากรอกเบอร์ติดต่อกลับ",
+                text: "",
+                icon: "warning"
+            });
+            return;
+        }
         if (detail === "") {
             Swal.fire({
                 title: "กรุณากรอกรายละเอียด",
