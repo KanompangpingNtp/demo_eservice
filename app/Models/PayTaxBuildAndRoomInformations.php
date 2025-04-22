@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ChangeInUseInformations extends Model
+class PayTaxBuildAndRoomInformations extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'users_id',
         'form_status',
@@ -24,7 +25,7 @@ class ChangeInUseInformations extends Model
 
     public function details()
     {
-        return $this->hasOne(ChangeInUseFormDetails::class, 'change_in_use_id');
+        return $this->hasOne(PayTaxBuildAndRoomFormDetails::class, 'pay_tax_id');
     }
 
     public function user()
@@ -34,6 +35,11 @@ class ChangeInUseInformations extends Model
 
     public function replies()
     {
-        return $this->hasMany(FoodStorageFormReplies::class, 'change_in_use_id');
+        return $this->hasMany(PayTaxBuildAndRoomReplies::class, 'pay_tax_id');
+    }
+
+    public function files()
+    {
+        return $this->hasMany(PayTaxBuildAndRoomFormFiles::class, 'pay_tax_id');
     }
 }
