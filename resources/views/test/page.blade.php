@@ -21,8 +21,11 @@
                 <tr>
                     <td>ภ.ป.๑ แนบแสดงรายการ ภาษีป้าย</td>
                     <td class="text-center">
-                        <a href="{{route('formExportPDF1')}}" class="btn btn-danger btn-sm" target="_blank">
-                            <i class="bi bi-file-earmark-pdf"></i>
+                        <a href="{{route('exportpdf1')}}" class="btn btn-danger btn-sm" target="_blank">
+                            หน้าที่ 1
+                        </a>
+                        <a href="{{route('exportpdf2')}}" class="btn btn-danger btn-sm" target="_blank">
+                            หน้าที่ 2
                         </a>
                     </td>
                 </tr>

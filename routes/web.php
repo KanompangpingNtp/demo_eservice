@@ -275,7 +275,8 @@ Route::post('/emergency/send', [EmergencyController::class, 'send'])->name('emer
 
 //test
 Route::get('/form/pdf', [TestController::class, 'formPDF'])->name('formPDF');
-Route::get('/form/pdf/1', [TestController::class, 'formExportPDF1'])->name('formExportPDF1');
+Route::get('/form/pdf/1', [TestController::class, 'exportpdf1'])->name('exportpdf1');
+Route::get('/form/pdf/1_2', [TestController::class, 'exportpdf2'])->name('exportpdf2');
 Route::get('/form/pdf/2', [TestController::class, 'formExportPDF2'])->name('formExportPDF2');
 Route::get('/form/pdf/3', [TestController::class, 'formExportPDF3'])->name('formExportPDF3');
 Route::get('/form/pdf/4', [TestController::class, 'formExportPDF4'])->name('formExportPDF4');
