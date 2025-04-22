@@ -20,7 +20,7 @@ use App\Http\Controllers\ops\disability\DisabilityController;
 use App\Http\Controllers\ops\disability\AdminDisabilityController;
 use App\Http\Controllers\ops\receive_assistance\ReceiveAssistanceController;
 use App\Http\Controllers\ops\receive_assistance\AdminReceiveAssistanceController;
-
+use App\Http\Controllers\pay_tax_build_and_room\PayTaxBuildAndRoom;
 use App\Http\Controllers\public_health\food_storage_license\FoodStorageLicenseController;
 use App\Http\Controllers\public_health\food_storage_license\AdminFoodStorageLicenseController;
 use App\Http\Controllers\public_health\health_hazard_applications\HealthHazardApplicationController;
@@ -87,6 +87,9 @@ Route::post('/land_building_tax_appeals/form/create', [LandBuildingTaxAppealCont
 Route::get('/tax_refund_requests', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestPage'])->name('LandTaxRefundRequestPage');
 Route::post('/tax_refund_requests/form/create', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestFormCreate'])->name('LandTaxRefundRequestFormCreate');
 
+//(ภ.ด.ส.๕) แบบแจ้งการเปลี่ยนแปลงการใช้ประโยชน์ที่ดินหรือสิ่งปลูกสร้าง
+Route::get('/pay_tax_build_and_room', [PayTaxBuildAndRoom::class, 'PayTaxBuildAndRoomFormPage'])->name('PayTaxBuildAndRoomFormPage');
+Route::post('/pay_tax_build_and_room/form/create', [PayTaxBuildAndRoom::class, 'PayTaxBuildAndRoomFormCreate'])->name('PayTaxBuildAndRoomFormCreate');
 //(ภ.ด.ส.๕) แบบแจ้งการเปลี่ยนแปลงการใช้ประโยชน์ที่ดินหรือสิ่งปลูกสร้าง
 Route::get('/change_in_use', [ChangeInUse::class, 'ChangeInUseFormPage'])->name('ChangeInUseFormPage');
 Route::post('/change_in_use/form/create', [ChangeInUse::class, 'ChangeInUseFormCreate'])->name('ChangeInUseFormCreate');

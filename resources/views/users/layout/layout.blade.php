@@ -157,6 +157,21 @@
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-clipboard"></i>
                             </div>
+                            หนังสือขอผ่อนชำระภาษีที่ดินและสิ่งปลูกสร้าง / ห้องสุด
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="change_in_use" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('PayTaxBuildAndRoomFormPage')}}">ฟอร์ม</a>
+                                <a class="nav-link" href="#">ประวัติการส่งฟอร์ม</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#change_in_use" aria-expanded="false" aria-controls="change_in_use">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
                             (ภ.ด.ส.๕) แบบแจ้งการเปลี่ยนแปลงการใช้ประโยชน์ที่ดินหรือสิ่งปลูกสร้าง
                             <div class="sb-sidenav-collapse-arrow">
                                 <i class="fas fa-angle-down"></i>
