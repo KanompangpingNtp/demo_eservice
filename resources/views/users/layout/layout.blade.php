@@ -153,7 +153,22 @@
                             </nav>
                         </div>
 
-                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#change_in_use" aria-expanded="false" aria-controls="change_in_use">
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#license_tax" aria-expanded="false" aria-controls="license_tax">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
+                            (ภ.ป.๑) แนบแสดงรายการ ภาษีป้าย
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="license_tax" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('LicenseTaxFormPage')}}">ฟอร์ม</a>
+                                <a class="nav-link" href="#">ประวัติการส่งฟอร์ม</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#pay_tax_build_and_room" aria-expanded="false" aria-controls="pay_tax_build_and_room">
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-clipboard"></i>
                             </div>
@@ -162,7 +177,7 @@
                                 <i class="fas fa-angle-down"></i>
                             </div>
                         </a>
-                        <div class="collapse" id="change_in_use" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <div class="collapse" id="pay_tax_build_and_room" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="{{route('PayTaxBuildAndRoomFormPage')}}">ฟอร์ม</a>
                                 <a class="nav-link" href="#">ประวัติการส่งฟอร์ม</a>

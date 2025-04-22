@@ -9,8 +9,6 @@ class PayTaxBuildAndRoomFormFiles extends Model
 {
     use HasFactory;
 
-    use HasFactory;
-
     protected $fillable = ['pay_tax_id', 'file_path', 'file_type', 'document_type'];
 
     public function information()

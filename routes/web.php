@@ -35,7 +35,7 @@ use App\Http\Controllers\treasury_department\land_building_tax_appeals\AdminLand
 
 use App\Http\Controllers\department_education\recruiting_children\RecruitingChildrenController;
 use App\Http\Controllers\department_education\recruiting_children\AdminRecruitingChildrenController;
-
+use App\Http\Controllers\license_tax\LicenseTax;
 use App\Http\Controllers\TestController;
 /*
 |--------------------------------------------------------------------------
@@ -94,6 +94,9 @@ Route::post('/land_building_tax_appeals/form/create', [LandBuildingTaxAppealCont
 Route::get('/tax_refund_requests', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestPage'])->name('LandTaxRefundRequestPage');
 Route::post('/tax_refund_requests/form/create', [LandTaxRefundRequestController::class, 'LandTaxRefundRequestFormCreate'])->name('LandTaxRefundRequestFormCreate');
 
+//(ภ.ป.๑ แนบแสดงรายการ ภาษีป้าย)
+Route::get('/license_tax', [LicenseTax::class, 'LicenseTaxFormPage'])->name('LicenseTaxFormPage');
+Route::post('/license_tax/form/create', [LicenseTax::class, 'LicenseTaxFormCreate'])->name('LicenseTaxFormCreate');
 //(ภ.ด.ส.๕) แบบแจ้งการเปลี่ยนแปลงการใช้ประโยชน์ที่ดินหรือสิ่งปลูกสร้าง
 Route::get('/pay_tax_build_and_room', [PayTaxBuildAndRoom::class, 'PayTaxBuildAndRoomFormPage'])->name('PayTaxBuildAndRoomFormPage');
 Route::post('/pay_tax_build_and_room/form/create', [PayTaxBuildAndRoom::class, 'PayTaxBuildAndRoomFormCreate'])->name('PayTaxBuildAndRoomFormCreate');
