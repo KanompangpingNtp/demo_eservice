@@ -186,7 +186,6 @@
         <span>ได้รับคำร้องฉบับนี้</span><br>
         <span>แต่วันที่</span>
         <span class="dotted-line" style="width: 30%; text-align: center;"></span>
-
     </div>
     <div class="box_text" style="text-align: left; margin-top:0rem; position: relative;">
         <span>(ลงชื่อ)</span>

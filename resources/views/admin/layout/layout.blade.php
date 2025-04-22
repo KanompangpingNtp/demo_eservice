@@ -74,15 +74,15 @@
                             แบบคำขอรับการสงเคราะห์ <br> (ผู้ป่วยเอดส์)
                         </a>
 
-                        {{-- <div class="sb-sidenav-menu-heading">กองคลัง</div>
-                        <a class="nav-link" href="">
+                        <div class="sb-sidenav-menu-heading">กองคลัง</div>
+                        <a class="nav-link" href="{{route('LandTaxRefundRequestAdminShowData')}}">
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
-                            คำร้องทั่วไป (แจ้งเรื่องไฟฟ้า)
+                            คำร้องคัดค้านการประเมินภาษีหรือ การเรียกเก็บภาษีที่ดินและสิ่งปลูกสร้าง
                         </a>
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="{{route('LandBuildingTaxAppealAdminShowData')}}">
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
-                            คำร้องทั่วไป (แจ้งถนนชำรุด)
-                        </a> --}}
+                            คำร้องขอรับเงินภาษีที่ดินและสิ่งปลูกสร้างคืน
+                        </a>
 
                         <div class="sb-sidenav-menu-heading">กองช่าง</div>
                         <a class="nav-link" href="{{route('GeneralElectricityRequestAdminShowData')}}">
@@ -132,12 +132,17 @@
                                 <a class="nav-link" href="{{route('HealthHazardApplicationAdminApprove')}}">ออกใบอนุญาต</a>
                             </nav>
                         </div>
+
+                        <a class="nav-link" href="{{route('TrashBinRequestAdminShowData')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            แบบคำร้องขอใช้ถังขยะ
+                        </a>
                     </div>
                 </div>
-                <div class="sb-sidenav-footer">
+                {{-- <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
                     Start Bootstrap
-                </div>
+                </div> --}}
             </nav>
         </div>
         <div id="layoutSidenav_content">
