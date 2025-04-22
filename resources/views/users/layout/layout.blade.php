@@ -69,7 +69,7 @@
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
+                <div class="sb-sidenav-menu mb-5">
                     @auth
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">สำนักปลัด</div>
@@ -231,6 +231,22 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="{{route('HealthHazardApplicationFormPage')}}">ฟอร์ม</a>
                                 <a class="nav-link" href="{{route('HealthHazardApplicationShowDetails')}}">ประวัติการส่งฟอร์ม</a>
+                            </nav>
+                        </div>
+
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#public_health3" aria-expanded="false" aria-controls="public_health3">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
+                            คำร้องทั่วไปขอถังขยะ
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="public_health3" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('TrashBinRequestPage')}}">ฟอร์ม</a>
+                                <a class="nav-link" href="#">ประวัติการส่งฟอร์ม</a>
                             </nav>
                         </div>
                     </div>

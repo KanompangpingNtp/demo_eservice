@@ -4,11 +4,100 @@ namespace App\Http\Controllers\public_health\trash_bin_requests;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\TrashBinRequest;
+use App\Models\TrashBinRequestFiles;
+use App\Models\TrashBinRequestReply;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class TrashBinRequestController extends Controller
 {
     public function TrashBinRequestPage()
     {
         return view('users.public_health.trash_bin_requests.page-form');
+    }
+
+    public function TrashBinRequestFormCreate(Request $request)
+    {
+        $request->validate([
+            'written_at' => 'nullable|string',
+            'date_written' => 'nullable|string',
+            'salutation' => 'nullable|string',
+            'full_name' => 'nullable|string',
+            'address' => 'nullable|string',
+            'village' => 'nullable|string',
+            'nearby_places' => 'nullable|string',
+            'contact_number' => 'nullable|string',
+
+            'canon_options' => 'nullable|array',
+            'canon_options.*' => 'in:option1,option2,option3,option4',
+            'option1_amount' => 'nullable|string',
+            'option1_month' => 'nullable|string',
+            'option2_amount' => 'nullable|string',
+            'option2_month' => 'nullable|string',
+            'option3_amount' => 'nullable|string',
+            'option3_month' => 'nullable|string',
+            'option4_detail' => 'nullable|string',
+
+            'document_options' => 'nullable|array',
+            'document_options.*' => 'in:option1,option2,option3',
+            'document_options1_detail' => 'nullable|string',
+            'document_options3_detail' => 'nullable|string',
+
+            'attachments.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf',
+        ]);
+
+        // dd($request);
+
+        $Form = TrashBinRequest::create([
+            'users_id' => auth()->id(),
+            'status' => 1,
+            'written_at' => $request->written_at,
+            'date_written' => $request->date_written,
+            'salutation' => $request->salutation,
+            'full_name' => $request->full_name,
+            'address' => $request->address,
+            'village' => $request->village,
+            'nearby_places' => $request->nearby_places,
+            'contact_number' => $request->contact_number,
+            'canon_options' => json_encode($request->canon_options),
+            'option1_amount' => $request->option1_amount,
+            'option1_month' => $request->option1_month,
+            'option2_amount' => $request->option2_amount,
+            'option2_month' => $request->option2_month,
+            'option3_amount' => $request->option3_amount,
+            'option3_month' => $request->option3_month,
+            'option4_detail' => $request->option4_detail,
+            'document_options' => json_encode($request->document_options),
+            'document_options1_detail' => $request->document_options1_detail,
+            'document_options3_detail' => $request->document_options3_detail,
+        ]);
+
+
+        if ($request->hasFile('attachments')) {
+            foreach ($request->file('attachments') as $file) {
+                $filename = time() . '_' . $file->getClientOriginalName();
+
+                $path = $file->storeAs('trash_bin_requests-files', $filename, 'public');
+
+                TrashBinRequestFiles::create([
+                    'trash_bin_id' => $Form->id,
+                    'file_path' => $path,
+                    'file_type' => $file->getClientMimeType(),
+                ]);
+            }
+        }
+
+        return redirect()->back()->with('success', 'ฟอร์มถูกส่งเรียบร้อยแล้ว');
+    }
+
+    public function TrashBinRequestShowDetails()
+    {
+        $forms = TrashBinRequest::with(['user', 'files', 'replies'])
+            ->where('users_id', Auth::id())
+            ->get();
+
+        return view('users.public_health.trash_bin_requests.account.show-detail', compact('forms'));
     }
 }
