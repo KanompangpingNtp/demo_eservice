@@ -41,7 +41,7 @@ class AdminPayTaxBuildAndRoom extends Controller
         $pdf = Pdf::loadView('users.pay_tax_build_and_room.pdf-form', compact('form'))
             ->setPaper('A4', 'portrait');
 
-        return $pdf->stream('หนังสือขอผ่อนชำระภาษีที่ดินและสิ่งปลูกสร้าง / ห้องชุด' . $form->id . '.pdf');
+        return $pdf->stream('หนังสือขอผ่อนชำระภาษีที่ดินและสิ่งปลูกสร้างและห้องชุด' . $form->id . '.pdf');
     }
 
     public function PayTaxBuildAndRoomUpdateStatus($id)

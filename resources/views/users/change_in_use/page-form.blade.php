@@ -78,7 +78,7 @@
             </div>
             <div class="col-md-3">
                 <label for="land_subdistrict" class="form-label">ตำบล/แขวง </label>
-                <input type="text" class="form-control" id="land_subdistrict" name="land_subdistrict" >
+                <input type="text" class="form-control" id="land_subdistrict" name="land_subdistrict">
             </div>
             <div class="col-md-3">
                 <label for="land_district" class="form-label">อำเภอ/เขต </label>
@@ -86,35 +86,39 @@
             </div>
             <div class="col-md-3">
                 <label for="land_province" class="form-label">จังหวัด </label>
-                <input type="text" class="form-control" id="land_province" name="land_province" >
+                <input type="text" class="form-control" id="land_province" name="land_province">
             </div>
         </div>
         <div class="row g-3 mb-3">
             <div class="col-md-3">
                 <label for="land_deed" class="form-label">เลขที่โฉนดหรือหนังสือสำคัญ </label>
-                <input type="text" class="form-control" id="land_deed" name="land_deed" >
+                <input type="text" class="form-control" id="land_deed" name="land_deed">
             </div>
             <div class="col-md-3">
                 <label for="land_rai" class="form-label">เนื้อที่ดิน (ไร่) </label>
-                <input type="text" class="form-control" id="land_rai" name="land_rai" >
+                <input type="text" class="form-control" id="land_rai" name="land_rai">
             </div>
             <div class="col-md-3">
                 <label for="land_unit" class="form-label">เนื้อที่ดิน (งาน) </label>
-                <input type="text" class="form-control" id="land_unit" name="land_unit" >
+                <input type="text" class="form-control" id="land_unit" name="land_unit">
             </div>
             <div class="col-md-3">
                 <label for="land_wa" class="form-label">เนื้อที่ดิน (ตารางวา) </label>
-                <input type="text" class="form-control" id="land_wa" name="land_wa" >
+                <input type="text" class="form-control" id="land_wa" name="land_wa">
             </div>
         </div>
         <div class="row g-3 mb-3">
             <div class="col-md-3">
                 <label for="land_default_use" class="form-label">เดิมที่ดินแปลงนี้ใช้ทำประโยชน์ </label>
-                <input type="text" class="form-control" id="land_default_use" name="land_default_use" >
+                <input type="text" class="form-control" id="land_default_use" name="land_default_use">
             </div>
             <div class="col-md-3">
                 <label for="land_current_use" class="form-label">ปัจจุบันที่ดินนี้ใช้ประโยชน์ </label>
                 <input type="text" class="form-control" id="land_current_use" name="land_current_use">
+            </div>
+            <div class="col-md-3">
+                <label for="land_current_date" class="form-label">ตั้งแต่วันที่ </label>
+                <input type="date" class="form-control" id="land_current_date" name="land_current_date">
             </div>
         </div>
         <hr>

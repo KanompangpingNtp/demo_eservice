@@ -319,9 +319,9 @@ function baht_text($number, $include_unit = true, $display_zero = true)
         <span>งาน</span><span class="dotted-line" style="width: 10%; text-align: center; line-height: 1;">{{$form['details']->land_wa}}</span>
         <span>ตร.ว. เดิมที่ดินแปลงนี้ใช้ทำประโยชน์</span><span class="dotted-line" style="width: 34%; text-align: center; line-height: 1;">{{$form['details']->land_default_use}}</span>
         <span>บัดนี้ ที่ดินแปลงดังกล่าวใช้ทำประโยชน์</span><span class="dotted-line" style="width: 74%; text-align: center; line-height: 1;">{{$form['details']->land_current_use}}</span>
-        <span>ตั้งแต่วันที่</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;">{{convertDay($form['details']->land_current_date)}}</span>
-        <span>เดือน</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;">{{convertMonthsToThai($form['details']->land_current_date)}}</span>
-        <span>พ.ศ.</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;">{{convertYear($form['details']->land_current_date)}}</span>
+        <span>ตั้งแต่วันที่</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;"><?= ($form['details']->land_current_date ? convertDay($form['details']->land_current_date) : '')?></span>
+        <span>เดือน</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;"><?= ($form['details']->land_current_date ? convertMonthsToThai($form['details']->land_current_date) : '')?></span>
+        <span>พ.ศ.</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;"><?= ($form['details']->land_current_date ? convertYear($form['details']->land_current_date) : '')?></span>
     </div>
     <div class="box_text" style="text-align: center">
         <span>ฯลฯ</span>
@@ -343,9 +343,9 @@ function baht_text($number, $include_unit = true, $display_zero = true)
         <span>ขนาดพื้นที่สิ่งปลูกสร้าง</span><span class="dotted-line" style="width: 20%; text-align: center; line-height: 1;">{{$form['details']->build_meter}}</span>
         <span>ตร.ม. เดิมที่ดินแปลงนี้ใช้ทำประโยชน์</span><span class="dotted-line" style="width: 40%; text-align: center; line-height: 1;">{{$form['details']->build_default_use}}</span>
         <span>บัดนี้ ที่ดินแปลงดังกล่าวใช้ทำประโยชน์</span><span class="dotted-line" style="width: 74%; text-align: center; line-height: 1;">{{$form['details']->build_current_use}}</span>
-        <span>ตั้งแต่วันที่</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;">{{convertDay($form['details']->build_current_date)}}</span>
-        <span>เดือน</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;">{{convertMonthsToThai($form['details']->build_current_date)}}</span>
-        <span>พ.ศ.</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;">{{convertYear($form['details']->build_current_date)}}</span>
+        <span>ตั้งแต่วันที่</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;"><?= ($form['details']->build_current_date ? convertDay($form['details']->build_current_date) : '')?></span>
+        <span>เดือน</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;"><?= ($form['details']->build_current_date ? convertMonthsToThai($form['details']->build_current_date) : '')?></span>
+        <span>พ.ศ.</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;"><?= ($form['details']->build_current_date ? convertYear($form['details']->build_current_date) : '')?></span>
     </div>
     <div class="box_text" style="text-align: center;margin-top:-0.5rem;margin-bottom:-0.5rem;">
         <span>ฯลฯ</span>
@@ -370,9 +370,9 @@ function baht_text($number, $include_unit = true, $display_zero = true)
         <span>เดิมอาคารชุด/ห้องชุดนี้ใช้ทำประโยชน์</span><span class="dotted-line" style="width: 55%; text-align: center; line-height: 1;">{{$form['details']->room_default_use}}</span>
         <span>บัดนี้ อาคารชุด/ห้องชุดดังกล่าว</span>
         <span>ใช้ทำประโยชน์</span><span class="dotted-line" style="width: 90%; text-align: center; line-height: 1;">{{$form['details']->room_current_use}}</span>
-        <span>ตั้งแต่วันที่</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;">{{convertDay($form['details']->room_current_date)}}</span>
-        <span>เดือน</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;">{{convertMonthsToThai($form['details']->room_current_date)}}</span>
-        <span>พ.ศ.</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;">{{convertYear($form['details']->room_current_date)}}</span>
+        <span>ตั้งแต่วันที่</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;"><?= ($form['details']->room_current_date ? convertDay($form['details']->room_current_date) : '')?></span>
+        <span>เดือน</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;"><?= ($form['details']->room_current_date ? convertMonthsToThai($form['details']->room_current_date) : '')?></span>
+        <span>พ.ศ.</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;"><?= ($form['details']->room_current_date ? convertYear($form['details']->room_current_date) : '')?></span>
     </div>
     <div class="box_text" style="text-align: right;  position: relative;">
         <span>(ลงชื่อ)</span>

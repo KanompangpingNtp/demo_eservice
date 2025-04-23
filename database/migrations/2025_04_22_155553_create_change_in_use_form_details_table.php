@@ -27,6 +27,7 @@ return new class extends Migration
             $table->text('land_wa')->nullable();
             $table->text('land_default_use')->nullable();
             $table->text('land_current_use')->nullable();
+            $table->date('land_current_date')->nullable();
             $table->text('build_total')->nullable();
             $table->text('build_on')->nullable();
             $table->text('build_village')->nullable();
