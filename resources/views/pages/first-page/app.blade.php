@@ -234,8 +234,8 @@
                         class="me-2 d-none d-lg-block">
                     <div
                         class="d-flex flex-column justify-content-center align-items-center align-items-lg-start lh-1 text-white fw-bold">
-                        <span class="fs-3">องค์การบริหารส่วนตำบลคลองอุดมชลจร</span>
-                        <span class="fs-4">Khlong Udom Chonlajorn Subdistrict Administrative Organization <br>
+                        <span class="fs-3 text-center text-lg-start">Khlong Udom Chonlajorn Subdistrict Administrative Organization</span>
+                        <span class="fs-4 text-center text-lg-start">องค์การบริหารส่วนตำบลคลองอุดมชลจร <br>
                             เลขที่ 9/9 หมู่ที่.4 ตำบลคลองอุดมชลจร อำเภอเมืองฉะเชิงเทรา จังหวัดฉะเชิงเทรา 24000
                         </span>
                     </div>
