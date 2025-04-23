@@ -8,6 +8,7 @@ use App\Models\ChangeInUseInformations;
 use App\Models\ChangeInUseReplies;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ChangeInUse extends Controller
 {
@@ -89,7 +90,9 @@ class ChangeInUse extends Controller
 
     public function ChangeInUseShowDetails()
     {
-        $forms = ChangeInUseInformations::with(['user', 'replies'])->get();
+        $forms = ChangeInUseInformations::with(['user', 'replies'])
+        ->where('users_id', Auth::id())
+        ->get();
 
         return view('users.change_in_use.account.show-detail', compact('forms'));
     }

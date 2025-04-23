@@ -5,6 +5,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\change_in_use\ChangeInUse;
+use App\Http\Controllers\change_in_use\AdminChangeInUse;
 use App\Http\Controllers\emergency\EmergencyController;
 
 use App\Http\Controllers\TMO\general_electricity_request\GeneralElectricityRequestController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\ops\disability\AdminDisabilityController;
 use App\Http\Controllers\ops\receive_assistance\ReceiveAssistanceController;
 use App\Http\Controllers\ops\receive_assistance\AdminReceiveAssistanceController;
 use App\Http\Controllers\pay_tax_build_and_room\PayTaxBuildAndRoom;
+use App\Http\Controllers\pay_tax_build_and_room\AdminPayTaxBuildAndRoom;
 use App\Http\Controllers\public_health\food_storage_license\FoodStorageLicenseController;
 use App\Http\Controllers\public_health\food_storage_license\AdminFoodStorageLicenseController;
 use App\Http\Controllers\public_health\health_hazard_applications\HealthHazardApplicationController;
@@ -36,6 +38,7 @@ use App\Http\Controllers\treasury_department\land_building_tax_appeals\AdminLand
 use App\Http\Controllers\department_education\recruiting_children\RecruitingChildrenController;
 use App\Http\Controllers\department_education\recruiting_children\AdminRecruitingChildrenController;
 use App\Http\Controllers\license_tax\LicenseTax;
+use App\Http\Controllers\license_tax\AdminLicenseTax;
 use App\Http\Controllers\TestController;
 /*
 |--------------------------------------------------------------------------
@@ -210,8 +213,25 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin/RecruitingChildren/ExportPdf/{id}', [AdminRecruitingChildrenController::class, 'ChildApplyAdminExportPDF'])->name('ChildApplyAdminExportPDF');
     Route::post('/admin/RecruitingChildren/AdminReply/{id}', [AdminRecruitingChildrenController::class, 'ChildApplyAdminReply'])->name('ChildApplyAdminReply');
     Route::post('/admin/RecruitingChildren/{id}/update-status', [AdminRecruitingChildrenController::class, 'ChildApplyUpdateStatus'])->name('ChildApplyUpdateStatus');
-});
 
+    //(ภ.ป.๑) แนบแสดงรายการ ภาษีป้าย
+    Route::get('/admin/license_tax', [AdminLicenseTax::class, 'LicenseTaxAdminPages'])->name('LicenseTaxAdminPages');
+    Route::get('/admin/license_tax/ExportPdf/{id}', [AdminLicenseTax::class, 'LicenseTaxAdminExportPDF'])->name('LicenseTaxAdminExportPDF');
+    Route::post('/admin/license_tax/AdminReply/{id}', [AdminLicenseTax::class, 'LicenseTaxAdminReply'])->name('LicenseTaxAdminReply');
+    Route::post('/admin/license_tax/{id}/update-status', [AdminLicenseTax::class, 'LicenseTaxUpdateStatus'])->name('LicenseTaxUpdateStatus');
+
+    //หนังสือขอผ่อนชำระภาษีที่ดินและสิ่งปลูกสร้าง
+    Route::get('/admin/pay_tax_build_and_room', [AdminPayTaxBuildAndRoom::class, 'PayTaxBuildAndRoomAdminPages'])->name('PayTaxBuildAndRoomAdminPages');
+    Route::get('/admin/pay_tax_build_and_room/ExportPdf/{id}', [AdminPayTaxBuildAndRoom::class, 'PayTaxBuildAndRoomAdminExportPDF'])->name('PayTaxBuildAndRoomAdminExportPDF');
+    Route::post('/admin/pay_tax_build_and_room/AdminReply/{id}', [AdminPayTaxBuildAndRoom::class, 'PayTaxBuildAndRoomAdminReply'])->name('PayTaxBuildAndRoomAdminReply');
+    Route::post('/admin/pay_tax_build_and_room/{id}/update-status', [AdminPayTaxBuildAndRoom::class, 'PayTaxBuildAndRoomUpdateStatus'])->name('PayTaxBuildAndRoomUpdateStatus');
+
+    //(ภ.ด.ส.๕) แบบแจ้งการเปลี่ยนแปลงการใช้ประโยชน์ที่ดินหรือสิ่งปลูกสร้าง
+    Route::get('/admin/change_in_use', [AdminChangeInUse::class, 'ChangeInUseAdminPages'])->name('ChangeInUseAdminPages');
+    Route::get('/admin/change_in_use/ExportPdf/{id}', [AdminChangeInUse::class, 'ChangeInUseAdminExportPDF'])->name('ChangeInUseAdminExportPDF');
+    Route::post('/admin/change_in_use/AdminReply/{id}', [AdminChangeInUse::class, 'ChangeInUseAdminReply'])->name('ChangeInUseAdminReply');
+    Route::post('/admin/change_in_use/{id}/update-status', [AdminChangeInUse::class, 'ChangeInUseUpdateStatus'])->name('ChangeInUseUpdateStatus');
+});
 
 Route::middleware(['user'])->group(function () {
     //คำร้องทั่วไป
@@ -319,7 +339,7 @@ Route::middleware(['user'])->group(function () {
     Route::get('/user-account/pay_tax_build_and_room/show-details', [PayTaxBuildAndRoom::class, 'PayTaxBuildAndRoomShowDetails'])->name('PayTaxBuildAndRoomShowDetails');
     Route::get('/user-account/pay_tax_build_and_room/export-pdf/{id}', [PayTaxBuildAndRoom::class, 'PayTaxBuildAndRoomUserExportPDF'])->name('PayTaxBuildAndRoomUserExportPDF');
     Route::post('/user-account/pay_tax_build_and_room/reply/{id}', [PayTaxBuildAndRoom::class, 'PayTaxBuildAndRoomUserReply'])->name('PayTaxBuildAndRoomUserReply');
-    
+
     //(ภ.ด.ส.๕) แบบแจ้งการเปลี่ยนแปลงการใช้ประโยชน์ที่ดินหรือสิ่งปลูกสร้าง
     Route::get('/user-account/change_in_use/show-details', [ChangeInUse::class, 'ChangeInUseShowDetails'])->name('ChangeInUseShowDetails');
     Route::get('/user-account/change_in_use/export-pdf/{id}', [ChangeInUse::class, 'ChangeInUseUserExportPDF'])->name('ChangeInUseUserExportPDF');

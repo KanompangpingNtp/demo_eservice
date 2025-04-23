@@ -75,6 +75,18 @@
                         </a>
 
                         <div class="sb-sidenav-menu-heading">กองคลัง</div>
+                        <a class="nav-link" href="{{route('LicenseTaxAdminPages')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            (ภ.ป.๑) แนบแสดงรายการ ภาษีป้าย
+                        </a>
+                        <a class="nav-link" href="{{route('PayTaxBuildAndRoomAdminPages')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            หนังสือขอผ่อนชำระภาษีที่ดินและสิ่งปลูกสร้าง / ห้องชุด
+                        </a>
+                        <a class="nav-link" href="{{route('ChangeInUseAdminPages')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            (ภ.ด.ส.๕) แบบแจ้งการเปลี่ยนแปลงการใช้ประโยชน์ที่ดินหรือสิ่งปลูกสร้าง
+                        </a>
                         <a class="nav-link" href="{{route('LandTaxRefundRequestAdminShowData')}}">
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
                             คำร้องคัดค้านการประเมินภาษีหรือ การเรียกเก็บภาษีที่ดินและสิ่งปลูกสร้าง
