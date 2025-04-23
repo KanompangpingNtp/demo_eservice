@@ -5,6 +5,8 @@ namespace App\Http\Controllers\change_in_use;
 use App\Http\Controllers\Controller;
 use App\Models\ChangeInUseFormDetails;
 use App\Models\ChangeInUseInformations;
+use App\Models\ChangeInUseReplies;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class ChangeInUse extends Controller
@@ -83,5 +85,38 @@ class ChangeInUse extends Controller
         ]);
 
         return redirect()->back()->with('success', 'ฟอร์มถูกส่งเรียบร้อยแล้ว');
+    }
+
+    public function ChangeInUseShowDetails()
+    {
+        $forms = ChangeInUseInformations::with(['user', 'replies'])->get();
+
+        return view('users.change_in_use.account.show-detail', compact('forms'));
+    }
+
+    public function ChangeInUseUserReply(Request $request, $formId)
+    {
+        $request->validate([
+            'message' => 'required|string|max:1000',
+        ]);
+
+        ChangeInUseReplies::create([
+            'change_in_use_id' => $formId,
+            'users_id' => auth()->id(),
+            'reply_text' => $request->message,
+            'reply_date' => now()->toDateString(),
+        ]);
+
+        return redirect()->back()->with('success', 'ตอบกลับสำเร็จแล้ว!');
+    }
+
+    public function ChangeInUseUserExportPDF($id)
+    {
+        $form = ChangeInUseInformations::with('details')->find($id);
+
+        $pdf = Pdf::loadView('users.change_in_use.pdf-form', compact('form'))
+            ->setPaper('A4', 'portrait');
+
+        return $pdf->stream('(ภ.ด.ส.๕) แบบแจ้งการเปลี่ยนแปลงการใช้ประโยชน์ที่ดินหรือสิ่งปลูกสร้าง' . $form->id . '.pdf');
     }
 }

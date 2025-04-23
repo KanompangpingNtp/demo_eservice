@@ -34,6 +34,6 @@ class ChangeInUseInformations extends Model
 
     public function replies()
     {
-        return $this->hasMany(FoodStorageFormReplies::class, 'change_in_use_id');
+        return $this->hasMany(ChangeInUseReplies::class, 'change_in_use_id');
     }
 }
