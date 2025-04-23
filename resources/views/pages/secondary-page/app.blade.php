@@ -226,7 +226,7 @@
                     <img src="{{ asset('images/secondary-pages/5.png') }}" alt="5" class="img-fluid">
                     <ul class="text-start lh-1 ">
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="{{route('ChildApplyPage')}}" target="_blank">
                                 แบบฟอร์มใบสมัคร ศูนย์พัฒนาเด็กเล็ก
                             </a>
                         </li>

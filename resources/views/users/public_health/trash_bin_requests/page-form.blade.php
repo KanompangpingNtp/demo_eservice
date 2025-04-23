@@ -2,7 +2,7 @@
 @section('pages_content')
 
 <div class="container">
-    <h2 class="text-center mb-4">แบบคำร้องขอใช้ถังขยะ</h2><br>
+    <h2 class="text-center mb-4">แบบแสดงจำนงขอใช้บริการจัดเก็บขยะมูลฝอย</h2><br>
 
     <form action="{{route('TrashBinRequestFormCreate')}}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -19,8 +19,19 @@
                 <input type="date" class="form-control" id="date_written" name="date_written">
             </div>
 
+            <div>
+                <label class="form-label">ข้าพเจ้า</label>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="position" id="individual" value="บุคคลธรรมดา">
+                  <label class="form-check-label" for="individual">บุคคลธรรมดา</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="position" id="legal_entity" value="นิติบุคคล">
+                  <label class="form-check-label" for="legal_entity">นิติบุคคล</label>
+                </div>
+              </div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <label for="salutation" class="form-label">คำนำหน้า</label>
                 <select class="form-select" id="salutation" name="salutation">
                     <option value="" selected disabled>เลือกคำนำหน้า</option>
@@ -30,9 +41,19 @@
                 </select>
             </div>
 
-            <div class="col-md-4">
-                <label for="full_name" class="form-label">ชื่อ - นามสกุล <span class="text-danger">*</span></label>
+            <div class="col-md-3">
+                <label for="full_name" class="form-label">ชื่อ <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="full_name" name="full_name" required>
+            </div>
+
+            <div class="col-md-3">
+                <label for="last_name" class="form-label">นามสกุล <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="last_name" name="last_name" required>
+            </div>
+
+            <div class="col-md-3">
+                <label for="age" class="form-label">อายุ <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="age" name="age" required>
             </div>
 
             <div class="col-md-3">
@@ -45,7 +66,7 @@
                 <input type="text" class="form-control" id="village" name="village">
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label for="nearby_places" class="form-label">สถานที่ใกล้เคียง</label>
                 <input type="text" class="form-control" id="nearby_places" name="nearby_places">
             </div>
