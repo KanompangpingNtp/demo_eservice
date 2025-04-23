@@ -57,6 +57,7 @@ class ChangeInUse extends Controller
             'land_wa' => $request->land_wa,
             'land_default_use' => $request->land_default_use,
             'land_current_use' => $request->land_current_use,
+            'land_current_date' => $request->land_current_date,
             'build_total' => $request->build_total,
             'build_on' => $request->build_on,
             'build_village' => $request->build_village,
