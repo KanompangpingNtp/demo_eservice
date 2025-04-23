@@ -66,14 +66,6 @@
                         <i class="bi bi-file-earmark-pdf"></i>
                     </a>
                     <br>
-                    <br>
-                    <span style="color: black;">ไฟล์แนบ </span>
-                    @foreach ($form->files as $attachment)
-                    <span class="d-inline me-2">
-                        <a href="{{ asset('storage/' . $attachment->file_path) }}"
-                            target="_blank">{{ basename($attachment->file_path) }}</a>
-                    </span>
-                    @endforeach
                 </div>
                 <div class="modal-footer d-flex justify-content-between">
                     <span class="text-start" style="color: black;">รับฟอร์ม</span>
