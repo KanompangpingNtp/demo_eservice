@@ -404,7 +404,7 @@
 
         <br>
 
-        <div class="col-md-12">
+        <div class="col-md-12 mb-4">
             <span><strong>คำรับรอง</strong><br></span>
             <span class="ms-4">1. ข้าพเจ้าขอรับรองว่า ได้อ่านประกาศรับสมัครศูนย์พัฒนาเด็กเล็กองค์การบริหารส่วนตำบลคลองอุดมชลจรเข้าใจแล้ว เด็กที่นำมาสมัครมีคุณสมบัติถูกต้องตรงประกาศ และหลักฐานที่ใช้สมัครใน
                  วันนี้เป็นหลักฐานที่ถูกต้องจริง <br>
@@ -417,7 +417,8 @@
         </div>
 
         <br>
-        <hr><br>
+        <hr>
+        <br>
 
         <h3 class="text-center">ใบมอบตัว <br></h3>
         <h3 class="text-center">ศูนย์พัฒนาเด็กเล็กองค์การบริหารส่วนตำบลคลองอุดมชลจร <br></h3>
@@ -1076,7 +1077,7 @@
         <div class="col-md-3 mb-3">
             <label for="parent_occupation">อาชีพ</label>
             <input type="text" name="parent_occupation" class="form-control" >
-        </div
+        </div>
 
         <div class="col-md-3 mb-3">
             <label for="parent_workplace">สถานที่ทำงาน</label>

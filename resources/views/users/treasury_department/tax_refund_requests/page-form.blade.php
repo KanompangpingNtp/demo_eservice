@@ -10,7 +10,7 @@
         @csrf
 
         <div class="row g-3 mb-3">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <label for="salutation" class="form-label">คำนำหน้า</label>
                 <select class="form-select" id="salutation" name="salutation">
                     <option value="" selected disabled>เลือกคำนำหน้า</option>
@@ -20,46 +20,53 @@
                 </select>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label for="full_name" class="form-label">ชื่อ - นามสกุล <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="full_name" name="full_name" maxlength="255" required>
             </div>
 
             <div class="col-md-3">
-                <label for="age" class="form-label">อายุ (ปี) <span class="text-danger">*</span></label>
-                <input type="number" class="form-control" id="age" name="age" required>
-            </div>
-
-            <div class="col-md-4">
                 <label for="house_number" class="form-label">บ้านเลขที่<span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="house_number" name="house_number" maxlength="50" required>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <label for="village" class="form-label">หมู่บ้าน </label>
                 <input type="text" class="form-control" id="village" name="village" maxlength="100" required>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
+                <label for="alley" class="form-label">ตรอก/ซอย</label>
+                <input type="text" class="form-control" id="alley" name="alley" required>
+            </div>
+
+            <div class="col-md-3">
+                <label for="road" class="form-label">ถนน</label>
+                <input type="text" class="form-control" id="road" name="road" required>
+            </div>
+
+            <div class="col-md-3">
                 <label for="subdistrict" class="form-label">ตำบล <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="subdistrict" name="subdistrict" maxlength="100" required>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <label for="district" class="form-label">อำเภอ <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="district" name="district" maxlength="100" required>
             </div>
 
-            <div class="mb-3 col-md-4">
+            <div class="mb-3 col-md-3">
                 <label for="province" class="form-label">จังหวัด <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="province" name="province" maxlength="100" required>
             </div>
 
-            <div class="mb-3 col-md-4">
+            <div class="mb-3 col-md-3">
                 <label for="phone" class="form-label">โทรศัพท์ <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="phone" name="phone" maxlength="100" required>
             </div>
+        </div>
 
+        <div class="row g-3 mb-3">
             <div class="mb-3 col-md-4">
                 <label for="tax_year" class="form-label">
                     ได้รับชำระเงินค่าภาษีที่ดินและสิ่งปลูกสร้าง ประจำปี พ.ศ. <span class="text-danger">*</span>

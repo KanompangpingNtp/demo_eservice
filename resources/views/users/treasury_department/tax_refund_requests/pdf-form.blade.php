@@ -133,8 +133,8 @@
             <span>อยู่บ้านเลขที่</span><span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;">{{$form->house_number}}</span>
             <span>หมู่ที่</span><span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;">{{$form->village}}</span>
         </div>
-        <span>ตรอก/ซอย</span><span class="dotted-line" style="width: 25.5%; text-align: center; line-height: 1;">{{$form->village}}</span>
-        <span>ถนน</span><span class="dotted-line" style="width: 25.5%; text-align: center; line-height: 1;"></span>
+        <span>ตรอก/ซอย</span><span class="dotted-line" style="width: 25.5%; text-align: center; line-height: 1;">{{$form->alley}}</span>
+        <span>ถนน</span><span class="dotted-line" style="width: 25.5%; text-align: center; line-height: 1;">{{$form->road}}</span>
         <span>แขวง/ตำบล</span><span class="dotted-line" style="width: 26%; text-align: center; line-height: 1;">{{$form->subdistrict}}</span>
         <span>เขต/อำเภอ</span><span class="dotted-line" style="width: 26%; text-align: center; line-height: 1;">{{$form->district}}</span>
         <span>จังหวัด</span><span class="dotted-line" style="width: 26%; text-align: center; line-height: 1;">{{$form->province}}</span>

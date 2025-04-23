@@ -38,6 +38,8 @@ class LandTaxRefundRequestController extends Controller
             'other_documents' => 'nullable|string',
             'due_to_options' => 'nullable|array',
             'due_to_options.*' => 'string|in:option1,option2',
+            'road' => 'nullable|string',
+            'alley' => 'nullable|string',
 
             'attachments.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf',
         ]);
@@ -63,6 +65,8 @@ class LandTaxRefundRequestController extends Controller
             'tax_money' => $request->tax_money,
             'other_documents' => $request->other_documents,
             'due_to_options' => json_encode($request->due_to_options),
+            'road' => $request->road,
+            'alley' => $request->alley,
         ]);
 
         if ($request->hasFile('attachments')) {

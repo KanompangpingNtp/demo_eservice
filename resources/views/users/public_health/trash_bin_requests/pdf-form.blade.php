@@ -99,22 +99,30 @@
 </head>
 
 <body>
+    @php
+    use Carbon\Carbon;
+    $created = Carbon::parse($form->created_at);
+    $created_day = $created->day;
+    $created_month = $created->locale('th')->translatedFormat('F');
+    $created_year = $created->year + 543;
+    @endphp
+
     <div class="box_text" style="text-align: center; font-weight: bold;">
         <span>แบบแสดงจำนงขอใช้บริการจัดเก็บขยะมูลฝอย</span><br>
         <span>โดยองค์การบริหารส่วนตำบลคลองอุดมชลจร อำเภอเมืองฉะเชิงเทรา จังหวัดฉะเชิงเทรา</span>
     </div>
     <div class="box_text" style="text-align: right; margin-top:0.5rem;">
         <span>เขียนที่</span><span class="dotted-line" style="width: 34%; text-align: center; line-height: 1;">{{$form->written_at}}</span><br>
-        <span>วันที่</span><span class="dotted-line" style="width: 8%; text-align: center; line-height: 1;"></span>
-        <span>เดือน</span><span class="dotted-line" style="width: 12%; text-align: center; line-height: 1;"></span>
-        <span>พ.ศ.</span><span class="dotted-line" style="width: 8%; text-align: center; line-height: 1;"></span>
+        <span>วันที่</span><span class="dotted-line" style="width: 8%; text-align: center; line-height: 1;">{{$created_day}}</span>
+        <span>เดือน</span><span class="dotted-line" style="width: 12%; text-align: center; line-height: 1;">{{$created_month}}</span>
+        <span>พ.ศ.</span><span class="dotted-line" style="width: 8%; text-align: center; line-height: 1;">{{$created_year}}</span>
     </div>
     <div class="box_text" style="text-align: left;">
         <div style="margin-left: 6rem;">
-            <span>ข้าพเจ้า บุคคลธรรมดา/นิติบุคคล ชื่อ</span><span class="dotted-line" style="width: 32%; text-align: center; line-height: 1;"></span>
-            <span>นามสกุล</span><span class="dotted-line" style="width: 33%; text-align: center; line-height: 1;"></span>
+            <span>ข้าพเจ้า&nbsp;{{$form->position}}&nbsp;ชื่อ</span><span class="dotted-line" style="width: 32%; text-align: center; line-height: 1;">{{$form->salutation}}&nbsp;{{$form->full_name}}</span>
+            <span>นามสกุล</span><span class="dotted-line" style="width: 33%; text-align: center; line-height: 1;">{{$form->last_name}}</span>
         </div>
-        <span>อายุ</span><span class="dotted-line" style="width: 17%; text-align: center; line-height: 1;"></span>
+        <span>อายุ</span><span class="dotted-line" style="width: 17%; text-align: center; line-height: 1;">{{$form->age}}</span>
         <span>ปี เลขที่</span><span class="dotted-line" style="width: 17%; text-align: center; line-height: 1;">{{$form->address}}</span>
         <span>หมู่ที่</span><span class="dotted-line" style="width: 18%; text-align: center; line-height: 1;">{{$form->village}}</span>
         <span>ตำบลคลองอุดมชลจร อำเภอเมือง จังหวัดฉะเชิงเทรา</span>
@@ -157,11 +165,11 @@
     </div>
     <div class="box_text" style="text-align: center; margin-top:1rem; position: relative;">
         <span>(ลงชื่อ)</span>
-        <span class="dotted-line" style="width: 30%; text-align: center;"></span>
+        <span class="dotted-line" style="width: 30%; text-align: center;">{{$form->full_name}}&nbsp;{{$form->last_name}}</span>
         <span>ผู้ยื่นความจำนง</span>
         <div style="margin-right: 40px;">
             <span>(</span>
-            <span class="dotted-line" style="width: 30%; text-align: center;"></span>
+            <span class="dotted-line" style="width: 30%; text-align: center;">{{$form->salutation}}&nbsp;{{$form->full_name}}&nbsp;{{$form->last_name}}</span>
             <span>)</span>
         </div>
     </div>

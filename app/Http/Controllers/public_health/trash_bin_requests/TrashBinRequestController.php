@@ -45,6 +45,10 @@ class TrashBinRequestController extends Controller
             'document_options1_detail' => 'nullable|string',
             'document_options3_detail' => 'nullable|string',
 
+            'last_name' => 'nullable|string',
+            'age' => 'nullable|string',
+            'position' => 'nullable|string',
+
             'attachments.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf',
         ]);
 
@@ -72,8 +76,10 @@ class TrashBinRequestController extends Controller
             'document_options' => json_encode($request->document_options),
             'document_options1_detail' => $request->document_options1_detail,
             'document_options3_detail' => $request->document_options3_detail,
+            'last_name' => $request->last_name,
+            'age' => $request->age,
+            'position' => $request->position,
         ]);
-
 
         if ($request->hasFile('attachments')) {
             foreach ($request->file('attachments') as $file) {

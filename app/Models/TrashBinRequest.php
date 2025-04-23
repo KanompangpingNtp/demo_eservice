@@ -31,7 +31,10 @@ class TrashBinRequest extends Model
         'option4_detail',
         'document_options',
         'document_options1_detail',
-        'document_options3_detail'
+        'document_options3_detail',
+        'last_name',
+        'age',
+        'position'
     ];
 
     public function user()

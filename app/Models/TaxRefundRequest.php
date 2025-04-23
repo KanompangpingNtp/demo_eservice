@@ -29,6 +29,8 @@ class TaxRefundRequest extends Model
         'tax_money',
         'due_to_options',
         'other_documents',
+        'road',
+        'alley'
     ];
 
     public function user()
