@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\PayTaxBuildAndRoomFormDetails;
 use App\Models\PayTaxBuildAndRoomFormFiles;
 use App\Models\PayTaxBuildAndRoomInformations;
+use App\Models\PayTaxBuildAndRoomReplies;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class PayTaxBuildAndRoom extends Controller
@@ -92,5 +94,38 @@ class PayTaxBuildAndRoom extends Controller
         }
 
         return redirect()->back()->with('success', 'ฟอร์มถูกส่งเรียบร้อยแล้ว');
+    }
+
+    public function PayTaxBuildAndRoomShowDetails()
+    {
+        $forms = PayTaxBuildAndRoomInformations::with(['user', 'files', 'replies'])->get();
+
+        return view('users.pay_tax_build_and_room.account.show-detail', compact('forms'));
+    }
+
+    public function PayTaxBuildAndRoomUserReply(Request $request, $formId)
+    {
+        $request->validate([
+            'message' => 'required|string|max:1000',
+        ]);
+
+        PayTaxBuildAndRoomReplies::create([
+            'pay_tax_id' => $formId,
+            'users_id' => auth()->id(),
+            'reply_text' => $request->message,
+            'reply_date' => now()->toDateString(),
+        ]);
+
+        return redirect()->back()->with('success', 'ตอบกลับสำเร็จแล้ว!');
+    }
+
+    public function PayTaxBuildAndRoomUserExportPDF($id)
+    {
+        $form = PayTaxBuildAndRoomInformations::with('details')->find($id);
+
+        $pdf = Pdf::loadView('users.pay_tax_build_and_room.pdf-form', compact('form'))
+            ->setPaper('A4', 'portrait');
+
+        return $pdf->stream('(ภ.ป.๑) แนบแสดงรายการ ภาษีป้าย' . $form->id . '.pdf');
     }
 }

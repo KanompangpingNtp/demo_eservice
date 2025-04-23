@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\LicenseTaxFormDetails;
 use App\Models\LicenseTaxFormFiles;
 use App\Models\LicenseTaxInformations;
+use App\Models\LicenseTaxReplies;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class LicenseTax extends Controller
@@ -76,5 +78,38 @@ class LicenseTax extends Controller
             }
         }
         return redirect()->back()->with('success', 'ฟอร์มถูกส่งเรียบร้อยแล้ว');
+    }
+
+    public function LicenseTaxShowDetails()
+    {
+        $forms = LicenseTaxInformations::with(['user', 'files', 'replies'])->get();
+
+        return view('users.license_tax.account.show-detail', compact('forms'));
+    }
+
+    public function LicenseTaxUserReply(Request $request, $formId)
+    {
+        $request->validate([
+            'message' => 'required|string|max:1000',
+        ]);
+
+        LicenseTaxReplies::create([
+            'license_tax_id' => $formId,
+            'users_id' => auth()->id(),
+            'reply_text' => $request->message,
+            'reply_date' => now()->toDateString(),
+        ]);
+
+        return redirect()->back()->with('success', 'ตอบกลับสำเร็จแล้ว!');
+    }
+
+    public function LicenseTaxUserExportPDF($id)
+    {
+        $form = LicenseTaxInformations::with('details')->find($id);
+
+        $pdf = Pdf::loadView('users.license_tax.pdf-form', compact('form'))
+            ->setPaper('A4', 'landscape');
+
+        return $pdf->stream('(ภ.ป.๑) แนบแสดงรายการ ภาษีป้าย' . $form->id . '.pdf');
     }
 }
