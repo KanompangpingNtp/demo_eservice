@@ -445,8 +445,8 @@ function baht_text($number, $include_unit = true, $display_zero = true)
     <div class="box_text" style="margin-top:0rem;">
         <div style="margin-left:6rem;">
             <span>เรียน ปลัดองค์การบริหารส่วนตำบลคลองอุดมชลจร</span>
-            <div style="margin-left: 3rem;">
-                <span class="dotted-line" style="width: 32%; text-align: center; ">()</span>
+            <div style="margin-left: -0.5rem;">
+                <span class="dotted-line" style="width: 40%; text-align: center; ">(นายกองค์การบริหารส่วนตำบลคลองอุดมชลจร)</span>
             </div>
         </div>
     </div>
@@ -466,8 +466,8 @@ function baht_text($number, $include_unit = true, $display_zero = true)
     <div class="box_text" style="margin-top:0rem;">
         <div style="margin-left:6rem;">
             <span>เรียน นายกองค์การบริหารส่วนตำบลคลองอุดมชลจร</span>
-            <div style="margin-left: 3rem;">
-                <span class="dotted-line" style="width: 32%; text-align: center; ">()</span>
+            <div style="margin-left: -0.5rem;">
+                <span class="dotted-line" style="width: 40%; text-align: center; ">(นายกองค์การบริหารส่วนตำบลคลองอุดมชลจร)</span>
             </div>
         </div>
     </div>
