@@ -161,12 +161,12 @@
                     <img src="{{ asset('images/secondary-pages/2.png') }}" alt="2" class="img-fluid">
                     <ul class="text-start lh-1 ">
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="{{route('LicenseTaxFormPage')}}" target="_blank">
                                 (ภ.ป.๑ แนบแสดงรายการ ภาษีป้าย)
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="{{route('PayTaxBuildAndRoomFormPage')}}" target="_blank">
                                 หนังสือขอผ่อนชำระเงินภาษีที่ดินและสิ่งปลูกสร้าง / ห้องขุด
                             </a>
                         </li>
@@ -176,7 +176,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="{{route('ChangeInUseFormPage')}}" target="_blank">
                                 (ภ.ด.ส.๕) แบบแจ้งการเปลี่ยนแปลงการใช้ประโยชน์ <br> ที่ดินหรือสิ่งปลูกสร้าง
                             </a>
                         </li>
