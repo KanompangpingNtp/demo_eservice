@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
 <div class="container">
-    <h2 class="text-center">(ภ.ป.๑) แนบแสดงรายการ ภาษีป้าย <br>
+    <h2 class="text-center">(ภ.ด.ส.๕) แบบแจ้งการเปลี่ยนแปลงการใช้ประโยชน์ที่ดินหรือสิ่งปลูกสร้าง <br>
         <h3 class="text-center">ตารางแสดงข้อมูลฟอร์มที่ส่งเข้ามา</h3>
     </h2> <br>
 
@@ -62,18 +62,10 @@
                 </div>
                 <div class="modal-body">
                     <span style="color: black;">preview</span>
-                    <a href="{{ route('LicenseTaxUserExportPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
+                    <a href="{{ route('ChangeInUseUserExportPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
                         <i class="bi bi-file-earmark-pdf"></i>
                     </a>
                     <br>
-                    <br>
-                    <span style="color: black;">ไฟล์แนบ </span>
-                    @foreach ($form->files as $attachment)
-                    <span class="d-inline me-2">
-                        <a href="{{ asset('storage/' . $attachment->file_path) }}"
-                            target="_blank">{{ basename($attachment->file_path) }}</a>
-                    </span>
-                    @endforeach
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -120,7 +112,7 @@
                             @endforelse
                         </tbody>
                     </table>
-                    <form action="{{ route('LicenseTaxUserReply', $form->id) }}" method="POST">
+                    <form action="{{ route('ChangeInUseUserReply', $form->id) }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="message" class="form-label">ข้อความตอบกลับ</label>
