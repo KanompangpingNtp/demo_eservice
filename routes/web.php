@@ -319,6 +319,11 @@ Route::middleware(['user'])->group(function () {
     Route::get('/user-account/pay_tax_build_and_room/show-details', [PayTaxBuildAndRoom::class, 'PayTaxBuildAndRoomShowDetails'])->name('PayTaxBuildAndRoomShowDetails');
     Route::get('/user-account/pay_tax_build_and_room/export-pdf/{id}', [PayTaxBuildAndRoom::class, 'PayTaxBuildAndRoomUserExportPDF'])->name('PayTaxBuildAndRoomUserExportPDF');
     Route::post('/user-account/pay_tax_build_and_room/reply/{id}', [PayTaxBuildAndRoom::class, 'PayTaxBuildAndRoomUserReply'])->name('PayTaxBuildAndRoomUserReply');
+    
+    //(ภ.ด.ส.๕) แบบแจ้งการเปลี่ยนแปลงการใช้ประโยชน์ที่ดินหรือสิ่งปลูกสร้าง
+    Route::get('/user-account/change_in_use/show-details', [ChangeInUse::class, 'ChangeInUseShowDetails'])->name('ChangeInUseShowDetails');
+    Route::get('/user-account/change_in_use/export-pdf/{id}', [ChangeInUse::class, 'ChangeInUseUserExportPDF'])->name('ChangeInUseUserExportPDF');
+    Route::post('/user-account/change_in_use/reply/{id}', [ChangeInUse::class, 'ChangeInUseUserReply'])->name('ChangeInUseUserReply');
 });
 
 Route::get('/emergency', [EmergencyController::class, 'index'])->name('emergency.index');

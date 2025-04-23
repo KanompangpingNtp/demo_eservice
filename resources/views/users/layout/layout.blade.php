@@ -195,7 +195,7 @@
                         <div class="collapse" id="change_in_use" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="{{route('ChangeInUseFormPage')}}">ฟอร์ม</a>
-                                <a class="nav-link" href="#">ประวัติการส่งฟอร์ม</a>
+                                <a class="nav-link" href="{{route('ChangeInUseShowDetails')}}">ประวัติการส่งฟอร์ม</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#treasury_department2" aria-expanded="false" aria-controls="treasury_department2">
