@@ -22,7 +22,7 @@
             <div class="col-12 d-flex justify-content-center">
                 <div class="col-4 mb-3">
                     <label for="file" class="form-label">หลักฐานการชำระเงิน : </label>
-                    <input type="file" id="file" class="form-control" name="file">
+                    <input type="file" id="file" class="form-control" name="file" required>
                 </div>
             </div>
             <div class="col-12 d-flex justify-content-center">
