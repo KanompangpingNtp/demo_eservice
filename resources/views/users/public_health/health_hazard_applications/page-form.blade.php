@@ -1,6 +1,6 @@
 @extends('users.layout.layout')
 @section('pages_content')
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <div class="container">
     <h2 class="text-center mb-4">แบบคำร้องใบอนุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</h2><br>
 
@@ -34,22 +34,27 @@
             </div>
 
             <div class="col-md-3">
-                <label for="full_name" class="form-label">ชื่อ - นามสกุล <span class="text-danger">*</span></label>
+                <label for="full_name" class="form-label" id="full_name_input">ชื่อ - นามสกุล <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="full_name" name="full_name" required>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-2 div-empty" style="display:none;">
+            </div>
+            <div class="col-md-2 div-empty" style="display:none;">
+            </div>
+
+            <div class="col-md-2 div-hide">
                 <label for="age" class="form-label">อายุ <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="age" name="age" required>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-2 div-hide">
                 <label for="nationality" class="form-label">สัญชาติ <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="nationality" name="nationality" required>
             </div>
 
             <div class="col-md-3">
-                <label for="id_card_number" class="form-label">เลขบัตรประชาชน <span class="text-danger">*</span></label>
+                <label for="id_card_number" class="form-label" id="id_card_input">เลขบัตรประชาชน <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="id_card_number" name="id_card_number" required maxlength="13">
             </div>
 
@@ -99,7 +104,8 @@
             </div>
         </div>
 
-        <br><h5>ขอยื่นเรื่องต่อเจ้าพนักงานท้องถิ่น เพื่อขอรับ/ ขอต่ออนุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</h5><br>
+        <br>
+        <h5>ขอยื่นเรื่องต่อเจ้าพนักงานท้องถิ่น เพื่อขอรับ/ ขอต่ออนุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</h5><br>
 
         <div class="row g-3 mb-3">
             <div class="col-md-8">
@@ -192,7 +198,8 @@
                 <input type="text" class="form-control" id="opening_for_business_until" name="opening_for_business_until">
             </div>
 
-            <br><p><strong>โดยแนบใบอนุญาตเดิมพร้อมกัยหลักฐานดังต่อไปนี้</strong> <br> <span class="text-danger">ประเภทไฟล์ที่รับรอง : jpg,jpeg,png,pdf (ขนาดไม่เกิน 2 MB)</span></p>
+            <br>
+            <p><strong>โดยแนบใบอนุญาตเดิมพร้อมกัยหลักฐานดังต่อไปนี้</strong> <br> <span class="text-danger">ประเภทไฟล์ที่รับรอง : jpg,jpeg,png,pdf (ขนาดไม่เกิน 2 MB)</span></p>
 
             <div class="col-md-12">
                 <div class="form-group">
@@ -219,7 +226,7 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="document_option[]" value="option3" id="option3" data-status="3">
                         <label class="form-check-label" for="option3">
-                             หนังสือยินยอมให้ใช้อาคาร สถานที่ หรือสัญญาเช่า(กรณีผู้รับใบอนุญาตไม่มีกรรมสิทธิ์ในอาคารสถานที่)
+                            หนังสือยินยอมให้ใช้อาคาร สถานที่ หรือสัญญาเช่า(กรณีผู้รับใบอนุญาตไม่มีกรรมสิทธิ์ในอาคารสถานที่)
                         </label>
                         <div class="mt-2">
                             <input type="file" id="file_option3" class="form-control-file" name="attachments[option3]" style="display:none;">
@@ -298,8 +305,8 @@
 
                         // ใช้ jQuery
                         $('input[type="checkbox"]').change(function() {
-                            var checkboxId = $(this).attr('id');  // ได้ ID ของ checkbox ที่ถูกคลิก
-                            var fileInputId = '#file_' + checkboxId;  // สร้าง ID ของ input file ที่เชื่อมโยง
+                            var checkboxId = $(this).attr('id'); // ได้ ID ของ checkbox ที่ถูกคลิก
+                            var fileInputId = '#file_' + checkboxId; // สร้าง ID ของ input file ที่เชื่อมโยง
 
                             if ($(this).is(':checked')) {
                                 // แสดง input file เมื่อ checkbox ถูกเลือก
@@ -321,7 +328,6 @@
                                 detailDiv.style.display = 'none'; // ซ่อน input
                             }
                         });
-
                     </script>
 
                 </div>
@@ -335,5 +341,33 @@
 
     </form>
 </div>
+<script>
+    $('#person_individual').change(function(e) {
+        e.preventDefault();
+        if ($('#person_individual').is(":checked")) {
+            $('#full_name_input').html('ชื่อ - นามสกุล <span class="text-danger">*</span>');
+            $('#id_card_input').html('เลขบัตรประชาชน <span class="text-danger">*</span>');
+            $('.div-hide').show();
+            $('.div-empty').hide();
+            $('.div-hide').find('input').attr('required', true);
+            $('.div-hide').find('input').val('');
+            var html = '<option value="" selected disabled>เลือกคำนำหน้า</option><option value="นาย">นาย</option><option value="นาง">นาง</option><option value="นางสาว">นางสาว</option>';
+            $('#salutation').html(html);
+        }
+    });
+    $('#person_legal').change(function(e) {
+        e.preventDefault();
+        if ($('#person_legal').is(":checked")) {
+            $('#full_name_input').html('ชื่อสถานประกอบการ <span class="text-danger">*</span>');
+            $('#id_card_input').html('เลขที่ทะเบียนนิติบุคคล <span class="text-danger">*</span>');
+            $('.div-hide').hide();
+            $('.div-empty').show();
+            $('.div-hide').find('input').attr('required', false);
+            $('.div-hide').find('input').val('');
+            var html = '<option value="" selected disabled>เลือกคำนำหน้า</option><option value="บริษัท">บริษัท</option><option value="ร้าน">ร้าน</option><option value="หจก.">หจก.</option>';
+            $('#salutation').html(html);
+        }
+    });
+</script>
 
 @endsection
