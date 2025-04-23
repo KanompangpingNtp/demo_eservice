@@ -309,6 +309,11 @@ Route::middleware(['user'])->group(function () {
     Route::put('/user/account/RecruitingChildren/{id}/Update', [RecruitingChildrenController::class, 'updateChildInformation'])->name('updateChildInformation');
     Route::get('/user/account/RecruitingChildren/{id}/pdf', [RecruitingChildrenController::class, 'ChildApplyUserExportPDF'])->name('ChildApplyUserExportPDF');
     Route::post('/user/account/RecruitingChildren/{form}/reply', [RecruitingChildrenController::class, 'ChildApplyUserReply'])->name('ChildApplyUserReply');
+
+    //(ภ.ป.๑ แนบแสดงรายการ ภาษีป้าย)
+    Route::get('/user-account/license_tax/show-details', [LicenseTax::class, 'LicenseTaxShowDetails'])->name('LicenseTaxShowDetails');
+    Route::get('/user-account/license_tax/export-pdf/{id}', [LicenseTax::class, 'LicenseTaxUserExportPDF'])->name('LicenseTaxUserExportPDF');
+    Route::post('/user-account/license_tax/reply/{id}', [LicenseTax::class, 'LicenseTaxUserReply'])->name('LicenseTaxUserReply');
 });
 
 Route::get('/emergency', [EmergencyController::class, 'index'])->name('emergency.index');
