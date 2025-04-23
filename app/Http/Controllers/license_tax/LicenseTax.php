@@ -9,6 +9,7 @@ use App\Models\LicenseTaxInformations;
 use App\Models\LicenseTaxReplies;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LicenseTax extends Controller
 {
@@ -82,7 +83,9 @@ class LicenseTax extends Controller
 
     public function LicenseTaxShowDetails()
     {
-        $forms = LicenseTaxInformations::with(['user', 'files', 'replies'])->get();
+        $forms = LicenseTaxInformations::with(['user', 'files', 'replies'])
+        ->where('users_id', Auth::id())
+        ->get();
 
         return view('users.license_tax.account.show-detail', compact('forms'));
     }

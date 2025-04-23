@@ -9,6 +9,7 @@ use App\Models\PayTaxBuildAndRoomInformations;
 use App\Models\PayTaxBuildAndRoomReplies;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PayTaxBuildAndRoom extends Controller
 {
@@ -98,7 +99,9 @@ class PayTaxBuildAndRoom extends Controller
 
     public function PayTaxBuildAndRoomShowDetails()
     {
-        $forms = PayTaxBuildAndRoomInformations::with(['user', 'files', 'replies'])->get();
+        $forms = PayTaxBuildAndRoomInformations::with(['user', 'files', 'replies'])
+        ->where('users_id', Auth::id())
+        ->get();
 
         return view('users.pay_tax_build_and_room.account.show-detail', compact('forms'));
     }
