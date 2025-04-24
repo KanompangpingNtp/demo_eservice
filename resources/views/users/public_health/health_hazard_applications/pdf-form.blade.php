@@ -158,54 +158,57 @@
         <div style="margin-left:4rem;">
             <span>ขอยื่นเรื่องต่อเจ้าพนักงานท้องถิ่น เพื่อขอรับ/ขอต่อ ใบอนุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</span> <br>
         </div>
+        @php
+        $detail = $form['details'];
+        @endphp
         <span>ประเภท</span>
-        <span class="dotted-line" style="width: 49%; text-align: center;">{{ $form->details->first()->type_request ?? '-' }}</span>
+        <span class="dotted-line" style="width: 49%; text-align: center;">{{ $detail->type_request ?? '-' }}</span>
         <span>ข้อ</span>
-        <span class="dotted-line" style="width: 40%; text-align: center;">{{ $form->details->first()->petition ?? '-' }}</span>
+        <span class="dotted-line" style="width: 40%; text-align: center;">{{ $detail->petition ?? '-' }}</span>
     </div>
     <div class="box_text" style="text-align: left;">
         <div style="margin-left:4rem;">
-            <span>ชื่อสถานประกอบการ</span><span class="dotted-line" style="width: 82%; text-align: center;">{{ $form->details->first()->name_establishment ?? '-' }}</span>
+            <span>ชื่อสถานประกอบการ</span><span class="dotted-line" style="width: 82%; text-align: center;">{{ $form['details']->name_establishment ?? '-' }}</span>
         </div>
     </div>
     <div class="box_text" style="text-align: left;">
         <span>ตั้งอยู่เลขที่</span>
-        <span class="dotted-line" style="width: 17.5%; text-align: center;">{{ $form->details->first()->location ?? '-' }}</span>
+        <span class="dotted-line" style="width: 17.5%; text-align: center;">{{ $form['details']->location ?? '-' }}</span>
         <span>หมู่ที่</span>
-        <span class="dotted-line" style="width: 18%; text-align: center;">{{ $form->details->first()->details_village ?? '-' }}</span>
+        <span class="dotted-line" style="width: 18%; text-align: center;">{{ $form['details']->details_village ?? '-' }}</span>
         <span>ตรอกซอย</span>
-        <span class="dotted-line" style="width: 18%; text-align: center;">{{ $form->details->first()->details_alley ?? '-' }}</span>
+        <span class="dotted-line" style="width: 18%; text-align: center;">{{ $form['details']->details_alley ?? '-' }}</span>
         <span>ถนน</span>
-        <span class="dotted-line" style="width: 18%; text-align: center;">{{ $form->details->first()->details_road ?? '-' }}</span>
+        <span class="dotted-line" style="width: 18%; text-align: center;">{{ $form['details']->details_road ?? '-' }}</span>
         <span>ตำบล</span>
-        <span class="dotted-line" style="width: 18%; text-align: center;">{{ $form->details->first()->details_subdistrict ?? '-' }}</span>
+        <span class="dotted-line" style="width: 18%; text-align: center;">{{ $form['details']->details_subdistrict ?? '-' }}</span>
         <span>อำเภอ</span>
-        <span class="dotted-line" style="width: 17.5%; text-align: center;">{{ $form->details->first()->details_district ?? '-' }}</span>
+        <span class="dotted-line" style="width: 17.5%; text-align: center;">{{ $form['details']->details_district ?? '-' }}</span>
         <span>จังหวัด</span>
-        <span class="dotted-line" style="width: 18%; text-align: center;">{{ $form->details->first()->details_province ?? '-' }}</span>
+        <span class="dotted-line" style="width: 18%; text-align: center;">{{ $form['details']->details_province ?? '-' }}</span>
         <span>โทรศัพท์</span>
-        <span class="dotted-line" style="width: 20%; text-align: center;">{{ $form->details->first()->details_telephone ?? '-' }}</span>
+        <span class="dotted-line" style="width: 20%; text-align: center;">{{ $form['details']->details_telephone ?? '-' }}</span>
         <span>โทรสาร</span>
-        <span class="dotted-line" style="width: 34.5%; text-align: center;">{{ $form->details->first()->details_fax ?? '-' }}</span>
+        <span class="dotted-line" style="width: 34.5%; text-align: center;">{{ $form['details']->details_fax ?? '-' }}</span>
         <span>พื้นที่ประกอบการ</span>
-        <span class="dotted-line" style="width: 35%; text-align: center;">{{ $form->details->first()->business_area ?? '-' }}</span>
+        <span class="dotted-line" style="width: 35%; text-align: center;">{{ $form['details']->business_area ?? '-' }}</span>
         <span>ตารางเมตร</span>
         <span>กำลังเครื่องจักร</span>
-        <span class="dotted-line" style="width: 30%; text-align: center;">{{ $form->details->first()->machine_power ?? '-' }}</span>
+        <span class="dotted-line" style="width: 30%; text-align: center;">{{ $form['details']->machine_power ?? '-' }}</span>
         <span>แรงม้า จำนวนคนงานชาย</span>
-        <span class="dotted-line" style="width: 12.5%; text-align: center;">{{ $form->details->first()->number_male_workers ?? '-' }}</span>
+        <span class="dotted-line" style="width: 12.5%; text-align: center;">{{ $form['details']->number_male_workers ?? '-' }}</span>
         <span>คน หญิง</span>
-        <span class="dotted-line" style="width: 12.5%; text-align: center;">{{ $form->details->first()->number_female_workers ?? '-' }}</span>
+        <span class="dotted-line" style="width: 12.5%; text-align: center;">{{ $form['details']->number_female_workers ?? '-' }}</span>
         <span>คน</span>
         <span>เปิดประกอบการตั้งแต่เวลา</span>
-        <span class="dotted-line" style="width: 16%; text-align: center;">{{ $form->details->first()->opening_hours ?? '-' }}</span>
+        <span class="dotted-line" style="width: 16%; text-align: center;">{{ $form['details']->opening_hours ?? '-' }}</span>
         <span>น. ถึงเวลา</span>
-        <span class="dotted-line" style="width: 16%; text-align: center;">{{ $form->details->first()->opening_for_business_until ?? '-' }}</span>
+        <span class="dotted-line" style="width: 16%; text-align: center;">{{ $form['details']->opening_for_business_until ?? '-' }}</span>
         <span>น.</span>
         <span>โดยได้แนบใบอนุญาตเดิมพร้อมกับหลักฐานดังต่อไปนี้</span>
     </div>
     @php
-    $document_option = $form->details->first()->document_option ?? [];
+    $document_option = $form['details']->document_option ?? [];
     if (is_string($document_option)) {
     $document_option = json_decode($document_option, true);
     }
@@ -238,7 +241,7 @@
 
             <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option8", $document_option) ? 'checked' : '' }}>
             <span>อื่นๆ</span>
-            <span class="dotted-line" style="width: 20%; text-align: center;">{{ $form->details->first()->document_option_detail ?? '-' }}</span> <br>
+            <span class="dotted-line" style="width: 20%; text-align: center;">{{ $form['details']->document_option_detail ?? '-' }}</span> <br>
         </div>
         <span>ข้าพเจ้าขอรับรองว่า ข้อความในแบบคำขอนี้เป็นความจริงทุกประการ</span>
     </div>
