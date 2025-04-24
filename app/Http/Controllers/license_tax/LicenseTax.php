@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\LicenseTaxFormDetails;
 use App\Models\LicenseTaxFormFiles;
 use App\Models\LicenseTaxInformations;
+use App\Models\LicenseTaxOption;
 use App\Models\LicenseTaxReplies;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
@@ -39,31 +40,56 @@ class LicenseTax extends Controller
             'province' => $request->province,
             'telephone' => $request->telephone,
             'emp_fullname' => $request->emp_fullname,
-            'build_wide_1' => $request->build_wide_1,
-            'build_long_1' => $request->build_long_1,
-            'build_meter_1' => $request->build_meter_1,
-            'build_amount_1' => $request->build_amount_1,
-            'build_text_1' => $request->build_text_1,
-            'build_place_1' => $request->build_place_1,
-            'build_date_1' => $request->build_date_1,
-            'build_remark_1' => $request->build_remark_1,
-            'build_wide_2' => $request->build_wide_2,
-            'build_long_2' => $request->build_long_2,
-            'build_meter_2' => $request->build_meter_2,
-            'build_amount_2' => $request->build_amount_2,
-            'build_text_2' => $request->build_text_2,
-            'build_place_2' => $request->build_place_2,
-            'build_date_2' => $request->build_date_2,
-            'build_remark_2' => $request->build_remark_2,
-            'build_wide_3' => $request->build_wide_3,
-            'build_long_3' => $request->build_long_3,
-            'build_meter_3' => $request->build_meter_3,
-            'build_amount_3' => $request->build_amount_3,
-            'build_text_3' => $request->build_text_3,
-            'build_place_3' => $request->build_place_3,
-            'build_date_3' => $request->build_date_3,
-            'build_remark_3' => $request->build_remark_3,
         ]);
+
+        foreach ($request->thai as $rs) {
+            if ($rs['wide'] != '' || $rs['long'] != '' || $rs['meter'] != '' || $rs['amount'] != '' || $rs['text'] != '' || $rs['place'] != '' || $rs['date'] != '' || $rs['remark'] != '') {
+                $LicenseTaxOption = LicenseTaxOption::create([
+                    'license_tax_id' => $LicenseTax->id,
+                    'type' => 1,
+                    'wide' => $rs['wide'],
+                    'long' => $rs['long'],
+                    'meter' => $rs['meter'],
+                    'amount' => $rs['amount'],
+                    'text' => $rs['text'],
+                    'place' => $rs['place'],
+                    'date' => $rs['date'],
+                    'remark' => $rs['remark']
+                ]);
+            }
+        }
+        foreach ($request->thaieng as $rs) {
+            if ($rs['wide'] != '' || $rs['long'] != '' || $rs['meter'] != '' || $rs['amount'] != '' || $rs['text'] != '' || $rs['place'] != '' || $rs['date'] != '' || $rs['remark'] != '') {
+                $LicenseTaxOption = LicenseTaxOption::create([
+                    'license_tax_id' => $LicenseTax->id,
+                    'type' => 2,
+                    'wide' => $rs['wide'],
+                    'long' => $rs['long'],
+                    'meter' => $rs['meter'],
+                    'amount' => $rs['amount'],
+                    'text' => $rs['text'],
+                    'place' => $rs['place'],
+                    'date' => $rs['date'],
+                    'remark' => $rs['remark']
+                ]);
+            }
+        }
+        foreach ($request->no_lang as $rs) {
+            if ($rs['wide'] != '' || $rs['long'] != '' || $rs['meter'] != '' || $rs['amount'] != '' || $rs['text'] != '' || $rs['place'] != '' || $rs['date'] != '' || $rs['remark'] != '') {
+                $LicenseTaxOption = LicenseTaxOption::create([
+                    'license_tax_id' => $LicenseTax->id,
+                    'type' => 3,
+                    'wide' => $rs['wide'],
+                    'long' => $rs['long'],
+                    'meter' => $rs['meter'],
+                    'amount' => $rs['amount'],
+                    'text' => $rs['text'],
+                    'place' => $rs['place'],
+                    'date' => $rs['date'],
+                    'remark' => $rs['remark']
+                ]);
+            }
+        }
 
         if ($request->hasFile('attachments')) {
             foreach ($request->file('attachments') as $file) {
@@ -84,8 +110,8 @@ class LicenseTax extends Controller
     public function LicenseTaxShowDetails()
     {
         $forms = LicenseTaxInformations::with(['user', 'files', 'replies'])
-        ->where('users_id', Auth::id())
-        ->get();
+            ->where('users_id', Auth::id())
+            ->get();
 
         return view('users.license_tax.account.show-detail', compact('forms'));
     }
@@ -110,7 +136,11 @@ class LicenseTax extends Controller
     {
         $form = LicenseTaxInformations::with('details')->find($id);
 
-        $pdf = Pdf::loadView('users.license_tax.pdf-form', compact('form'))
+        $type1 = LicenseTaxOption::where('license_tax_id', $id)->where('type', 1)->orderBy('created_at', 'asc')->get();
+        $type2 = LicenseTaxOption::where('license_tax_id', $id)->where('type', 2)->orderBy('created_at', 'asc')->get();
+        $type3 = LicenseTaxOption::where('license_tax_id', $id)->where('type', 3)->orderBy('created_at', 'asc')->get();
+
+        $pdf = Pdf::loadView('users.license_tax.pdf-form', compact('form', 'type1', 'type2', 'type3'))
             ->setPaper('A4', 'landscape');
 
         return $pdf->stream('(ภ.ป.๑) แนบแสดงรายการ ภาษีป้าย' . $form->id . '.pdf');

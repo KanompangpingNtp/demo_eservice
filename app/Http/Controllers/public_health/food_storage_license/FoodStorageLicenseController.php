@@ -27,57 +27,6 @@ class FoodStorageLicenseController extends Controller
 
     public function FoodStorageLicenseFormCreate(Request $request)
     {
-        $request->validate([
-            // food_storage_informations
-            'title_name' => 'required|in:บุคคลธรรมดา,นิติบุคคล',
-            'salutation' => 'nullable|string|max:20',
-            'full_name' => 'required|string|max:255',
-            'age' => 'required|numeric|min:1|max:150',
-            'nationality' => 'required|string|max:50',
-            'id_card_number' => 'required|string|size:13',
-            'address' => 'required|string|max:255',
-            'village' => 'nullable|string',
-            'alley' => 'nullable|string|max:100',
-            'road' => 'nullable|string|max:100',
-            'subdistrict' => 'required|string',
-            'district' => 'required|string',
-            'province' => 'required|string',
-            'telephone' => 'required|string',
-            'fax' => 'nullable|string',
-
-            // food_storage_form_details
-            'confirm_option' => 'required|exists:food_storage_types,id',
-            'confirm_volume' => 'nullable|string|max:255',
-            'confirm_number' => 'nullable|string|max:255',
-            'confirm_year' => 'nullable|string|max:255',
-            'confirm_expiration_date' => 'nullable|date',
-            'place_name' => 'nullable|string|max:255',
-            'shop_type' => 'nullable|string|max:255',
-            'location' => 'nullable|string|max:255',
-            'details_village' => 'nullable|string|max:255',
-            'details_alley' => 'nullable|string|max:255',
-            'details_road' => 'nullable|string|max:255',
-            'details_subdistrict' => 'nullable|string|max:255',
-            'details_district' => 'nullable|string|max:255',
-            'details_province' => 'nullable|string|max:255',
-            'details_telephone' => 'nullable|string|max:255',
-            'details_fax' => 'nullable|string|max:255',
-            'business_area' => 'nullable|string|max:255',
-            'number_of_cooks' => 'nullable|string|max:255',
-            'number_of_food' => 'nullable|string|max:255',
-            'including_food_handlers' => 'nullable|string|max:255',
-            'number_of_trainees' => 'nullable|string|max:255',
-            'opening_hours' => 'nullable|string|max:255',
-            'opening_for_business_until' => 'nullable|string|max:255',
-            'total_hours' => 'nullable|string|max:255',
-            'document_option' => 'nullable|array|min:1',
-            'document_option.*' => 'in:option1,option2,option3,option4,option5,option6,option7,option8',
-            'document_option_detail' => 'nullable|required_if:document_option.*,"option8"|string|max:255',
-
-            'attachments' => 'nullable|array',
-            'attachments.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
-        ]);
-
         // dd($request);
 
         $FoodStorageInformations = FoodStorageInformations::create([

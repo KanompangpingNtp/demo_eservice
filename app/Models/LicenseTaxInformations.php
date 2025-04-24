@@ -41,4 +41,9 @@ class LicenseTaxInformations extends Model
     {
         return $this->hasMany(LicenseTaxFormFiles::class, 'license_tax_id');
     }
+
+    public function options()
+    {
+        return $this->hasMany(LicenseTaxOption::class, 'license_tax_id');
+    }
 }

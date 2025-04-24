@@ -66,7 +66,7 @@
 
             <div class="col-md-3">
                 <label for="village" class="form-label">หมู่ที่ </label>
-                <input type="text" class="form-control" id="village" name="village" required>
+                <input type="text" class="form-control" id="village" name="village">
             </div>
 
             <div class="col-md-3">
