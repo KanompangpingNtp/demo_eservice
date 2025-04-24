@@ -146,7 +146,7 @@
         <span style="line-height: 0.7;">
             องค์การบริหารส่วนตำบลคลองอุดมชลจร <br>
             ๙/๙ หมู่ที่ ๔ ตำบลคลองอุดมชลจร <br>
-            อำเภอเมือง จังหวัดฉะเชิงเทรา ๒๔๐๐๐
+            อำเภอเมืองฉะเชิงเทรา จังหวัดฉะเชิงเทรา ๒๔๐๐๐
         </span>
         <div style="margin-right: 80px; margin-top: 10px;">
             <span>วันที่</span><span class="dotted-line" style="width: 5%; text-align: center;"> {{ $day }}
@@ -216,11 +216,14 @@
     </div>
     <div class="box_text" style="text-align: left; margin-top:2rem; margin-bottom:2rem;">
         <span style="line-height: 0.7;">
-            สำนักปลัด อบต. <br>
-            โทร/โทรสาร ๐-๓๘๐๙-๓๙๐๘ ต่อ ๑๐๒ <br>
-            https://khlongudomchonlajorn.go.th/
+            กองช่าง <br>
+            โทร/โทรสาร 038-093908 ต่อ 13 <br>
+            www.kudc.go.th
         </span>
     </div>
     <div class="footer font-sarabun-bold">
         <p>"ซื่อสัตย์สุจริต มุ่งสัมฤทธิ์ของงาน ยืดมั่นมาตรฐาน บริการด้วยใจเป็นธรรม"</p>
     </div>
+
+</body>
+</html>

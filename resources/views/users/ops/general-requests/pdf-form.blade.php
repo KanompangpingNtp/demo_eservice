@@ -218,11 +218,14 @@
     </div>
     <div class="box_text" style="text-align: left; margin-top:2rem; margin-bottom:2rem;">
         <span style="line-height: 0.7;">
-            สำนักปลัด อบต. <br>
-            โทร/โทรสาร ๐-๓๘๐๙-๓๙๐๘ ต่อ ๑๐๒ <br>
-            https://khlongudomchonlajorn.go.th/
+            สำนักปลัด <br>
+            โทร/โทรสาร 038-093908 ต่อ 11 <br>
+            www.kudc.go.th
         </span>
     </div>
     <div class="footer font-sarabun-bold">
         <p>"ซื่อสัตย์สุจริต มุ่งสัมฤทธิ์ของงาน ยืดมั่นมาตรฐาน บริการด้วยใจเป็นธรรม"</p>
     </div>
+
+</body>
+</html>
