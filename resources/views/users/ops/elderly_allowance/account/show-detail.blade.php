@@ -32,7 +32,7 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{{ route('GeneralRequestsUserShowFormEdit', $form->id) }}" class="btn btn-warning btn-sm text-white">
+                            <a href="#" class="btn btn-warning btn-sm text-white">
                                 <i class="bi bi-pencil-square"></i></a>
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                 data-bs-target="#submitModal-{{ $form->id }}">
@@ -62,7 +62,7 @@
                         </div>
                         <div class="modal-body">
                             <span style="color: black;">preview</span>
-                            <a href="{{ route('GeneralRequestsUserExportPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
+                            <a href="{{ route('ElderlyAllowanceUserExportPDF', $form->id) }}" class="btn btn-danger btn-sm" target="_blank">
                                 <i class="bi bi-file-earmark-pdf"></i>
                             </a>
                             <br>
@@ -103,7 +103,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse($form->grReplies as $reply)
+                                    @forelse($form->replies as $reply)
                                         <tr class="text-center">
                                             <td>{{ $reply->user->name ?? 'Unknown User' }}</td>
                                             <td>
@@ -120,7 +120,7 @@
                                     @endforelse
                                 </tbody>
                             </table>
-                            <form action="{{ route('GeneralRequestsUserReply', $form->id) }}" method="POST">
+                            <form action="{{ route('ElderlyAllowanceUserReply', $form->id) }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="message" class="form-label">ข้อความตอบกลับ</label>
