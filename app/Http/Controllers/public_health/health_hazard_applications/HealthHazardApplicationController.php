@@ -109,14 +109,14 @@ class HealthHazardApplicationController extends Controller
     {
         $form = HealthLicenseApp::with('details')->find($id);
 
-        $document_option = $form->details->first()->document_option ?? [];
-        if (is_string($document_option)) {
-            $document_option = json_decode($document_option, true);
-        }
+        // $document_option = $form->details->first()->document_option ?? [];
+        // if (is_string($document_option)) {
+        //     $document_option = json_decode($document_option, true);
+        // }
 
         $pdf = Pdf::loadView(
             'users.public_health.health_hazard_applications.pdf-form',
-            compact('form', 'document_option')
+            compact('form')
         )->setPaper('A4', 'portrait');
 
         return $pdf->stream('pdf' . $form->id . '.pdf');

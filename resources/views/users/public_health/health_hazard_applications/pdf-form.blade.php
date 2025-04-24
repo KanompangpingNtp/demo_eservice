@@ -207,39 +207,42 @@
         <span>น.</span>
         <span>โดยได้แนบใบอนุญาตเดิมพร้อมกับหลักฐานดังต่อไปนี้</span>
     </div>
-    @php
+    {{-- @php
     $document_option = $form['details']->document_option ?? [];
     if (is_string($document_option)) {
     $document_option = json_decode($document_option, true);
     }
+    @endphp --}}
+    @php
+    $documentOptions = json_decode($form['details']->document_option, true) ?? [];
     @endphp
     <div class="box_text" style="text-align: left; margin-left:5rem; margin-top:-2px;">
         <div style="margin-left:0.5rem;">
 
-            <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option1", $document_option) ? 'checked' : '' }}>
+            <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array('option1', $documentOptions) ? 'checked' : '' }}>
             <span>สำเนาบัตรประจำตัวประชาชนและสำเนาทะเบียนบ้านเจ้าของกิจการ(ผู้ประกอบการ/ผู้ถือใบอนุญาต)</span><br>
 
-            <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option2", $document_option) ? 'checked' : '' }}>
+            <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option2", $documentOptions) ? 'checked' : '' }}>
             <span>สำเนาหนังสือรับรองการจดทะเบียนนิติบุคคลพร้อมสำเนาบัตรประชาชนของผู้แทนนิติบุคคล</span><br>
             <span style="margin-left: 2rem; margin-top:-10px;">(กรณีผู้ประกอบการเป็นนิติบุคคล)</span><br>
 
-            <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option3", $document_option) ? 'checked' : '' }}>
+            <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option3", $documentOptions) ? 'checked' : '' }}>
             <span>หนังสือยินยอมให้ใช้อาคาร สถานที่ หรือสัญญาเช่า(กรณีผู้รับใบอนุญาตไม่มีกรรมสิทธิ์ในอาคารสถานที่)</span><br>
 
-            <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option4", $document_option) ? 'checked' : '' }}>
+            <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option4", $documentOptions) ? 'checked' : '' }}>
             <span>หนังสือยินมอบอำนาจพร้อมสำเนาบัตรประชาชน/สำเนาทะเบียนบ้านผู้มอบและผู้รับมอบอำนาจ พร้อมติด</span><br>
             <span style="margin-left: 2rem; margin-top:-10px;">อากรแสตมป์ (กรณีเจ้าของไม่สามารถมายื่นคำขอด้วยตนเอง)</span><br>
 
-            <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option5", $document_option) ? 'checked' : '' }}>
+            <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option5", $documentOptions) ? 'checked' : '' }}>
             <span>สำเนาใบอนุญาตตามกฏหมายว่าด้วยการควบคุมอาคาร (แบบ อ.๑)</span><br>
 
-            <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option6", $document_option) ? 'checked' : '' }}>
+            <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option6", $documentOptions) ? 'checked' : '' }}>
             <span>สำเนาใบอนุญาตประกอบกิจการโรงงานทุกหน้า (ใบ ร.ง.๔)</span><br>
 
-            <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option7", $document_option) ? 'checked' : '' }}>
+            <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option7", $documentOptions) ? 'checked' : '' }}>
             <span>แผนที่สถานที่ตั้งของสถานประกอบการ (กรณีขอรับ)</span><br>
 
-            <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option8", $document_option) ? 'checked' : '' }}>
+            <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option8", $documentOptions) ? 'checked' : '' }}>
             <span>อื่นๆ</span>
             <span class="dotted-line" style="width: 20%; text-align: center;">{{ $form['details']->document_option_detail ?? '-' }}</span> <br>
         </div>
