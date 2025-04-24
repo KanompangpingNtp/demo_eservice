@@ -22,7 +22,13 @@
             <tr>
                 <td class="date-column">{{ $form->created_at->format('Y-m-d') }}</td>
                 <td>{{ $form->salutation }} {{ $form->full_name }}</td>
-                <td>{{ $form['details']['type']->type_name }}</td>
+                <td>
+                    @if ($form['details']->confirm_option == 1)
+                    จัดตั้งสถานที่จำหน่ายอาหาร
+                    @elseif($form['details']->confirm_option == 2)
+                    จัดตั้งสถานที่สะสมอาหาร
+                    @endif
+                </td>
                 <td>
                     @if ($form['details']->status == 1)
                     <span class="badge rounded-pill text-bg-primary">รอรับเรื่อง</span>
