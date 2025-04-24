@@ -52,7 +52,7 @@
             </div>
             <div class="col-md-4">
                 <label for="village" class="form-label">หมู่บ้าน <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="village" name="village" >
+                <input type="text" class="form-control" id="village" name="village" required>
             </div>
             <div class="col-md-4">
                 <label for="subdistrict" class="form-label">ตำบล <span class="text-danger">*</span></label>
