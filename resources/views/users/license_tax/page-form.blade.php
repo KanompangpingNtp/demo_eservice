@@ -75,113 +75,158 @@
         </div>
         <hr>
         <h5>ข้อมูลรายการภาษีป้าย</h5><br>
-        <h5>1. ภาษีป้ายมีอักษรไทยล้วน</h5><br>
-        <div class="row g-3 mb-3">
-            <div class="col-md-3">
-                <label for="build_wide_1" class="form-label">ขนาดป้าย : กว้าง (เซนติเมตร)</label>
-                <input type="text" class="form-control" id="build_wide_1" name="build_wide_1">
+        <h5>1. ภาษีป้ายมีอักษรไทยล้วน</h5>
+        <?php for ($i = 1; $i < 5; $i++) { ?>
+            <div class="card mb-2">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <a class="btn btn-link text-dark" style="text-decoration: none;" data-bs-toggle="collapse" href="#collapse_thai_{{$i}}" role="button" aria-expanded="false" aria-controls="collapse_thai_{{$i}}">
+                            รายการที่ {{$i}}
+                        </a>
+                    </h5>
+                </div>
+                <div class="collapse <?= ($i == 1) ? 'show' : ''; ?>" id="collapse_thai_{{$i}}">
+                    <div class="card-body">
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-3">
+                                <label for="build_wide_1" class="form-label">ขนาดป้าย : กว้าง (เซนติเมตร)</label>
+                                <input type="text" class="form-control" name="thai[{{$i}}][wide]">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="build_long_1" class="form-label">ขนาดป้าย : ยาว (เซนติเมตร)</label>
+                                <input type="text" class="form-control" name="thai[{{$i}}][long]">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="build_meter_1" class="form-label">เนื้อที่ป้าย (ตารางเซนติเมตร) </label>
+                                <input type="text" class="form-control" name="thai[{{$i}}][meter]">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="build_amount_1" class="form-label">จำนวนป้าย</label>
+                                <input type="text" class="form-control" name="thai[{{$i}}][amount]">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="build_text_1" class="form-label">ข้อความหรือภาพเครื่องหมายที่ปรากฎในป้ายโดยย่อ</label>
+                                <input type="text" class="form-control" name="thai[{{$i}}][text]">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="build_place_1" class="form-label">สถานที่ติดตั้งป้าย (ถนน,ตรอก,ซอย,แขวง,เขต,สถานที่ใกล้เคียง หรือระหว่าง ก.ม.ที่)</label>
+                                <input type="text" class="form-control" name="thai[{{$i}}][place]">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="build_date_1" class="form-label">วันที่ติดตั้ง</label>
+                                <input type="date" class="form-control" name="thai[{{$i}}][date]">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="build_remark_1" class="form-label">หมายเหตุ</label>
+                                <input type="text" class="form-control" name="thai[{{$i}}][remark]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-3">
-                <label for="build_long_1" class="form-label">ขนาดป้าย : ยาว (เซนติเมตร)</label>
-                <input type="text" class="form-control" id="build_long_1" name="build_long_1">
-            </div>
-            <div class="col-md-3">
-                <label for="build_meter_1" class="form-label">เนื้อที่ป้าย (ตารางเซนติเมตร) </label>
-                <input type="text" class="form-control" id="build_meter_1" name="build_meter_1">
-            </div>
-            <div class="col-md-3">
-                <label for="build_amount_1" class="form-label">จำนวนป้าย</label>
-                <input type="text" class="form-control" id="build_amount_1" name="build_amount_1">
-            </div>
-            <div class="col-md-6">
-                <label for="build_text_1" class="form-label">ข้อความหรือภาพเครื่องหมายที่ปรากฎในป้ายโดยย่อ</label>
-                <input type="text" class="form-control" id="build_text_1" name="build_text_1">
-            </div>
-            <div class="col-md-6">
-                <label for="build_place_1" class="form-label">สถานที่ติดตั้งป้าย (ถนน,ตรอก,ซอย,แขวง,เขต,สถานที่ใกล้เคียง หรือระหว่าง ก.ม.ที่)</label>
-                <input type="text" class="form-control" id="build_place_1" name="build_place_1">
-            </div>
-            <div class="col-md-3">
-                <label for="build_date_1" class="form-label">วันที่ติดตั้ง</label>
-                <input type="date" class="form-control" id="build_date_1" name="build_date_1">
-            </div>
-            <div class="col-md-3">
-                <label for="build_remark_1" class="form-label">หมายเหตุ</label>
-                <input type="text" class="form-control" id="build_remark_1" name="build_remark_1">
-            </div>
-        </div>
+        <?php } ?>
         <hr>
         <h5>2. ภาษีป้ายมีอักษรไทยปนอักษรต่างประเทศหรือเครื่องหมาย</h5><br>
-        <div class="row g-3 mb-3">
-            <div class="col-md-3">
-                <label for="build_wide_2" class="form-label">ขนาดป้าย : กว้าง (เซนติเมตร)</label>
-                <input type="text" class="form-control" id="build_wide_2" name="build_wide_2">
+        <?php for ($i = 1; $i < 7; $i++) { ?>
+            <div class="card mb-2">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <a class="btn btn-link text-dark" style="text-decoration: none;" data-bs-toggle="collapse" href="#collapse_thai_and_eng_{{$i}}" role="button" aria-expanded="false" aria-controls="collapse_thai_and_eng_{{$i}}">
+                            รายการที่ {{$i}}
+                        </a>
+                    </h5>
+                </div>
+                <div class="collapse <?= ($i == 1) ? 'show' : ''; ?>" id="collapse_thai_and_eng_{{$i}}">
+                    <div class="card-body">
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-3">
+                                <label for="build_wide_1" class="form-label">ขนาดป้าย : กว้าง (เซนติเมตร)</label>
+                                <input type="text" class="form-control" name="thaieng[{{$i}}][wide]">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="build_long_1" class="form-label">ขนาดป้าย : ยาว (เซนติเมตร)</label>
+                                <input type="text" class="form-control" name="thaieng[{{$i}}][long]">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="build_meter_1" class="form-label">เนื้อที่ป้าย (ตารางเซนติเมตร) </label>
+                                <input type="text" class="form-control" name="thaieng[{{$i}}][meter]">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="build_amount_1" class="form-label">จำนวนป้าย</label>
+                                <input type="text" class="form-control" name="thaieng[{{$i}}][amount]">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="build_text_1" class="form-label">ข้อความหรือภาพเครื่องหมายที่ปรากฎในป้ายโดยย่อ</label>
+                                <input type="text" class="form-control" name="thaieng[{{$i}}][text]">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="build_place_1" class="form-label">สถานที่ติดตั้งป้าย (ถนน,ตรอก,ซอย,แขวง,เขต,สถานที่ใกล้เคียง หรือระหว่าง ก.ม.ที่)</label>
+                                <input type="text" class="form-control" name="thaieng[{{$i}}][place]">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="build_date_1" class="form-label">วันที่ติดตั้ง</label>
+                                <input type="date" class="form-control" name="thaieng[{{$i}}][date]">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="build_remark_1" class="form-label">หมายเหตุ</label>
+                                <input type="text" class="form-control" name="thaieng[{{$i}}][remark]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-3">
-                <label for="build_long_2" class="form-label">ขนาดป้าย : ยาว (เซนติเมตร)</label>
-                <input type="text" class="form-control" id="build_long_2" name="build_long_2">
-            </div>
-            <div class="col-md-3">
-                <label for="build_meter_2" class="form-label">เนื้อที่ป้าย (ตารางเซนติเมตร) </label>
-                <input type="text" class="form-control" id="build_meter_2" name="build_meter_2">
-            </div>
-            <div class="col-md-3">
-                <label for="build_amount_2" class="form-label">จำนวนป้าย</label>
-                <input type="text" class="form-control" id="build_amount_2" name="build_amount_2">
-            </div>
-            <div class="col-md-6">
-                <label for="build_text_2" class="form-label">ข้อความหรือภาพเครื่องหมายที่ปรากฎในป้ายโดยย่อ</label>
-                <input type="text" class="form-control" id="build_text_2" name="build_text_2">
-            </div>
-            <div class="col-md-6">
-                <label for="build_place_2" class="form-label">สถานที่ติดตั้งป้าย (ถนน,ตรอก,ซอย,แขวง,เขต,สถานที่ใกล้เคียง หรือระหว่าง ก.ม.ที่)</label>
-                <input type="text" class="form-control" id="build_place_2" name="build_place_2">
-            </div>
-            <div class="col-md-3">
-                <label for="build_date_2" class="form-label">วันที่ติดตั้ง</label>
-                <input type="date" class="form-control" id="build_date_2" name="build_date_2">
-            </div>
-            <div class="col-md-3">
-                <label for="build_remark_2" class="form-label">หมายเหตุ</label>
-                <input type="text" class="form-control" id="build_remark_2" name="build_remark_2">
-            </div>
-        </div>
+        <?php } ?>
         <hr>
         <h5>3. ภาษีป้ายที่ไม่มีอักษรไทย</h5><br>
-        <div class="row g-3 mb-3">
-            <div class="col-md-3">
-                <label for="build_wide_3" class="form-label">ขนาดป้าย : กว้าง (เซนติเมตร)</label>
-                <input type="text" class="form-control" id="build_wide_3" name="build_wide_3">
+        <?php for ($i = 1; $i < 5; $i++) { ?>
+            <div class="card mb-2">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <a class="btn btn-link text-dark" style="text-decoration: none;" data-bs-toggle="collapse" href="#collapse_no_lang_{{$i}}" role="button" aria-expanded="false" aria-controls="collapse_no_lang_{{$i}}">
+                            รายการที่ {{$i}}
+                        </a>
+                    </h5>
+                </div>
+                <div class="collapse <?= ($i == 1) ? 'show' : ''; ?>" id="collapse_no_lang_{{$i}}">
+                    <div class="card-body">
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-3">
+                                <label for="build_wide_1" class="form-label">ขนาดป้าย : กว้าง (เซนติเมตร)</label>
+                                <input type="text" class="form-control" name="no_lang[{{$i}}][wide]">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="build_long_1" class="form-label">ขนาดป้าย : ยาว (เซนติเมตร)</label>
+                                <input type="text" class="form-control" name="no_lang[{{$i}}][long]">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="build_meter_1" class="form-label">เนื้อที่ป้าย (ตารางเซนติเมตร) </label>
+                                <input type="text" class="form-control" name="no_lang[{{$i}}][meter]">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="build_amount_1" class="form-label">จำนวนป้าย</label>
+                                <input type="text" class="form-control" name="no_lang[{{$i}}][amount]">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="build_text_1" class="form-label">ข้อความหรือภาพเครื่องหมายที่ปรากฎในป้ายโดยย่อ</label>
+                                <input type="text" class="form-control" name="no_lang[{{$i}}][text]">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="build_place_1" class="form-label">สถานที่ติดตั้งป้าย (ถนน,ตรอก,ซอย,แขวง,เขต,สถานที่ใกล้เคียง หรือระหว่าง ก.ม.ที่)</label>
+                                <input type="text" class="form-control" name="no_lang[{{$i}}][place]">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="build_date_1" class="form-label">วันที่ติดตั้ง</label>
+                                <input type="date" class="form-control" name="no_lang[{{$i}}][date]">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="build_remark_1" class="form-label">หมายเหตุ</label>
+                                <input type="text" class="form-control" name="no_lang[{{$i}}][remark]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-3">
-                <label for="build_long_3" class="form-label">ขนาดป้าย : ยาว (เซนติเมตร)</label>
-                <input type="text" class="form-control" id="build_long_3" name="build_long_3">
-            </div>
-            <div class="col-md-3">
-                <label for="build_meter_3" class="form-label">เนื้อที่ป้าย (ตารางเซนติเมตร) </label>
-                <input type="text" class="form-control" id="build_meter_3" name="build_meter_3">
-            </div>
-            <div class="col-md-3">
-                <label for="build_amount_3" class="form-label">จำนวนป้าย</label>
-                <input type="text" class="form-control" id="build_amount_3" name="build_amount_3">
-            </div>
-            <div class="col-md-6">
-                <label for="build_text_3" class="form-label">ข้อความหรือภาพเครื่องหมายที่ปรากฎในป้ายโดยย่อ</label>
-                <input type="text" class="form-control" id="build_text_3" name="build_text_3">
-            </div>
-            <div class="col-md-6">
-                <label for="build_place_3" class="form-label">สถานที่ติดตั้งป้าย (ถนน,ตรอก,ซอย,แขวง,เขต,สถานที่ใกล้เคียง หรือระหว่าง ก.ม.ที่)</label>
-                <input type="text" class="form-control" id="build_place_3" name="build_place_3">
-            </div>
-            <div class="col-md-3">
-                <label for="build_date_3" class="form-label">วันที่ติดตั้ง</label>
-                <input type="date" class="form-control" id="build_date_3" name="build_date_3">
-            </div>
-            <div class="col-md-3">
-                <label for="build_remark_3" class="form-label">หมายเหตุ</label>
-                <input type="text" class="form-control" id="build_remark_3" name="build_remark_3">
-            </div>
-        </div>
+        <?php } ?>
         <hr>
         <div class="mb-3 col-md-12">
             <h5><strong>เอกสารหลักฐานที่ต้องใช้ประกอบการยื่นแบบฯ </strong></h5>
