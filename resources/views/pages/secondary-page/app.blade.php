@@ -105,9 +105,8 @@
                         style="width: 12rem; margin-top: 25px;">
                     <div
                         class="d-flex flex-column justify-content-center align-items-lg-start lh-1 text-white fw-bold text-center">
-                        <span style="font-size: 30px;">Khlong Udom Chonlajorn Subdistrict Administrative Organization</span>
-                        <span class="fs-3">องค์การบริหารส่วนตำบลคลองอุดมชลจร</span>
-                        <span class="fs-4">อำเภอเมืองฉะเชิงเทรา จังหวัดฉะเชิงเทรา</span>
+                        <span style="font-size: 30px;">องค์การบริหารส่วนตำบลคลองอุดมชลจร</span>
+                        <span class="fs-3">อำเภอเมืองฉะเชิงเทรา จังหวัดฉะเชิงเทรา</span>
                     </div>
                 </div>
                 <div class="fw-bold text-white d-none d-xl-block" style="font-size: 50px;">
