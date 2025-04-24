@@ -32,8 +32,6 @@ class FoodStorageLicenseController extends Controller
             'title_name' => 'required|in:บุคคลธรรมดา,นิติบุคคล',
             'salutation' => 'nullable|string|max:20',
             'full_name' => 'required|string|max:255',
-            'age' => 'required|numeric|min:1|max:150',
-            'nationality' => 'required|string|max:50',
             'id_card_number' => 'required|string|size:13',
             'address' => 'required|string|max:255',
             'village' => 'nullable|string',
