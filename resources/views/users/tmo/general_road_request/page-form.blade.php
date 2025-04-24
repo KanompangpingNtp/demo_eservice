@@ -14,7 +14,7 @@
             </div>
             {{-- <div class="col-md-6">
                 <label for="subject" class="form-label">เรื่อง <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="subject" name="subject" maxlength="255" required>
+                <input type="text" class="form-control" id="subject" name="subject"  required>
             </div> --}}
         </div>
 
@@ -36,7 +36,7 @@
             </div>
             <div class="col-md-6">
                 <label for="name" class="form-label">ชื่อ - นามสกุล <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="name" name="name" maxlength="255" required>
+                <input type="text" class="form-control" id="name" name="name"  required>
             </div>
             <div class="col-md-3">
                 <label for="age" class="form-label">อายุ (ปี) <span class="text-danger">*</span></label>
@@ -48,27 +48,27 @@
         <div class="row g-3 mb-3">
             <div class="col-md-4">
                 <label for="house_number" class="form-label">บ้านเลขที่<span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="house_number" name="house_number" maxlength="50" required>
+                <input type="text" class="form-control" id="house_number" name="house_number"  required>
             </div>
             <div class="col-md-4">
-                <label for="village" class="form-label">หมู่บ้าน </label>
-                <input type="text" class="form-control" id="village" name="village" maxlength="100" required>
+                <label for="village" class="form-label">หมู่บ้าน <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="village" name="village" >
             </div>
             <div class="col-md-4">
                 <label for="subdistrict" class="form-label">ตำบล <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="subdistrict" name="subdistrict" maxlength="100" required>
+                <input type="text" class="form-control" id="subdistrict" name="subdistrict"  required>
             </div>
             <div class="col-md-4">
                 <label for="district" class="form-label">อำเภอ <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="district" name="district" maxlength="100" required>
+                <input type="text" class="form-control" id="district" name="district"  required>
             </div>
             <div class="mb-3 col-md-4">
                 <label for="province" class="form-label">จังหวัด <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="province" name="province" maxlength="100" required>
+                <input type="text" class="form-control" id="province" name="province"  required>
             </div>
             <div class="mb-3 col-md-4">
                 <label for="phone" class="form-label">เบอร์ติดต่อ <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="phone" name="phone" maxlength="100" required>
+                <input type="text" class="form-control" id="phone" name="phone"  required>
             </div>
         </div>
 
