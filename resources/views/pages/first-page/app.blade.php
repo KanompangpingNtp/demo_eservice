@@ -170,7 +170,7 @@
                         <div class="fs-2 fw-bold ps-5 text-start">
                             แจ้งเหตุฉุกเฉิน
                         </div>
-                        <a href="https://khlong.udom.eservice.sosmartsolution.com/emergency">
+                        <a href="{{route('emergency.index')}}">
                             <img src="{{ asset('images/first-pages/ปุ่มแจ้งเหตุฉุกเฉิน.png') }}"
                                 alt="ปุ่มแจ้งเหตุฉุกเฉิน" class="img-fluid">
                         </a>
