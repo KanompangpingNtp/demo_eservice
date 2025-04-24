@@ -1,5 +1,5 @@
-@extends('users.layout.layout')
-@section('pages_content')
+@extends('admin.layout.layout')
+@section('admin_content')
 
 @if ($message = Session::get('success'))
 <script>

@@ -23,7 +23,7 @@
             @foreach ($forms as $form)
             <tr>
                 <td class="date-column">{{ $form->created_at->format('Y-m-d') }}</td>
-                <td>{{ $form['details']->place_name }}</td>
+                <td>{{ $form['details']->place_name ?? ''}}</td>
                 <td>
                     @if($form->appointmentte)
                     {{ $form->appointmentte->date_admin }}

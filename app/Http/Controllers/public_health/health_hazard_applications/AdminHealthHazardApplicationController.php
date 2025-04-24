@@ -83,11 +83,13 @@ class AdminHealthHazardApplicationController extends Controller
             ->with(['user', 'details', 'files', 'replies'])
             ->find($id);
 
-        if ($form['details'] && $form['details']->document_option) {
+        if ($form['details']->document_option != 'null') {
             $document_option = $form['details']->document_option;
             if (is_string($document_option)) {
                 $form['details']->document_option = json_decode($document_option, true);
             }
+        } else {
+            $form['details']->document_option = [];
         }
 
         return view('admin.public_health.health_hazard_applications.confirm', compact('form'));
@@ -98,6 +100,8 @@ class AdminHealthHazardApplicationController extends Controller
         $input = $request->input();
         if ($input['id']) {
             $detail = HealthLicenseDetail::where('health_license_id', $input['id'])->first();
+            $detail->type_request = $input['type_request'];
+            $detail->petition = $input['petition'];
             if ($input['result'] != 2) {
                 $detail->status = 3;
                 if ($detail->save()) {
@@ -125,11 +129,13 @@ class AdminHealthHazardApplicationController extends Controller
         $form = HealthLicenseApp::with(['user', 'details', 'files', 'replies'])
             ->find($id);
 
-        if ($form['details'] && $form['details']->document_option) {
+        if ($form['details']->document_option != 'null') {
             $document_option = $form['details']->document_option;
             if (is_string($document_option)) {
                 $form['details']->document_option = json_decode($document_option, true);
             }
+        } else {
+            $form['details']->document_option = [];
         }
 
         return view('admin.public_health.health_hazard_applications.detail', compact('form'));

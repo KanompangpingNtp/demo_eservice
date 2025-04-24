@@ -177,11 +177,13 @@ class HealthHazardApplicationController extends Controller
         $form = HealthLicenseApp::with(['user', 'details', 'files', 'replies'])
             ->find($id);
 
-        if ($form['details'] && $form['details']->document_option) {
+        if ($form['details']->document_option != 'null') {
             $document_option = $form['details']->document_option;
             if (is_string($document_option)) {
                 $form['details']->document_option = json_decode($document_option, true);
             }
+        } else {
+            $form['details']->document_option = [];
         }
 
         return view('admin.public_health.health_hazard_applications.detail', compact('form'));

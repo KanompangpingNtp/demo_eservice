@@ -79,11 +79,13 @@ class AdminFoodStorageLicenseController extends Controller
         $form = FoodStorageInformations::with(['user', 'details', 'files', 'replies'])
             ->find($id);
 
-        if ($form['details'] && $form['details']->document_option) {
+        if ($form['details']->document_option != 'null') {
             $document_option = $form['details']->document_option;
             if (is_string($document_option)) {
                 $form['details']->document_option = json_decode($document_option, true);
             }
+        } else {
+            $form['details']->document_option = [];
         }
         $types = FoodStorageType::all();
 
@@ -98,11 +100,13 @@ class AdminFoodStorageLicenseController extends Controller
             ->with(['user', 'details', 'files', 'replies'])
             ->find($id);
 
-        if ($form['details'] && $form['details']->document_option) {
+        if ($form['details']->document_option != 'null') {
             $document_option = $form['details']->document_option;
             if (is_string($document_option)) {
                 $form['details']->document_option = json_decode($document_option, true);
             }
+        } else {
+            $form['details']->document_option = [];
         }
         $types = FoodStorageType::all();
 

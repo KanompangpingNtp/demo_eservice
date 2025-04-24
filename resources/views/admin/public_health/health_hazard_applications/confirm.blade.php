@@ -1,5 +1,5 @@
-@extends('users.layout.layout')
-@section('pages_content')
+@extends('admin.layout.layout')
+@section('admin_content')
 
 @if ($message = Session::get('success'))
 <script>
@@ -119,12 +119,12 @@
         <div class="row g-3 mb-3">
             <div class="col-md-8">
                 <label for="type_request" class="form-label">ประเภท</label>
-                <input type="text" class="form-control" id="type_request" name="type_request" value="{{ old('type_request', $form['details']->type_request ?? '') }}" disabled>
+                <input type="text" class="form-control" id="type_request" name="type_request" value="{{ old('type_request', $form['details']->type_request ?? '') }}" required>
             </div>
 
             <div class="col-md-4">
                 <label for="petition" class="form-label">ข้อ</label>
-                <input type="text" class="form-control" id="petition" name="petition" value="{{ old('petition', $form['details']->petition ?? '') }}" disabled>
+                <input type="text" class="form-control" id="petition" name="petition" value="{{ old('petition', $form['details']->petition ?? '') }}" required>
             </div>
 
             <div class="col-md-12">
@@ -336,7 +336,7 @@
             <h5>ผลการตรวจสอบ</h5><br>
             <div class="col-md-12">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="result" value="1">
+                    <input class="form-check-input" type="radio" name="result" value="1" required>
                     <label class="form-check-label">
                         ผ่าน
                     </label>

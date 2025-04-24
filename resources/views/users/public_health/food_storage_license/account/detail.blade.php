@@ -1,5 +1,5 @@
-@extends('admin.layout.layout')
-@section('admin_content')
+@extends('users.layout.layout')
+@section('pages_content')
 <div class="container">
     <h2 class="text-center mb-4">แบบคำร้องใบอนุญาต</h2><br>
 
