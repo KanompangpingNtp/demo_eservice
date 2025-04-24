@@ -68,7 +68,7 @@
                             <br>
                             <br>
                             <span style="color: black;">ไฟล์แนบ </span>
-                            @foreach ($form->grAttachments as $attachment)
+                            @foreach ($form->files as $attachment)
                                 <span class="d-inline me-2">
                                     <a href="{{ asset('storage/' . $attachment->file_path) }}"
                                         target="_blank">{{ basename($attachment->file_path) }}</a>
