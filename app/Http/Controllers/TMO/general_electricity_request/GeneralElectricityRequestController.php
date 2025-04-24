@@ -64,7 +64,7 @@ class GeneralElectricityRequestController extends Controller
             foreach ($request->file('attachments') as $file) {
                 $filename = time() . '_' . $file->getClientOriginalName();
 
-                $path = $file->storeAs('general-electricity-request', $filename, 'public');
+                $path = $file->storeAs('general_electricity_files', $filename, 'public');
 
                 GeneralElectricityRequestFiles::create([
                     'ger_form_id' => $gerForm->id,

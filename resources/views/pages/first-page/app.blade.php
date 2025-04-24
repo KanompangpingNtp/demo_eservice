@@ -130,7 +130,7 @@
                             <img src="{{ asset('images/first-pages/button-1.png') }}" alt="button-4"
                                 style="max-width: 9rem;" class="img-fluid">
                         </a>
-                        <a href="#">
+                        <a href="{{route('RegisterPage')}}">
                             <img src="{{ asset('images/first-pages/button-2.png') }}" alt="button-5"
                                 style="max-width: 9rem;" class="img-fluid">
                         </a>

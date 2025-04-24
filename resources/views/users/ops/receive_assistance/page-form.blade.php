@@ -502,6 +502,11 @@
             <h5><strong>ข้าพเจ้าขอรับรองว่าถ้อยคำที่ให้ข้างต้น เป็นความจริงทุกประการ</strong></h5><br>
             <hr>
 
+            <div class="mb-3">
+                <label for="attachments" class="form-label">แนบไฟล์บัตรประชาชน <span class="text-danger">*</span></label>
+                <input type="file" class="form-control" id="attachments" name="attachments[]" multiple required>
+            </div>
+
             <div>
                 <h5 for="attachments" class="form-label">แนบไฟล์</h5>
                 <input type="file" class="form-control" id="attachments" name="attachments[]" multiple>

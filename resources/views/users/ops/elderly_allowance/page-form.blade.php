@@ -67,7 +67,7 @@
 
             <div class="col-12 col-md-2">
                 <label for="month">เดือน (เลือกเดือนเกิด) <span class="text-danger">*</span></label>
-                <select id="month" name="month" class="form-control" required>
+                <select id="month" name="month" class="form-select" required>
                     <option value="1">มกราคม</option>
                     <option value="2">กุมภาพันธ์</option>
                     <option value="3">มีนาคม</option>
@@ -330,6 +330,11 @@
         </div>
 
         <hr>
+
+        <div class="mb-3">
+            <label for="attachments" class="form-label">แนบไฟล์บัตรประชาชน <span class="text-danger">*</span></label>
+            <input type="file" class="form-control" id="attachments" name="attachments[]" multiple required>
+        </div>
 
         <div>
             <h4>แนบไฟล์ เอกสาร (สามารถกดแนบไฟล์พร้อมกันได้มากกว่า 1ไฟล์)</h4>

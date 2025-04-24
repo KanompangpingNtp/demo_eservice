@@ -34,9 +34,9 @@ class GeneralRequestsController extends Controller
             'province' => 'nullable|string|max:100',
             'request_details' => 'nullable|string',
             'phone' => 'nullable|string',
-            'attachments.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf',
             'included' => 'nullable|string',
-            'proceedings' => 'nullable|string'
+            'proceedings' => 'nullable|string',
+            'attachments.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf',
         ]);
 
         // dd($request);
@@ -64,7 +64,7 @@ class GeneralRequestsController extends Controller
             foreach ($request->file('attachments') as $file) {
                 $filename = time() . '_' . $file->getClientOriginalName();
 
-                $path = $file->storeAs('general-requests-files', $filename, 'public');
+                $path = $file->storeAs('general_requests_files', $filename, 'public');
 
                 GeneralRequestsFiles::create([
                     'gr_form_id' => $grForm->id,

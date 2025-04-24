@@ -228,7 +228,7 @@ function baht_text($number, $include_unit = true, $display_zero = true)
     <div class="box_text">
         <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/pdf/ครุฑ.png'))) }}"
             alt="Logo" height="120"><br>
-        <span>ใบอุญาต</span><br>
+        <span>ใบอนุญาต</span><br>
         <span>จัดตั้งสถานที่สะสมอาหาร</span>
     </div>
     <div class="box_text" style="text-align: left; margin-top:1rem;">
@@ -328,7 +328,7 @@ function baht_text($number, $include_unit = true, $display_zero = true)
                  alt="stamp"
                  height="100"
                  style="position: absolute; top: 10px; right: 0px; z-index: -10; opacity: 0.8;">
-        
+
             <div style="margin-right: 10px;">
                 <span>(</span>
                 <span class="dotted-line" style="width: 30%; text-align: center;">นายมนูศักดิ์ หม่องศิริ</span>

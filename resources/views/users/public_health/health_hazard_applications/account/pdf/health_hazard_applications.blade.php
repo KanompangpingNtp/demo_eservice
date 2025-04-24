@@ -150,7 +150,7 @@ function convertYearPlus($date)
     <div class="box_text">
         <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/pdf/ครุฑ.png'))) }}"
             alt="Logo" height="120"><br>
-        <span>ใบอนุญาติ</span><br>
+        <span>ใบอนุญาต</span><br>
         <span>ประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</span>
     </div>
     <table style="width: 100%; margin-top: 1rem;">
@@ -280,13 +280,13 @@ function convertYearPlus($date)
             <span class="dotted-line" style="width: 35%; text-align: center;">
                 <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/payment/signature.png'))) }}" alt="ลายเซ็นมือ" height="40">
             </span>
-        
+
             <!-- ตราประทับแบบลอยและสามารถทะลุออกนอก div ได้ -->
             <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('images/payment/S__40829013-removebg-preview-Photoroom.png'))) }}"
                  alt="stamp"
                  height="100"
                  style="position: absolute; top: 10px; right: 0px; z-index: -10; opacity: 0.8;">
-        
+
             <div style="margin-right: 10px;">
                 <span>(</span>
                 <span class="dotted-line" style="width: 30%; text-align: center;">นายมนูศักดิ์ หม่องศิริ</span>
@@ -297,7 +297,7 @@ function convertYearPlus($date)
                 <span style="margin-right: 60px;">เจ้าพนักงานท้องถิ่น</span>
             </div>
         </div>
-        
+
         <div class="box_text_border" style=" color:#e40013; line-height: 0.8; display: inline-block; text-align: left; margin-top: 0rem;">
             <span style="text-decoration: underline;">คำเตือน</span>
             <span style="margin-left: 5px;">(๑) ผู้รับใบอนุญาตินี้ไว้โดยเปิดเผยและเห็นได้ง่าย ณ สถานที่</span><br style="margin: 0px;">

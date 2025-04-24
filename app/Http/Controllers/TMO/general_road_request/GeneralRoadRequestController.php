@@ -63,7 +63,7 @@ class GeneralRoadRequestController extends Controller
             foreach ($request->file('attachments') as $file) {
                 $filename = time() . '_' . $file->getClientOriginalName();
 
-                $path = $file->storeAs('general-requests-files', $filename, 'public');
+                $path = $file->storeAs('general_road_request_files', $filename, 'public');
 
                 GeneralRoadRequestFiles::create([
                     'grr_form_id' => $grrForm->id,

@@ -106,7 +106,7 @@
     </div>
     <div class="title_doc" style="text-align:center;">
         คำขอรับ ใบอนุญาต <br>
-        จัดตั้งสถานที่จำหน่ายอาหาร หรือ สถานที่สะสมอาหาร
+        ประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
     </div>
     <div class="box_text" style="text-align: right; margin-top:1rem;">
         <span>เขียนที่</span>
@@ -156,7 +156,7 @@
     </div>
     <div class="box_text" style="text-align: left;">
         <div style="margin-left:4rem;">
-            <span>ขอยื่นเรื่องต่อเจ้าพนักงานท้องถิ่น เพื่อขอรับ/ขอต่อ ใบอนุณาตประกอบกิจการที่เป็นนอันตรายต่อสุขภาพ</span> <br>
+            <span>ขอยื่นเรื่องต่อเจ้าพนักงานท้องถิ่น เพื่อขอรับ/ขอต่อ ใบอนุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</span> <br>
         </div>
         <span>ประเภท</span>
         <span class="dotted-line" style="width: 49%; text-align: center;">{{ $form->details->first()->type_request ?? '-' }}</span>
@@ -202,7 +202,7 @@
         <span>น. ถึงเวลา</span>
         <span class="dotted-line" style="width: 16%; text-align: center;">{{ $form->details->first()->opening_for_business_until ?? '-' }}</span>
         <span>น.</span>
-        <span>โดยได้แนบใบอนุญาติเดิมพร้อมกับหลักฐานดังต่อไปนี้</span>
+        <span>โดยได้แนบใบอนุญาตเดิมพร้อมกับหลักฐานดังต่อไปนี้</span>
     </div>
     @php
     $document_option = $form->details->first()->document_option ?? [];
@@ -228,10 +228,10 @@
             <span style="margin-left: 2rem; margin-top:-10px;">อากรแสตมป์ (กรณีเจ้าของไม่สามารถมายื่นคำขอด้วยตนเอง)</span><br>
 
             <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option5", $document_option) ? 'checked' : '' }}>
-            <span>สำเนนาใบอนุญาตตามกฏหมายว่าด้วยการควบคุมอาคาร(แบบอ.๑)</span><br>
+            <span>สำเนาใบอนุญาตตามกฏหมายว่าด้วยการควบคุมอาคาร (แบบ อ.๑)</span><br>
 
             <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option6", $document_option) ? 'checked' : '' }}>
-            <span>สำเนนาใบอนุญาตประกอบกิจการโรงงานทุกหน้า(ใบร.ง.๔)</span><br>
+            <span>สำเนาใบอนุญาตประกอบกิจการโรงงานทุกหน้า (ใบ ร.ง.๔)</span><br>
 
             <input type="checkbox" name="document_option[]" style="margin: 0px 10px;" {{ in_array("option7", $document_option) ? 'checked' : '' }}>
             <span>แผนที่สถานที่ตั้งของสถานประกอบการ (กรณีขอรับ)</span><br>

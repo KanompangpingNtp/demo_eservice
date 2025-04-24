@@ -106,9 +106,9 @@
         <span>วันที่</span>
         <span class="dotted-line" style="width: 5%; text-align: center;"></span>
         <span>เดือน</span>
-        <span class="dotted-line" style="width: 15%; text-align: center;"> </span>
+        <span class="dotted-line" style="width: 15%; text-align: center;"></span>
         <span>พ.ศ.</span>
-        <span class="dotted-line" style="width: 10%; text-align: center;"> </span>
+        <span class="dotted-line" style="width: 10%; text-align: center;"></span>
     </div>
     <div class="box_text" style="text-align: left; margin-left:5rem;">
         <span>ข้าพเจ้า</span><input type="checkbox" style="margin: 0px 5px;" {{ $form->title_name == 'บุคคลธรรมดา' ? 'checked' : '' }}><span>บุคคลธรรมดา</span>
