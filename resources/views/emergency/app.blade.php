@@ -122,8 +122,23 @@
                         <span class="fs-3">อำเภอเมืองฉะเชิงเทรา จังหวัดฉะเชิงเทรา</span>
                     </div>
                 </div>
-                <div class="fw-bold text-white d-none d-xl-block" style="font-size: 50px;">
-                    One Stop Service
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                    <div class=" d-flex align-items-center justify-content-center p-2 gap-2"
+                        style="background-color:rgba(255, 255, 255, 0.275); border-radius:20px;">
+                        <a href="{{ route('LoginPage') }}">
+                            <img src="{{ asset('images/first-pages/button-1.png') }}" alt="button-4"
+                                style="max-width: 9rem;" class="img-fluid">
+                        </a>
+                        <a href="{{route('RegisterPage')}}">
+                            <img src="{{ asset('images/first-pages/button-2.png') }}" alt="button-5"
+                                style="max-width: 9rem;" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="
+                                text-yellow
+                            ">
+                        คำแนะนำ สมัครสมาชิกเพื่อติดตามสถานะการดำเนินการ
+                    </div>
                 </div>
             </div>
 
