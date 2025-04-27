@@ -12,7 +12,7 @@
 
     <div class="container">
         <h3 class="text-center">ใบสมัคร <br></h3>
-        <h3 class="text-center">ศูนย์พัฒนาเด็กเล็กองค์การบริหารส่วนตำบลคลองอุดมชลจร</h3>
+        <h3 class="text-center">ศูนย์พัฒนาเด็กเล็ก</h3>
         <h4 class="text-center"><span class="text-danger">** </span><strong>หากไม่มีการกรอกข้อมูล กรุณาใส่เครื่องหมาย - แทน</strong></h4><br>
 
         <h3>ข้อมูลเด็กเล็ก</h3>
@@ -194,19 +194,19 @@
 
         <hr>
         <!-- Address Information -->
-        <h3>ที่อยู่ตามสำเนาทะเบียนบ้าน</h3>
+        <h3>ที่อยู่ตามทะเบียนบ้าน</h3>
         <div class="row">
             <div class="col-md-4 mb-3">
                 <label for="regis_house_number" class="form-label">บ้านเลขที่ <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" name="regis_house_number" id="regis_house_number" required>
             </div>
             <div class="col-md-4 mb-3">
-                <label for="regis_village" class="form-label">หมู่ที่ <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="regis_village" id="regis_village" required>
+                <label for="regis_village" class="form-label">หมู่ที่</label>
+                <input type="text" class="form-control" name="regis_village" id="regis_village">
             </div>
             <div class="col-md-4 mb-3">
-                <label for="regis_road" class="form-label">ถนน <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="regis_road" id="regis_road" required>
+                <label for="regis_road" class="form-label">ถนน</label>
+                <input type="text" class="form-control" name="regis_road" id="regis_road">
             </div>
         </div>
 
@@ -235,12 +235,12 @@
                 <input type="text" class="form-control" name="current_house_number" id="current_house_number" required>
             </div>
             <div class="col-md-4 mb-3">
-                <label for="current_village" class="form-label">หมู่ที่ <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="current_village" id="current_village" required>
+                <label for="current_village" class="form-label">หมู่ที่</label>
+                <input type="text" class="form-control" name="current_village" id="current_village">
             </div>
             <div class="col-md-4 mb-3">
-                <label for="current_road" class="form-label">ถนน <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="current_road" id="current_road" required>
+                <label for="current_road" class="form-label">ถนน</label>
+                <input type="text" class="form-control" name="current_road" id="current_road">
             </div>
         </div>
 
@@ -406,10 +406,10 @@
 
         <div class="col-md-12 mb-4">
             <span><strong>คำรับรอง</strong><br></span>
-            <span class="ms-4">1. ข้าพเจ้าขอรับรองว่า ได้อ่านประกาศรับสมัครศูนย์พัฒนาเด็กเล็กองค์การบริหารส่วนตำบลคลองอุดมชลจรเข้าใจแล้ว เด็กที่นำมาสมัครมีคุณสมบัติถูกต้องตรงประกาศ และหลักฐานที่ใช้สมัครใน
+            <span class="ms-4">1. ข้าพเจ้าขอรับรองว่า ได้อ่านประกาศรับสมัครศูนย์พัฒนาเด็กเล็กสังกัดองค์การบริหารส่วนตำบลคลองอุดมชลจรเข้าใจแล้ว เด็กที่นำมาสมัครมีคุณสมบัติถูกต้องตรงประกาศ และหลักฐานที่ใช้สมัครใน
                  วันนี้เป็นหลักฐานที่ถูกต้องจริง <br>
             </span>
-            <span class="ms-4">2. ข้าพเจ้ามีสิทธิถูกต้องในการที่จะให้เด็กสมัครเข้ารับการศึกษาเลี้ยงดูในศูนย์พัฒนาเด็กเล็กขององค์การบริหารส่วนตำบลคลองอุดมชลจร <br></span>
+            <span class="ms-4">2. ข้าพเจ้ามีสิทธิถูกต้องในการที่จะให้เด็กสมัครเข้ารับการศึกษาเลี้ยงดูในศูนย์พัฒนาเด็กเล็กสังกัดองค์การบริหารส่วนตำบลคลองอุดมชลจร <br></span>
             <span class="ms-4">3. ข้าพเจ้ายินดีปฏิบัติตามระเบียบ ข้อกำหนดองค์การบริหารส่วนตำบลคลองอุดมชลจร และยินดีปฏิบัติตามคำแนะนำเกี่ยวกับการพัฒนาความพร้อมที่ศูนย์พัฒนาเด็กเล็ก กำหนด</span>
             <br>
             <br>
@@ -568,7 +568,7 @@
         </div>
     </div>
 
-    <br>
+    {{-- <br>
     <hr><br>
 
     <h3 class="text-center">ทะเบียนประวัติเด็กปฐมวัย <br></h3>
@@ -576,7 +576,6 @@
     <h4 class="text-center"><span class="text-danger">** </span><strong>หากไม่มีการกรอกข้อมูล กรุณาใส่เครื่องหมาย - แทน</strong></h4><br>
 
     <div class="row">
-        {{-- newinput --}}
         <div class="col-md-2">
             <label for="child_salutation">คำนำหน้า</label>
             <select class="form-select" id="child_salutation" name="child_salutation">
@@ -600,10 +599,6 @@
             <input type="text" name="registration_citizen_id" class="form-control" required>
         </div>
 
-        {{-- <div class="col-md-4 mb-3">
-            <label for="registration_birthday">วัน เดือน ปี เกิด <span class="text-danger">*</span></label>
-            <input type="date" name="registration_birthday" class="form-control" required>
-        </div> --}}
         <div class="row mb-3">
             <div class="col-12 col-md-4">
                 <label for="reg_day">วันเกิดที่ (กรอกวันที่เกิด) <span class="text-danger">*</span></label>
@@ -1088,7 +1083,7 @@
             <label for="parent_phone">โทรศัพท์</label>
             <input type="text" name="parent_phone" class="form-control" >
         </div>
-    </div>
+    </div> --}}
     <br>
 
     <span><strong>ข้าพเจ้าขอรับรองว่ารายการข้างต้นถูกต้องและเป็นความจริงทุกประการ</strong></span><br>
@@ -1096,9 +1091,10 @@
     <span class="ms-3">1. ตัวเด็ก</span><br>
     <span class="ms-3">2. สำเนาสูติบัตร</span><br>
     <span class="ms-3">3. สำเนาทะเบียนบ้าน</span><br>
-    <span class="ms-3">4. สำเนาบัตรประชาชนบิดา-มารดา</span><br>
-    <span class="ms-3">5. ใบสมัครของศูนย์พัฒนาเด็กเล็กที่กรอกข้อมูลสมบูรณ์แล้ว</span><br>
-    <span class="ms-3">6. สำเนาสมุดบันทึกสุขภาพ (สีชมพู)</span><br><br>
+    <span class="ms-3">4. สำเนาบัตรประชาชนบิดา</span><br>
+    <span class="ms-3">5. สำเนาบัตรประชาชนมารดา</span><br>
+    <span class="ms-3">6. ใบสมัครของศูนย์พัฒนาเด็กเล็กที่กรอกข้อมูลสมบูรณ์แล้ว</span><br>
+    <span class="ms-3">7. สำเนาสมุดบันทึกสุขภาพ (สีชมพู)</span><br><br>
 
     <hr><br>
 

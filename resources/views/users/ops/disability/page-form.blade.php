@@ -186,8 +186,8 @@
             </div>
 
             <div class="col-md-3 mb-3">
-                <label for="village" class="col-sm-3 col-form-label">หมู่: <span class="text-danger">*</span></label>
-                <input type="text" id="village" name="village" class="form-control" required>
+                <label for="village" class="col-sm-3 col-form-label">หมู่: </label>
+                <input type="text" id="village" name="village" class="form-control" >
             </div>
 
             <div class="col-md-3 mb-3">
@@ -390,25 +390,25 @@
             <div class="col-12 col-md-6">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="document_type[]" id="document_type_id_card" value="option1">
-                    <label class="form-check-label" for="document_type_id_card">สำเนาบัตรประจำตัวประชาชน</label>
+                    <label class="form-check-label" for="document_type_id_card">บัตรประจำตัวประชาชน</label>
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="document_type[]" id="document_type_house_reg" value="option2">
-                    <label class="form-check-label" for="document_type_house_reg">สำเนาทะเบียนบ้าน</label>
+                    <label class="form-check-label" for="document_type_house_reg">ทะเบียนบ้าน</label>
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="document_type[]" id="document_type_bank_book" value="option3">
-                    <label class="form-check-label" for="document_type_bank_book">สำเนาสมุดบัญชีเงินฝากธนาคาร</label>
+                    <label class="form-check-label" for="document_type_bank_book">สมุดบัญชีเงินฝากธนาคาร</label>
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="document_type[]" id="document_type_auth_letter" value="option4">
-                    <label class="form-check-label" for="document_type_auth_letter">หนังสือมอบอำนาจพร้อมสำเนาบัตรประจำตัวประชาชนของผู้มอบอำนาจและผู้รับมอบอำนาจ</label>
+                    <label class="form-check-label" for="document_type_auth_letter">หนังสือมอบอำนาจพร้อมบัตรประจำตัวประชาชนของผู้มอบอำนาจและผู้รับมอบอำนาจ</label>
                 </div>
             </div>
         </div>

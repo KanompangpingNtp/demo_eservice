@@ -145,7 +145,7 @@
         <span style="line-height: 0.7;">
             องค์การบริหารส่วนตำบลคลองอุดมชลจร <br>
             ๙/๙ หมู่ที่ ๔ ตำบลคลองอุดมชลจร <br>
-            อำเภอเมือง จังหวัดฉะเชิงเทรา ๒๔๐๐๐
+            อำเภอเมืองฉะเชิงเทรา จังหวัดฉะเชิงเทรา ๒๔๐๐๐
         </span>
         <div style="margin-right: 80px; margin-top: 10px;">
             <span>วันที่</span><span class="dotted-line" style="width: 5%; text-align: center;"> {{ $day }}
