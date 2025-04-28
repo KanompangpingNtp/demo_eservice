@@ -246,7 +246,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center align-items-lg-start">
-                    <img src="{{ asset('images/secondary-pages/5.png') }}" alt="5" class="img-fluid">
+                    <img src="{{ asset('images/secondary-pages/5-edits.png') }}" alt="5" class="img-fluid">
                     <ul class="text-start lh-1 ">
                         <li>
                             <a href="{{route('ChildApplyPage')}}" target="_blank">
