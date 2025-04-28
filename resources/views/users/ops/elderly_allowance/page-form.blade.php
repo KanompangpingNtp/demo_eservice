@@ -178,7 +178,7 @@
 
         <div class="row mb-3">
             <div class="col-12 col-md-4 mb-3">
-                <label for="house_number">ที่อยู่ตามสำเนาทะเบียนบ้าน: <span class="text-danger">*</span></label>
+                <label for="house_number">ที่อยู่ตามทะเบียนบ้าน: <span class="text-danger">*</span></label>
                 <input type="text" id="house_number" name="house_number" class="form-control" required>
             </div>
             <div class="col-12 col-md-4 mb-3">
@@ -295,15 +295,15 @@
         <h4>ประเภทเอกสารที่แนบ</h4>
         <div class="form-check">
             <input type="checkbox" name="document_type[]" id="document_type_id_card" value="option1" class="form-check-input">
-            <label for="document_type_id_card" class="form-check-label">สำเนาบัตรประจำตัวประชาชน</label>
+            <label for="document_type_id_card" class="form-check-label">บัตรประจำตัวประชาชน</label>
         </div>
         <div class="form-check">
             <input type="checkbox" name="document_type[]" id="document_type_house_reg" value="option2" class="form-check-input">
-            <label for="document_type_house_reg" class="form-check-label">สำเนาทะเบียนบ้าน</label>
+            <label for="document_type_house_reg" class="form-check-label">ทะเบียนบ้าน</label>
         </div>
         <div class="form-check">
             <input type="checkbox" name="document_type[]" id="document_type_bank_book" value="option3" class="form-check-input">
-            <label for="document_type_bank_book" class="form-check-label">สำเนาสมุดบัญชีเงินฝากธนาคาร</label>
+            <label for="document_type_bank_book" class="form-check-label">สมุดบัญชีเงินฝากธนาคาร</label>
         </div>
         <div class="form-check">
             <input type="checkbox" name="document_type[]" id="document_type_auth_letter" value="option4" class="form-check-input">

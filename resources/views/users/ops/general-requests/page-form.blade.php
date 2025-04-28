@@ -51,8 +51,8 @@
                 <input type="text" class="form-control" id="house_number" name="house_number" maxlength="50" required>
             </div>
             <div class="col-md-4">
-                <label for="village" class="form-label">หมู่บ้าน </label>
-                <input type="text" class="form-control" id="village" name="village" maxlength="100" required>
+                <label for="village" class="form-label">หมู่ </label>
+                <input type="text" class="form-control" id="village" name="village" maxlength="100">
             </div>
             <div class="col-md-4">
                 <label for="subdistrict" class="form-label">ตำบล <span class="text-danger">*</span></label>
