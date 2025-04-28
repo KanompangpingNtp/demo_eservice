@@ -12,7 +12,7 @@
 
     <div class="container">
         <h3 class="text-center">ใบสมัคร <br></h3>
-        <h3 class="text-center">ศูนย์พัฒนาเด็กเล็ก วังกัดองค์การบริหารส่วนตำบลคลองอุดมชลจร</h3>
+        <h3 class="text-center">ศูนย์พัฒนาเด็กเล็ก สังกัดองค์การบริหารส่วนตำบลคลองอุดมชลจร</h3>
         <h4 class="text-center"><span class="text-danger">** </span><strong>หากไม่มีการกรอกข้อมูล กรุณาใส่เครื่องหมาย - แทน</strong></h4><br>
 
         <h3>ข้อมูลเด็กเล็ก</h3>
