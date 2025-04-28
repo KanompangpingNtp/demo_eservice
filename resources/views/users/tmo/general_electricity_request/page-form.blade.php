@@ -92,7 +92,7 @@
 
         <!-- Row 7: แนบไฟล์ -->
         <div class="mb-3">
-            <label for="attachments" class="form-label"><span class="text-danger">แนบไฟล์ (บัตรประชาชน)</span></label>
+            <label for="attachments" class="form-label"><span class="text-danger">แนบไฟล์เพิ่มเติม</span></label>
             <input type="file" class="form-control" id="attachments" name="attachments[]" multiple>
             <small class="text-muted">ประเภทไฟล์ที่รองรับ: jpg, jpeg, png, pdf (ขนาดไม่เกิน 2MB)</small>
             <div id="file-list" class="mt-1">
