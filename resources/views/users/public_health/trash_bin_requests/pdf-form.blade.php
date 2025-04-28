@@ -138,13 +138,13 @@
         <div style="margin-left: 4.5rem;">
             <input type="checkbox" {{ in_array('option1', $CanonOptions) ? 'checked' : '' }}><span>รายเดือน เป็นจำนวนเงิน</span><span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;">{{$form->option1_amount}}</span>
             <span>บาท ต่อ เดือน (เริ่มตั้งแต่เดือน</span><span class="dotted-line" style="width: 30%; text-align: center; line-height: 1;">{{$form->option1_month}}</span>
-            <span>เป็นต้นนไป)</span>
+            <span>เป็นต้นไป)</span>
             <input type="checkbox" {{ in_array('option2', $CanonOptions) ? 'checked' : '' }}><span>ราย ๖ เดือน เป็นจำนวนเงิน</span><span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;">{{$form->option2_amount}}</span>
             <span>บาท ต่อ ๖ เดือน (เริ่มตั้งแต่เดือน</span><span class="dotted-line" style="width: 29%; text-align: center; line-height: 1;">{{$form->option2_month}}</span>
-            <span>เป็นต้นนไป)</span>
+            <span>เป็นต้นไป)</span>
             <input type="checkbox" {{ in_array('option3', $CanonOptions) ? 'checked' : '' }}><span>รายปี เป็นจำนวนเงิน</span><span class="dotted-line" style="width: 16%; text-align: center; line-height: 1;">{{$form->option3_amount}}</span>
             <span>บาท ต่อ ๑ ปี (เริ่มตั้งแต่เดือน</span><span class="dotted-line" style="width: 33%; text-align: center; line-height: 1;">{{$form->option3_month}}</span>
-            <span>เป็นต้นนไป)</span>
+            <span>เป็นต้นไป)</span>
             <input type="checkbox" {{ in_array('option4', $CanonOptions) ? 'checked' : '' }}><span>อื่นๆ ระบุ</span><span class="dotted-line" style="width: 88%; text-align: center; line-height: 1;">{{$form->option4_detail}}</span>
         </div>
         <span>พร้อมคำขอนี้ข้าพเจ้าได้แนบเอกสารหลักฐานต่างๆ มาด้วยแล้ว ดังนี้</span>

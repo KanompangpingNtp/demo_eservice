@@ -73,6 +73,14 @@
 </head>
 
 <body>
+    @php
+    use Carbon\Carbon;
+    $created = Carbon::parse($form->created_at);
+    $created_day = $created->day;
+    $created_month = $created->locale('th')->translatedFormat('F');
+    $created_year = $created->year + 543;
+    @endphp
+
     <div style="width: 100%; display: table;">
         <!-- โลโก้อยู่ตรงกลาง -->
         <div style="display: table-cell; width: 75%; text-align: center; vertical-align: top;">
@@ -104,11 +112,11 @@
     </div>
     <div class="box_text" style="text-align: right; ">
         <span>วันที่</span>
-        <span class="dotted-line" style="width: 5%; text-align: center;"></span>
+        <span class="dotted-line" style="width: 5%; text-align: center;">{{$created_day}}</span>
         <span>เดือน</span>
-        <span class="dotted-line" style="width: 15%; text-align: center;"></span>
+        <span class="dotted-line" style="width: 15%; text-align: center;">{{$created_month}}</span>
         <span>พ.ศ.</span>
-        <span class="dotted-line" style="width: 10%; text-align: center;"></span>
+        <span class="dotted-line" style="width: 10%; text-align: center;">{{$created_year}}</span>
     </div>
     <div class="box_text" style="text-align: left; margin-left:5rem;">
         <span>ข้าพเจ้า</span><input type="checkbox" style="margin: 0px 5px;" {{ $form->title_name == 'บุคคลธรรมดา' ? 'checked' : '' }}><span>บุคคลธรรมดา</span>
