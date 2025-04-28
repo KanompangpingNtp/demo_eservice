@@ -63,7 +63,7 @@
                         </a>
                         <a class="nav-link" href="{{route('ElderlyAllowanceAdminShowData')}}">
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
-                            แบบยืนยันเบี้ยยังชีพผ้สูงอายุ
+                            แบบยืนยันเบี้ยยังชีพผู้สูงอายุ
                         </a>
                         <a class="nav-link" href="{{route('DisabilityAdminShowData')}}">
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>

@@ -93,7 +93,7 @@
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-clipboard"></i>
                             </div>
-                            แบบยืนยันเบี้ยยังชีพผ้สูงอายุ
+                            แบบยืนยันเบี้ยยังชีพผู้สูงอายุ
                             <div class="sb-sidenav-collapse-arrow">
                                 <i class="fas fa-angle-down"></i>
                             </div>
