@@ -134,7 +134,7 @@
             </span>
         </div>
         <div class="box_text" style="text-align: left;">
-            <span>เรียน นายยกอค์การบริหารส่วนตำบลคลองบ้านโพธิ์
+            <span>เรียน นายยกอค์การบริหารส่วนตำบลคลองอุดมชลจร
         </div>
         <div class="box_text" style="text-align: left; margin-left: 4rem;">
             <span>ด้วยข้าพเจ้า ชื่อ</span><span class="dotted-line" style="width: 34%; text-align: center;">
