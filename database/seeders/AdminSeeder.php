@@ -20,6 +20,57 @@ class AdminSeeder extends Seeder
                 'name' => 'แอดมิน',
                 'password' => Hash::make('123456789'),
                 'level' => 'admin',
+                'agency' => '6',
+            ]
+        );
+
+        User::updateOrCreate(
+            ['email' => 'admin.office@example.com'], // email ที่ตรงกับชื่อ
+            [
+                'name' => 'แอดมินสำนักงานปลัด',
+                'password' => Hash::make('123456789'),
+                'level' => 'admin',
+                'agency' => '1',
+            ]
+        );
+
+        User::updateOrCreate(
+            ['email' => 'admin.finance@example.com'], // email ที่ตรงกับชื่อ
+            [
+                'name' => 'แอดมินกองคลัง',
+                'password' => Hash::make('123456789'),
+                'level' => 'admin',
+                'agency' => '2',
+            ]
+        );
+
+        User::updateOrCreate(
+            ['email' => 'admin.engineering@example.com'], // email ที่ตรงกับชื่อ
+            [
+                'name' => 'แอดมินกองช่าง',
+                'password' => Hash::make('123456789'),
+                'level' => 'admin',
+                'agency' => '3',
+            ]
+        );
+
+        User::updateOrCreate(
+            ['email' => 'admin.health@example.com'], // email ที่ตรงกับชื่อ
+            [
+                'name' => 'แอดมินกองสาธารณสุขและสิ่งแวดล้อม',
+                'password' => Hash::make('123456789'),
+                'level' => 'admin',
+                'agency' => '4',
+            ]
+        );
+
+        User::updateOrCreate(
+            ['email' => 'admin.education@example.com'], // email ที่ตรงกับชื่อ
+            [
+                'name' => 'แอดมินกองการศึกษาและวัฒนธรรม',
+                'password' => Hash::make('123456789'),
+                'level' => 'admin',
+                'agency' => '5',
             ]
         );
 

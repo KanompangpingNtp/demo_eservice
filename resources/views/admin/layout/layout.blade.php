@@ -20,9 +20,10 @@
     @if ($message = Session::get('success'))
     <script>
         Swal.fire({
-            icon: 'success',
-            title: '{{ $message }}',
-        })
+            icon: 'success'
+            , title: '{{ $message }}'
+        , })
+
     </script>
     @endif
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -37,7 +38,9 @@
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span style="margin-right: 15px;">{{ Auth::user()->name }}</span> <i class="fas fa-user fa-fw ms-1"></i>
+                </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li>
                         <form action="{{ route('logout') }}" method="POST" style="display: inline;">
@@ -50,12 +53,119 @@
                 </ul>
             </li>
         </ul>
+
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu" style="overflow-y: auto; max-height: calc(100vh - 100px);">
                     <div class="nav">
+                        @auth
+                        @php
+                        $agency = Auth::user()->agency;
+                        @endphp
+
+                        @if ($agency == 1)
+                        <div class="sb-sidenav-menu-heading">สำนักปลัด</div>
+                        <a class="nav-link" href="{{route('GeneralRequestsAdminShowData')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            คำร้องทั่วไป
+                        </a>
+                        <a class="nav-link" href="{{route('ElderlyAllowanceAdminShowData')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            แบบยืนยันเบี้ยยังชีพผู้สูงอายุ
+                        </a>
+                        <a class="nav-link" href="{{route('DisabilityAdminShowData')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            แบบคำขอลงทะเบียนรับเงินเบี้ยความพิการ
+                        </a>
+                        <a class="nav-link" href="{{route('TableReceiveAssistanceAdminPages')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            แบบคำขอรับการสงเคราะห์ <br> (ผู้ป่วยเอดส์)
+                        </a>
+                        @elseif ($agency == 2)
+                        <div class="sb-sidenav-menu-heading">กองคลัง</div>
+                        <a class="nav-link" href="{{route('LicenseTaxAdminPages')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            (ภ.ป.๑) แนบแสดงรายการ ภาษีป้าย
+                        </a>
+                        <a class="nav-link" href="{{route('PayTaxBuildAndRoomAdminPages')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            หนังสือขอผ่อนชำระภาษีที่ดินและสิ่งปลูกสร้าง / ห้องชุด
+                        </a>
+                        <a class="nav-link" href="{{route('ChangeInUseAdminPages')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            (ภ.ด.ส.๕) แบบแจ้งการเปลี่ยนแปลงการใช้ประโยชน์ที่ดินหรือสิ่งปลูกสร้าง
+                        </a>
+                        <a class="nav-link" href="{{route('LandTaxRefundRequestAdminShowData')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            คำร้องคัดค้านการประเมินภาษีหรือ การเรียกเก็บภาษีที่ดินและสิ่งปลูกสร้าง
+                        </a>
+                        <a class="nav-link" href="{{route('LandBuildingTaxAppealAdminShowData')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            คำร้องขอรับเงินภาษีที่ดินและสิ่งปลูกสร้างคืน
+                        </a>
+
+                        @elseif ($agency == 3)
+                        <div class="sb-sidenav-menu-heading">กองช่าง</div>
+                        <a class="nav-link" href="{{route('GeneralElectricityRequestAdminShowData')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            คำร้องทั่วไป (แจ้งเรื่องไฟฟ้า)
+                        </a>
+                        <a class="nav-link" href="{{route('GeneralRoadRequestAdminShowData')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            คำร้องทั่วไป (แจ้งถนนชำรุด)
+                        </a>
+                        @elseif ($agency == 4)
+                        <div class="sb-sidenav-menu-heading">กองสาธารณสุขและสิ่งแวดล้อม</div>
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#admin_food1" aria-expanded="false" aria-controls="admin_food1">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
+                            แบบคำร้องใบอนุญาตสะสมอาหาร
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="admin_food1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminShowData')}}">รับเรื่อง</a>
+                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminAppointment')}}">การนัดหมาย</a>
+                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminExplore')}}">ออกสำรวจ</a>
+                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminPayment')}}">ชำระเงิน</a>
+                                <a class="nav-link" href="{{route('FoodStorageLicenseAdminApprove')}}">ออกใบอนุญาต</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#public_health1" aria-expanded="false" aria-controls="public_health1">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
+                            แบบคำร้องใบอนุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="public_health1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminShowData')}}">รับเรื่อง</a>
+                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminAppointment')}}">การนัดหมาย</a>
+                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminExplore')}}">ออกสำรวจ</a>
+                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminPayment')}}">ชำระเงิน</a>
+                                <a class="nav-link" href="{{route('HealthHazardApplicationAdminApprove')}}">ออกใบอนุญาต</a>
+                            </nav>
+                        </div>
+
+                        <a class="nav-link" href="{{route('TrashBinRequestAdminShowData')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            แบบคำร้องขอใช้ถังขยะ
+                        </a>
+                        @elseif ($agency == 5)
+                        <div class="sb-sidenav-menu-heading">กองการศึกษาและวัฒนธรรม</div>
+                        <a class="nav-link" href="{{route('TableChildApplyAdminPages')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            แบบฟอร์มใบสมัคร ศูนย์พัฒนาเด็กเล็ก
+                        </a>
+                        @elseif ($agency == 6)
                         <div class="sb-sidenav-menu-heading">สำนักปลัด</div>
                         <a class="nav-link" href="{{route('GeneralRequestsAdminShowData')}}">
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
@@ -154,6 +264,9 @@
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
                             แบบฟอร์มใบสมัคร ศูนย์พัฒนาเด็กเล็ก
                         </a>
+                        @endif
+                        @endauth
+
                     </div>
                 </div>
                 {{-- <div class="sb-sidenav-footer">
