@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class EmergencyController extends Controller
 {
     public $channelToken = 'L4x3vp1t8f4gDx+op2v5bYQO3lozP3T+2aMMhEjtl9CkmsMiAJ8fNC+BqRReVSTEiZk6gR5oRs73p2QyZzNlyuB2ziCpX/zcNGLK1xGRAmDKMj/NXq3x9IRdLYZjLQZs1z3llUhNnlpNMB8iqvP7NwdB04t89/1O/w1cDnyilFU=';
-    public $group_id = 'C08cc94e9c2c81503339d56501743cfd2';
+    public $group_id = 'C39a38abf0c6ddb8679a7524748fd0f37';
     // public $group_id = 'C574e36d4850cccf9107d9252d30e74d9';
     // $userId = 'C574e36d4850cccf9107d9252d30e74d9';
 
