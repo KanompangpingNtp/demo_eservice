@@ -15,7 +15,7 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
         User::updateOrCreate(
-            ['email' => 'admin@example.com'], // เงื่อนไขค้นหา
+            ['email' => 'admin@example.com'],
             [
                 'name' => 'แอดมิน',
                 'password' => Hash::make('123456789'),
@@ -25,7 +25,17 @@ class AdminSeeder extends Seeder
         );
 
         User::updateOrCreate(
-            ['email' => 'admin.office@example.com'], // email ที่ตรงกับชื่อ
+            ['email' => 'admin@kudc.go.th'],
+            [
+                'name' => 'super แอดมิน',
+                'password' => Hash::make('123456789'),
+                'level' => 'admin',
+                'agency' => '6',
+            ]
+        );
+
+        User::updateOrCreate(
+            ['email' => 'admin.office@example.com'],
             [
                 'name' => 'แอดมินสำนักงานปลัด',
                 'password' => Hash::make('123456789'),
@@ -35,7 +45,7 @@ class AdminSeeder extends Seeder
         );
 
         User::updateOrCreate(
-            ['email' => 'admin.finance@example.com'], // email ที่ตรงกับชื่อ
+            ['email' => 'admin.finance@example.com'],
             [
                 'name' => 'แอดมินกองคลัง',
                 'password' => Hash::make('123456789'),
@@ -45,7 +55,7 @@ class AdminSeeder extends Seeder
         );
 
         User::updateOrCreate(
-            ['email' => 'admin.engineering@example.com'], // email ที่ตรงกับชื่อ
+            ['email' => 'admin.engineering@example.com'],
             [
                 'name' => 'แอดมินกองช่าง',
                 'password' => Hash::make('123456789'),
@@ -55,7 +65,7 @@ class AdminSeeder extends Seeder
         );
 
         User::updateOrCreate(
-            ['email' => 'admin.health@example.com'], // email ที่ตรงกับชื่อ
+            ['email' => 'admin.health@example.com'],
             [
                 'name' => 'แอดมินกองสาธารณสุขและสิ่งแวดล้อม',
                 'password' => Hash::make('123456789'),
@@ -65,7 +75,7 @@ class AdminSeeder extends Seeder
         );
 
         User::updateOrCreate(
-            ['email' => 'admin.education@example.com'], // email ที่ตรงกับชื่อ
+            ['email' => 'admin.education@example.com'],
             [
                 'name' => 'แอดมินกองการศึกษาและวัฒนธรรม',
                 'password' => Hash::make('123456789'),
