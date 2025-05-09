@@ -163,7 +163,7 @@ class RecruitingChildrenController extends Controller
             'surrender_hour_number' => 'nullable|string|max:255',
         ]);
 
-       dd($request);
+    //    dd($request);
 
         // Prepare data for insertion
         $ChildInformation = ChildInformation::create([
