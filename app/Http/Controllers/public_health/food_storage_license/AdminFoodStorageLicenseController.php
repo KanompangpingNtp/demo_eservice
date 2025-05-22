@@ -302,8 +302,13 @@ class AdminFoodStorageLicenseController extends Controller
                         $run_book = $number->book + 1;
                         $run_number = $number->number + 1;
                     } else {
-                        $run_book = 1;
-                        $run_number = 1;
+                        if ($detail['confirm_option'] == 1) {
+                            $run_number = 1;
+                            $run_book = 6;
+                        } else {
+                            $run_number = 1;
+                            $run_book = 7;
+                        }
                     }
 
                     $insert = new FoodStorageNumberLogs();
