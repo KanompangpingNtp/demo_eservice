@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('health_license_number_logs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('health_license_id')->constrained('food_storage_informations')->onDelete('cascade');
+            $table->foreignId('health_license_id')->constrained('health_license_apps')->onDelete('cascade');
             $table->text('number')->nullable();
             $table->text('book')->nullable();
             $table->text('year')->nullable();
