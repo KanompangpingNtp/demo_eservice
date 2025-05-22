@@ -304,10 +304,10 @@ class AdminFoodStorageLicenseController extends Controller
                     } else {
                         if ($detail['confirm_option'] == 1) {
                             $run_number = 1;
-                            $run_book = 6;
+                            $run_book = 7;
                         } else {
                             $run_number = 1;
-                            $run_book = 7;
+                            $run_book = 8;
                         }
                     }
 

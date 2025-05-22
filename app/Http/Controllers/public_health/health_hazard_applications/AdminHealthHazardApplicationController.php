@@ -303,7 +303,7 @@ class AdminHealthHazardApplicationController extends Controller
                         $run_number = $number->number + 1;
                     } else {
                         $run_number = 1;
-                        $run_book = 90;
+                        $run_book = 91;
                     }
 
                     $insert = new HealthLicenseNumberLogs();
