@@ -348,7 +348,7 @@ class AdminFoodStorageLicenseController extends Controller
 
         $info_number = FoodStorageNumberLogs::where('informations_id', $form->id)->first();
 
-        if ($form['details']->confirm_option == 1) {
+        if ($form['details']->confirm_option == 2) {
             $views = "admin.public_health.food_storage_license.pdf.food_storage_license";
         } else {
             $views = "admin.public_health.food_storage_license.pdf.food_sales";
