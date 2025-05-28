@@ -9,10 +9,8 @@ use Illuminate\Http\Request;
 
 class EmergencyController extends Controller
 {
-    public $channelToken = 'L4x3vp1t8f4gDx+op2v5bYQO3lozP3T+2aMMhEjtl9CkmsMiAJ8fNC+BqRReVSTEiZk6gR5oRs73p2QyZzNlyuB2ziCpX/zcNGLK1xGRAmDKMj/NXq3x9IRdLYZjLQZs1z3llUhNnlpNMB8iqvP7NwdB04t89/1O/w1cDnyilFU=';
-    public $group_id = 'C39a38abf0c6ddb8679a7524748fd0f37';
-    // public $group_id = 'C574e36d4850cccf9107d9252d30e74d9';
-    // $userId = 'C574e36d4850cccf9107d9252d30e74d9';
+    public $channelToken = 'rXAqVM4Sst0WA8i3aSmEAhKcwqdY4o4zO+dOkzAY3E/h7Ykx1FOUaXdE2avc1a4IvsOW9EntkqXExh0DN4BHBzMv5gLBRXjdyIiVMh3wP4Ff5yMIRMM+t7zDE2Umab5h2ka39GPidW3dzYxqS2Q0NgdB04t89/1O/w1cDnyilFU=';
+    public $group_id = 'Ca15d5804ebf27251b427533420e27e6f';
 
     public function index()
     {
